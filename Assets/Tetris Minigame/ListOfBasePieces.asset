@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5570a59aba8c9604cbf80c88bde4265e, type: 3}
+  m_Name: ListOfBasePieces
+  m_EditorClassIdentifier: 
+  _pieces:
+  - Sprite: {fileID: 21300000, guid: f460ee5b72e791a4caeb6c7c71081e28, type: 3}
+    Size: {x: 3, y: 2}
+  - Sprite: {fileID: 21300000, guid: 08a6295d2c2f71e40a7d4f220eaa0793, type: 3}
+    Size: {x: 3, y: 3}
+  - Sprite: {fileID: 21300000, guid: f1ac1e39ae0643f48ad63d61ab9d87bc, type: 3}
+    Size: {x: 3, y: 3}
+  - Sprite: {fileID: 21300000, guid: e8d4874b95db1564ca379c58430bfc5d, type: 3}
+    Size: {x: 2, y: 3}
+  - Sprite: {fileID: 21300000, guid: 662bef9a621b2a44f94515ce6b8777fa, type: 3}
+    Size: {x: 2, y: 3}
+  - Sprite: {fileID: 21300000, guid: 8a29ea8e794421b48aeebc0517e70975, type: 3}
+    Size: {x: 4, y: 1}
+  - Sprite: {fileID: 21300000, guid: 1e3e5d4d71559264ba6e0fb7386974ac, type: 3}
+    Size: {x: 2, y: 2}
