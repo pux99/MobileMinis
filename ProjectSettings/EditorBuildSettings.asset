@@ -8,4 +8,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: e22e434879e75d0409ee86e1b05142fe
+  - enabled: 1
+    path: Assets/Scenes/HUB.unity
+    guid: afb291db989f0424a87276a8b35f5508
+  - enabled: 1
+    path: Assets/Scenes/Inventory.unity
+    guid: eddb61935b7173941b43168d493b04b3
+  - enabled: 1
+    path: Assets/Scenes/Missions.unity
+    guid: 0655e28fb1a4f3742aec7e149db213be
+  - enabled: 1
+    path: Assets/Scenes/Map.unity
+    guid: e78976356c3f2c4478e6951690948d37
+  - enabled: 1
+    path: Assets/Scenes/Battle.unity
+    guid: 251e28ea97dd522488d56ac3bd2bb073
   m_configObjects: {}
