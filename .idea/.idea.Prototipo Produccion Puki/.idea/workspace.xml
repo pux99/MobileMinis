@@ -1,34 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="390adab5-93fb-4367-88ea-b4e66f4520ad" name="Changes" comment="" />
+    <list default="true" id="390adab5-93fb-4367-88ea-b4e66f4520ad" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ConectionTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ConectionTest.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CopyRune.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CopyRune.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FitElementsInScroll.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FitElementsInScroll.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PieceProperty.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PieceProperty.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrecingLightsMinigame.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrecingLightsMinigame.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PropertySetter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PropertySetter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Inventory.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Inventory.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Start.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Start.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sorterlist.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sorterlist.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/InicializeTetrisMiniGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/InicializeTetrisMiniGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/TetrisFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/TetrisFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/UI/AdvancedImage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/UI/AdvancedImage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/countDown.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/countDown.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ganar.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ganar.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/paintable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/paintable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/resetScene.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/resetScene.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/runeChanger.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/runeChanger.cs.meta" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../TetrisTest/Assets/Tetris Minigame/Scripts/Tetris/InicializeTetrisMiniGame.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2kcy1SxspUWTSL8IqVKATDttYP3" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Ignacio Puk\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Ignacio Puk\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\Ignacio Puk\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Ignacio Puk\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Ignacio Puk\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Ignacio Puk\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Unity\2022.3.17f1\Editor\Unity.exe" />
@@ -56,10 +103,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="30748">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="30748" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -76,6 +123,8 @@
       <option name="presentableId" value="Default" />
       <updated>1723596944786</updated>
       <workItem from="1723596946503" duration="20000" />
+      <workItem from="1727023885041" duration="1577000" />
+      <workItem from="1727026265953" duration="2693000" />
     </task>
     <servers />
   </component>
@@ -88,7 +137,40 @@
     <option name="unityProject" value="true" />
     <option name="unityProjectFolder" value="true" />
   </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/TetrisFactory.cs</url>
+          <line>12</line>
+          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Tetris Minigame\Scripts\Tetris\TetrisFactory.cs" containingFunctionPresentation="Method 'CreateRandomTetrisPieceTetris'">
+            <startOffsets>
+              <option value="422" />
+            </startOffsets>
+            <endOffsets>
+              <option value="473" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/UI/Drag.cs</url>
+          <line>32</line>
+          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Tetris Minigame\Scripts\UI\Drag.cs" containingFunctionPresentation="Method 'OnDrag'">
+            <startOffsets>
+              <option value="964" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1028" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

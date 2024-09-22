@@ -12,12 +12,14 @@ public class InicializeTetrisMiniGame : MonoBehaviour
     [SerializeField] private SO_GroupOfColors groupOfColors;
     [SerializeField] private TetrisFactory factory;
     [SerializeField] private DropHandler containerDropHandler;
+    [SerializeField] private Camera MainCamera;
     private TetrisQueue _goalPieces=new TetrisQueue(10);
     private TetrisQueue _containerPieces=new TetrisQueue(10);
 
     void Start()
     {
         containerDropHandler.AddToContainer += AddContainerPiecesToQueue;
+        StartGame();
     }
     
     [ContextMenu("StartGame")]
@@ -25,8 +27,8 @@ public class InicializeTetrisMiniGame : MonoBehaviour
     {
         List<GameObject> PiecesForThePile = new List<GameObject>();
         Vector2 presentOccupied = pileOfPieces.anchorMax - pileOfPieces.anchorMin;
-        presentOccupied.x *= Screen.currentResolution.width;
-        presentOccupied.y *= Screen.currentResolution.height;
+        presentOccupied.x *= MainCamera.pixelWidth*.7f;
+        presentOccupied.y *= MainCamera.pixelHeight*.7f;
         for (int i = 0; i < 4; i++)
         {
             GameObject newPiece=factory.CreateRandomTetrisPieceTetris(groupOfBaseTetrisPieces, groupOfColors);
@@ -40,23 +42,24 @@ public class InicializeTetrisMiniGame : MonoBehaviour
             newPiece = Instantiate(newPiece);
             newPiece.GetComponent<RectTransform>().rotation = quaternion.identity;
             newPiece.transform.SetParent(objectivePieces.transform);
+            newPiece.GetComponent<RectTransform>().localScale = Vector3.one;
             _goalPieces.Enqueue(newPiece);
         }
 
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 5; i++)
         {
-            for (int j = 0; j < 9; j++)
+            for (int j = 0; j < 5; j++)
             {
                 GameObject newPiece = factory.CreateRandomTetrisPieceTetris(groupOfBaseTetrisPieces, groupOfColors);
                 newPiece.GetComponent<RectTransform>().rotation =
                     quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360)));
                 PiecesForThePile.Add(newPiece);
-                Vector3 vector = new Vector3((-4+j)*(presentOccupied.x / 10),(-4+i)*(presentOccupied.y / 10),0);
+                Vector3 vector = new Vector3((-2+j)*(presentOccupied.x / 10),(-2+i)*(presentOccupied.y / 10),0);
                 newPiece.GetComponent<RectTransform>().position = vector + pileOfPieces.transform.position;
             }
         }
 
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < 25; i++)
         {
             GameObject newPiece;
             newPiece=factory.CreateRandomTetrisPieceTetris(groupOfBaseTetrisPieces, groupOfColors);
@@ -72,6 +75,7 @@ public class InicializeTetrisMiniGame : MonoBehaviour
         foreach (var piece in PiecesForThePile)
         {
             piece.transform.SetParent(pileOfPieces);
+            piece.GetComponent<RectTransform>().localScale = Vector3.one;
         }
     }
 
