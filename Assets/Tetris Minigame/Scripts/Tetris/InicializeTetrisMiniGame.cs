@@ -47,6 +47,7 @@ public class InicializeTetrisMiniGame : MonoBehaviour
              newPiece.GetComponent<RectTransform>().position = vector+pileOfPieces.transform.position;
             newPiece = Instantiate(newPiece);
             newPiece.GetComponent<RectTransform>().rotation = quaternion.identity;
+            newPiece.GetComponent<Image>().raycastTarget = false;
             newPiece.transform.SetParent(objectivePieces.transform);
             newPiece.GetComponent<RectTransform>().localScale = Vector3.one;
             GoalForThePile.Add(newPiece);
@@ -101,17 +102,18 @@ public class InicializeTetrisMiniGame : MonoBehaviour
         {
             Image goalPiece = _goalPieces.Dequeue().GetComponent<Image>();
             Image containerPiece = _containerPieces.Dequeue().GetComponent<Image>();
-            containerPiece.transform.SetParent(pileOfPieces);
             StartCoroutine(OutOfCountainer(containerPiece));
             if (containerPiece.sprite != goalPiece.sprite || containerPiece.color != goalPiece.color)
             {
                 Debug.Log("PatronEquivocado");
+                audioList.PlaySound(2);
                 StartOver();
                 return;
             }
         }
         StartOver();
         Debug.Log("PatronCorrecto");
+        audioList.PlaySound(1);
         attack();
 
     }
@@ -123,7 +125,8 @@ public class InicializeTetrisMiniGame : MonoBehaviour
     }
     IEnumerator<int> OutOfCountainer(Image image)
     {
-        yield return 1;
+        yield return 2;
+        image.transform.SetParent(pileOfPieces);
         image.raycastTarget = true;
         Vector2 presentOccupied = pileOfPieces.anchorMax - pileOfPieces.anchorMin;
         presentOccupied.x *= MainCamera.pixelWidth*.7f;
