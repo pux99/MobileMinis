@@ -10,6 +10,7 @@ public class Drag : MonoBehaviour,IEndDragHandler,IDragHandler,IBeginDragHandler
     private Canvas _canvas;
     [SerializeField] private Image _image;
     private Transform _lastPosition;
+    private Transform _lastParent;
     private void OnEnable()
     {
         _canvas = FindObjectOfType<Canvas>();
@@ -18,12 +19,13 @@ public class Drag : MonoBehaviour,IEndDragHandler,IDragHandler,IBeginDragHandler
     {
         Debug.Log(transform.position);
         _image.raycastTarget = true;
+        transform.SetParent(_lastParent);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         PointerEventData pointerEventData = (PointerEventData)eventData;
-
+        
         Vector2 position;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             (RectTransform)_canvas.transform,
@@ -36,8 +38,10 @@ public class Drag : MonoBehaviour,IEndDragHandler,IDragHandler,IBeginDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        _lastParent = transform.parent;
         _image.raycastTarget = false;
         _lastPosition = transform;
+        transform.SetParent(_canvas.transform);
         transform.SetAsLastSibling();
     }
 

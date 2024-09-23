@@ -21,6 +21,7 @@ public class InicializeTetrisMiniGame : MonoBehaviour
     List<GameObject> GoalForThePile = new List<GameObject>();
     [SerializeField] private Animator animator;
     [SerializeField] private Slider goalSlider;
+    [SerializeField] private AudioList audioList;
 
     void Start()
     {
