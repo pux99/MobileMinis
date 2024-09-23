@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class TetrisFactory : MonoBehaviour
@@ -17,5 +15,19 @@ public class TetrisFactory : MonoBehaviour
         pieceImage.color = listOfColors.Colors[Random.Range(0, listOfColors.Colors.Count)];
         pieceImage.rectTransform.sizeDelta = new Vector2(_data.Size.x * Screen.currentResolution.width*.10f, _data.Size.y * Screen.currentResolution.width*.10f);
         return newPiece;
+    }
+
+    public List<GameObject> RandomicePieces(SO_GruopOfBaseTetrisPieces listOfPieces, SO_GroupOfColors listOfColors,List<GameObject> Pieces)
+    {
+        foreach (var piece in Pieces)
+        {
+            Image pieceImage = piece.GetComponent<Image>();
+            SO_GruopOfBaseTetrisPieces.Piece _data = listOfPieces.Pieces[Random.Range(0, listOfPieces.Pieces.Count)];
+            pieceImage.sprite = _data.Sprite;
+            pieceImage.color = listOfColors.Colors[Random.Range(0, listOfColors.Colors.Count)];
+            pieceImage.rectTransform.sizeDelta = new Vector2(_data.Size.x * Screen.currentResolution.width*.10f, _data.Size.y * Screen.currentResolution.width*.10f);
+        }
+
+        return Pieces;
     }
 }

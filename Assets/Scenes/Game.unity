@@ -1097,9 +1097,17 @@ PrefabInstance:
       value: Container
       objectReference: {fileID: 0}
     - target: {fileID: 6065148009703912388, guid: 96e653cf606b05d4ca35066ae8d61529, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1458701225}
+    - target: {fileID: 6065148009703912388, guid: 96e653cf606b05d4ca35066ae8d61529, type: 3}
       propertyPath: MainCamera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 6065148009703912388, guid: 96e653cf606b05d4ca35066ae8d61529, type: 3}
+      propertyPath: goalSlider
+      value: 
+      objectReference: {fileID: 146961339}
     - target: {fileID: 6483167701125260262, guid: 96e653cf606b05d4ca35066ae8d61529, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -2017,6 +2025,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &173821972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8580329334857500541, guid: 96e653cf606b05d4ca35066ae8d61529, type: 3}
+  m_PrefabInstance: {fileID: 104424670}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &173821973 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3109351722774006459, guid: 96e653cf606b05d4ca35066ae8d61529, type: 3}
@@ -2248,7 +2261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7688422166576795849, guid: 8f841454e0236d640bdebdb8c61f3f17, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7910161345698833566, guid: 8f841454e0236d640bdebdb8c61f3f17, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3294,7 +3307,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 397370681}
+      - m_Target: {fileID: 173821972}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -7231,7 +7244,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 397370681}
+      - m_Target: {fileID: 173821972}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -8801,7 +8814,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 397370681}
+      - m_Target: {fileID: 173821972}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -13137,23 +13150,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1768775037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 50
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 20
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
-  m_ChildScaleWidth: 1
-  m_ChildScaleHeight: 1
-  m_ReverseArrangement: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 300, y: 200}
+  m_Spacing: {x: 50, y: 0}
+  m_Constraint: 2
+  m_ConstraintCount: 1
 --- !u!1 &1774155923
 GameObject:
   m_ObjectHideFlags: 0
@@ -14994,23 +15005,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2116220941}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 50
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 20
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
-  m_ChildScaleWidth: 1
-  m_ChildScaleHeight: 1
-  m_ReverseArrangement: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 300, y: 200}
+  m_Spacing: {x: 50, y: 0}
+  m_Constraint: 2
+  m_ConstraintCount: 1
 --- !u!1 &2122078340
 GameObject:
   m_ObjectHideFlags: 0

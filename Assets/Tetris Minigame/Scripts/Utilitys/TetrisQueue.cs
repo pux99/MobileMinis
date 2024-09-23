@@ -33,20 +33,16 @@ public class TetrisQueue :ICola<GameObject>
 
     public GameObject Dequeue()
     {
-        GameObject toReturn = Peak();
+        GameObject toReturn = Peek();
         if (!EmptyQueue())
         {
-            for (int i = 0; i < _indice - 1; i++)
-            {
-                _queue[i] = _queue[i + 1];
-            }
             _indice--;
         }
 
         return toReturn;
     }
 
-    public GameObject Peak()
+    public GameObject Peek()
     {
         if (!EmptyQueue())
         {

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +17,10 @@ public class InicializeTetrisMiniGame : MonoBehaviour
     [SerializeField] private Camera MainCamera;
     private TetrisQueue _goalPieces=new TetrisQueue(10);
     private TetrisQueue _containerPieces=new TetrisQueue(10);
+    List<GameObject> PiecesForThePile = new List<GameObject>();
+    List<GameObject> GoalForThePile = new List<GameObject>();
+    [SerializeField] private Animator animator;
+    [SerializeField] private Slider goalSlider;
 
     void Start()
     {
@@ -25,7 +31,6 @@ public class InicializeTetrisMiniGame : MonoBehaviour
     [ContextMenu("StartGame")]
     public void StartGame()
     {
-        List<GameObject> PiecesForThePile = new List<GameObject>();
         Vector2 presentOccupied = pileOfPieces.anchorMax - pileOfPieces.anchorMin;
         presentOccupied.x *= MainCamera.pixelWidth*.7f;
         presentOccupied.y *= MainCamera.pixelHeight*.7f;
@@ -43,6 +48,7 @@ public class InicializeTetrisMiniGame : MonoBehaviour
             newPiece.GetComponent<RectTransform>().rotation = quaternion.identity;
             newPiece.transform.SetParent(objectivePieces.transform);
             newPiece.GetComponent<RectTransform>().localScale = Vector3.one;
+            GoalForThePile.Add(newPiece);
             _goalPieces.Enqueue(newPiece);
         }
 
@@ -89,19 +95,81 @@ public class InicializeTetrisMiniGame : MonoBehaviour
 
     void CheckIfTheQueuesAreEqual()
     {
-        for (int i = 0; i < _goalPieces.Count(); i++)
+        int PieceCount = _goalPieces.Count();
+        for (int i = 0; i < PieceCount; i++)
         {
             Image goalPiece = _goalPieces.Dequeue().GetComponent<Image>();
             Image containerPiece = _containerPieces.Dequeue().GetComponent<Image>();
-            if (containerPiece.sprite != goalPiece.sprite && containerPiece.color != goalPiece.color)
+            containerPiece.transform.SetParent(pileOfPieces);
+            StartCoroutine(OutOfCountainer(containerPiece));
+            if (containerPiece.sprite != goalPiece.sprite || containerPiece.color != goalPiece.color)
             {
                 Debug.Log("PatronEquivocado");
+                StartOver();
                 return;
             }
         }
+        StartOver();
         Debug.Log("PatronCorrecto");
+        attack();
 
     }
+
+    void attack()
+    {
+        animator.SetTrigger("ataque");
+        goalSlider.value -= .25f;
+    }
+    IEnumerator<int> OutOfCountainer(Image image)
+    {
+        yield return 1;
+        image.raycastTarget = true;
+        Vector2 presentOccupied = pileOfPieces.anchorMax - pileOfPieces.anchorMin;
+        presentOccupied.x *= MainCamera.pixelWidth*.7f;
+        presentOccupied.y *= MainCamera.pixelHeight*.7f;
+        Vector3 vector= new Vector3(
+            Random.Range(-presentOccupied.x/2,presentOccupied.x/2),
+            Random.Range(-presentOccupied.y/2,presentOccupied.y/2),
+            0);
+        image.gameObject.GetComponent<RectTransform>().position = vector+pileOfPieces.transform.position;
+
+    }
+
+    void StartOver()
+    {
+        factory.RandomicePieces(groupOfBaseTetrisPieces, groupOfColors, PiecesForThePile);
+        factory.RandomicePieces(groupOfBaseTetrisPieces, groupOfColors, GoalForThePile);
+        foreach (var piece in GoalForThePile)
+        {
+            _goalPieces.Enqueue(piece);
+        }
+        int PieceCount = _containerPieces.Count();
+        for (int i = 0; i < PieceCount; i++)
+        {
+            _goalPieces.Dequeue();
+            Image containerPiece = _containerPieces.Dequeue().GetComponent<Image>();
+            StartCoroutine(OutOfCountainer(containerPiece));
+            containerPiece.gameObject.transform.SetParent(pileOfPieces);
+        }
+
+        for (int i = 0; i < GoalForThePile.Count(); i++)
+        {
+            Image CurrentGoalImage = GoalForThePile[i].GetComponent<Image>();
+            Image currentPileImage = PiecesForThePile[i].GetComponent<Image>();
+            currentPileImage.color = CurrentGoalImage.color;
+            currentPileImage.sprite = CurrentGoalImage.sprite;
+        }
+        shuffleChilds();
+    }
+
+    private void shuffleChilds()
+    {
+        for (int i = 0; i < pileOfPieces.childCount; i++)
+        {
+            pileOfPieces.GetChild(Random.Range(0,pileOfPieces.childCount)).transform.SetAsFirstSibling();
+        }
+    }
+
     public static void Shuffle<T>(List<T> ts) {
         var count = ts.Count;
         var last = count - 1;

@@ -8,7 +8,7 @@ public interface ICola<T>
 
     T Dequeue();
 
-    T Peak();
+    T Peek();
 
     bool EmptyQueue();
     
