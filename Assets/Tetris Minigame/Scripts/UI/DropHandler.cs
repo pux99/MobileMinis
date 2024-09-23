@@ -13,12 +13,19 @@ public class DropHandler : MonoBehaviour,IDropHandler
     {
         GameObject dropped = eventData.pointerDrag;
         Debug.Log(dropped);
-        dropped.transform.SetParent(this.transform);
+        //dropped.transform.SetParent(this.transform);
         dropped.transform.rotation=quaternion.identity;
         StartCoroutine(TurnOfRaycastTarget(dropped.GetComponent<Image>()));
+        StartCoroutine(ForcingParent(dropped));
         AddToContainer?.Invoke(dropped);
     }
+    IEnumerator ForcingParent(GameObject piece)
+    {
 
+        yield return 0;
+        piece.transform.SetParent(this.transform);
+
+    }
     IEnumerator  TurnOfRaycastTarget(Image Piece)
     {
         yield return 0;
