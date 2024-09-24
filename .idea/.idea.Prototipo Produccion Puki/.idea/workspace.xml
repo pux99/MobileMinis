@@ -6,12 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="390adab5-93fb-4367-88ea-b4e66f4520ad" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Battle.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Battle.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/ListOfBasePieces.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetris Minigame/ListOfBasePieces.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/ListOfColors.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetris Minigame/ListOfColors.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/InicializeTetrisMiniGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/InicializeTetrisMiniGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/SO_GroupOfColors.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/SO_GroupOfColors.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/SO_GruopOfBaseTetrisPieces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/SO_GruopOfBaseTetrisPieces.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/TetrisFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/TetrisFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Utilitys/ICola.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Utilitys/ICola.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Utilitys/TetrisQueue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Utilitys/TetrisQueue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/UI/Drag.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/UI/Drag.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/UI/DropHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/UI/DropHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/UI/RaycastTargetOffTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/UI/RaycastTargetOffTest.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +106,7 @@
       <workItem from="1723596946503" duration="20000" />
       <workItem from="1727023885041" duration="1577000" />
       <workItem from="1727026265953" duration="13339000" />
+      <workItem from="1727145224208" duration="9442000" />
     </task>
     <servers />
   </component>
@@ -116,37 +122,5 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/UI/Drag.cs</url>
-          <line>19</line>
-          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Tetris Minigame\Scripts\UI\Drag.cs" containingFunctionPresentation="Method 'OnEndDrag'">
-            <startOffsets>
-              <option value="553" />
-            </startOffsets>
-            <endOffsets>
-              <option value="581" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/InicializeTetrisMiniGame.cs</url>
-          <line>119</line>
-          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Tetris Minigame\Scripts\Tetris\InicializeTetrisMiniGame.cs" containingFunctionPresentation="Method 'attack'">
-            <startOffsets>
-              <option value="4929" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4959" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -8,21 +8,27 @@ using Random = UnityEngine.Random;
 
 public class InicializeTetrisMiniGame : MonoBehaviour
 {
-    [SerializeField] private RectTransform objectivePieces;
-    [SerializeField] private RectTransform pileOfPieces;
+    #region CreatingPices
     [SerializeField] private SO_GruopOfBaseTetrisPieces groupOfBaseTetrisPieces;
     [SerializeField] private SO_GroupOfColors groupOfColors;
     [SerializeField] private TetrisFactory factory;
+    #endregion
+    
+    [SerializeField] private RectTransform goalPiecesContainer;
+    [SerializeField] private RectTransform pileOfPieces;
     [SerializeField] private DropHandler containerDropHandler;
-    [SerializeField] private Camera MainCamera;
-    private TetrisQueue _goalPieces=new TetrisQueue(10);
-    private TetrisQueue _containerPieces=new TetrisQueue(10);
-    List<GameObject> PiecesForThePile = new List<GameObject>();
-    List<GameObject> GoalForThePile = new List<GameObject>();
+    private readonly TetrisQueue _goalPiecesQueue=new TetrisQueue(10);
+    private readonly TetrisQueue _containerPiecesQueue=new TetrisQueue(10);
+    private readonly List<GameObject> _listOfPiecesInThePile = new List<GameObject>();
+    private readonly List<GameObject> _listOfGoalPieces = new List<GameObject>();
+
+    #region AudioAndCombatUI
     [SerializeField] private Animator animator;
     [SerializeField] private Slider goalSlider;
     [SerializeField] private AudioList audioList;
-
+    private static readonly int Ataque = Animator.StringToHash("ataque");
+    #endregion  
+    
     void Start()
     {
         containerDropHandler.AddToContainer += AddContainerPiecesToQueue;
@@ -32,154 +38,148 @@ public class InicializeTetrisMiniGame : MonoBehaviour
     [ContextMenu("StartGame")]
     public void StartGame()
     {
-        Vector2 presentOccupied = pileOfPieces.anchorMax - pileOfPieces.anchorMin;
-        presentOccupied.x *= MainCamera.pixelWidth*.7f;
-        presentOccupied.y *= MainCamera.pixelHeight*.7f;
         for (int i = 0; i < 4; i++)
         {
-            GameObject newPiece=factory.CreateRandomTetrisPieceTetris(groupOfBaseTetrisPieces, groupOfColors);
-            newPiece.GetComponent<RectTransform>().rotation = quaternion.Euler(new Vector3(0,0,Random.Range(0, 360)));
-            PiecesForThePile.Add(newPiece);
-             Vector3 vector= new Vector3(
-                Random.Range(-(presentOccupied.x/2),presentOccupied.x/2),
-                Random.Range(-(presentOccupied.y/2),presentOccupied.y/2),
-                0);
-             newPiece.GetComponent<RectTransform>().position = vector+pileOfPieces.transform.position;
-            newPiece = Instantiate(newPiece);
-            newPiece.GetComponent<RectTransform>().rotation = quaternion.identity;
+            GameObject newPiece = CreateRandomPieceInRandomPositionAndRotations();
+            newPiece = Instantiate(newPiece, goalPiecesContainer.transform, true);
+            RectTransform rectTransform = newPiece.GetComponent<RectTransform>();
+            rectTransform.rotation = quaternion.identity;
+            rectTransform.localScale = Vector3.one;
             newPiece.GetComponent<Image>().raycastTarget = false;
-            newPiece.transform.SetParent(objectivePieces.transform);
-            newPiece.GetComponent<RectTransform>().localScale = Vector3.one;
-            GoalForThePile.Add(newPiece);
-            _goalPieces.Enqueue(newPiece);
+            _listOfGoalPieces.Add(newPiece);
+            _goalPiecesQueue.Enqueue(newPiece);
         }
 
         for (int i = 0; i < 5; i++)
         {
             for (int j = 0; j < 5; j++)
             {
-                GameObject newPiece = factory.CreateRandomTetrisPieceTetris(groupOfBaseTetrisPieces, groupOfColors);
-                newPiece.GetComponent<RectTransform>().rotation =
-                    quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360)));
-                PiecesForThePile.Add(newPiece);
-                Vector3 vector = new Vector3((-2+j)*(presentOccupied.x / 10),(-2+i)*(presentOccupied.y / 10),0);
+                GameObject newPiece = CreateRandomPieceInRandomPositionAndRotations();
+                Vector3 vector = new Vector3((-2+j)*(pileOfPieces.rect.width / 10),(-2+i)*(pileOfPieces.rect.height / 10),0);
                 newPiece.GetComponent<RectTransform>().position = vector + pileOfPieces.transform.position;
             }
         }
-
         for (int i = 0; i < 25; i++)
-        {
-            GameObject newPiece;
-            newPiece=factory.CreateRandomTetrisPieceTetris(groupOfBaseTetrisPieces, groupOfColors);
-            newPiece.GetComponent<RectTransform>().rotation = quaternion.Euler(new Vector3(0,0,Random.Range(0, 360)));
-            PiecesForThePile.Add(newPiece);
-            Vector3 vector= new Vector3(
-                Random.Range(-presentOccupied.x/2,presentOccupied.x/2),
-                Random.Range(-presentOccupied.y/2,presentOccupied.y/2),
-                0);
-            newPiece.GetComponent<RectTransform>().position = vector+pileOfPieces.transform.position;
-        }
-        Shuffle(PiecesForThePile);
-        foreach (var piece in PiecesForThePile)
-        {
-            piece.transform.SetParent(pileOfPieces);
-            piece.GetComponent<RectTransform>().localScale = Vector3.one;
-        }
+            CreateRandomPieceInRandomPositionAndRotations();
+        ShuffleChildren();
     }
-
-    void AddContainerPiecesToQueue(GameObject newPiece)
-    {
-        
-        _containerPieces.Enqueue(newPiece);
-        if(_containerPieces.Count()==_goalPieces.Count())
-            CheckIfTheQueuesAreEqual();
-    }
-
+    
     void CheckIfTheQueuesAreEqual()
     {
-        int PieceCount = _goalPieces.Count();
-        for (int i = 0; i < PieceCount; i++)
+        int pieceCount = _goalPiecesQueue.Count();
+        for (int i = 0; i < pieceCount; i++)
         {
-            Image goalPiece = _goalPieces.Dequeue().GetComponent<Image>();
-            Image containerPiece = _containerPieces.Dequeue().GetComponent<Image>();
-            StartCoroutine(OutOfCountainer(containerPiece));
+            Image goalPiece = _goalPiecesQueue.Dequeue().GetComponent<Image>();
+            Image containerPiece = _containerPiecesQueue.Dequeue().GetComponent<Image>();
+            StartCoroutine(OutOfContainer(containerPiece));
             if (containerPiece.sprite != goalPiece.sprite || containerPiece.color != goalPiece.color)
             {
-                Debug.Log("PatronEquivocado");
+                Debug.Log("Wrong Pattern");
                 audioList.PlaySound(2);
                 StartOver();
                 return;
             }
         }
-        StartOver();
-        Debug.Log("PatronCorrecto");
+        Debug.Log("Correct Pattern");
         audioList.PlaySound(1);
-        attack();
-
+        StartOver();
+        Attack();
     }
-
-    void attack()
+    
+    void StartOver()
     {
-        animator.SetTrigger("ataque");
-        goalSlider.value -= .25f;
+        factory.RandomizePieces(groupOfBaseTetrisPieces, groupOfColors, _listOfPiecesInThePile);
+        factory.RandomizePieces(groupOfBaseTetrisPieces, groupOfColors, _listOfGoalPieces);
+        foreach (var piece in _listOfGoalPieces)
+        {
+            _goalPiecesQueue.Enqueue(piece);
+        }
+        int pieceCount = _containerPiecesQueue.Count();
+        for (int i = 0; i < pieceCount; i++)
+        {
+            _goalPiecesQueue.Dequeue();
+            Image containerPiece = _containerPiecesQueue.Dequeue().GetComponent<Image>();
+            StartCoroutine(OutOfContainer(containerPiece));
+            containerPiece.gameObject.transform.SetParent(pileOfPieces);
+        }
+
+        for (int i = 0; i < _listOfGoalPieces.Count(); i++)
+        {
+            Image currentGoalImage = _listOfGoalPieces[i].GetComponent<Image>();
+            Image currentPileImage = _listOfPiecesInThePile[i].GetComponent<Image>();
+            currentPileImage.color = currentGoalImage.color;
+            currentPileImage.sprite = currentGoalImage.sprite;
+        }
+        ShuffleChildren();
     }
-    IEnumerator<int> OutOfCountainer(Image image)
+    
+    GameObject CreateRandomPieceInRandomPositionAndRotations()
+    {
+        GameObject newPiece=factory.CreateRandomTetrisPiece(groupOfBaseTetrisPieces, groupOfColors);
+        RectTransform rectTransform = newPiece.GetComponent<RectTransform>();
+        _listOfPiecesInThePile.Add(newPiece);
+        newPiece.transform.SetParent(pileOfPieces);
+        rectTransform.rotation = quaternion.Euler(new Vector3(0,0,Random.Range(0, 360)));
+        rectTransform.position = GetRandomPosition()*.8f+pileOfPieces.transform.position;
+        rectTransform.localScale = Vector3.one;
+        return newPiece;
+    }
+    
+    Vector3 GetRandomPosition()
+    {
+        return new Vector3(
+            Random.Range(pileOfPieces.rect.xMin/2,pileOfPieces.rect.xMax/2),
+            Random.Range(pileOfPieces.rect.yMin/2,pileOfPieces.rect.yMax/2),
+            0);
+    }
+    
+    void AddContainerPiecesToQueue(GameObject newPiece)
+    {
+        _containerPiecesQueue.Enqueue(newPiece);
+        if(_containerPiecesQueue.Count()==_goalPiecesQueue.Count())
+            CheckIfTheQueuesAreEqual();
+    }
+    
+    public void PullOutOfContainer()
+    {
+        int count = _containerPiecesQueue.Count();
+        for (int i = 0; i < count; i++)
+        {
+            StartCoroutine(OutOfContainer(_containerPiecesQueue.Dequeue().GetComponent<Image>()));
+        }
+    }
+    
+    IEnumerator<int> OutOfContainer(Image image)
     {
         yield return 2;
         image.transform.SetParent(pileOfPieces);
         image.raycastTarget = true;
-        Vector2 presentOccupied = pileOfPieces.anchorMax - pileOfPieces.anchorMin;
-        presentOccupied.x *= MainCamera.pixelWidth*.7f;
-        presentOccupied.y *= MainCamera.pixelHeight*.7f;
-        Vector3 vector= new Vector3(
-            Random.Range(-presentOccupied.x/2,presentOccupied.x/2),
-            Random.Range(-presentOccupied.y/2,presentOccupied.y/2),
-            0);
-        image.gameObject.GetComponent<RectTransform>().position = vector+pileOfPieces.transform.position;
-
+        RectTransform rectTransform = image.gameObject.GetComponent<RectTransform>();
+        rectTransform.position = GetRandomPosition()+pileOfPieces.transform.position;
+        rectTransform.rotation= quaternion.Euler(new Vector3(0,0,Random.Range(0, 360)));
+        rectTransform.localScale = Vector3.one;
     }
-
-    void StartOver()
+    
+    void Attack()
     {
-        factory.RandomicePieces(groupOfBaseTetrisPieces, groupOfColors, PiecesForThePile);
-        factory.RandomicePieces(groupOfBaseTetrisPieces, groupOfColors, GoalForThePile);
-        foreach (var piece in GoalForThePile)
-        {
-            _goalPieces.Enqueue(piece);
-        }
-        int PieceCount = _containerPieces.Count();
-        for (int i = 0; i < PieceCount; i++)
-        {
-            _goalPieces.Dequeue();
-            Image containerPiece = _containerPieces.Dequeue().GetComponent<Image>();
-            StartCoroutine(OutOfCountainer(containerPiece));
-            containerPiece.gameObject.transform.SetParent(pileOfPieces);
-        }
-
-        for (int i = 0; i < GoalForThePile.Count(); i++)
-        {
-            Image CurrentGoalImage = GoalForThePile[i].GetComponent<Image>();
-            Image currentPileImage = PiecesForThePile[i].GetComponent<Image>();
-            currentPileImage.color = CurrentGoalImage.color;
-            currentPileImage.sprite = CurrentGoalImage.sprite;
-        }
-        shuffleChilds();
+        animator.SetTrigger(Ataque);
+        goalSlider.value -= .25f;
     }
-
-    private void shuffleChilds()
+    
+    void ShuffleChildren()
     {
         for (int i = 0; i < pileOfPieces.childCount; i++)
         {
             pileOfPieces.GetChild(Random.Range(0,pileOfPieces.childCount)).transform.SetAsFirstSibling();
         }
     }
-
-    public static void Shuffle<T>(List<T> ts) {
+    
+    void Shuffle<T>(List<T> ts) {
         var count = ts.Count;
         var last = count - 1;
         for (var i = 0; i < last; ++i) {
-            var r = UnityEngine.Random.Range(i, count);
+            var r = Random.Range(i, count);
             (ts[i], ts[r]) = (ts[r], ts[i]);
         }
-    }
+    }//Save for future Protects
 }
