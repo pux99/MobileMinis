@@ -10,6 +10,6 @@ public class StopMusicOnStart : MonoBehaviour
     private void OnEnable()
     {
         audioList.StopLoopingMusic(songOnArray);
-        audioList.PlaySound(songOnArray);
+        audioList.PlaySound(soundOnArray);
     }
 }

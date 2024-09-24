@@ -982,7 +982,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1846723541}
         m_TargetAssemblyTypeName: AudioList, Assembly-CSharp
-        m_MethodName: PlayMusic
+        m_MethodName: PlayLoopingMusic
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3846,7 +3846,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1846723541}
         m_TargetAssemblyTypeName: AudioList, Assembly-CSharp
-        m_MethodName: PlayMusic
+        m_MethodName: PlayLoopingMusic
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
