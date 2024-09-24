@@ -4,16 +4,14 @@ http://www.digitalruby.com
 
 Source code may no longer be redistributed in source format. Using this in apps and games is fine.
 */
-
+using DigitalRuby.SoundManagerNamespace;
 using UnityEngine;
 using UnityEngine.UI;
-
-using System.Collections;
 
 // Be sure to add this using statement to your scripts
 // using DigitalRuby.SoundManagerNamespace
 
-namespace DigitalRuby.SoundManagerNamespace
+namespace SoundManagerDemo.Demo
 {
     public class SoundManagerDemo : MonoBehaviour
     {

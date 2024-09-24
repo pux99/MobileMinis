@@ -1,20 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AdvancedImage : Image
+namespace Tetris_Minigame.Scripts.UI
 {
-    [SerializeField] private float hitTestMinimumThreshold = .1f;
-    //protected override void OnValidate()
-    //{
-    //    base.OnValidate();
-    //    alphaHitTestMinimumThreshold = hitTestMinimumThreshold;
-    //}
-
-    protected override void Awake()
+    public class AdvancedImage : Image
     {
-        base.Awake();
-        alphaHitTestMinimumThreshold = hitTestMinimumThreshold;
+        [SerializeField] private float hitTestMinimumThreshold = .1f;
+        //protected override void OnValidate()
+        //{
+        //    base.OnValidate();
+        //    alphaHitTestMinimumThreshold = hitTestMinimumThreshold;
+        //}
+
+        protected override void Awake()
+        {
+            base.Awake();
+            alphaHitTestMinimumThreshold = hitTestMinimumThreshold;
+        }
     }
 }

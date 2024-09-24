@@ -5,10 +5,9 @@ http://www.digitalruby.com
 Source code may no longer be redistributed in source format. Using this in apps and games is fine.
 */
 
-using UnityEngine;
-
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace DigitalRuby.SoundManagerNamespace
 {
