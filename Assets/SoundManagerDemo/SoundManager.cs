@@ -9,7 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SoundManagerDemo
+namespace DigitalRuby.SoundManagerNamespace
 {
     /// <summary>
     /// Provides an easy wrapper to looping audio sources with nice transitions for volume when starting and stopping

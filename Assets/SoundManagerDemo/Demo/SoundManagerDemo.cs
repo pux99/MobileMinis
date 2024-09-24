@@ -4,7 +4,7 @@ http://www.digitalruby.com
 
 Source code may no longer be redistributed in source format. Using this in apps and games is fine.
 */
-
+using DigitalRuby.SoundManagerNamespace;
 using UnityEngine;
 using UnityEngine.UI;
 

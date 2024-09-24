@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Tetris_Minigame.Scripts.Tetris;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,7 +28,7 @@ namespace Minigame2
     
             for (int i = 0; i < amount; i++)
             {
-                GameObject newPiece = factory.CreateRandomTetrisPieceTetris(groupOfBaseTetrisPieces, groupOfColors);
+                GameObject newPiece = factory.CreateRandomTetrisPiece(groupOfBaseTetrisPieces, groupOfColors);
                 newPiece.GetComponent<Image>().raycastTarget = false;
                 pieces.Add(newPiece);
             }
