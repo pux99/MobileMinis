@@ -81,21 +81,20 @@ namespace Minigame2
             foreach (var rectTransform in goalContainers)
             {
                 int count = rectTransform.childCount;
-                for (int i = 0; i < count; i++)
+                foreach (Transform i in rectTransform.transform)
                 {
-                    rectTransform.DetachChildren();
+                    Destroy(i.gameObject);
                 }
             }
             foreach (var rectTransform in playerContainers)
             {
                 int count = rectTransform.childCount;
-                for (int i = 0; i < count; i++)
+                foreach (Transform i in rectTransform.transform)
                 {
-                    rectTransform.DetachChildren();
+                    Destroy(i.gameObject);
                 }
                 rectTransform.GetComponent<Container>().ClearContainer();
             }
-
             factory.RandomizePieces(groupOfBaseTetrisPieces, groupOfColors, pieces);
             PlacePiecesInContainers(pieces, goalContainers);
             Shuffle(pieces);
