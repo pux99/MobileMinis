@@ -7,7 +7,7 @@ public class StopMusicOnStart : MonoBehaviour
     [SerializeField] AudioList audioList;
     [SerializeField] int songOnArray;
     [SerializeField] int soundOnArray;
-    private void Start()
+    private void OnEnable()
     {
         audioList.StopLoopingMusic(songOnArray);
         audioList.PlaySound(songOnArray);
