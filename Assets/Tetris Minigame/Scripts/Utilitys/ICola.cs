@@ -1,17 +1,16 @@
-namespace Tetris_Minigame.Scripts.Utilitys
+using UnityEngine;
+
+public interface ICola<T>
 {
-    public interface ICola<T>
-    {
-        void InizializeQueue(int Length);
+    void InizializeQueue(int Length);
 
-        void Enqueue(T x);
+    void Enqueue(T x);
 
-        T Dequeue();
+    T Dequeue();
 
-        T Peak();
+    T Peek();
 
-        bool EmptyQueue();
+    bool EmptyQueue();
     
-        int Count();
-    }
+    int Count();
 }

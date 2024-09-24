@@ -4,39 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="390adab5-93fb-4367-88ea-b4e66f4520ad" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ConectionTest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ConectionTest.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CopyRune.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CopyRune.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FitElementsInScroll.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FitElementsInScroll.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PieceProperty.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PieceProperty.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PrecingLightsMinigame.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PrecingLightsMinigame.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PropertySetter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PropertySetter.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Inventory.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Inventory.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Start.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Start.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sorterlist.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sorterlist.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/InicializeTetrisMiniGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/InicializeTetrisMiniGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/TetrisFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/TetrisFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/UI/AdvancedImage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/UI/AdvancedImage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/countDown.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/countDown.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ganar.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ganar.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/paintable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/paintable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/resetScene.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/resetScene.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/runeChanger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/runeChanger.cs.meta" beforeDir="false" />
-    </list>
+    <list default="true" id="390adab5-93fb-4367-88ea-b4e66f4520ad" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,7 +92,8 @@
       <updated>1723596944786</updated>
       <workItem from="1723596946503" duration="20000" />
       <workItem from="1727023885041" duration="1577000" />
-      <workItem from="1727026265953" duration="2693000" />
+      <workItem from="1727026265953" duration="13339000" />
+      <workItem from="1727145224208" duration="14981000" />
     </task>
     <servers />
   </component>
@@ -145,30 +114,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/TetrisFactory.cs</url>
-          <line>12</line>
-          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Tetris Minigame\Scripts\Tetris\TetrisFactory.cs" containingFunctionPresentation="Method 'CreateRandomTetrisPieceTetris'">
+          <url>file://$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/Tetris/InicializeTetrisMiniGame.cs</url>
+          <line>176</line>
+          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Tetris Minigame\Scripts\Tetris\InicializeTetrisMiniGame.cs" containingFunctionPresentation="Method 'Shuffle'">
             <startOffsets>
-              <option value="422" />
+              <option value="6686" />
             </startOffsets>
             <endOffsets>
-              <option value="473" />
+              <option value="6687" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Tetris Minigame/Scripts/UI/Drag.cs</url>
-          <line>32</line>
-          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Tetris Minigame\Scripts\UI\Drag.cs" containingFunctionPresentation="Method 'OnDrag'">
-            <startOffsets>
-              <option value="964" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1028" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

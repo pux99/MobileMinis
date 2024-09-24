@@ -1,14 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace ManagerScripts
+public class MusicOnStart : MonoBehaviour
 {
-    public class MusicOnStart : MonoBehaviour
+    [SerializeField] AudioList audioList;
+    [SerializeField] int songOnArray;
+    void Start()
     {
-        [SerializeField] AudioList audioList;
-        void Start()
-        {
-            audioList.PlayMusic(0);
-        }
-
+        audioList.PlayLoopingMusic(songOnArray);
     }
+
 }

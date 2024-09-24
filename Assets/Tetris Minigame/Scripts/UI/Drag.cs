@@ -1,48 +1,43 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Tetris_Minigame.Scripts.UI
+public class Drag : MonoBehaviour,IEndDragHandler,IDragHandler,IBeginDragHandler
 {
-    public class Drag : MonoBehaviour,IEndDragHandler,IDragHandler,IBeginDragHandler,IPointerClickHandler
+    private Canvas _canvas;
+    [FormerlySerializedAs("_image")] [SerializeField] private Image image;
+    private Vector3 _lastPosition;
+    private Transform _lastParent;
+    private void OnEnable()
     {
-        private Canvas _canvas;
-        [SerializeField] private Image _image;
-        private Transform _lastPosition;
-        private void OnEnable()
-        {
-            _canvas = FindObjectOfType<Canvas>();
-        }
-        public void OnEndDrag(PointerEventData eventData)
-        {
-            Debug.Log(transform.position);
-            _image.raycastTarget = true;
-        }
+        _canvas = FindObjectOfType<Canvas>();
+    }
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        image.raycastTarget = true;
+        RectTransform parentRect = _lastParent.GetComponent<RectTransform>();
+        if(!parentRect.rect.Contains(transform.GetComponent<RectTransform>().localPosition+parentRect.position))
+            transform.position = _lastPosition;
+        transform.SetParent(_lastParent);
+    }
 
-        public void OnDrag(PointerEventData eventData)
-        {
-            PointerEventData pointerEventData = (PointerEventData)eventData;
-
-            Vector2 position;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                (RectTransform)_canvas.transform,
-                pointerEventData.position,
-                _canvas.worldCamera,
-                out position);
-            transform.position = _canvas.transform.TransformPoint(position);
-        
-        }
-
-        public void OnBeginDrag(PointerEventData eventData)
-        {
-            _image.raycastTarget = false;
-            _lastPosition = transform;
-            transform.SetAsLastSibling();
-        }
-
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            //eventData.
-        }
+    public void OnDrag(PointerEventData eventData)
+    {
+        PointerEventData pointerEventData = eventData;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            (RectTransform)_canvas.transform,
+            pointerEventData.position,
+            _canvas.worldCamera,
+            out Vector2 position);
+        transform.position = _canvas.transform.TransformPoint(position);
+    }
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        _lastParent = transform.parent;
+        image.raycastTarget = false;
+        _lastPosition = transform.position;
+        transform.SetParent(_canvas.transform);
+        transform.SetAsLastSibling();
     }
 }
