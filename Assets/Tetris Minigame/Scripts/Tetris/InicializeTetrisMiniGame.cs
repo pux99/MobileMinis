@@ -75,13 +75,13 @@ public class InicializeTetrisMiniGame : MonoBehaviour
             if (containerPiece.sprite != goalPiece.sprite || containerPiece.color != goalPiece.color)
             {
                 Debug.Log("Wrong Pattern");
-                audioList.PlaySound(2);
+                audioList.PlaySound(1);
                 StartOver();
                 return;
             }
         }
         Debug.Log("Correct Pattern");
-        audioList.PlaySound(1);
+        audioList.PlaySound(0);
         StartOver();
         Attack();
     }

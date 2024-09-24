@@ -19,9 +19,14 @@ public class AudioList : MonoBehaviour
             SoundAudioSources[index].PlayOneShotSoundManaged(SoundAudioSources[index].clip);
     }
 
-    public void PlayMusic(int index)
+    public void PlayLoopingMusic(int index)
     {
         MusicAudioSources[index].PlayLoopingMusicManaged(1.0f, 1.0f, true);
+    }
+
+    public void StopLoopingMusic(int index)
+    {
+        MusicAudioSources[index].StopLoopingMusicManaged();
     }
 
     public void PersistToggleChanged(bool isOn)

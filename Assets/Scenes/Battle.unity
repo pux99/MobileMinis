@@ -386,7 +386,7 @@ MonoBehaviour:
   slider: {fileID: 1808187282}
   shield: {fileID: 1391475622}
   timer: {fileID: 479200064}
-  _timer: 15
+  _timer: 2
   perdiste: {fileID: 633634929}
   animator: {fileID: 650536636}
 --- !u!224 &167139087
@@ -980,6 +980,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1846723541}
+        m_TargetAssemblyTypeName: AudioList, Assembly-CSharp
+        m_MethodName: PlayMusic
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &398862524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,6 +1278,7 @@ GameObject:
   - component: {fileID: 633634930}
   - component: {fileID: 633634932}
   - component: {fileID: 633634931}
+  - component: {fileID: 633634933}
   m_Layer: 5
   m_Name: perdiste
   m_TagString: Untagged
@@ -1332,6 +1345,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 633634929}
   m_CullTransparentMesh: 1
+--- !u!114 &633634933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633634929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bedb4be9db79ac043a61789682e4b2b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioList: {fileID: 1846723541}
+  songOnArray: 1
+  soundOnArray: 2
 --- !u!1 &650536634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,6 +1759,7 @@ GameObject:
   - component: {fileID: 794354310}
   - component: {fileID: 794354312}
   - component: {fileID: 794354311}
+  - component: {fileID: 794354313}
   m_Layer: 5
   m_Name: ganaste
   m_TagString: Untagged
@@ -1797,6 +1826,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794354309}
   m_CullTransparentMesh: 1
+--- !u!114 &794354313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794354309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bedb4be9db79ac043a61789682e4b2b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioList: {fileID: 1846723541}
+  songOnArray: 1
+  soundOnArray: 3
 --- !u!1 &801397637
 GameObject:
   m_ObjectHideFlags: 0
@@ -3720,6 +3764,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1846723541}
+        m_TargetAssemblyTypeName: AudioList, Assembly-CSharp
+        m_MethodName: PlayMusic
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

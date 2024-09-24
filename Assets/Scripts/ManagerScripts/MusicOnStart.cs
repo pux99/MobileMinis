@@ -8,7 +8,7 @@ public class MusicOnStart : MonoBehaviour
     [SerializeField] int songOnArray;
     void Start()
     {
-        audioList.PlayMusic(songOnArray);
+        audioList.PlayLoopingMusic(songOnArray);
     }
 
 }
