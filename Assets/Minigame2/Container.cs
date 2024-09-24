@@ -32,5 +32,11 @@ namespace Minigame2
         {
             return CanMovePiece() ? _pieces.Pop() : null; //Remove te top piece.
         }
+
+        public void ClearContainer()
+        {
+            if(_pieces.Count>0)
+                _pieces.Clear();
+        }
     }
 }

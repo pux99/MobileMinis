@@ -15,9 +15,11 @@ namespace Minigame2
         [SerializeField] public RectTransform[] goalContainers; // Goal_A, Goal_B, Goal_C
         [SerializeField] public RectTransform[] playerContainers; // Cont_A, Cont_B, Cont_C
 
+        private List<GameObject> pieces;
+        
         public void GeneratePieces()
         {
-            List<GameObject> pieces = GenerateTetrisPieces(totalAmountOfPieces);
+            pieces = GenerateTetrisPieces(totalAmountOfPieces);
             PlacePiecesInContainers(pieces, goalContainers);
             Shuffle(pieces);
             PlacePiecesInContainers(pieces, playerContainers);
@@ -72,6 +74,32 @@ namespace Minigame2
                 var r = Random.Range(i, count);
                 (ts[i], ts[r]) = (ts[r], ts[i]);
             }
+        }
+
+        public void ResetGame()
+        {
+            foreach (var rectTransform in goalContainers)
+            {
+                int count = rectTransform.childCount;
+                for (int i = 0; i < count; i++)
+                {
+                    rectTransform.DetachChildren();
+                }
+            }
+            foreach (var rectTransform in playerContainers)
+            {
+                int count = rectTransform.childCount;
+                for (int i = 0; i < count; i++)
+                {
+                    rectTransform.DetachChildren();
+                }
+                rectTransform.GetComponent<Container>().ClearContainer();
+            }
+
+            factory.RandomizePieces(groupOfBaseTetrisPieces, groupOfColors, pieces);
+            PlacePiecesInContainers(pieces, goalContainers);
+            Shuffle(pieces);
+            PlacePiecesInContainers(pieces, playerContainers);
         }
     }
 }

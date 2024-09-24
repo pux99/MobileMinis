@@ -102,6 +102,7 @@ namespace Minigame2
                 //VICTORY ACA!
                 shield.enabled = true;
                 animator.SetTrigger("defensa");
+                RestartMinigame();
             }
         }
 
@@ -124,6 +125,11 @@ namespace Minigame2
             }
 
             return true;
+        }
+
+        void RestartMinigame()
+        {
+            _pieceGenerator.ResetGame();
         }
     }
 }
