@@ -2503,6 +2503,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5565625069004943761, guid: 239c0f87a71632f4abe3468420811165, type: 3}
+      propertyPath: totalAmountOfPieces
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7838591734578515465, guid: 239c0f87a71632f4abe3468420811165, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2826,7 +2830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1391475622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2881,8 +2885,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.9847107, y: -3.4891968}
-  m_SizeDelta: {x: 9.9693, y: 6.9783}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1401893103
 GameObject:
