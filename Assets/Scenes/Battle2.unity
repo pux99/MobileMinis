@@ -386,8 +386,8 @@ MonoBehaviour:
   slider: {fileID: 1808187282}
   shield: {fileID: 1391475622}
   timer: {fileID: 479200064}
-  _timer: 15
-  attackCooldown: 15
+  _timer: 20
+  attackCooldown: 20
   perdiste: {fileID: 633634929}
   animator: {fileID: 650536636}
 --- !u!224 &167139087
@@ -576,9 +576,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 1
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 2
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1205,7 +1205,7 @@ GameObject:
   - component: {fileID: 650536637}
   - component: {fileID: 650536636}
   m_Layer: 5
-  m_Name: Dragon
+  m_Name: Golem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1220,14 +1220,14 @@ RectTransform:
   m_GameObject: {fileID: 650536634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -0.5929269, y: 0.5929269, z: 0.5929269}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1005184154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 593.69, y: -63.279053}
+  m_AnchoredPosition: {x: 221, y: -270}
   m_SizeDelta: {x: 531.948, y: 531.95}
   m_Pivot: {x: 0.9881359, y: 0.96836275}
 --- !u!95 &650536636
@@ -1240,7 +1240,7 @@ Animator:
   m_GameObject: {fileID: 650536634}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1e9d7d7fd23d0844db955340c25bb69f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3283746c4097e5c4b869b31c5766d2fd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1271,7 +1271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -281430176, guid: fe4462923fcf01443afb7dd4d2f6a101, type: 3}
+  m_Sprite: {fileID: 1793822818, guid: 32da54a22ff1f3b4cb29c5a7afffbec4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3484,7 +3484,7 @@ GameObject:
   - component: {fileID: 1786093104}
   - component: {fileID: 1786093103}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BattleBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3529,7 +3529,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2023b6a3fd287f94d9c0bfa9265ea333, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9095533838c321d40b22b662dd5b7bb2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
