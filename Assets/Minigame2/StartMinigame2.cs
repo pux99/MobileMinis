@@ -6,6 +6,11 @@ using Random = UnityEngine.Random;
 
 public class StartMinigame2 : MonoBehaviour
 {
+    private RectTransform selectedContainer = null;
+    [SerializeField] private RectTransform[] goalContainers; // Goal_A, Goal_B, Goal_C
+    [SerializeField] private RectTransform[] playerContainers; // Cont_A, Cont_B, Cont_C
+    private const int maxPiecesPerContainer = 4;
+    
     // The 3 GOAL containers
     [SerializeField] private RectTransform Goal_A;
     [SerializeField] private RectTransform Goal_B;
@@ -80,12 +85,71 @@ public class StartMinigame2 : MonoBehaviour
             }
         }
     }
+    
     public static void Shuffle<T>(List<T> ts) {
         var count = ts.Count;
         var last = count - 1;
         for (var i = 0; i < last; ++i) {
             var r = UnityEngine.Random.Range(i, count);
             (ts[i], ts[r]) = (ts[r], ts[i]);
+        }
+    }
+
+    private void OnContainerClicked(RectTransform container)
+    {
+        if (selectedContainer == null)
+        {
+            selectedContainer = container;
+            HighlightContainer(container, true); // Turn container yellow
+        }
+        else
+        {
+            TryMovePiece(selectedContainer, container);
+            HighlightContainer(selectedContainer, false); // Reset color of the first container
+            selectedContainer = null; // Deselect the container
+        }
+    }
+    private void HighlightContainer(RectTransform container, bool highlight)
+    {
+        Color highlightColor = highlight ? Color.yellow : Color.white;
+        container.GetComponent<Image>().color = highlightColor; // Assuming containers have an Image component
+    }
+
+    private void TryMovePiece(RectTransform sourceContainer, RectTransform targetContainer)
+    {
+        if (sourceContainer.childCount == 0)return; //No piece in that container
+
+        GameObject topPiece = sourceContainer.GetChild(sourceContainer.childCount - 1).gameObject; // Usar stack
+
+        if (targetContainer.childCount < maxPiecesPerContainer)
+        {
+            // Moves the piece
+            topPiece.transform.SetParent(targetContainer);
+            //topPiece.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;  
+            topPiece.GetComponent<RectTransform>().localScale = Vector3.one;
+
+            CheckForWinCondition();
+        }
+        else
+        {
+            StartCoroutine(ReturnPieceToOrigin(topPiece, sourceContainer));
+        }
+    }
+
+    private IEnumerator ReturnPieceToOrigin(GameObject piece, RectTransform sourceContainer)
+    {
+        Vector3 originalPosition = piece.GetComponent<RectTransform>().anchoredPosition;
+        float elapsedTime = 0f;
+        float duration = 1.0f;
+
+        Vector3 startPos = piece.transform.position;
+        Vector3 targetPos = sourceContainer.position;
+
+        while (elapsedTime < duration)
+        {
+            piece.transform.position = Vector3.Lerp(startPos, targetPos, (elapsedTime / duration));
+            elapsedTime += Time.deltaTime;
+            yield return null;
         }
     }
     
