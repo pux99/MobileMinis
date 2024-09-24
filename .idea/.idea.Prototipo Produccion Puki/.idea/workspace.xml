@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="390adab5-93fb-4367-88ea-b4e66f4520ad" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Dragons.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Dragons.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Parchment.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Parchment.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Puerta1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Puerta1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Puerta2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Puerta2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Puerta3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Puerta3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/drag.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/drag.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Battle.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Battle.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/HUB.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/HUB.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Inventory.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Inventory.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Missions.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Missions.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts/StopMusicOnStart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts/StopMusicOnStart.cs" afterDir="false" />
-    </list>
+    <list default="true" id="390adab5-93fb-4367-88ea-b4e66f4520ad" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +93,7 @@
       <workItem from="1723596946503" duration="20000" />
       <workItem from="1727023885041" duration="1577000" />
       <workItem from="1727026265953" duration="13339000" />
-      <workItem from="1727145224208" duration="14478000" />
+      <workItem from="1727145224208" duration="14981000" />
     </task>
     <servers />
   </component>
