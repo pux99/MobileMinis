@@ -1,31 +1,32 @@
-using DigitalRuby.SoundManagerNamespace;
-using System.Collections;
-using System.Collections.Generic;
+using SoundManagerDemo;
 using UnityEngine;
 
-public class AudioList : MonoBehaviour
+namespace ManagerScripts
 {
-    [SerializeField] AudioSource[] SoundAudioSources;
-
-    [SerializeField] AudioSource[] MusicAudioSources;
-
-    private void Start()
+    public class AudioList : MonoBehaviour
     {
-        PersistToggleChanged(true);
-    }
+        [SerializeField] AudioSource[] SoundAudioSources;
 
-    public void PlaySound(int index)
-    {
+        [SerializeField] AudioSource[] MusicAudioSources;
+
+        private void Start()
+        {
+            PersistToggleChanged(true);
+        }
+
+        public void PlaySound(int index)
+        {
             SoundAudioSources[index].PlayOneShotSoundManaged(SoundAudioSources[index].clip);
-    }
+        }
 
-    public void PlayMusic(int index)
-    {
-        MusicAudioSources[index].PlayLoopingMusicManaged(1.0f, 1.0f, true);
-    }
+        public void PlayMusic(int index)
+        {
+            MusicAudioSources[index].PlayLoopingMusicManaged(1.0f, 1.0f, true);
+        }
 
-    public void PersistToggleChanged(bool isOn)
-    {
-        SoundManager.StopSoundsOnLevelLoad = !isOn;
+        public void PersistToggleChanged(bool isOn)
+        {
+            SoundManager.StopSoundsOnLevelLoad = !isOn;
+        }
     }
 }

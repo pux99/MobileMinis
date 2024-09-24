@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class RuneEditor : EditorWindow
+namespace Editor
 {
-    [MenuItem("Modes/ConectionList")]
-    public static void ShowWindow()
+    public class RuneEditor : EditorWindow
     {
-        EditorWindow.GetWindow(typeof(RuneEditor));
-    }
-    private void OnGUI()
-    {
-        GUILayout.Label("¡Mi Ventana de Editor!");
-        if (GUILayout.Button("Haz Algo"))
+        [MenuItem("Modes/ConectionList")]
+        public static void ShowWindow()
         {
-            // Aquí puedes agregar la funcionalidad que desees
-            Debug.Log("Hiciste clic en el botón 'Haz Algo'");
+            EditorWindow.GetWindow(typeof(RuneEditor));
+        }
+        private void OnGUI()
+        {
+            GUILayout.Label("Â¡Mi Ventana de Editor!");
+            if (GUILayout.Button("Haz Algo"))
+            {
+                // AquÃ­ puedes agregar la funcionalidad que desees
+                Debug.Log("Hiciste clic en el botÃ³n 'Haz Algo'");
+            }
         }
     }
 }

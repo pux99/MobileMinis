@@ -1,17 +1,19 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ListOfBasePieces", menuName = "Tetris/List of base pieces", order = 1)]
-public class SO_GruopOfBaseTetrisPieces : ScriptableObject
+namespace Tetris_Minigame.Scripts.Tetris
 {
-    [Serializable]
-    public class Piece
+    [CreateAssetMenu(fileName = "ListOfBasePieces", menuName = "Tetris/List of base pieces", order = 1)]
+    public class SO_GruopOfBaseTetrisPieces : ScriptableObject
     {
-        public Sprite Sprite;
-        public Vector2 Size;
+        [Serializable]
+        public class Piece
+        {
+            public Sprite Sprite;
+            public Vector2 Size;
+        }
+        [SerializeField]private List<Piece> _pieces;
+        public List<Piece> Pieces { get=> _pieces; }
     }
-    [SerializeField]private List<Piece> _pieces;
-    public List<Piece> Pieces { get=> _pieces; }
 }

@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MusicOnStart : MonoBehaviour
+namespace ManagerScripts
 {
-    [SerializeField] AudioList audioList;
-    void Start()
+    public class MusicOnStart : MonoBehaviour
     {
-        audioList.PlayMusic(0);
-    }
+        [SerializeField] AudioList audioList;
+        void Start()
+        {
+            audioList.PlayMusic(0);
+        }
 
+    }
 }
