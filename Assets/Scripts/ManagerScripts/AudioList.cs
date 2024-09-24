@@ -1,6 +1,6 @@
-using DigitalRuby.SoundManagerNamespace;
 using System.Collections;
 using System.Collections.Generic;
+using SoundManagerDemo;
 using UnityEngine;
 
 public class AudioList : MonoBehaviour

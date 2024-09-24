@@ -4872,6 +4872,10 @@ PrefabInstance:
       propertyPath: MainCamera
       value: 
       objectReference: {fileID: 979301074}
+    - target: {fileID: 704383812660498755, guid: 9fb1dd6519c7f7849bfa93547c52966f, type: 3}
+      propertyPath: baseTetrisPiece
+      value: 
+      objectReference: {fileID: 9141137831396621376, guid: 51b4916f7560ef14387a785abae54e54, type: 3}
     - target: {fileID: 716282079475354592, guid: 9fb1dd6519c7f7849bfa93547c52966f, type: 3}
       propertyPath: totalAmountOfPieces
       value: 6
