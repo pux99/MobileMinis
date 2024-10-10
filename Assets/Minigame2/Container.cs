@@ -1,25 +1,25 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Minigame2
 {
     public class Container : MonoBehaviour
     {
-        private Stack<GameObject> _pieces = new Stack<GameObject>();
+        private TetrisStack _pieces = new TetrisStack(3);
         [SerializeField] private int maxCapacity = 3; // Max capacity of the container.
-        
+
+
+
         public bool CanMovePiece()
         {
-            return _pieces.Count > 0; // Check if there is at least one piece. 
+            return _pieces.Count() > 0; // Check if there is at least one piece. 
         }
         public GameObject GetTopPiece()
         {
-            return _pieces.Count > 0 ? _pieces.Peek() : null; // See the piece at the top.
+            return _pieces.Count() > 0 ? _pieces.Peek() : null; // See the piece at the top.
         }
         public bool CanAddPiece()
         {
-            return _pieces.Count < maxCapacity; // Check if there is room for the piece.
+            return _pieces.Count() < maxCapacity; // Check if there is room for the piece.
         }
         public void AddPiece(GameObject piece)
         {
@@ -31,6 +31,12 @@ namespace Minigame2
         public GameObject RemoveTopPiece()
         {
             return CanMovePiece() ? _pieces.Pop() : null; //Remove te top piece.
+        }
+
+        public void ClearContainer()
+        {
+            if(_pieces.Count()>0)
+                _pieces.Clear();
         }
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 namespace Minigame2
 {
@@ -9,6 +10,8 @@ namespace Minigame2
         
         [SerializeField] public RectTransform[] playerContainers;
         [SerializeField] public RectTransform[] goalContainers;
+        [SerializeField] public Image shield;
+        [SerializeField] public Animator animator;
         
         private Container _selectedContainer;
         [SerializeField] public RectTransform[] containers;
@@ -95,8 +98,11 @@ namespace Minigame2
 
             if (victory)
             {
-                Debug.Log("Victory!");
+                Debug.Log("Minijuego de defensa completado");
                 //VICTORY ACA!
+                shield.enabled = true;
+                animator.SetTrigger("defensa");
+                RestartMinigame();
             }
         }
 
@@ -119,6 +125,11 @@ namespace Minigame2
             }
 
             return true;
+        }
+
+        void RestartMinigame()
+        {
+            _pieceGenerator.ResetGame();
         }
     }
 }

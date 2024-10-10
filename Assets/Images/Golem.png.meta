@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5d8fc2cb757b168488b7af16130b17ad
+guid: 32da54a22ff1f3b4cb29c5a7afffbec4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,64 +123,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Golem_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 5
-        width: 1465
-        height: 1574
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1e4ba53f2c018b4eb8996be5980a1e8
-      internalID: -552030278
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Golem_1
       rect:
         serializedVersion: 2
-        x: 1922
-        y: 0
-        width: 1444
-        height: 1595
+        x: 7096
+        y: 17
+        width: 1756
+        height: 1866
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fdc51e78a746384a9a558c1f0f56723
-      internalID: 263396096
+      spriteID: db3f7afaa04c1e94a8426055cda0bb32
+      internalID: -66474107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Golem_2
+      name: Golem_3
       rect:
         serializedVersion: 2
-        x: 3723
-        y: 0
-        width: 1061
-        height: 1864
+        x: 1603
+        y: 17
+        width: 1756
+        height: 1866
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72bbcc248399e8747b91782af9c59dad
-      internalID: -603944817
+      spriteID: 921d660f0f0fd494da9c915ecd508c86
+      internalID: 1007938112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_0
+      rect:
+        serializedVersion: 2
+        x: 4267
+        y: 17
+        width: 1756
+        height: 1866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9e2eb4f83162b34d9c60f6d27ce9b35
+      internalID: 1793822818
       vertices: []
       indices: 
       edges: []
@@ -196,9 +196,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Golem_0: -552030278
-      Golem_1: 263396096
-      Golem_2: -603944817
+      Golem_0: 1793822818
+      Golem_1: -66474107
+      Golem_2: -975104816
+      Golem_3: 1007938112
+      Golem_4: 854368453
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

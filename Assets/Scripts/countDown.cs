@@ -10,7 +10,8 @@ public class countDown : MonoBehaviour
     public UnityEngine.UI.Slider slider;
     public UnityEngine.UI.Image shield;
     public TextMeshProUGUI timer;
-    public float _timer = 30;
+    public float _timer = 15;
+    public float attackCooldown;
     public GameObject perdiste;
     public Animator animator;
     public void ResetTimer(int time)
@@ -31,7 +32,7 @@ public class countDown : MonoBehaviour
         timer.text=Mathf.CeilToInt(_timer).ToString();
         if(_timer < 0) 
         {
-            _timer = 15;
+            _timer = attackCooldown;
             CountdownEndEvent();
         }
     }
