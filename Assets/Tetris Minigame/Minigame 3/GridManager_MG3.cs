@@ -5,39 +5,24 @@ using UnityEngine.EventSystems;
 
 
 public class GridManager_MG3 : MonoBehaviour
+{
+    [SerializeField] private int size = 4;
+    [SerializeField] private Tile tile;
+
+    private void Start()
     {
-        void Update()
+        GenerateGrid();
+    }
+
+    void GenerateGrid()
+    {
+        for (int x = 0; x < size; x++)
         {
-            // Check if the mouse is over a UI element
-            if (IsPointerOverUIElement(out GameObject hoveredObject))
+            for (int y = 0; y < size; y++)
             {
-                // If it is, print the name of the object
-                Debug.Log("Hovering over: " + hoveredObject.name);
+                var spawnedTile = Instantiate(tile, transform);
+                spawnedTile.name = $"Tile {x} {y}";
             }
-        }
-
-        // Helper method to check if the pointer is over a UI element
-        private bool IsPointerOverUIElement(out GameObject hoveredObject)
-        {
-            hoveredObject = null;
-
-            // Set up a PointerEventData instance
-            PointerEventData pointerData = new PointerEventData(EventSystem.current)
-            {
-                position = Input.mousePosition
-            };
-
-            // Raycast to find UI elements under the mouse position
-            List<RaycastResult> results = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(pointerData, results);
-
-            // If there is a hit, set the hovered object
-            if (results.Count > 0)
-            {
-                hoveredObject = results[0].gameObject;
-                return true;
-            }
-
-            return false;
         }
     }
+}

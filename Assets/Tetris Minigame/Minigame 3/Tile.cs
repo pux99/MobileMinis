@@ -1,22 +1,38 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Tile : MonoBehaviour
+public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDropHandler
 {
-    [SerializeField] private Color _baseColor;
-    //[SerializeField] private Image _image;
-    [SerializeField] private GameObject _highlight;
+    private Image tileImage;
+    private Color finalColor;
+    private bool isOccupied;
 
-    private void OnMouseEnter()
+    private void Start()
     {
-        _highlight.SetActive(true);
+        tileImage = GetComponent<Image>();
+        isOccupied = false;
     }
 
-    private void OnMouseExit()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        _highlight.SetActive(false);
+        if(!isOccupied){tileImage.color = Color.gray;}
+        
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (!isOccupied) {tileImage.color = Color.white; }
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        Image draggedInfo = DragManager.Instance.DraggedImage;
+        isOccupied = true;    
+        tileImage.sprite = draggedInfo.sprite;
+        tileImage.color = draggedInfo.color;
     }
 }

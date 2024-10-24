@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9141137831396621376
+--- !u!1 &7976110627714723998
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2729819056856299690}
-  - component: {fileID: 3547238190385548684}
-  - component: {fileID: 5089094223009800838}
-  - component: {fileID: 4354338927950116311}
-  m_Layer: 3
-  m_Name: BaseTetrisPiece
+  - component: {fileID: 1788951733506882947}
+  - component: {fileID: 5821132571597218067}
+  - component: {fileID: -7002773642109009416}
+  - component: {fileID: -6151456225117105407}
+  m_Layer: 0
+  m_Name: TetrisLikePiece
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2729819056856299690
+--- !u!224 &1788951733506882947
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9141137831396621376}
+  m_GameObject: {fileID: 7976110627714723998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -38,34 +38,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &3547238190385548684
+--- !u!222 &5821132571597218067
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9141137831396621376}
+  m_GameObject: {fileID: 7976110627714723998}
   m_CullTransparentMesh: 1
---- !u!114 &5089094223009800838
+--- !u!114 &-7002773642109009416
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9141137831396621376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01e0477aab1101045840ceaf582a6667, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 4354338927950116311}
---- !u!114 &4354338927950116311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9141137831396621376}
+  m_GameObject: {fileID: 7976110627714723998}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50eda9cfc4259f146a15f06b9026c78a, type: 3}
@@ -81,7 +68,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 0}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -89,4 +76,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  hitTestMinimumThreshold: 0.5
+  hitTestMinimumThreshold: 0.1
+--- !u!114 &-6151456225117105407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7976110627714723998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e941b409f54f08e45b677a0f887dbc4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: -7002773642109009416}

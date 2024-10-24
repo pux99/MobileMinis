@@ -2503,6 +2503,7 @@ GameObject:
   - component: {fileID: 1209430287}
   - component: {fileID: 1209430286}
   - component: {fileID: 1209430288}
+  - component: {fileID: 1209430289}
   m_Layer: 5
   m_Name: Minigame3
   m_TagString: Untagged
@@ -2597,10 +2598,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da41065770b43964faf3b33077d27ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseTetrisPiece: {fileID: 9141137831396621376, guid: 51b4916f7560ef14387a785abae54e54, type: 3}
+  baseTetrisPiece: {fileID: 7976110627714723998, guid: 486c7ebcf70f41f41adac0721d312336, type: 3}
   groupOfBaseTetrisPieces: {fileID: 11400000, guid: 6d911f28649838f40872cb17d3e18e2b, type: 2}
   groupOfColors: {fileID: 11400000, guid: 2f90e1aa67d457a449badd4983f28049, type: 2}
-  sizeMod: 0.05
+--- !u!114 &1209430289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209430280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8922d66d031d56e4f8704a694670c0c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1224721932
 GameObject:
   m_ObjectHideFlags: 0
@@ -5011,7 +5023,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -5155,6 +5167,7 @@ GameObject:
   - component: {fileID: 2125221907}
   - component: {fileID: 2125221910}
   - component: {fileID: 2125221908}
+  - component: {fileID: 2125221911}
   m_Layer: 5
   m_Name: Grid
   m_TagString: Untagged
@@ -5194,14 +5207,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
+    m_Left: 50
+    m_Right: 50
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 100}
+  m_CellSize: {x: 235, y: 235}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -5213,6 +5226,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125221906}
   m_CullTransparentMesh: 1
+--- !u!114 &2125221911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125221906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988e3cbe3eae43c3a6bc5c98a0055a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 4
+  tile: {fileID: 5191513696927182510, guid: 9eec7d99dd73d524bb00870759c9d695, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

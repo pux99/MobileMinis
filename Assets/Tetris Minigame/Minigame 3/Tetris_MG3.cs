@@ -30,10 +30,9 @@ public class Tetris_MG3 : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             GameObject newPiece = factory.CreateRandomTetrisPiece();
-            newPiece.GetComponent<Image>().raycastTarget = false;
             newPiece.transform.SetParent(_grid);
             newPiece.transform.position = Vector3.zero;
-            newPiece.transform.localScale = new Vector3(.5f,.5f,.5f);
+            //newPiece.transform.localScale = new Vector3(.5f,.5f,.5f);
             _pieces.Add(newPiece);
         }
 
