@@ -16,21 +16,21 @@ public class AudioList : MonoBehaviour
 
     public void PlaySound(int index)
     {
-            SoundAudioSources[index].PlayOneShotSoundManaged(SoundAudioSources[index].clip);
+            //SoundAudioSources[index].PlayOneShotSoundManaged(SoundAudioSources[index].clip);
     }
 
     public void PlayLoopingMusic(int index)
     {
-        MusicAudioSources[index].PlayLoopingMusicManaged(1.0f, 1.0f, true);
+        //MusicAudioSources[index].PlayLoopingMusicManaged(1.0f, 1.0f, true);
     }
 
     public void StopLoopingMusic(int index)
     {
-        MusicAudioSources[index].StopLoopingMusicManaged();
+        //MusicAudioSources[index].StopLoopingMusicManaged();
     }
 
     public void PersistToggleChanged(bool isOn)
     {
-        SoundManager.StopSoundsOnLevelLoad = !isOn;
+        //SoundManager.StopSoundsOnLevelLoad = !isOn;
     }
 }
