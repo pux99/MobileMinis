@@ -75,7 +75,6 @@ namespace Minigame2
                 (ts[i], ts[r]) = (ts[r], ts[i]);
             }
         }
-
         public void ResetGame()
         {
             foreach (var rectTransform in goalContainers)

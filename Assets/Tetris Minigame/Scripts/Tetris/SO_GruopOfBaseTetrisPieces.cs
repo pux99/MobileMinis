@@ -11,6 +11,7 @@ public class SO_GruopOfBaseTetrisPieces : ScriptableObject
     {
         public Sprite sprite;
         public Vector2 size;
+        public Vector2Int[] occupiedCells;
     }
     [SerializeField]private List<Piece> pieces;
     public List<Piece> Pieces { get=> pieces; }
