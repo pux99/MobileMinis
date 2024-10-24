@@ -5,12 +5,15 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 
-public class DragHandler_MG3 : MonoBehaviour, IEndDragHandler, IDragHandler, IBeginDragHandler
+public class DragPiece : MonoBehaviour, IEndDragHandler, IDragHandler, IBeginDragHandler
 {
     private Canvas _canvas;
     [SerializeField] private Image image;
     private Vector3 _lastPosition;
     private Transform _lastParent;
+    
+    public Vector2 size;
+    public Vector2Int[] occupiedCells;
     
     private void OnEnable()
     {
@@ -25,7 +28,7 @@ public class DragHandler_MG3 : MonoBehaviour, IEndDragHandler, IDragHandler, IBe
         transform.SetParent(_canvas.transform);
         transform.SetAsLastSibling();
         
-        DragManager.Instance.SetPieceInfo(image);
+        DragManager.Instance.SetPieceInfo(image, size, occupiedCells);
     }
     
     public void OnDrag(PointerEventData eventData)
@@ -42,5 +45,11 @@ public class DragHandler_MG3 : MonoBehaviour, IEndDragHandler, IDragHandler, IBe
         transform.SetParent(_lastParent);
         
         DragManager.Instance.ClearPieceInfo();
+    }
+    
+    public void SetPieceData(Vector2 newSize, Vector2Int[] newOccupiedCells)
+    {
+        size = newSize;
+        occupiedCells = newOccupiedCells;
     }
 }
