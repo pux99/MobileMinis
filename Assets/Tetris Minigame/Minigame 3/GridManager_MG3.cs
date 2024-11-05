@@ -8,8 +8,8 @@ public class GridManager_MG3 : MonoBehaviour
 {
     public static GridManager_MG3 Instance { get; private set; }
     
-    [SerializeField] private int gridWidth;
-    [SerializeField] private int gridHeight;
+    [SerializeField] public int gridWidth;
+    [SerializeField] public int gridHeight;
     [SerializeField] private Tile _tile;
     
     private Tile[,] grid;

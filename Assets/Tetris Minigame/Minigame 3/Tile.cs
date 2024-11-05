@@ -10,7 +10,6 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
 {
     private Image tileImage;
     private Color finalColor;
-    private bool isHover;
     private bool isOccupied;
 
     [SerializeField] public Vector2Int gridPosition;
@@ -19,44 +18,43 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
     {
         tileImage = GetComponent<Image>();
         isOccupied = false;
-        isHover = false;
+    }
+    
+    public bool IsOccupied()
+    {
+        return isOccupied;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        tileImage.color = Color.gray;
+        if (isOccupied || DragManager.Instance.OccupiedCells == null) return;
+        DragManager.Instance.ColorNeighboringTiles(gridPosition, Color.gray);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        tileImage.color = Color.white;
+        if (isOccupied || DragManager.Instance.OccupiedCells == null) return;
+        DragManager.Instance.ColorNeighboringTiles(gridPosition, Color.white);
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        Vector2Int[] occupiedCells = DragManager.Instance.OccupiedCells;
-
-        ActivateNeighboringTiles(occupiedCells);
+        if (isOccupied) return;
+        DragManager.Instance.ColorNeighboringTiles(gridPosition, Color.white);
+        DragManager.Instance.PlacePiece(gridPosition);
     }
 
-    private void SetTileOccupied()
+    public void SetOccupied()
     {
         isOccupied = true;
-        tileImage.sprite = DragManager.Instance.DraggedImage.sprite;
         tileImage.color = DragManager.Instance.DraggedImage.color;
     }
-
-    private void ActivateNeighboringTiles(Vector2Int[] occupiedCells)
+    
+    public void SetColor(Color color)
     {
-        foreach (Vector2Int cell in occupiedCells)
+        if (!isOccupied)
         {
-            var targetPosition = gridPosition + cell;
-
-            var targetTile = GridManager_MG3.Instance.GetTileAtPosition(targetPosition);
-            if (targetTile != null)
-            {
-                targetTile.SetTileOccupied();
-            }
+            tileImage.color = color; 
         }
     }
 }

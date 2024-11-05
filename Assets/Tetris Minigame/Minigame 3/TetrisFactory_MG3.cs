@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TetrisFactory_MG3 : MonoBehaviour
 {
-    [SerializeField] private GameObject TetrisLikePiece;
+    [SerializeField] private GameObject tetrisLikePiece;
     [SerializeField] private SO_GruopOfBaseTetrisPieces groupOfBaseTetrisPieces;
     [SerializeField] private SO_GroupOfColors groupOfColors;
     
     public GameObject CreateRandomTetrisPiece()
     {
-        GameObject newPiece = Instantiate(TetrisLikePiece);
+        GameObject newPiece = Instantiate(tetrisLikePiece);
         
         Image pieceImage = newPiece.GetComponent<Image>();
         pieceImage.raycastTarget = true;

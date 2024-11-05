@@ -10,7 +10,7 @@ public class Tetris_MG3 : MonoBehaviour
     
     [SerializeField] private TetrisFactory_MG3 factory;
 
-    [SerializeField] private RectTransform _grid;
+    [SerializeField] private RectTransform container;
     private List<GameObject> _pieces;
     
     private void Start()
@@ -30,9 +30,8 @@ public class Tetris_MG3 : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             GameObject newPiece = factory.CreateRandomTetrisPiece();
-            newPiece.transform.SetParent(_grid);
+            newPiece.transform.SetParent(container);
             newPiece.transform.position = Vector3.zero;
-            //newPiece.transform.localScale = new Vector3(.5f,.5f,.5f);
             _pieces.Add(newPiece);
         }
 

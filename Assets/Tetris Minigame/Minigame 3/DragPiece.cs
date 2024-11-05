@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -20,6 +22,7 @@ public class DragPiece : MonoBehaviour, IEndDragHandler, IDragHandler, IBeginDra
         _canvas = FindObjectOfType<Canvas>();
     }
     
+    
     public void OnBeginDrag(PointerEventData eventData)
     {
         _lastParent = transform.parent;
@@ -28,7 +31,9 @@ public class DragPiece : MonoBehaviour, IEndDragHandler, IDragHandler, IBeginDra
         transform.SetParent(_canvas.transform);
         transform.SetAsLastSibling();
         
-        DragManager.Instance.SetPieceInfo(image, size, occupiedCells);
+        DragManager.Instance.SetPieceInfo(image, occupiedCells);
+        
+        DragManager.Instance.OnPiecePlaced += DeactivatePiece;
     }
     
     public void OnDrag(PointerEventData eventData)
@@ -40,16 +45,20 @@ public class DragPiece : MonoBehaviour, IEndDragHandler, IDragHandler, IBeginDra
     public void OnEndDrag(PointerEventData eventData)
     {
         image.raycastTarget = true;
-        RectTransform parentRect = _lastParent.GetComponent<RectTransform>();
-        if (!parentRect.rect.Contains(transform.GetComponent<RectTransform>().localPosition + parentRect.position)) transform.position = _lastPosition;
+        transform.position = _lastPosition;
         transform.SetParent(_lastParent);
-        
-        DragManager.Instance.ClearPieceInfo();
+        DragManager.Instance.ClearOccupiedCells();
+        DragManager.Instance.OnPiecePlaced -= DeactivatePiece;
     }
-    
     public void SetPieceData(Vector2 newSize, Vector2Int[] newOccupiedCells)
     {
         size = newSize;
         occupiedCells = newOccupiedCells;
+    }
+    
+    private void DeactivatePiece()
+    {
+        gameObject.SetActive(false);
+        DragManager.Instance.OnPiecePlaced -= DeactivatePiece;
     }
 }
