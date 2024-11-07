@@ -8,9 +8,9 @@ public class GridManager_MG3 : MonoBehaviour
 {
     public static GridManager_MG3 Instance { get; private set; }
     
-    [SerializeField] public int gridWidth;
-    [SerializeField] public int gridHeight;
-    [SerializeField] private Tile _tile;
+    private int _gridWidth;
+    private int _gridHeight;
+    [SerializeField] private Tile tile;
     
     private Tile[,] grid;
 
@@ -32,23 +32,23 @@ public class GridManager_MG3 : MonoBehaviour
 
     void GenerateGrid()
     {
-        grid = new Tile[gridWidth, gridHeight];
+        grid = new Tile[_gridWidth, _gridHeight];
 
-        for (int y = 0; y < gridHeight; y++)
+        for (int y = 0; y < _gridHeight; y++)
         {
-            for (int x = 0; x < gridWidth; x++)
+            for (int x = 0; x < _gridWidth; x++)
             {
-                var tileObj = Instantiate(_tile, transform);
-                var tile = tileObj.GetComponent<Tile>();
-                tile.gridPosition = new Vector2Int(x, y);
-                grid[x, y] = tile;
+                var tileObj = Instantiate(tile, transform);
+                var newTile = tileObj.GetComponent<Tile>();
+                newTile.gridPosition = new Vector2Int(x, y);
+                grid[x, y] = newTile;
             }
         }
     }
     
     public Tile GetTileAtPosition(Vector2Int position)
     {
-        if (position.x >= 0 && position.x < gridWidth && position.y >= 0 && position.y < gridHeight)
+        if (position.x >= 0 && position.x < _gridWidth && position.y >= 0 && position.y < _gridHeight)
         
             return grid[position.x, position.y];
         
