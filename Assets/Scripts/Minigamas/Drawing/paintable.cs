@@ -18,13 +18,6 @@ public class paintable : MonoBehaviour
     public int selectedImage;
     public Animator animator;
     public Image backgrownd;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetMouseButton(0))

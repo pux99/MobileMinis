@@ -17,7 +17,6 @@ public class PrecingLightsMinigame : MonoBehaviour
         for (int i = 0; i < buttonHolder.transform.childCount; i++) {
             buttons.Add(buttonHolder.transform.GetChild(i).GetComponent<Button>());
         }
-        //StartCoroutine(CountdownForLights());
     }
     private void OnEnable()
     {
@@ -33,8 +32,6 @@ public class PrecingLightsMinigame : MonoBehaviour
             button.interactable = false;
         }
     }
-
-    // Update is called once per frame
     void Update()
     {
         pointCounter.text = points.ToString();
