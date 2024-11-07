@@ -42,6 +42,7 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
         if (isOccupied) return;
         DragManager.Instance.ColorNeighboringTiles(gridPosition, Color.white);
         DragManager.Instance.PlacePiece(gridPosition);
+        DragManager.Instance.ClearOccupiedCells();
     }
 
     public void SetOccupied()

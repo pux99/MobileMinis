@@ -46,6 +46,7 @@ public class DragPiece : MonoBehaviour, IEndDragHandler, IDragHandler, IBeginDra
         image.raycastTarget = true;
         transform.position = _lastPosition;
         transform.SetParent(_lastParent);
+        
         DragManager.Instance.ClearOccupiedCells();
         DragManager.Instance.OnPiecePlaced -= DeactivatePiece;
     }
