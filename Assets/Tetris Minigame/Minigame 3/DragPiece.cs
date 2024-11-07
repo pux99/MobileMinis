@@ -14,7 +14,6 @@ public class DragPiece : MonoBehaviour, IEndDragHandler, IDragHandler, IBeginDra
     private Vector3 _lastPosition;
     private Transform _lastParent;
     
-    public Vector2 size;
     public Vector2Int[] occupiedCells;
     
     private void OnEnable()
@@ -50,9 +49,8 @@ public class DragPiece : MonoBehaviour, IEndDragHandler, IDragHandler, IBeginDra
         DragManager.Instance.ClearOccupiedCells();
         DragManager.Instance.OnPiecePlaced -= DeactivatePiece;
     }
-    public void SetPieceData(Vector2 newSize, Vector2Int[] newOccupiedCells)
+    public void SetPieceData(Vector2Int[] newOccupiedCells)
     {
-        size = newSize;
         occupiedCells = newOccupiedCells;
     }
     
@@ -61,4 +59,5 @@ public class DragPiece : MonoBehaviour, IEndDragHandler, IDragHandler, IBeginDra
         gameObject.SetActive(false);
         DragManager.Instance.OnPiecePlaced -= DeactivatePiece;
     }
+    
 }

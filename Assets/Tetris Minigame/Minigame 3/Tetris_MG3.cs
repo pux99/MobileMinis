@@ -32,6 +32,7 @@ public class Tetris_MG3 : MonoBehaviour
             GameObject newPiece = factory.CreateRandomTetrisPiece();
             newPiece.transform.SetParent(container);
             newPiece.transform.position = Vector3.zero;
+            newPiece.transform.localScale = new Vector3(.75f, .75f, .75f);
             _pieces.Add(newPiece);
         }
 

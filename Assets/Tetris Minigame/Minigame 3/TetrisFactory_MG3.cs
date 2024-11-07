@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tetris_Minigame.Scripts.UI;
 using UnityEngine;
 using UnityEngine.UI;
 public class TetrisFactory_MG3 : MonoBehaviour
@@ -12,15 +13,18 @@ public class TetrisFactory_MG3 : MonoBehaviour
     {
         GameObject newPiece = Instantiate(tetrisLikePiece);
         
-        Image pieceImage = newPiece.GetComponent<Image>();
-        pieceImage.raycastTarget = true;
+        
+        AdvancedImage image = newPiece.GetComponent<AdvancedImage>();
+        image.raycastTarget = true;
         
         SO_GruopOfBaseTetrisPieces.Piece data = groupOfBaseTetrisPieces.Pieces[Random.Range(0, groupOfBaseTetrisPieces.Pieces.Count)];
-        pieceImage.sprite = data.sprite;
-        pieceImage.color = groupOfColors.Colors[Random.Range(0, groupOfColors.Colors.Count)];
+        
+        image.sprite = data.sprite;
+        
+        image.color = groupOfColors.Colors[Random.Range(0, groupOfColors.Colors.Count)];
 
-        var sizeData = newPiece.GetComponent<DragPiece>();
-        sizeData.SetPieceData(data.size, data.occupiedCells);
+        var dragData = newPiece.GetComponent<DragPiece>();
+        dragData.SetPieceData(data.occupiedCells);
         
         return newPiece;
     }
