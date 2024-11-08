@@ -9,20 +9,21 @@ public class GenerateMaze : MonoBehaviour
 {
     [SerializeField] private GameObject roomPrefab;
     
-    //Size?
-    [SerializeField] private int height;
-    [SerializeField] private int width;
-    
     //The grid
     private Room[,] rooms = null;
     
-    //Each room size
-    private float roomWidth;
-    private float roomHeight;
+    //Size
+    public int numX = 10;
+    public int numY = 10;
+    
+    //RoomSize
+    float roomWidth;
+    float roomHeight;
     
     //Stack for backtracking
     private Stack<Room> stack = new Stack<Room>();
 
+    //To not regenerate while making it.
     private bool generating = false;
 
     private void GetRoomSize()
@@ -43,17 +44,18 @@ public class GenerateMaze : MonoBehaviour
 
     private void Start()
     {
-        //GetRoomSize();
-        rooms = new Room[width, height];
+        GetRoomSize();
+        rooms = new Room[numX, numY];
 
-        for (int i = 0; i < width; i++)
+        for (int i = 0; i < numX; i++)
         {
-            for (int j = 0; j < height; j++)
+            for (int j = 0; j < numY; j++)
             {
                 GameObject room = Instantiate(roomPrefab, this.transform, true);
-                room.transform.position = new Vector3(this.transform.position.x + (i*7), this.transform.position.x + (j*7), 0);
+                room.transform.position = new Vector3(-2 + (i * roomWidth), -2 + (j * roomHeight), 0.0f);
                 room.name = "Room_" + i.ToString() + "_" + j.ToString();
                 rooms[i, j] = room.GetComponent<Room>();
+                rooms[i, j].Index = new Vector2Int(i, j);
             }   
         }
     }
@@ -69,7 +71,7 @@ public class GenerateMaze : MonoBehaviour
         switch (dir)
         {
             case Room.Directions.Top:
-                if (y < height -1)
+                if (y < numY -1)
                 {
                     opp = Room.Directions.Bottom;
                     ++y;
@@ -77,7 +79,7 @@ public class GenerateMaze : MonoBehaviour
 
                 break;
             case Room.Directions.Right:
-                if (x < width -1)
+                if (x < numX - 1)
                 {
                     opp = Room.Directions.Left;
                     ++x;
@@ -120,7 +122,7 @@ public class GenerateMaze : MonoBehaviour
             switch (dir)
             {
                 case Room.Directions.Top:
-                    if (y < height -1)
+                    if (y < numY -1)
                     {
                         ++y;
                         if (!rooms[x,y].visited)
@@ -131,7 +133,7 @@ public class GenerateMaze : MonoBehaviour
 
                     break;
                 case Room.Directions.Right:
-                    if (x < width -1)
+                    if (x < numX -1)
                     {
                         ++x;
                         if (!rooms[x,y].visited)
@@ -142,7 +144,7 @@ public class GenerateMaze : MonoBehaviour
 
                     break;
                 case Room.Directions.Bottom:
-                    if (y > height)
+                    if (y > 0)
                     {
                         --y;
                         if (!rooms[x,y].visited)
@@ -153,7 +155,7 @@ public class GenerateMaze : MonoBehaviour
 
                     break;
                 case Room.Directions.Left:
-                    if (x > width)
+                    if (x > 0)
                     {
                         --x;
                         if (!rooms[x,y].visited)
@@ -164,7 +166,8 @@ public class GenerateMaze : MonoBehaviour
 
                     break;
             }
-        }return neighbours;
+        }
+        return neighbours;
     }
 
     private bool GenerateStep()
@@ -202,11 +205,25 @@ public class GenerateMaze : MonoBehaviour
         Reset();
         
         RemoveRoomWall(0,0, Room.Directions.Bottom); //Inicio
-        RemoveRoomWall(width -1 , height -1, Room.Directions.Right);
+        RemoveRoomWall(numX -1 , numY -1, Room.Directions.Right);
         
         stack.Push(rooms[0,0]);
 
-        StartCoroutine(Corutine_Generate());
+        A();
+        //StartCoroutine(Corutine_Generate());
+    }
+
+    private void A()
+    {
+        generating = true;
+        bool flag = false;
+
+        while (!flag)
+        {
+            flag = GenerateStep();
+        }
+
+        generating = false;
     }
 
     IEnumerator Corutine_Generate()
@@ -225,9 +242,9 @@ public class GenerateMaze : MonoBehaviour
 
     private void Reset()
     {
-        for (int i = 0; i < width; i++)
+        for (int i = 0; i < numX; i++)
         {
-            for (int j = 0; j < height; j++)
+            for (int j = 0; j < numY; j++)
             {
                 rooms[i,j].SetDirFlag(Room.Directions.Top, true);
                 rooms[i,j].SetDirFlag(Room.Directions.Right, true);

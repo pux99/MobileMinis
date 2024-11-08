@@ -37,6 +37,11 @@ public class Room : MonoBehaviour
         walls[Directions.Right] = rightWall;
         walls[Directions.Bottom] = bottomWall;
         walls[Directions.Left] = leftWall;
+        
+        foreach (Directions dir in Enum.GetValues(typeof(Directions)))
+        {
+            dirflags[dir] = true; // Initialize flags
+        }
     }
 
     private void SetActive(Directions dir, bool flag)
