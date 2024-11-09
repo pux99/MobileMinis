@@ -5,7 +5,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class GenerateMaze : MonoBehaviour
+public class MazeManager : MonoBehaviour
 {
     [SerializeField] private GameObject roomPrefab;
     
@@ -19,6 +19,8 @@ public class GenerateMaze : MonoBehaviour
     //RoomSize
     float roomWidth;
     float roomHeight;
+    private float xOffset;
+    private float yOffset;
     
     //Stack for backtracking
     private Stack<Room> stack = new Stack<Room>();
@@ -42,9 +44,16 @@ public class GenerateMaze : MonoBehaviour
         roomHeight = maxBounds.y - minBounds.y;
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
         GetRoomSize();
+        SetOffset();
+        yield return StartCoroutine(MakeGridForMaze());
+        CreateMaze();
+    }
+
+    private IEnumerator MakeGridForMaze()
+    {
         rooms = new Room[numX, numY];
 
         for (int i = 0; i < numX; i++)
@@ -52,12 +61,21 @@ public class GenerateMaze : MonoBehaviour
             for (int j = 0; j < numY; j++)
             {
                 GameObject room = Instantiate(roomPrefab, this.transform, true);
-                room.transform.position = new Vector3(-2 + (i * roomWidth), -2 + (j * roomHeight), 0.0f);
+                room.transform.position = new Vector3( (i * roomWidth) - xOffset , (j * roomHeight) - yOffset, 0.0f);
+                
                 room.name = "Room_" + i.ToString() + "_" + j.ToString();
                 rooms[i, j] = room.GetComponent<Room>();
                 rooms[i, j].Index = new Vector2Int(i, j);
             }   
-        }
+        } 
+        yield return null;
+    }
+
+    private void SetOffset()
+    {
+        
+        xOffset = ((float)numX * roomWidth)/ 2 ;
+        yOffset = ((float)numY * roomHeight) / 2;
     }
 
     private void RemoveRoomWall(int x, int y, Room.Directions dir)
@@ -205,15 +223,14 @@ public class GenerateMaze : MonoBehaviour
         Reset();
         
         RemoveRoomWall(0,0, Room.Directions.Bottom); //Inicio
-        RemoveRoomWall(numX -1 , numY -1, Room.Directions.Right);
+        RemoveRoomWall(numX -1 , numY -1, Room.Directions.Right); //final
         
         stack.Push(rooms[0,0]);
 
-        A();
-        //StartCoroutine(Corutine_Generate());
+        GenerateMaze();
     }
 
-    private void A()
+    private void GenerateMaze()
     {
         generating = true;
         bool flag = false;
@@ -221,20 +238,6 @@ public class GenerateMaze : MonoBehaviour
         while (!flag)
         {
             flag = GenerateStep();
-        }
-
-        generating = false;
-    }
-
-    IEnumerator Corutine_Generate()
-    {
-        generating = true;
-        bool flag = false;
-
-        while (!flag)
-        {
-            flag = GenerateStep();
-            yield return new WaitForSeconds(0.05f) ;
         }
 
         generating = false;
@@ -254,15 +257,5 @@ public class GenerateMaze : MonoBehaviour
             }   
         }
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (!generating)
-            {
-                CreateMaze();
-            }
-        }
-    }
+    
 }
