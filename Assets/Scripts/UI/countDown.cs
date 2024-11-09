@@ -1,61 +1,45 @@
-    using System.Collections;
-using System.Collections.Generic;
+using Effects;
+using Minigamas.GeneralUse;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
-public class countDown : MonoBehaviour
+namespace UI
 {
-    public UnityEngine.UI.Slider slider;
-    public UnityEngine.UI.Image shield;
-    public TextMeshProUGUI timer;
-    public float _timer = 15;
-    public float attackCooldown;
-    public GameObject perdiste;
-    public Animator animator;
-    public void ResetTimer(int time)
+    public class countDown : MonoBehaviour
     {
-        _timer = time;
-    }
-    public void addTime(int time)
-    {
-        _timer += time;
-    }
-    public void removeTime(int time)
-    {
-        _timer -= time;
-    }
-    void Update()
-    {
-        _timer-=Time.deltaTime;
-        timer.text=Mathf.CeilToInt(_timer).ToString();
-        if(_timer < 0) 
+        [SerializeField]private  TextMeshProUGUI timer;
+        [SerializeField]private float _timer = 5;
+        [SerializeField]private  float attackCooldown;
+        [SerializeField] private PlayerUIManager playerUIManager;
+        [SerializeField] private EnemyUIManager enemyUIManager;
+        [SerializeField] private DealDamage _dealDamage;
+        public void ResetTimer(int time)
         {
-            _timer = attackCooldown;
-            CountdownEndEvent();
+            _timer = time;
         }
-    }
-    public void CountdownEndEvent()
-    {
-        if (shield.enabled)
+        public void addTime(int time)
         {
-            shield.enabled = false;
-            animator.SetTrigger("ataque");
+            _timer += time;
         }
-        else
+        public void removeTime(int time)
         {
-            slider.value -= 0.25f;
-            animator.SetTrigger("ataque");
+            _timer -= time;
         }
-        if(slider.value <= 0)
+        void Update()
         {
-            LossEvent();
+            _timer-=Time.deltaTime;
+            timer.text=Mathf.CeilToInt(_timer).ToString();
+            if(_timer < 0) 
+            {
+                _timer = attackCooldown;
+                CountdownEndEvent();
+            }
         }
-    }
-    public void LossEvent()
-    {
-        perdiste.SetActive(true);
-        this.gameObject.SetActive(false);
+        private void CountdownEndEvent()
+        {
+            _dealDamage.ApplyEffect(playerUIManager.PlayerManager.PlayerHealth);
+            //playerUIManager.PlayerManager.PlayerHealth.TakeDamage(50);
+            enemyUIManager.PlayAttackAnimation();
+        }
     }
 }
