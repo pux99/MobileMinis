@@ -14,6 +14,8 @@ public class Room : MonoBehaviour
         None,
     }
 
+    private bool IsGoal = false;
+
     [SerializeField] GameObject topWall;
     [SerializeField] GameObject rightWall;
     [SerializeField] GameObject bottomWall;
@@ -44,7 +46,7 @@ public class Room : MonoBehaviour
         }
     }
 
-    private void SetActive(Directions dir, bool flag)
+    public void SetActive(Directions dir, bool flag)
     {
         walls[dir].SetActive(flag);
     }
@@ -54,4 +56,5 @@ public class Room : MonoBehaviour
         dirflags[dir] = flag;
         SetActive(dir, flag);
     }
+    
 }

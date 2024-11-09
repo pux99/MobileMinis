@@ -16,7 +16,7 @@ public class MazeManager : MonoBehaviour
     public int numX = 10;
     public int numY = 10;
     
-    //RoomSize
+    //Each RoomSize
     float roomWidth;
     float roomHeight;
     private float xOffset;
@@ -25,7 +25,7 @@ public class MazeManager : MonoBehaviour
     //Stack for backtracking
     private Stack<Room> stack = new Stack<Room>();
 
-    //To not regenerate while making it.
+    //To not break while making a maze.
     private bool generating = false;
 
     private void GetRoomSize()
@@ -217,13 +217,14 @@ public class MazeManager : MonoBehaviour
         return false;
     }
 
-    public void CreateMaze()
+    private void CreateMaze()
     {
         if (generating) return;
         Reset();
         
-        RemoveRoomWall(0,0, Room.Directions.Bottom); //Inicio
-        RemoveRoomWall(numX -1 , numY -1, Room.Directions.Right); //final
+        //Inicio y final
+        RemoveRoomWall(0,0, Room.Directions.Bottom);
+        RemoveRoomWall(numX -1 , numY -1, Room.Directions.Right);
         
         stack.Push(rooms[0,0]);
 
