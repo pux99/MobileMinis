@@ -1,262 +1,145 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class MazeManager : MonoBehaviour
 {
-    [SerializeField] private GameObject roomPrefab;
+    [SerializeField] private GameObject enemy;
+    public int sizeX;
+    public int sizeY;
     
-    //The grid
-    private Room[,] rooms = null;
-    
-    //Size
-    public int numX = 10;
-    public int numY = 10;
-    
-    //Each RoomSize
-    float roomWidth;
-    float roomHeight;
-    private float xOffset;
-    private float yOffset;
-    
-    //Stack for backtracking
-    private Stack<Room> stack = new Stack<Room>();
-
-    //To not break while making a maze.
-    private bool generating = false;
-
-    private void GetRoomSize()
-    {
-        SpriteRenderer[] spriteRenderers = roomPrefab.GetComponentsInChildren<SpriteRenderer>();
-        Vector3 minBounds = Vector3.positiveInfinity;
-        Vector3 maxBounds = Vector3.negativeInfinity;
-
-        foreach (SpriteRenderer ren in spriteRenderers)
-        {
-            minBounds = Vector3.Min(minBounds, ren.bounds.max);
-            maxBounds = Vector3.Max(maxBounds, ren.bounds.max);
-        }
-
-        roomWidth = maxBounds.x - minBounds.x;
-        roomHeight = maxBounds.y - minBounds.y;
-    }
-
+    private List<int> shortestPath;
     private IEnumerator Start()
     {
-        GetRoomSize();
-        SetOffset();
-        yield return StartCoroutine(MakeGridForMaze());
-        CreateMaze();
-    }
-
-    private IEnumerator MakeGridForMaze()
-    {
-        rooms = new Room[numX, numY];
-
-        for (int i = 0; i < numX; i++)
-        {
-            for (int j = 0; j < numY; j++)
-            {
-                GameObject room = Instantiate(roomPrefab, this.transform, true);
-                room.transform.position = new Vector3( (i * roomWidth) - xOffset , (j * roomHeight) - yOffset, 0.0f);
-                
-                room.name = "Room_" + i.ToString() + "_" + j.ToString();
-                rooms[i, j] = room.GetComponent<Room>();
-                rooms[i, j].Index = new Vector2Int(i, j);
-            }   
-        } 
-        yield return null;
-    }
-
-    private void SetOffset()
-    {
+        yield return StartCoroutine(MazeFactory.Instance.MakeMaze(sizeX, sizeY));
+        int[,] MAdy = MazeFactory.Instance.CreateAdjacencyMatrix();
         
-        xOffset = ((float)numX * roomWidth)/ 2 ;
-        yOffset = ((float)numY * roomHeight) / 2;
-    }
-
-    private void RemoveRoomWall(int x, int y, Room.Directions dir)
-    {
-        if (dir != Room.Directions.None)
-        {
-            rooms[x,y].SetDirFlag(dir, false);
-        }
-
-        Room.Directions opp = Room.Directions.None;
-        switch (dir)
-        {
-            case Room.Directions.Top:
-                if (y < numY -1)
-                {
-                    opp = Room.Directions.Bottom;
-                    ++y;
-                }
-
-                break;
-            case Room.Directions.Right:
-                if (x < numX - 1)
-                {
-                    opp = Room.Directions.Left;
-                    ++x;
-                }
-
-                break;
-            case Room.Directions.Bottom:
-                if (y > 0)
-                {
-                    opp = Room.Directions.Top;
-                    --y;
-                }
-
-                break;
-            case Room.Directions.Left:
-                if (x > 0)
-                {
-                    opp = Room.Directions.Right;
-                    --x;
-                }
-
-                break;
-        }
-        if (opp != Room.Directions.None)
-        {
-            rooms[x,y].SetDirFlag(opp,false);
-        }
+        int startNode = 0;
+        int endNode = sizeX * sizeY - 1;
         
-    }
-
-    public List<Tuple<Room.Directions, Room>> GetNeighboursNotVisited(int cx, int cy)
-    {
-        List<Tuple<Room.Directions, Room>> neighbours = new List<Tuple<Room.Directions, Room>>();
-
-        foreach (Room.Directions dir in Enum.GetValues(typeof(Room.Directions)))
-        {
-            int x = cx;
-            int y = cy;
-
-            switch (dir)
-            {
-                case Room.Directions.Top:
-                    if (y < numY -1)
-                    {
-                        ++y;
-                        if (!rooms[x,y].visited)
-                        {
-                         neighbours.Add(new Tuple<Room.Directions, Room>(Room.Directions.Top, rooms[x,y]));   
-                        }
-                    }
-
-                    break;
-                case Room.Directions.Right:
-                    if (x < numX -1)
-                    {
-                        ++x;
-                        if (!rooms[x,y].visited)
-                        {
-                            neighbours.Add(new Tuple<Room.Directions, Room>(Room.Directions.Right, rooms[x,y]));   
-                        }
-                    }
-
-                    break;
-                case Room.Directions.Bottom:
-                    if (y > 0)
-                    {
-                        --y;
-                        if (!rooms[x,y].visited)
-                        {
-                            neighbours.Add(new Tuple<Room.Directions, Room>(Room.Directions.Bottom, rooms[x,y]));   
-                        }
-                    }
-
-                    break;
-                case Room.Directions.Left:
-                    if (x > 0)
-                    {
-                        --x;
-                        if (!rooms[x,y].visited)
-                        {
-                            neighbours.Add(new Tuple<Room.Directions, Room>(Room.Directions.Left, rooms[x,y]));   
-                        }
-                    }
-
-                    break;
-            }
-        }
-        return neighbours;
-    }
-
-    private bool GenerateStep()
-    {
-        if (stack.Count == 0) return true;
-
-        Room r = stack.Peek();
-        var neighbours = GetNeighboursNotVisited(r.Index.x, r.Index.y);
-
-        if (neighbours.Count !=0 )
-        {
-            var index = 0;
-            if (neighbours.Count > 1)
-            {
-                index = UnityEngine.Random.Range(0, neighbours.Count);
-            }
-
-            var item = neighbours[index];
-            Room neighbour = item.Item2;
-            neighbour.visited = true;
-            RemoveRoomWall(r.Index.x, r.Index.y, item.Item1);
-            
-            stack.Push(neighbour);
-        }
-        else
-        {
-            stack.Pop();
-        }
-        return false;
-    }
-
-    private void CreateMaze()
-    {
-        if (generating) return;
-        Reset();
+        shortestPath = Dijkstra(MAdy, startNode, endNode);
         
-        //Inicio y final
-        RemoveRoomWall(0,0, Room.Directions.Bottom);
-        RemoveRoomWall(numX -1 , numY -1, Room.Directions.Right);
-        
-        stack.Push(rooms[0,0]);
-
-        GenerateMaze();
-    }
-
-    private void GenerateMaze()
-    {
-        generating = true;
-        bool flag = false;
-
-        while (!flag)
-        {
-            flag = GenerateStep();
-        }
-
-        generating = false;
-    }
-
-    private void Reset()
-    {
-        for (int i = 0; i < numX; i++)
-        {
-            for (int j = 0; j < numY; j++)
-            {
-                rooms[i,j].SetDirFlag(Room.Directions.Top, true);
-                rooms[i,j].SetDirFlag(Room.Directions.Right, true);
-                rooms[i,j].SetDirFlag(Room.Directions.Bottom, true);
-                rooms[i,j].SetDirFlag(Room.Directions.Left, true);
-                rooms[i, j].visited = false;
-            }   
-        }
+        List<Vector3> enemyPath = GetOffsetPath(shortestPath);
+        enemy.GetComponent<EnemyMovement>().SetPath(enemyPath);
     }
     
+    public List<int> Dijkstra(int[,] adjacencyMatrix, int startNode, int endNode)
+    {
+        int totalNodes = adjacencyMatrix.GetLength(0);
+        int[] distances = new int[totalNodes];
+        bool[] visited = new bool[totalNodes];
+        int[] previous = new int[totalNodes];
+        List<int> path = new List<int>();
+
+        // Initialize distances and previous nodes
+        for (int i = 0; i < totalNodes; i++)
+        {
+            distances[i] = int.MaxValue;
+            previous[i] = -1;
+            visited[i] = false;
+        }
+        distances[startNode] = 0;
+
+        // Priority queue logic: find the node with the smallest distance
+        for (int i = 0; i < totalNodes; i++)
+        {
+            int currentNode = -1;
+            int minDistance = int.MaxValue;
+            for (int j = 0; j < totalNodes; j++)
+            {
+                if (!visited[j] && distances[j] < minDistance)
+                {
+                    currentNode = j;
+                    minDistance = distances[j];
+                }
+            }
+
+            // No more nodes to process
+            if (currentNode == -1) break;
+
+            visited[currentNode] = true;
+
+            // Update distances to neighboring nodes
+            for (int neighbor = 0; neighbor < totalNodes; neighbor++)
+            {
+                if (adjacencyMatrix[currentNode, neighbor] > 0 && !visited[neighbor])
+                {
+                    int newDist = distances[currentNode] + adjacencyMatrix[currentNode, neighbor];
+                    if (newDist < distances[neighbor])
+                    {
+                        distances[neighbor] = newDist;
+                        previous[neighbor] = currentNode;
+                    }
+                }
+            }
+        }
+
+        // Reconstruct the shortest path
+        for (int at = endNode; at != -1; at = previous[at])
+        {
+            path.Insert(0, at);
+        }
+
+        // Check if path exists
+        if (path.Count == 0 || path[0] != startNode)
+        {
+            Debug.Log("No path found!");
+            return null;
+        }
+
+        return path;
+    }
+    
+    private void OnDrawGizmos()
+    {
+        if (shortestPath == null || shortestPath.Count < 2) return;
+
+        Gizmos.color = Color.green; // Set the color for the path
+
+        for (int i = 0; i < shortestPath.Count - 1; i++)
+        {
+            int currentIndex = shortestPath[i];
+            int nextIndex = shortestPath[i + 1];
+
+            // Convert indices back to (x, y) positions
+            int currentX = currentIndex / sizeY;
+            int currentY = currentIndex % sizeY;
+            int nextX = nextIndex / sizeY;
+            int nextY = nextIndex % sizeY;
+
+            Room currentRoom = MazeFactory.Instance.rooms[currentX, currentY];
+            Room nextRoom = MazeFactory.Instance.rooms[nextX, nextY];
+
+            if (currentRoom != null && nextRoom != null)
+            {
+                Vector3 currentPos = currentRoom.transform.position;
+                Vector3 nextPos = nextRoom.transform.position;
+
+                // Draw line between the current and next positions
+                Gizmos.DrawLine(currentPos, nextPos);
+            }
+        }
+    }
+
+    private List<Vector3> GetOffsetPath(List<int> path)
+    {
+        List<Vector3> offsetPath = new List<Vector3>();
+
+        foreach (int index in path)
+        {
+            int x = index / sizeX;
+            int y = index % sizeY;
+            Room room = MazeFactory.Instance.rooms[x, y];
+            
+            if (room != null)
+            {
+                Vector3 originalPosition = room.transform.position;
+                Vector3 offsetPosition = originalPosition + new Vector3(MazeFactory.Instance.roomWidth / 2, MazeFactory.Instance.roomHeight / 2, 0);
+                offsetPath.Add(offsetPosition);
+            }
+        }
+
+        return offsetPath;
+    }
 }

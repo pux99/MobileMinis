@@ -14,8 +14,6 @@ public class Room : MonoBehaviour
         None,
     }
 
-    private bool IsGoal = false;
-
     [SerializeField] GameObject topWall;
     [SerializeField] GameObject rightWall;
     [SerializeField] GameObject bottomWall;
@@ -23,6 +21,10 @@ public class Room : MonoBehaviour
 
     private Dictionary<Directions, GameObject> walls = new Dictionary<Directions, GameObject>();
 
+    //Dijkstra
+    public float Distance { get; set; } = float.MaxValue;
+    public Room PreviousRoom { get; set; } = null;
+    
     public Vector2Int Index
     {
         get;
@@ -56,5 +58,9 @@ public class Room : MonoBehaviour
         dirflags[dir] = flag;
         SetActive(dir, flag);
     }
-    
+
+    public bool GetDirFlag(Directions dir)
+    {
+        return dirflags[dir];
+    }
 }
