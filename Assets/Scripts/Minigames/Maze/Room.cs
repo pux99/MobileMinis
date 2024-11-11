@@ -21,6 +21,10 @@ public class Room : MonoBehaviour
 
     private Dictionary<Directions, GameObject> walls = new Dictionary<Directions, GameObject>();
 
+    //Dijkstra
+    public float Distance { get; set; } = float.MaxValue;
+    public Room PreviousRoom { get; set; } = null;
+    
     public Vector2Int Index
     {
         get;
@@ -44,7 +48,7 @@ public class Room : MonoBehaviour
         }
     }
 
-    private void SetActive(Directions dir, bool flag)
+    public void SetActive(Directions dir, bool flag)
     {
         walls[dir].SetActive(flag);
     }
@@ -53,5 +57,10 @@ public class Room : MonoBehaviour
     {
         dirflags[dir] = flag;
         SetActive(dir, flag);
+    }
+
+    public bool GetDirFlag(Directions dir)
+    {
+        return dirflags[dir];
     }
 }
