@@ -1,36 +1,121 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MazeManager : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject playerPrefab;
-    public int sizeX;
-    public int sizeY;
-
-    private List<Vector3> enemyPath;
+    private GameObject _player;
+    private GameObject _enemy;
     
-    private List<int> shortestPath;
-    private void Start()
+    //Maze Size
+    [SerializeField]private int _sizeX;
+    [SerializeField]private int _sizeY;
+    
+    //Enemy pathing
+    private List<int> _shortestPath;
+    private List<Vector3> _enemyPath;
+    
+    //Events
+    public event Action WinMinigame;
+    public event Action LostMinigame;
+    
+    //Singleton
+    public static MazeManager Instance { get; private set; }
+    private void Awake()
     {
-        StartCoroutine(StartRoutine());
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    
+    //First things first
+    private bool _grid = false;
+    public IEnumerator InitializeMinigameSequence()
+    {
+        if (!_grid)
+        {
+            yield return StartCoroutine(GenerateGrid());
+            _grid = true;
+        }
+        yield return StartCoroutine(GenerateMaze());
+        StartMinigame();
+    }
+    
+    private IEnumerator GenerateGrid()
+    {
+        yield return StartCoroutine(MazeFactory.Instance.MakeGrid(_sizeX, _sizeY));
     }
 
-    private IEnumerator StartRoutine()
+    private IEnumerator GenerateMaze()
     {
-        yield return StartCoroutine(MazeFactory.Instance.MakeMaze(sizeX, sizeY));
-        int[,] MAdy = MazeFactory.Instance.CreateAdjacencyMatrix();
+        yield return StartCoroutine(MazeFactory.Instance.CreateMaze());
+        MazeFactory.Instance.SetFinnishLine();
+    }
+    
+    //Methods
+    private void StartMinigame()
+    {
+        GetEnemyPath();
+        SetRunners();
+    }
+    public void ResetMinigame()
+    {
+        MazeFactory.Instance.Reset();
+        StartCoroutine(MazeFactory.Instance.CreateMaze());
+        DestroyRunners();
+    }
+    private void GetEnemyPath()
+    {
+        int[,] mAdy = MazeFactory.Instance.CreateAdjacencyMatrix();
         
         int startNode = 0;
-        int endNode = sizeX * sizeY - 1;
+        int endNode = _sizeX * _sizeY - 1;
         
-        shortestPath = Dijkstra(MAdy, startNode, endNode);
+        _shortestPath = Dijkstra(mAdy, startNode, endNode);
         
-        enemyPath = GetOffsetPath(shortestPath);
-        StartGame();
+        _enemyPath = GetOffsetPath(_shortestPath);
     }
+    private void SetRunners()
+    {
+        var pos = new Vector3(MazeFactory.Instance.rooms[0,0].transform.position.x + (MazeFactory.Instance.roomWidth/2), MazeFactory.Instance.rooms[0,0].transform.position.y + (MazeFactory.Instance.roomHeight/2), 0);
+        
+        _player = Instantiate(playerPrefab, this.transform, true);
+        _player.transform.position = pos;
+        
+        
+        _enemy = Instantiate(enemyPrefab, this.transform, true);
+        _enemy.transform.position = pos;
+        _enemy.GetComponent<EnemyMovement>().SetPath(_enemyPath);
+    }
+    private void DestroyRunners()
+    { 
+        Destroy(_player); 
+        Destroy(_enemy);
+    }
+    public void EndGame(bool victory)
+    {
+        if (victory)
+        {
+            WinMinigame?.Invoke();
+        }
+        else
+        {
+            LostMinigame?.Invoke();
+        }
+    }
+    
+    //Utility & Dijkstra
     private List<int> Dijkstra(int[,] adjacencyMatrix, int startNode, int endNode)
     {
         int totalNodes = adjacencyMatrix.GetLength(0);
@@ -61,7 +146,7 @@ public class MazeManager : MonoBehaviour
                     minDistance = distances[j];
                 }
             }
-
+                
             // No more nodes to process
             if (currentNode == -1) break;
 
@@ -99,20 +184,20 @@ public class MazeManager : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        if (shortestPath == null || shortestPath.Count < 2) return;
+        if (_shortestPath == null || _shortestPath.Count < 2) return;
 
         Gizmos.color = Color.green; // Set the color for the path
 
-        for (int i = 0; i < shortestPath.Count - 1; i++)
+        for (int i = 0; i < _shortestPath.Count - 1; i++)
         {
-            int currentIndex = shortestPath[i];
-            int nextIndex = shortestPath[i + 1];
+            int currentIndex = _shortestPath[i];
+            int nextIndex = _shortestPath[i + 1];
 
             // Convert indices back to (x, y) positions
-            int currentX = currentIndex / sizeY;
-            int currentY = currentIndex % sizeY;
-            int nextX = nextIndex / sizeY;
-            int nextY = nextIndex % sizeY;
+            int currentX = currentIndex / _sizeY;
+            int currentY = currentIndex % _sizeY;
+            int nextX = nextIndex / _sizeY;
+            int nextY = nextIndex % _sizeY;
 
             Room currentRoom = MazeFactory.Instance.rooms[currentX, currentY];
             Room nextRoom = MazeFactory.Instance.rooms[nextX, nextY];
@@ -133,8 +218,8 @@ public class MazeManager : MonoBehaviour
 
         foreach (int index in path)
         {
-            int x = index / sizeX;
-            int y = index % sizeY;
+            int x = index / _sizeX;
+            int y = index % _sizeY;
             Room room = MazeFactory.Instance.rooms[x, y];
             
             if (room != null)
@@ -146,52 +231,5 @@ public class MazeManager : MonoBehaviour
         }
 
         return offsetPath;
-    }
-
-    private void StartGame()
-    {
-        MazeFactory.Instance.SetFinnishLine();
-        
-        var pos = new Vector3(MazeFactory.Instance.rooms[0,0].transform.position.x + (MazeFactory.Instance.roomWidth/2), MazeFactory.Instance.rooms[0,0].transform.position.y + (MazeFactory.Instance.roomHeight/2), 0);
-        
-        player = Instantiate(playerPrefab, this.transform, true);
-        player.transform.position = pos;
-        
-        
-        enemy = Instantiate(enemyPrefab, this.transform, true);
-        enemy.transform.position = pos;
-        enemy.GetComponent<EnemyMovement>().SetPath(enemyPath);
-    }
-
-    private GameObject player;
-    private GameObject enemy;
-    public void EndGame(bool victory)
-    {
-        if (victory)
-        {
-            Debug.Log("El player hace X damage al enemigo!");
-        }
-        player.GetComponent<PlayerMovement>().Kill();
-        enemy.GetComponent<EnemyMovement>().Kill();
-        MazeFactory.Instance.Reset();
-        MazeFactory.Instance.CreateMaze();
-        StartGame();
-    }
-    private void RestartGame()
-    {
-        MazeFactory.Instance.CreateMaze();
-    }
-    public static MazeManager Instance { get; private set; }
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 }

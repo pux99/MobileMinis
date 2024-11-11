@@ -22,18 +22,12 @@ public class Room : MonoBehaviour
 
     private Dictionary<Directions, GameObject> walls = new Dictionary<Directions, GameObject>();
     
-    
-    public Vector2Int Index
-    {
-        get;
-        set;
-    }
-
+    public Vector2Int Index { get; set; }
     public bool visited { get; set; } = false;
 
     private Dictionary<Directions, bool> dirflags = new Dictionary<Directions, bool>();
 
-    private void Start()
+    private void Awake()
     {
         walls[Directions.Top] = topWall;
         walls[Directions.Right] = rightWall;
@@ -42,7 +36,7 @@ public class Room : MonoBehaviour
         
         foreach (Directions dir in Enum.GetValues(typeof(Directions)))
         {
-            dirflags[dir] = true; // Initialize flags
+            dirflags[dir] = true;
         }
     }
 
