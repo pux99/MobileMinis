@@ -1,29 +1,37 @@
-using Effects;
-using Minigamas.GeneralUse;
+using System;
 using TMPro;
 using UnityEngine;
 
 namespace UI
 {
-    public class countDown : MonoBehaviour
+    public class CountDown : MonoBehaviour
     {
         [SerializeField]private  TextMeshProUGUI timer;
         [SerializeField]private float _timer = 5;
         [SerializeField]private  float attackCooldown;
-        [SerializeField] private PlayerUIManager playerUIManager;
-        [SerializeField] private EnemyUIManager enemyUIManager;
-        [SerializeField] private DealDamage _dealDamage;
-        public void ResetTimer(int time)
+        public Action CountdownEnd;
+
+        public void SetAttackCooldown(float cooldown)
+        {
+            attackCooldown = cooldown;
+        }
+        public void ResetTimer(float time)
         {
             _timer = time;
         }
-        public void addTime(int time)
+        public void AddTime(float time)
         {
             _timer += time;
         }
-        public void removeTime(int time)
+        public void RemoveTime(float time)
         {
             _timer -= time;
+        }
+
+        public void TurnOffCountdown()
+        {
+            ResetTimer(attackCooldown);
+            gameObject.SetActive(false);
         }
         void Update()
         {
@@ -37,9 +45,7 @@ namespace UI
         }
         private void CountdownEndEvent()
         {
-            _dealDamage.ApplyEffect(playerUIManager.PlayerManager.PlayerHealth);
-            //playerUIManager.PlayerManager.PlayerHealth.TakeDamage(50);
-            enemyUIManager.PlayAttackAnimation();
+            CountdownEnd?.Invoke();
         }
     }
 }

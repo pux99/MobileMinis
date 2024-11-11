@@ -20,7 +20,7 @@ namespace UI
                 healthSlider.value = newHp / (float)maxHp;
         }
         public void ShieldChange(bool state)
-        {
+            {
             shield.SetActive(state);
         }
     }

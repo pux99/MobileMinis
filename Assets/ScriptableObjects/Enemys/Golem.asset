@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 097adb4fb745b5f41819c86cdc79d8c8, type: 3}
+  m_Name: Golem
+  m_EditorClassIdentifier: 
+  enemyArt: {fileID: 1793822818, guid: 32da54a22ff1f3b4cb29c5a7afffbec4, type: 3}
+  enemyAttack: {fileID: 2903877290141185441, guid: 92f7cb5a00f907346af1f8d13d49fe55, type: 3}
+  maxLife: 100
+  damage: 10
+  attackFrequency: 10

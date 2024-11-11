@@ -7,7 +7,7 @@ namespace Effects
     [Serializable]
     public abstract class Effect : MonoBehaviour
     {
-        public virtual void ApplyEffect(UHealth receiver)
+        public virtual void ApplyEffect(UHealth receiver,float value)
         {
         
         }

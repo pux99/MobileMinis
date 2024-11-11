@@ -1,12 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace HealthSystem
 {
     public class UHealth : MonoBehaviour
     {
         [SerializeField] private int maxHp;
-        [SerializeField] private int StartingHp;
+        [FormerlySerializedAs("StartingHp")] [SerializeField] private int startingHp;
         private Health _health ;
         public Action OnDead;
         public Action<int,int> OnLifeChange;
@@ -14,7 +15,7 @@ namespace HealthSystem
 
         private void Awake()
         {
-            _health = new Health(maxHp,StartingHp);
+            _health = new Health(maxHp,startingHp);
             _health.OnHeal +=LifeChange ;
             _health.OnDamage += LifeChange;
             _health.OnDeath += Death;
@@ -56,6 +57,11 @@ namespace HealthSystem
         void Death()
         {
             OnDead?.Invoke();
+        }
+
+        public void SetMaxHp(int maxHP)
+        {
+            _health.MaxHp = maxHP;
         }
     }
 }

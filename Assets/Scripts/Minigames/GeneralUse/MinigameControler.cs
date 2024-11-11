@@ -1,32 +1,48 @@
-using System;
-using Effects;
+using ManagerScripts;
+using Minigames.Weapons;
 using UnityEngine;
 
-namespace Minigamas.GeneralUse
+namespace Minigames.GeneralUse
 {
     public abstract class MinigameController : MonoBehaviour
     {
-        [SerializeField] private Effect effect;
+        public BattleManager battleManager;
+        public Weapon minigameWeapon;
 
+        protected virtual void Start()
+        {
+            DungeonManager.Instance.StartNewCombat += StartMinigame;
+            DungeonManager.Instance.WinTheCombat += FinishingMinigame;
+            DungeonManager.Instance.LossTheDungeon += FinishingMinigame;
+        }
 
-        public void StartMinigame()
+        protected virtual void StartMinigame()
         {
         
         }
-
-        public void ChangeToOtherMinigame()
+        protected virtual void WiningMinigame()
         {
         
         }
-
-        public void ResetMinigame()
+        
+        protected virtual void LosingMinigame()
         {
             
         }
 
-        public void FinishingMinigame()
+        public virtual void ChangeToOtherMinigame()
+        {
+        
+        }
+
+        public virtual void ResetMinigame()
         {
             
+        }
+
+        public virtual void FinishingMinigame()
+        {
+            ResetMinigame();
         }
     
     }
