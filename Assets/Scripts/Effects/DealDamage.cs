@@ -1,14 +1,15 @@
 using HealthSystem;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Effects
 {
     public class DealDamage : Effect
     {
         [SerializeField] private int damage;
-        public override void ApplyEffect(UHealth receiver)
+        public override void ApplyEffect(UHealth receiver,float value)
         {
-            receiver.TakeDamage(damage);
+            receiver.TakeDamage((int)value);
         }
     }
 }

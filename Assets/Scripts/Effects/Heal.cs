@@ -7,9 +7,9 @@ namespace Effects
     {
         [SerializeField] private int heal;
 
-        public override void ApplyEffect(UHealth receiver)
+        public override void ApplyEffect(UHealth receiver, float value)
         {
-            receiver.Heal(heal);
+            receiver.Heal((int)value);
         }
     }
 }
