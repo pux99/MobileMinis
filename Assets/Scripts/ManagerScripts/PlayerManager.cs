@@ -1,5 +1,3 @@
-using System;
-using Effects;
 using HealthSystem;
 using UI;
 using UnityEngine;
@@ -11,7 +9,6 @@ namespace ManagerScripts
         [SerializeField] private UHealth playerHealthManager ;
         [SerializeField] private UIHealth uiHealth;
         public UHealth PlayerHealth => playerHealthManager;
-        [SerializeField] private EnemyManager enemyManager;
         [SerializeField] private BattleManager battleManager;
 
         private void Start()

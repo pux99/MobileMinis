@@ -31,14 +31,14 @@ namespace ManagerScripts
         void Start()
         {
             battleManager.CombatWin += EndOfCombat;
-            battleManager.CombatLoss += LosingCombat;
+            battleManager.OnLoseCombat += HandleLoseCombat;
         }
         private void EndOfCombat()
         {
             WinTheCombat?.Invoke();
             Debug.Log("win!!!!!!");
         }
-        private void LosingCombat()
+        private void HandleLoseCombat()
         {
             LossTheDungeon?.Invoke();
             Debug.Log("Loss!!!!!!");
