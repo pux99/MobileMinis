@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UIElements;
 
 public class MazeFactory : MonoBehaviour
 {
@@ -19,8 +20,8 @@ public class MazeFactory : MonoBehaviour
     //Each RoomSize
     public float roomWidth;
     public float roomHeight;
-    private float xOffset;
-    private float yOffset;
+    public float xOffset;
+    public float yOffset;
     
     //Stack for backtracking (depth-first search)
     private Stack<Room> stack = new Stack<Room>();
@@ -39,7 +40,6 @@ public class MazeFactory : MonoBehaviour
         yield return StartCoroutine(MakeGridForMaze());
         CreateMaze();
     }
-    
     private void GetRoomSize()
     {
         SpriteRenderer[] spriteRenderers = roomPrefab.GetComponentsInChildren<SpriteRenderer>();
@@ -77,6 +77,15 @@ public class MazeFactory : MonoBehaviour
             }   
         } 
         yield return null;
+    }
+    public void CreateMaze()
+    {
+        if (generating) return;
+        Reset();
+        
+        stack.Push(rooms[0,0]);
+
+        GenerateMaze();
     }
     private void RemoveRoomWall(int x, int y, Room.Directions dir)
     {
@@ -126,6 +135,46 @@ public class MazeFactory : MonoBehaviour
             rooms[x,y].SetDirFlag(opp,false);
         }
         
+    }
+    private void GenerateMaze()
+    {
+        generating = true;
+        bool flag = false;
+
+        while (!flag)
+        {
+            flag = GenerateStep();
+        }
+
+        generating = false;
+    }
+    private bool GenerateStep()
+    {
+        if (stack.Count == 0) return true;
+
+        Room r = stack.Peek();
+        var neighbours = GetNeighboursNotVisited(r.Index.x, r.Index.y);
+
+        if (neighbours.Count !=0 )
+        {
+            var index = 0;
+            if (neighbours.Count > 1)
+            {
+                index = UnityEngine.Random.Range(0, neighbours.Count);
+            }
+
+            var item = neighbours[index];
+            Room neighbour = item.Item2;
+            neighbour.visited = true;
+            RemoveRoomWall(r.Index.x, r.Index.y, item.Item1);
+            
+            stack.Push(neighbour);
+        }
+        else
+        {
+            stack.Pop();
+        }
+        return false;
     }
     private List<Tuple<Room.Directions, Room>> GetNeighboursNotVisited(int cx, int cy)
     {
@@ -186,60 +235,7 @@ public class MazeFactory : MonoBehaviour
         }
         return neighbours;
     }
-    private bool GenerateStep()
-    {
-        if (stack.Count == 0) return true;
-
-        Room r = stack.Peek();
-        var neighbours = GetNeighboursNotVisited(r.Index.x, r.Index.y);
-
-        if (neighbours.Count !=0 )
-        {
-            var index = 0;
-            if (neighbours.Count > 1)
-            {
-                index = UnityEngine.Random.Range(0, neighbours.Count);
-            }
-
-            var item = neighbours[index];
-            Room neighbour = item.Item2;
-            neighbour.visited = true;
-            RemoveRoomWall(r.Index.x, r.Index.y, item.Item1);
-            
-            stack.Push(neighbour);
-        }
-        else
-        {
-            stack.Pop();
-        }
-        return false;
-    }
-    private void CreateMaze()
-    {
-        if (generating) return;
-        Reset();
-        
-        //Start & End
-        RemoveRoomWall(0,0, Room.Directions.Bottom);
-        RemoveRoomWall(_numX -1 , _numY -1, Room.Directions.Right);
-        
-        stack.Push(rooms[0,0]);
-
-        GenerateMaze();
-    }
-    private void GenerateMaze()
-    {
-        generating = true;
-        bool flag = false;
-
-        while (!flag)
-        {
-            flag = GenerateStep();
-        }
-
-        generating = false;
-    }
-    private void Reset()
+    public void Reset()
     {
         for (int i = 0; i < _numX; i++)
         {
@@ -253,6 +249,8 @@ public class MazeFactory : MonoBehaviour
             }   
         }
     }
+    
+    
     public static MazeFactory Instance { get; private set; }
     private void Awake()
     {
@@ -328,5 +326,10 @@ public class MazeFactory : MonoBehaviour
     
     return adjacencyMatrix;
 }
+
+    public void SetFinnishLine()
+    {
+        rooms[_numX - 1, _numY - 1].SetFinnishLine();
+    }
 
 }

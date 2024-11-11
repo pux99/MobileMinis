@@ -18,12 +18,10 @@ public class Room : MonoBehaviour
     [SerializeField] GameObject rightWall;
     [SerializeField] GameObject bottomWall;
     [SerializeField] GameObject leftWall;
+    [SerializeField] GameObject floor;
 
     private Dictionary<Directions, GameObject> walls = new Dictionary<Directions, GameObject>();
-
-    //Dijkstra
-    public float Distance { get; set; } = float.MaxValue;
-    public Room PreviousRoom { get; set; } = null;
+    
     
     public Vector2Int Index
     {
@@ -62,5 +60,12 @@ public class Room : MonoBehaviour
     public bool GetDirFlag(Directions dir)
     {
         return dirflags[dir];
+    }
+
+    public void SetFinnishLine()
+    {
+        floor.GetComponent<SpriteRenderer>().color = Color.yellow;
+        floor.GetComponent<BoxCollider2D>().enabled = true;
+        floor.AddComponent<EndLine>();
     }
 }

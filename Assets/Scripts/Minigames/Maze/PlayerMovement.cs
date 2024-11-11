@@ -51,4 +51,9 @@ public class PlayerMovement : MonoBehaviour
             RaycastHit2D hit = Physics2D.CircleCast(transform.position, rad, direction, distance, LayerMask.GetMask("Wall"));
             return hit.collider == null;
         }
+
+    public void Kill()
+    {
+        Destroy(this.gameObject);
+    }
 }

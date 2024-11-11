@@ -5,12 +5,20 @@ using UnityEngine;
 
 public class MazeManager : MonoBehaviour
 {
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject playerPrefab;
     public int sizeX;
     public int sizeY;
+
+    private List<Vector3> enemyPath;
     
     private List<int> shortestPath;
-    private IEnumerator Start()
+    private void Start()
+    {
+        StartCoroutine(StartRoutine());
+    }
+
+    private IEnumerator StartRoutine()
     {
         yield return StartCoroutine(MazeFactory.Instance.MakeMaze(sizeX, sizeY));
         int[,] MAdy = MazeFactory.Instance.CreateAdjacencyMatrix();
@@ -20,11 +28,10 @@ public class MazeManager : MonoBehaviour
         
         shortestPath = Dijkstra(MAdy, startNode, endNode);
         
-        List<Vector3> enemyPath = GetOffsetPath(shortestPath);
-        enemy.GetComponent<EnemyMovement>().SetPath(enemyPath);
+        enemyPath = GetOffsetPath(shortestPath);
+        StartGame();
     }
-    
-    public List<int> Dijkstra(int[,] adjacencyMatrix, int startNode, int endNode)
+    private List<int> Dijkstra(int[,] adjacencyMatrix, int startNode, int endNode)
     {
         int totalNodes = adjacencyMatrix.GetLength(0);
         int[] distances = new int[totalNodes];
@@ -90,7 +97,6 @@ public class MazeManager : MonoBehaviour
 
         return path;
     }
-    
     private void OnDrawGizmos()
     {
         if (shortestPath == null || shortestPath.Count < 2) return;
@@ -121,7 +127,6 @@ public class MazeManager : MonoBehaviour
             }
         }
     }
-
     private List<Vector3> GetOffsetPath(List<int> path)
     {
         List<Vector3> offsetPath = new List<Vector3>();
@@ -141,5 +146,52 @@ public class MazeManager : MonoBehaviour
         }
 
         return offsetPath;
+    }
+
+    private void StartGame()
+    {
+        MazeFactory.Instance.SetFinnishLine();
+        
+        var pos = new Vector3(MazeFactory.Instance.rooms[0,0].transform.position.x + (MazeFactory.Instance.roomWidth/2), MazeFactory.Instance.rooms[0,0].transform.position.y + (MazeFactory.Instance.roomHeight/2), 0);
+        
+        player = Instantiate(playerPrefab, this.transform, true);
+        player.transform.position = pos;
+        
+        
+        enemy = Instantiate(enemyPrefab, this.transform, true);
+        enemy.transform.position = pos;
+        enemy.GetComponent<EnemyMovement>().SetPath(enemyPath);
+    }
+
+    private GameObject player;
+    private GameObject enemy;
+    public void EndGame(bool victory)
+    {
+        if (victory)
+        {
+            Debug.Log("El player hace X damage al enemigo!");
+        }
+        player.GetComponent<PlayerMovement>().Kill();
+        enemy.GetComponent<EnemyMovement>().Kill();
+        MazeFactory.Instance.Reset();
+        MazeFactory.Instance.CreateMaze();
+        StartGame();
+    }
+    private void RestartGame()
+    {
+        MazeFactory.Instance.CreateMaze();
+    }
+    public static MazeManager Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
