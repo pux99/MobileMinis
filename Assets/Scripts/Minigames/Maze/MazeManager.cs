@@ -91,7 +91,10 @@ public class MazeManager : MonoBehaviour
         if (!RunnersAlive)
         {
             _player = Instantiate(playerPrefab, this.transform, true);
+            _player.transform.localScale *= MazeFactory.Instance.scaleFactor;
+            
             _enemy = Instantiate(enemyPrefab, this.transform, true);
+            _enemy.transform.localScale *= MazeFactory.Instance.scaleFactor;
             RunnersAlive = true;
         }
         var pos = new Vector3(MazeFactory.Instance.rooms[0,0].transform.position.x + (MazeFactory.Instance.roomSize/2), MazeFactory.Instance.rooms[0,0].transform.position.y + (MazeFactory.Instance.roomSize/2), 0);
@@ -184,7 +187,7 @@ public class MazeManager : MonoBehaviour
     {
         if (_shortestPath == null || _shortestPath.Count < 2) return;
 
-        Gizmos.color = Color.green; // Set the color for the path
+        Gizmos.color = Color.blue; // Set the color for the path
 
         for (int i = 0; i < _shortestPath.Count - 1; i++)
         {

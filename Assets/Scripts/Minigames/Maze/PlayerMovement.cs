@@ -8,7 +8,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isDragging = false;
     private Camera cam;
     private Rigidbody2D rb;
-    private float rad = .15f;
+    public float rad;
+    
+    SpriteRenderer spriteRenderer;
 
     [SerializeField] private float speed;
 
@@ -16,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        rad = (spriteRenderer.bounds.size.x / 2f) * .85f ;
         cam = Camera.main;
     }
 
@@ -47,13 +51,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     private bool CanMoveTowards(Vector2 direction, float distance)
-        {
-            RaycastHit2D hit = Physics2D.CircleCast(transform.position, rad, direction, distance, LayerMask.GetMask("Wall"));
-            return hit.collider == null;
-        }
-
-    public void Kill()
     {
-        Destroy(this.gameObject);
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, rad, direction, distance, LayerMask.GetMask("Wall"));
+        return hit.collider == null;
     }
 }

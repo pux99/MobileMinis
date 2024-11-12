@@ -10,7 +10,7 @@ public class MazeFactory : MonoBehaviour
 {
     [SerializeField] private GameObject roomPrefab;
     Camera _cam;
-    public float roomSize;
+
     
     //The grid
     public Room[,] rooms = null;
@@ -20,6 +20,8 @@ public class MazeFactory : MonoBehaviour
     private int _numY = 10;
     
     //Each RoomSize
+    [HideInInspector]public float roomSize;
+    [HideInInspector]public float scaleFactor;
     [HideInInspector] public float xOffset;
     [HideInInspector] public float yOffset;
     
@@ -64,6 +66,7 @@ public class MazeFactory : MonoBehaviour
             for (int j = 0; j < _numY; j++)
             {
                 GameObject room = Instantiate(roomPrefab, this.transform, true);
+                room.transform.localScale *= scaleFactor;
                 room.transform.position = new Vector3( (i * roomSize) + xOffset, (j * roomSize) - yOffset, 0.0f);
                 
                 room.name = "Room_" + i.ToString() + "_" + j.ToString();
@@ -77,9 +80,6 @@ public class MazeFactory : MonoBehaviour
     {
         float screenWidthWorld = _cam.ScreenToWorldPoint(new Vector3(Screen.width, 0, _cam.nearClipPlane)).x - _cam.ScreenToWorldPoint(new Vector3(0, 0, _cam.nearClipPlane)).x;
         float screenHeightWorld = (_cam.ScreenToWorldPoint(new Vector3(0, Screen.height, _cam.nearClipPlane)).y - _cam.ScreenToWorldPoint(new Vector3(0, 0, _cam.nearClipPlane)).y) *.6f;
-
-        Debug.Log("screenWidthWorld: " + screenWidthWorld);
-        Debug.Log("screenHeightWorld" + screenHeightWorld);
         
         float targetRoomWidth = screenWidthWorld / _numX;
         float targetRoomHeight = screenHeightWorld / _numY;
@@ -87,9 +87,8 @@ public class MazeFactory : MonoBehaviour
         
         float currentRoomSize = roomPrefab.transform.Find("Floor").GetComponent<SpriteRenderer>().bounds.size.x;
         
-        float scaleFactor = targetRoomSize / currentRoomSize;
+        scaleFactor = targetRoomSize / currentRoomSize;
         
-        roomPrefab.transform.localScale = new Vector3(roomPrefab.transform.localScale.x * scaleFactor, roomPrefab.transform.localScale.y * scaleFactor, 1);
         roomSize = targetRoomSize;
     }
     private void SetOffset()
