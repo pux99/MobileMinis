@@ -19,6 +19,7 @@ public class MazeManager : MonoBehaviour
     //Enemy pathing
     private List<int> _shortestPath;
     private List<Vector3> _enemyPath;
+    private bool RunnersAlive = false;
     
     //Events
     public event Action WinMinigame;
@@ -73,7 +74,6 @@ public class MazeManager : MonoBehaviour
     {
         MazeFactory.Instance.Reset();
         StartCoroutine(MazeFactory.Instance.CreateMaze());
-        DestroyRunners();
     }
     private void GetEnemyPath()
     {
@@ -88,20 +88,18 @@ public class MazeManager : MonoBehaviour
     }
     private void SetRunners()
     {
-        var pos = new Vector3(MazeFactory.Instance.rooms[0,0].transform.position.x + (MazeFactory.Instance.roomWidth/2), MazeFactory.Instance.rooms[0,0].transform.position.y + (MazeFactory.Instance.roomHeight/2), 0);
+        if (!RunnersAlive)
+        {
+            _player = Instantiate(playerPrefab, this.transform, true);
+            _enemy = Instantiate(enemyPrefab, this.transform, true);
+            RunnersAlive = true;
+        }
+        var pos = new Vector3(MazeFactory.Instance.rooms[0,0].transform.position.x + (MazeFactory.Instance.roomSize/2), MazeFactory.Instance.rooms[0,0].transform.position.y + (MazeFactory.Instance.roomSize/2), 0);
         
-        _player = Instantiate(playerPrefab, this.transform, true);
         _player.transform.position = pos;
         
-        
-        _enemy = Instantiate(enemyPrefab, this.transform, true);
         _enemy.transform.position = pos;
         _enemy.GetComponent<EnemyMovement>().SetPath(_enemyPath);
-    }
-    private void DestroyRunners()
-    { 
-        Destroy(_player); 
-        Destroy(_enemy);
     }
     public void EndGame(bool victory)
     {
@@ -225,7 +223,7 @@ public class MazeManager : MonoBehaviour
             if (room != null)
             {
                 Vector3 originalPosition = room.transform.position;
-                Vector3 offsetPosition = originalPosition + new Vector3(MazeFactory.Instance.roomWidth / 2, MazeFactory.Instance.roomHeight / 2, 0);
+                Vector3 offsetPosition = originalPosition + new Vector3(MazeFactory.Instance.roomSize / 2, MazeFactory.Instance.roomSize / 2, 0);
                 offsetPath.Add(offsetPosition);
             }
         }

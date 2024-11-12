@@ -9,6 +9,8 @@ using UnityEngine.UIElements;
 public class MazeFactory : MonoBehaviour
 {
     [SerializeField] private GameObject roomPrefab;
+    Camera _cam;
+    public float roomSize;
     
     //The grid
     public Room[,] rooms = null;
@@ -18,8 +20,6 @@ public class MazeFactory : MonoBehaviour
     private int _numY = 10;
     
     //Each RoomSize
-    [HideInInspector] public float roomWidth;
-    [HideInInspector] public float roomHeight;
     [HideInInspector] public float xOffset;
     [HideInInspector] public float yOffset;
     
@@ -42,6 +42,7 @@ public class MazeFactory : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        _cam =  Camera.main;
     }
     
     public IEnumerator MakeGrid(int sizeX, int sizeY)
@@ -63,7 +64,7 @@ public class MazeFactory : MonoBehaviour
             for (int j = 0; j < _numY; j++)
             {
                 GameObject room = Instantiate(roomPrefab, this.transform, true);
-                room.transform.position = new Vector3( (i * roomWidth) - xOffset , (j * roomHeight) - yOffset, 0.0f);
+                room.transform.position = new Vector3( (i * roomSize) + xOffset, (j * roomSize) - yOffset, 0.0f);
                 
                 room.name = "Room_" + i.ToString() + "_" + j.ToString();
                 rooms[i, j] = room.GetComponent<Room>();
@@ -74,23 +75,29 @@ public class MazeFactory : MonoBehaviour
     }
     private void GetRoomSize()
     {
-        SpriteRenderer[] spriteRenderers = roomPrefab.GetComponentsInChildren<SpriteRenderer>();
-        Vector3 minBounds = Vector3.positiveInfinity;
-        Vector3 maxBounds = Vector3.negativeInfinity;
+        float screenWidthWorld = _cam.ScreenToWorldPoint(new Vector3(Screen.width, 0, _cam.nearClipPlane)).x - _cam.ScreenToWorldPoint(new Vector3(0, 0, _cam.nearClipPlane)).x;
+        float screenHeightWorld = (_cam.ScreenToWorldPoint(new Vector3(0, Screen.height, _cam.nearClipPlane)).y - _cam.ScreenToWorldPoint(new Vector3(0, 0, _cam.nearClipPlane)).y) *.6f;
 
-        foreach (SpriteRenderer ren in spriteRenderers)
-        {
-            minBounds = Vector3.Min(minBounds, ren.bounds.max);
-            maxBounds = Vector3.Max(maxBounds, ren.bounds.max);
-        }
-
-        roomWidth = maxBounds.x - minBounds.x;
-        roomHeight = maxBounds.y - minBounds.y;
+        Debug.Log("screenWidthWorld: " + screenWidthWorld);
+        Debug.Log("screenHeightWorld" + screenHeightWorld);
+        
+        float targetRoomWidth = screenWidthWorld / _numX;
+        float targetRoomHeight = screenHeightWorld / _numY;
+        float targetRoomSize = Mathf.Min(targetRoomWidth, targetRoomHeight);
+        
+        float currentRoomSize = roomPrefab.transform.Find("Floor").GetComponent<SpriteRenderer>().bounds.size.x;
+        
+        float scaleFactor = targetRoomSize / currentRoomSize;
+        
+        roomPrefab.transform.localScale = new Vector3(roomPrefab.transform.localScale.x * scaleFactor, roomPrefab.transform.localScale.y * scaleFactor, 1);
+        roomSize = targetRoomSize;
     }
     private void SetOffset()
     {
-        xOffset = (_numX * roomWidth)/ 2 ;
-        yOffset = (_numY * roomHeight) / 2;
+        xOffset = -(_numX * roomSize) / 2f;
+        
+        float screenHeightWorld = _cam.ScreenToWorldPoint(new Vector3(0, Screen.height, _cam.nearClipPlane)).y - _cam.ScreenToWorldPoint(new Vector3(0, 0, _cam.nearClipPlane)).y;
+        yOffset = (screenHeightWorld / 3f) + roomSize/3f;
     }
 
     //Generating Random Maze
