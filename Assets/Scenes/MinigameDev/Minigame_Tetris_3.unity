@@ -473,8 +473,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5544267010055430090, guid: 991362bd79eae8a438e3769ccb9f9b56, type: 3}
   playerPrefab: {fileID: 7146516647224499102, guid: 1d97940e2b94c07448fef8fb97f8672b, type: 3}
-  _sizeX: 7
-  _sizeY: 8
+  _sizeX: 15
+  _sizeY: 15
 --- !u!114 &202543222
 MonoBehaviour:
   m_ObjectHideFlags: 0

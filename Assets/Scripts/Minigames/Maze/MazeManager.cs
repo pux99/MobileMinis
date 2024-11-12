@@ -42,6 +42,7 @@ public class MazeManager : MonoBehaviour
     
     //First things first
     private bool _grid = false;
+    
     public IEnumerator InitializeMinigameSequence()
     {
         if (!_grid)
@@ -52,12 +53,10 @@ public class MazeManager : MonoBehaviour
         yield return StartCoroutine(GenerateMaze());
         StartMinigame();
     }
-    
     private IEnumerator GenerateGrid()
     {
         yield return StartCoroutine(MazeFactory.Instance.MakeGrid(_sizeX, _sizeY));
     }
-
     private IEnumerator GenerateMaze()
     {
         yield return StartCoroutine(MazeFactory.Instance.CreateMaze());
@@ -98,6 +97,8 @@ public class MazeManager : MonoBehaviour
             RunnersAlive = true;
         }
         var pos = new Vector3(MazeFactory.Instance.rooms[0,0].transform.position.x + (MazeFactory.Instance.roomSize/2), MazeFactory.Instance.rooms[0,0].transform.position.y + (MazeFactory.Instance.roomSize/2), 0);
+        _player.SetActive(true);
+        _enemy.SetActive(true);
         
         _player.transform.position = pos;
         
@@ -114,6 +115,8 @@ public class MazeManager : MonoBehaviour
         {
             LostMinigame?.Invoke();
         }
+        _player.SetActive(false);
+        _enemy.SetActive(false);
     }
     
     //Utility & Dijkstra
@@ -219,7 +222,7 @@ public class MazeManager : MonoBehaviour
 
         foreach (int index in path)
         {
-            int x = index / _sizeX;
+            int x = index / _sizeY;
             int y = index % _sizeY;
             Room room = MazeFactory.Instance.rooms[x, y];
             
