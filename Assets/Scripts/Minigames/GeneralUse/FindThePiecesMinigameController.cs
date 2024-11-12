@@ -10,7 +10,7 @@ namespace Minigames.GeneralUse
     {
         [SerializeField] private FindThePiecesMinigame minigame;
        
-        private void Start()
+        protected override void Start()
         {
             minigame.WinMinigame += WiningMinigame;
             minigame.LossMinigame += LosingMinigame;

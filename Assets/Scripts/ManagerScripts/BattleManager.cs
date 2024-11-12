@@ -28,7 +28,7 @@ namespace ManagerScripts
         private MinigameController _supportMiniGameController;
 
         public Action CombatWin;
-        public Action CombatLoss;
+        public Action OnLoseCombat;
 
         private void Start()
         {
@@ -52,7 +52,7 @@ namespace ManagerScripts
 
         public void PLayerDefeated()
         {
-            CombatLoss?.Invoke();
+            OnLoseCombat?.Invoke();
         }
 
         public void StartNewBattle(SoEnemy enemy)
