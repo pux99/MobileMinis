@@ -5,17 +5,30 @@ using UnityEngine;
 
 public class PointsCounter : MonoBehaviour
 {
+    public static PointsCounter Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+    
     public TMP_Text counterText;
     public int currentCount = 0;
     void Start()
     {
-        DragManager.Instance.OnPiecePlaced += Count;
         counterText.text = currentCount.ToString();
     }
 
-    private void Count()
+    private void Count(int size)
     {
-        currentCount = currentCount+4;
+        currentCount += size;
         counterText.text = currentCount.ToString();
     }
 }
