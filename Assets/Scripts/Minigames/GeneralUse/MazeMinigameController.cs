@@ -20,7 +20,7 @@ namespace Minigames.GeneralUse
 
         protected override void StartMinigame()
         {
-            StartCoroutine(minigame.InitializeMinigameSequence());
+                StartCoroutine(minigame.InitializeMinigameSequence());
         }
         
         protected override void WiningMinigame()

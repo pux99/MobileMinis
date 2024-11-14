@@ -11,6 +11,7 @@ public class MazeManager : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     private GameObject _player;
     private GameObject _enemy;
+    private MazeFactory _mazeFactory;
     
     //Maze Size
     [SerializeField]private int _sizeX;
@@ -45,6 +46,7 @@ public class MazeManager : MonoBehaviour
     
     public IEnumerator InitializeMinigameSequence()
     {
+        _mazeFactory = MazeFactory.Instance;
         if (!_grid)
         {
             yield return StartCoroutine(GenerateGrid());
@@ -52,15 +54,16 @@ public class MazeManager : MonoBehaviour
         }
         yield return StartCoroutine(GenerateMaze());
         StartMinigame();
+        
     }
     private IEnumerator GenerateGrid()
     {
-        yield return StartCoroutine(MazeFactory.Instance.MakeGrid(_sizeX, _sizeY));
+        yield return StartCoroutine(_mazeFactory.MakeGrid(_sizeX, _sizeY));
     }
     private IEnumerator GenerateMaze()
     {
-        yield return StartCoroutine(MazeFactory.Instance.CreateMaze());
-        MazeFactory.Instance.SetFinnishLine();
+        yield return StartCoroutine(_mazeFactory.CreateMaze());
+        _mazeFactory.SetFinnishLine();
     }
     
     //Methods
@@ -71,17 +74,15 @@ public class MazeManager : MonoBehaviour
     }
     public void ResetMinigame()
     {
-        MazeFactory.Instance.Reset();
-        StartCoroutine(MazeFactory.Instance.CreateMaze());
+        _mazeFactory.ResetMaze();
+        StartCoroutine(_mazeFactory.CreateMaze());
     }
     private void GetEnemyPath()
     {
-        int[,] mAdy = MazeFactory.Instance.CreateAdjacencyMatrix();
+        int startNode = _mazeFactory.Vect2Vert(new Vector2Int(0, 0));;
+        int endNode = _mazeFactory.Vect2Vert(new Vector2Int(_sizeX -1 , _sizeY -1));
         
-        int startNode = 0;
-        int endNode = _sizeX * _sizeY - 1;
-        
-        _shortestPath = Dijkstra(mAdy, startNode, endNode);
+        _shortestPath = Dijkstra(_mazeFactory.MAdy, startNode, endNode);
         
         _enemyPath = GetOffsetPath(_shortestPath);
     }
@@ -90,13 +91,13 @@ public class MazeManager : MonoBehaviour
         if (!RunnersAlive)
         {
             _player = Instantiate(playerPrefab, this.transform, true);
-            _player.transform.localScale *= MazeFactory.Instance.scaleFactor;
+            _player.transform.localScale *= _mazeFactory.scaleFactor;
             
             _enemy = Instantiate(enemyPrefab, this.transform, true);
-            _enemy.transform.localScale *= MazeFactory.Instance.scaleFactor;
+            _enemy.transform.localScale *= _mazeFactory.scaleFactor;
             RunnersAlive = true;
         }
-        var pos = new Vector3(MazeFactory.Instance.rooms[0,0].transform.position.x + (MazeFactory.Instance.roomSize/2), MazeFactory.Instance.rooms[0,0].transform.position.y + (MazeFactory.Instance.roomSize/2), 0);
+        var pos = new Vector3(_mazeFactory.rooms[0,0].transform.position.x + (_mazeFactory.roomSize/2), _mazeFactory.rooms[0,0].transform.position.y + (_mazeFactory.roomSize/2), 0);
         _player.SetActive(true);
         _enemy.SetActive(true);
         
@@ -120,15 +121,14 @@ public class MazeManager : MonoBehaviour
     }
     
     //Utility & Dijkstra
-    private List<int> Dijkstra(int[,] adjacencyMatrix, int startNode, int endNode)
+    private static List<int> Dijkstra(int[,] matrix, int startNode, int endNode)
     {
-        int totalNodes = adjacencyMatrix.GetLength(0);
+        int totalNodes = matrix.GetLength(0);
         int[] distances = new int[totalNodes];
         bool[] visited = new bool[totalNodes];
         int[] previous = new int[totalNodes];
         List<int> path = new List<int>();
-
-        // Initialize distances and previous nodes
+        
         for (int i = 0; i < totalNodes; i++)
         {
             distances[i] = int.MaxValue;
@@ -136,8 +136,7 @@ public class MazeManager : MonoBehaviour
             visited[i] = false;
         }
         distances[startNode] = 0;
-
-        // Priority queue logic: find the node with the smallest distance
+        
         for (int i = 0; i < totalNodes; i++)
         {
             int currentNode = -1;
@@ -159,9 +158,9 @@ public class MazeManager : MonoBehaviour
             // Update distances to neighboring nodes
             for (int neighbor = 0; neighbor < totalNodes; neighbor++)
             {
-                if (adjacencyMatrix[currentNode, neighbor] > 0 && !visited[neighbor])
+                if (matrix[currentNode, neighbor] > 0 && !visited[neighbor])
                 {
-                    int newDist = distances[currentNode] + adjacencyMatrix[currentNode, neighbor];
+                    int newDist = distances[currentNode] + matrix[currentNode, neighbor];
                     if (newDist < distances[neighbor])
                     {
                         distances[neighbor] = newDist;
@@ -186,36 +185,6 @@ public class MazeManager : MonoBehaviour
 
         return path;
     }
-    private void OnDrawGizmos()
-    {
-        if (_shortestPath == null || _shortestPath.Count < 2) return;
-
-        Gizmos.color = Color.blue; // Set the color for the path
-
-        for (int i = 0; i < _shortestPath.Count - 1; i++)
-        {
-            int currentIndex = _shortestPath[i];
-            int nextIndex = _shortestPath[i + 1];
-
-            // Convert indices back to (x, y) positions
-            int currentX = currentIndex / _sizeY;
-            int currentY = currentIndex % _sizeY;
-            int nextX = nextIndex / _sizeY;
-            int nextY = nextIndex % _sizeY;
-
-            Room currentRoom = MazeFactory.Instance.rooms[currentX, currentY];
-            Room nextRoom = MazeFactory.Instance.rooms[nextX, nextY];
-
-            if (currentRoom != null && nextRoom != null)
-            {
-                Vector3 currentPos = currentRoom.transform.position;
-                Vector3 nextPos = nextRoom.transform.position;
-
-                // Draw line between the current and next positions
-                Gizmos.DrawLine(currentPos, nextPos);
-            }
-        }
-    }
     private List<Vector3> GetOffsetPath(List<int> path)
     {
         List<Vector3> offsetPath = new List<Vector3>();
@@ -224,16 +193,31 @@ public class MazeManager : MonoBehaviour
         {
             int x = index / _sizeY;
             int y = index % _sizeY;
-            Room room = MazeFactory.Instance.rooms[x, y];
+            Room room = _mazeFactory.rooms[x, y];
             
             if (room != null)
             {
                 Vector3 originalPosition = room.transform.position;
-                Vector3 offsetPosition = originalPosition + new Vector3(MazeFactory.Instance.roomSize / 2, MazeFactory.Instance.roomSize / 2, 0);
+                Vector3 offsetPosition = originalPosition + new Vector3(_mazeFactory.roomSize / 2, _mazeFactory.roomSize / 2, 0);
                 offsetPath.Add(offsetPosition);
             }
         }
 
         return offsetPath;
     }
+    private void OnDrawGizmos()
+    {
+        if (_enemyPath == null || _enemyPath.Count < 2) return;
+
+        Gizmos.color = Color.blue;
+
+        for (int i = 0; i < _enemyPath.Count - 1; i++)
+        {
+            Vector3 currentPos = _enemyPath[i];
+            Vector3 nextPos = _enemyPath[i + 1];
+
+            Gizmos.DrawLine(currentPos, nextPos);
+        }
+    }
+    
 }
