@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,15 +16,16 @@ namespace Minigames.Tetris.PlaceThePieces
         [SerializeField] private Image image;
         private Vector3 _lastPosition;
         private Transform _lastParent;
+        private PtPGameManager _gameManager;
 
         public Vector2Int[] occupiedCells;
+        private int _pieceSize;
 
         private void OnEnable()
         {
             _canvas = FindObjectOfType<Canvas>();
+            _gameManager = PtPGameManager.Instance;
         }
-
-
         public void OnBeginDrag(PointerEventData eventData)
         {
             _lastParent = transform.parent;
@@ -32,37 +34,32 @@ namespace Minigames.Tetris.PlaceThePieces
             transform.SetParent(_canvas.transform);
             transform.SetAsLastSibling();
 
-            DragManager.Instance.SetPieceInfo(image, occupiedCells);
-
-            DragManager.Instance.OnPiecePlaced += DeactivatePiece;
+            _gameManager.SetPieceInfo(image, occupiedCells, _pieceSize);
+            _gameManager.OnPiecePlaced += DeactivatePiece;
         }
-
         public void OnDrag(PointerEventData eventData)
         {
-            RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform)_canvas.transform,
-                eventData.position, _canvas.worldCamera, out Vector2 position);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform)_canvas.transform, eventData.position, _canvas.worldCamera, out Vector2 position);
             transform.position = _canvas.transform.TransformPoint(position);
         }
-
         public void OnEndDrag(PointerEventData eventData)
         {
             image.raycastTarget = true;
             transform.position = _lastPosition;
             transform.SetParent(_lastParent);
 
-            DragManager.Instance.ClearOccupiedCells();
-            DragManager.Instance.OnPiecePlaced -= DeactivatePiece;
+            _gameManager.ClearOccupiedCells();
+            _gameManager.OnPiecePlaced -= DeactivatePiece;
         }
-
         public void SetPieceData(Vector2Int[] newOccupiedCells)
         {
             occupiedCells = newOccupiedCells;
+            _pieceSize = newOccupiedCells.Length;
         }
-
-        private void DeactivatePiece()
+        private void DeactivatePiece(int size)
         {
             gameObject.SetActive(false);
-            DragManager.Instance.OnPiecePlaced -= DeactivatePiece;
+            _gameManager.OnPiecePlaced -= DeactivatePiece;
         }
 
     }

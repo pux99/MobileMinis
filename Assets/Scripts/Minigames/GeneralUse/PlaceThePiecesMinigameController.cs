@@ -7,24 +7,26 @@ using UnityEngine.Serialization;
 
 namespace Minigames.GeneralUse
 {
-    public class MazeMinigameController : MinigameController
+    public class PlaceThePiecesMinigameController : MinigameController
     {
-        [SerializeField] private MazeManager minigame;
+        [SerializeField] private Tetris.PlaceThePieces.PtPGameManager minigame;
        
         protected override void Start()
         {
             minigame.WinMinigame += WiningMinigame;
-            minigame.LostMinigame += LosingMinigame;
+            //minigame.LostMinigame += LosingMinigame;
             StartMinigame();
         }
 
         protected override void StartMinigame()
         {
-                StartCoroutine(minigame.InitializeMinigameSequence());
+            minigame.StartMinigame();
         }
         
         protected override void WiningMinigame()
         {
+            //HACE EL EFECTO DEL ARMA
+            Debug.Log(minigame.effectNumber + " de escudo recibido");
             ResetMinigame();
         }
         protected override void LosingMinigame()
@@ -34,7 +36,7 @@ namespace Minigames.GeneralUse
         
         public override void ChangeToOtherMinigame()
         {
-        
+            minigame.DisableMinigame();
         }//nothing in this minigame For now
         
 
@@ -46,7 +48,7 @@ namespace Minigames.GeneralUse
  
         public override void FinishingMinigame()
         {
-            
-        }//nothing in this minigame For now
+            ResetMinigame();
+        }
     }
 }
