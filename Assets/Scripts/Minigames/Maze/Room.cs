@@ -22,7 +22,7 @@ public class Room : MonoBehaviour
 
     private Dictionary<Directions, GameObject> walls = new Dictionary<Directions, GameObject>();
     
-    public Vector2Int Index { get; set; }
+    public Vector2Int posOnGrid { get; set; }
     public bool visited { get; set; } = false;
 
     private Dictionary<Directions, bool> dirflags = new Dictionary<Directions, bool>();
