@@ -1,88 +1,91 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DragManager : MonoBehaviour
+namespace Minigames.Tetris.PlaceThePieces
 {
-    public static DragManager Instance { get; private set; }
-    public Image DraggedImage { get; private set; }
-    public Vector2Int[] OccupiedCells { get; private set; }
-    
-    public event Action OnPiecePlaced;
-    
-    private void Awake()
+    public class DragManager : MonoBehaviour
     {
-        if (Instance == null)
+        public static DragManager Instance { get; private set; }
+        public Image DraggedImage { get; private set; }
+        public Vector2Int[] OccupiedCells { get; private set; }
+
+        public event Action OnPiecePlaced;
+
+        private void Awake()
         {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    public void SetPieceInfo(Image image, Vector2Int[] occupiedCells)
-    {
-        DraggedImage = image;
-        OccupiedCells = occupiedCells;
-    }
-
-    public void ClearOccupiedCells()
-    {
-        OccupiedCells = null;
-    }
-
-    public void ColorNeighboringTiles(Vector2Int position, Color color)
-    {
-        if (OccupiedCells == null) return;
-
-        foreach (Vector2Int cell in OccupiedCells)
-        {
-            Tile tile = GridManager_MG3.Instance.GetTileAtPosition(position + cell);
-            if (tile != null && !tile.IsOccupied())
+            if (Instance == null)
             {
-                tile.SetColor(color);
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
             }
         }
-    }
 
-    public void PlacePiece(Vector2Int position)
-    {
-        if (OccupiedCells == null || !IsDropValid(position)) return;
-
-        foreach (Vector2Int cell in OccupiedCells)
+        public void SetPieceInfo(Image image, Vector2Int[] occupiedCells)
         {
-            Tile tile = GridManager_MG3.Instance.GetTileAtPosition(position + cell);
-            if (tile != null && !tile.IsOccupied())
+            DraggedImage = image;
+            OccupiedCells = occupiedCells;
+        }
+
+        public void ClearOccupiedCells()
+        {
+            OccupiedCells = null;
+        }
+
+        public void ColorNeighboringTiles(Vector2Int position, Color color)
+        {
+            if (OccupiedCells == null) return;
+
+            foreach (Vector2Int cell in OccupiedCells)
             {
-                tile.SetOccupied();
+                Tile tile = GridManager.Instance.GetTileAtPosition(position + cell);
+                if (tile != null && !tile.IsOccupied())
+                {
+                    tile.SetColor(color);
+                }
             }
         }
-        OnPiecePlaced?.Invoke();
-    }
 
-    private bool IsDropValid(Vector2Int position)
-    {
-        if (OccupiedCells == null) return false;
-        
-        foreach (Vector2Int cell in OccupiedCells)
+        public void PlacePiece(Vector2Int position)
         {
-            Vector2Int targetPosition = position + cell;
-            if (targetPosition.x < 0 || targetPosition.x >= GridManager_MG3.Instance.gridWidth || targetPosition.y < 0 || targetPosition.y >= GridManager_MG3.Instance.gridHeight)
+            if (OccupiedCells == null || !IsDropValid(position)) return;
+
+            foreach (Vector2Int cell in OccupiedCells)
             {
-                return false;
+                Tile tile = GridManager.Instance.GetTileAtPosition(position + cell);
+                if (tile != null && !tile.IsOccupied())
+                {
+                    tile.SetOccupied();
+                }
             }
-            
-            Tile tile = GridManager_MG3.Instance.GetTileAtPosition(position + cell);
-            if (tile.IsOccupied())
-            {
-                return false;
-            }
+
+            OnPiecePlaced?.Invoke();
         }
-        
-        return true;
+
+        private bool IsDropValid(Vector2Int position)
+        {
+            if (OccupiedCells == null) return false;
+
+            foreach (Vector2Int cell in OccupiedCells)
+            {
+                Vector2Int targetPosition = position + cell;
+                if (targetPosition.x < 0 || targetPosition.x >= GridManager.Instance.gridWidth ||
+                    targetPosition.y < 0 || targetPosition.y >= GridManager.Instance.gridHeight)
+                {
+                    return false;
+                }
+
+                Tile tile = GridManager.Instance.GetTileAtPosition(position + cell);
+                if (tile.IsOccupied())
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

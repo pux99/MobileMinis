@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6630492023899401193}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -117,6 +117,8 @@ MonoBehaviour:
   scaleFactor: 0
   xOffset: 0
   yOffset: 0
+  etiqs: 
+  cantNodos: 0
 --- !u!114 &5792928955005827883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,5 +148,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5544267010055430090, guid: 991362bd79eae8a438e3769ccb9f9b56, type: 3}
   playerPrefab: {fileID: 7146516647224499102, guid: 1d97940e2b94c07448fef8fb97f8672b, type: 3}
-  _sizeX: 5
-  _sizeY: 5
+  _sizeX: 6
+  _sizeY: 6
