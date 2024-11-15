@@ -2,7 +2,7 @@ using HealthSystem;
 
 namespace Effects
 {
-    public class ShieldUp : Effect
+    public class ShieldUp : IEffect
     {
         public override void ApplyEffect(UHealth receiver,float value)
         {

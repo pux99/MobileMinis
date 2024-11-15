@@ -1,4 +1,5 @@
 using System;
+using Core;
 using Enemies;
 using UnityEngine;
 
@@ -30,7 +31,8 @@ namespace ManagerScripts
         }
         void Start()
         {
-            battleManager.CombatWin += EndOfCombat;
+            ServiceLocator.Instance.GetService<EventManager>().CombatEnd += EndOfCombat;
+            //battleManager.CombatWin += EndOfCombat;
             battleManager.OnLoseCombat += HandleLoseCombat;
         }
         private void EndOfCombat()

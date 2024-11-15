@@ -4,8 +4,7 @@ using UnityEngine;
 
 namespace Effects
 {
-    [Serializable]
-    public abstract class Effect : MonoBehaviour
+    public abstract class IEffect : MonoBehaviour 
     {
         public virtual void ApplyEffect(UHealth receiver,float value)
         {

@@ -8,7 +8,7 @@ namespace Enemies
     public class SoEnemy : ScriptableObject
     {
         public Sprite enemyArt;
-        public Effect enemyAttack;
+        public IEffect enemyAttack;
         public int maxLife;
         public int damage;
         public float attackFrequency;

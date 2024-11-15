@@ -1,3 +1,4 @@
+using Core;
 using Effects;
 using Minigames.GeneralUse;
 using UnityEngine;
@@ -8,17 +9,17 @@ namespace Minigames.Weapons
     public class Weapon : ScriptableObject
     {
         [SerializeField] private MinigameController minigameController;
-        [SerializeField] private Effect completingEffect;
-        [SerializeField] private Effect losingEffect;
+        [SerializeField] private IEffect completingEffect;
+        [SerializeField] private IEffect losingEffect;
         [SerializeField] private int completingEffectValue;
         [SerializeField] private int losingEffectValue;
         
 
         public MinigameController MinigameController => minigameController;
 
-        public Effect CompletingEffect => completingEffect;
+        public IEffect CompletingEffect => completingEffect;
 
-        public Effect LosingEffect => losingEffect;
+        public IEffect LosingEffect => losingEffect;
 
         public int CompletingEffectValue => completingEffectValue;
         public int LosingEffectValue => losingEffectValue;

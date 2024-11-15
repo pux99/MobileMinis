@@ -1,4 +1,5 @@
 using System;
+using Core;
 using Enemies;
 using Minigames.GeneralUse;
 using Minigames.Weapons;
@@ -44,10 +45,12 @@ namespace ManagerScripts
             controller.battleManager = this;
             controller.minigameWeapon = minigameWeapon;
         }
-
+        
+        [ContextMenu("tesEnemyDefeat")]
         public void EnemyDefeated()
         {
-            CombatWin?.Invoke();
+            //CombatWin?.Invoke();
+            ServiceLocator.Instance.GetService<EventManager>().OnCombatEnd();
         }
 
         public void PLayerDefeated()
