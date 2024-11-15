@@ -383,13 +383,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c657371de9d2c0049935e6f51aa4867a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 1808187282}
-  shield: {fileID: 1391475622}
   timer: {fileID: 479200064}
   _timer: 15
   attackCooldown: 0
-  perdiste: {fileID: 633634929}
-  animator: {fileID: 650536636}
 --- !u!224 &167139087
 RectTransform:
   m_ObjectHideFlags: 0

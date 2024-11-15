@@ -6,11 +6,11 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UIElements;
 
-public class MazeFactory : MonoBehaviour
+public class MazeFactory : MonoBehaviour, I_GrafoTDA
 {
     [SerializeField] private GameObject roomPrefab;
     Camera _cam;
-    public float roomSize;
+
     
     //The grid
     public Room[,] rooms = null;
@@ -20,6 +20,8 @@ public class MazeFactory : MonoBehaviour
     private int _numY = 10;
     
     //Each RoomSize
+    [HideInInspector]public float roomSize;
+    [HideInInspector]public float scaleFactor;
     [HideInInspector] public float xOffset;
     [HideInInspector] public float yOffset;
     
@@ -45,6 +47,7 @@ public class MazeFactory : MonoBehaviour
         _cam =  Camera.main;
     }
     
+    //STARTS!
     public IEnumerator MakeGrid(int sizeX, int sizeY)
     {
         _numX = sizeX;
@@ -57,6 +60,7 @@ public class MazeFactory : MonoBehaviour
     //Making the GRID
     private IEnumerator MakeGridForMaze()
     {
+        InicializarGrafo();
         rooms = new Room[_numX, _numY];
 
         for (int i = 0; i < _numX; i++)
@@ -64,11 +68,16 @@ public class MazeFactory : MonoBehaviour
             for (int j = 0; j < _numY; j++)
             {
                 GameObject room = Instantiate(roomPrefab, this.transform, true);
+                room.transform.localScale *= scaleFactor;
                 room.transform.position = new Vector3( (i * roomSize) + xOffset, (j * roomSize) - yOffset, 0.0f);
                 
-                room.name = "Room_" + i.ToString() + "_" + j.ToString();
+                //room.name = "Room_" + i.ToString() + "_" + j.ToString();
                 rooms[i, j] = room.GetComponent<Room>();
-                rooms[i, j].Index = new Vector2Int(i, j);
+                rooms[i, j].posOnGrid = new Vector2Int(i, j);
+                
+                //Grafo agrego un vertice por cada Room.
+                AgregarVertice(Vect2Vert(rooms[i, j].posOnGrid));
+                room.name = Vect2Vert(rooms[i, j].posOnGrid).ToString();
             }   
         } 
         yield return null;
@@ -77,9 +86,6 @@ public class MazeFactory : MonoBehaviour
     {
         float screenWidthWorld = _cam.ScreenToWorldPoint(new Vector3(Screen.width, 0, _cam.nearClipPlane)).x - _cam.ScreenToWorldPoint(new Vector3(0, 0, _cam.nearClipPlane)).x;
         float screenHeightWorld = (_cam.ScreenToWorldPoint(new Vector3(0, Screen.height, _cam.nearClipPlane)).y - _cam.ScreenToWorldPoint(new Vector3(0, 0, _cam.nearClipPlane)).y) *.6f;
-
-        Debug.Log("screenWidthWorld: " + screenWidthWorld);
-        Debug.Log("screenHeightWorld" + screenHeightWorld);
         
         float targetRoomWidth = screenWidthWorld / _numX;
         float targetRoomHeight = screenHeightWorld / _numY;
@@ -87,9 +93,8 @@ public class MazeFactory : MonoBehaviour
         
         float currentRoomSize = roomPrefab.transform.Find("Floor").GetComponent<SpriteRenderer>().bounds.size.x;
         
-        float scaleFactor = targetRoomSize / currentRoomSize;
+        scaleFactor = targetRoomSize / currentRoomSize;
         
-        roomPrefab.transform.localScale = new Vector3(roomPrefab.transform.localScale.x * scaleFactor, roomPrefab.transform.localScale.y * scaleFactor, 1);
         roomSize = targetRoomSize;
     }
     private void SetOffset()
@@ -104,7 +109,7 @@ public class MazeFactory : MonoBehaviour
     public IEnumerator CreateMaze()
     {
         if (_generating) yield break;
-        Reset();
+        ResetMaze();
         
         stack.Push(rooms[0,0]);
 
@@ -116,52 +121,52 @@ public class MazeFactory : MonoBehaviour
 
         _generating = false;
     }
-    private void RemoveRoomWall(int x, int y, Room.Directions dir)
+    private void RemoveRoomWall(Vector2Int v, Room.Directions dir)
     {
         if (dir != Room.Directions.None)
         {
-            rooms[x,y].SetDirFlag(dir, false);
+            rooms[v.x,v.y].SetDirFlag(dir, false);
         }
 
         Room.Directions opp = Room.Directions.None;
         switch (dir)
         {
             case Room.Directions.Top:
-                if (y < _numY -1)
+                if (v.y < _numY -1)
                 {
                     opp = Room.Directions.Bottom;
-                    ++y;
+                    ++v.y;
                 }
 
                 break;
             case Room.Directions.Right:
-                if (x < _numX - 1)
+                if (v.x < _numX - 1)
                 {
                     opp = Room.Directions.Left;
-                    ++x;
+                    ++v.x;
                 }
 
                 break;
             case Room.Directions.Bottom:
-                if (y > 0)
+                if (v.y > 0)
                 {
                     opp = Room.Directions.Top;
-                    --y;
+                    --v.y;
                 }
 
                 break;
             case Room.Directions.Left:
-                if (x > 0)
+                if (v.x > 0)
                 {
                     opp = Room.Directions.Right;
-                    --x;
+                    --v.x;
                 }
 
                 break;
         }
         if (opp != Room.Directions.None)
         {
-            rooms[x,y].SetDirFlag(opp,false);
+            rooms[v.x,v.y].SetDirFlag(opp,false);
         }
         
     }
@@ -170,14 +175,23 @@ public class MazeFactory : MonoBehaviour
         if (stack.Count == 0) return;
 
         Room currentRoom = stack.Peek();
-        var neighbours = GetNeighboursNotVisited(currentRoom.Index.x, currentRoom.Index.y);
+        var neighbours = GetNeighboursNotVisited(currentRoom.posOnGrid.x, currentRoom.posOnGrid.y);
 
         if (neighbours.Count > 0)
         {
             var nextRoomInfo = neighbours[UnityEngine.Random.Range(0, neighbours.Count)];
-            RemoveRoomWall(currentRoom.Index.x, currentRoom.Index.y, nextRoomInfo.Item1);
-
             Room nextRoom = nextRoomInfo.Item2;
+            
+            //Grafo: Agrego una arista de peso 1 para ambos vertices.
+            if (!ExisteArista(Vect2Vert(currentRoom.posOnGrid), Vect2Vert(nextRoom.posOnGrid)))
+            {
+                AgregarArista(Vect2Vert(currentRoom.posOnGrid), Vect2Vert(nextRoom.posOnGrid), 1);
+                AgregarArista(Vect2Vert(nextRoom.posOnGrid), Vect2Vert(currentRoom.posOnGrid), 1);
+            }
+            
+            RemoveRoomWall(currentRoom.posOnGrid, nextRoomInfo.Item1);
+
+            
             nextRoom.visited = true;
             stack.Push(nextRoom);
         }
@@ -185,6 +199,7 @@ public class MazeFactory : MonoBehaviour
         {
             stack.Pop();
         }
+        
     }
     private List<Tuple<Room.Directions, Room>> GetNeighboursNotVisited(int cx, int cy)
     {
@@ -247,8 +262,9 @@ public class MazeFactory : MonoBehaviour
     }
     
     //Resets the Maze
-    public void Reset()
+    public void ResetMaze()
     {
+        if (rooms == null || MAdy == null) return;
         foreach (var room in rooms)
         {
             room.visited = false;
@@ -257,73 +273,92 @@ public class MazeFactory : MonoBehaviour
             room.SetDirFlag(Room.Directions.Bottom, true);
             room.SetDirFlag(Room.Directions.Left, true);
         }
-    }
-    
-    public int[,] CreateAdjacencyMatrix()
-{
-    int totalRooms = _numX * _numY;
-    int[,] adjacencyMatrix = new int[totalRooms, totalRooms];
-
-    // Initialize the matrix with 0s
-    for (int i = 0; i < totalRooms; i++)
-    {
-        for (int j = 0; j < totalRooms; j++)
+        for (int i = 0; i < cantNodos; i++)
         {
-            adjacencyMatrix[i, j] = 0;
-        }
-    }
-
-    // Iterate through each room and check connectivity
-    for (int x = 0; x < _numX; x++)
-    {
-        for (int y = 0; y < _numY; y++)
-        {
-            Room currentRoom = rooms[x, y];
-            int currentIndex = (x * _numY) + y;
-
-            // Check the top neighbor
-            if (y < _numY - 1 && !currentRoom.GetDirFlag(Room.Directions.Top))
+            for (int j = 0; j < cantNodos; j++)
             {
-                Room topNeighbor = rooms[x, y + 1];
-                int topIndex = (x * _numY) + (y + 1);
-                adjacencyMatrix[currentIndex, topIndex] = 1;
-                adjacencyMatrix[topIndex, currentIndex] = 1; // For undirected graph
-            }
-
-            // Check the right neighbor
-            if (x < _numX - 1 && !currentRoom.GetDirFlag(Room.Directions.Right))
-            {
-                Room rightNeighbor = rooms[x + 1, y];
-                int rightIndex = ((x + 1) * _numY) + y;
-                adjacencyMatrix[currentIndex, rightIndex] = 1;
-                adjacencyMatrix[rightIndex, currentIndex] = 1;
-            }
-
-            // Check the bottom neighbor
-            if (y > 0 && !currentRoom.GetDirFlag(Room.Directions.Bottom))
-            {
-                Room bottomNeighbor = rooms[x, y - 1];
-                int bottomIndex = (x * _numY) + (y - 1);
-                adjacencyMatrix[currentIndex, bottomIndex] = 1;
-                adjacencyMatrix[bottomIndex, currentIndex] = 1;
-            }
-
-            // Check the left neighbor
-            if (x > 0 && !currentRoom.GetDirFlag(Room.Directions.Left))
-            {
-                Room leftNeighbor = rooms[x - 1, y];
-                int leftIndex = ((x - 1) * _numY) + y;
-                adjacencyMatrix[currentIndex, leftIndex] = 1;
-                adjacencyMatrix[leftIndex, currentIndex] = 1;
+                MAdy[i, j] = 0;
             }
         }
     }
-    
-    return adjacencyMatrix;
-}
     public void SetFinnishLine()
     {
         rooms[_numX - 1, _numY - 1].SetFinnishLine();
     }
-
+    
+    //Grafos
+    public int[,] MAdy;
+    public int[] etiqs;
+    public int cantNodos;
+    public void InicializarGrafo()
+    {
+        //En vez de usar n lo hacemos dinamicamente con la cntidad total de cuartos.
+        int totalRooms = _numX * _numY; 
+        
+        MAdy = new int[totalRooms, totalRooms];
+        etiqs = new int[totalRooms];
+        cantNodos = 0;
+    }
+    public void AgregarVertice(int v)
+    {
+        etiqs[cantNodos] = v;
+        for (int i = 0; i <= cantNodos; i++)
+        {
+            MAdy[cantNodos, i] = 0;
+            MAdy[i, cantNodos] = 0;
+        }
+        cantNodos++;
+    }
+    public void EliminarVertice(int v)
+    {
+        int ind = Vert2Indice(v);
+ 
+        for (int k = 0; k < cantNodos; k++)
+        {
+            MAdy[k, ind] = MAdy[k, cantNodos - 1];
+        }
+ 
+        for (int k = 0; k < cantNodos; k++)
+        {
+            MAdy[ind, k] = MAdy[cantNodos - 1, k];
+        }
+ 
+        etiqs[ind] = etiqs[cantNodos - 1];
+        cantNodos--;
+    }
+    private int Vert2Indice(int v)
+    {
+        int i = cantNodos - 1;
+        while (i >= 0 && etiqs[i] != v)
+        {
+            i--;
+        }
+ 
+        return i;
+    }
+    public void AgregarArista(int v1, int v2, int peso)
+    {
+        int o = Vert2Indice(v1);
+        int d = Vert2Indice(v2);
+        MAdy[o, d] = peso;
+    }
+    public void EliminarArista(int v1, int v2)
+    {
+        int o = Vert2Indice(v1);
+        int d = Vert2Indice(v2);
+        MAdy[o, d] = 0;
+    }
+    public bool ExisteArista(int v1, int v2)
+    {
+        int o = Vert2Indice(v1);
+        int d = Vert2Indice(v2);
+        return MAdy[o, d] != 0;
+    }
+    
+    //Convierto al Vector del cuarto en un Vertice
+    public int Vect2Vert(Vector2Int n)
+    {
+        return n.x * _numY + n.y;
+    }
+    
 }

@@ -34,8 +34,4 @@ public class EnemyMovement : MonoBehaviour
         }
     }
     
-    public void Kill()
-    {
-        Destroy(this.gameObject);
-    }
 }

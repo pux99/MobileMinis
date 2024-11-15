@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1629446704264503929}
   - component: {fileID: 5930621589643880950}
   - component: {fileID: 2913581806566573227}
+  - component: {fileID: 88435003834939006}
   m_Layer: 6
   m_Name: Bottom
   m_TagString: Wall
@@ -130,6 +131,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &88435003834939006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73445543671738225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4ad2a5b929c744c92b9c95bd8a39d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &388140536164241788
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +189,7 @@ GameObject:
   - component: {fileID: 3295261794868682940}
   - component: {fileID: 8887197662460232165}
   - component: {fileID: 5670821359979363530}
+  - component: {fileID: 5429838322287891189}
   m_Layer: 6
   m_Name: Left
   m_TagString: Wall
@@ -295,6 +309,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5429838322287891189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736503981503525740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4ad2a5b929c744c92b9c95bd8a39d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1126169250249524602
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +348,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.08035715, y: 0.08035715, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5358904687743253243}
@@ -361,6 +387,7 @@ GameObject:
   - component: {fileID: 6116537629749947287}
   - component: {fileID: 4058660017645336312}
   - component: {fileID: 5587836073463198269}
+  - component: {fileID: 1770428102745232644}
   m_Layer: 6
   m_Name: Right
   m_TagString: Wall
@@ -480,6 +507,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1770428102745232644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548441731798501538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4ad2a5b929c744c92b9c95bd8a39d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2299326272280404499
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +530,7 @@ GameObject:
   - component: {fileID: 339962564967884158}
   - component: {fileID: 625717681379195478}
   - component: {fileID: 4185452103818532906}
+  - component: {fileID: 5941668743156319190}
   m_Layer: 6
   m_Name: Corner (1)
   m_TagString: Wall
@@ -610,6 +650,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5941668743156319190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2299326272280404499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4ad2a5b929c744c92b9c95bd8a39d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3397162718668759494
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,6 +673,7 @@ GameObject:
   - component: {fileID: 8450339108526061231}
   - component: {fileID: 4450042887392153986}
   - component: {fileID: 1930799480954118685}
+  - component: {fileID: 5046434511555180379}
   m_Layer: 6
   m_Name: Corner (2)
   m_TagString: Wall
@@ -740,6 +793,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5046434511555180379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3397162718668759494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4ad2a5b929c744c92b9c95bd8a39d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4094034124670288647
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,6 +946,7 @@ GameObject:
   - component: {fileID: 7826527145705725799}
   - component: {fileID: 538210976468589449}
   - component: {fileID: 1244277387945663717}
+  - component: {fileID: 601148077965182278}
   m_Layer: 6
   m_Name: Top
   m_TagString: Wall
@@ -1000,6 +1066,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &601148077965182278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542465217549744756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4ad2a5b929c744c92b9c95bd8a39d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4837115358642352099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +1089,7 @@ GameObject:
   - component: {fileID: 7498275636781855554}
   - component: {fileID: 732871716081369568}
   - component: {fileID: 5739630199920900820}
+  - component: {fileID: 9154736837746161518}
   m_Layer: 6
   m_Name: Corner
   m_TagString: Wall
@@ -1130,6 +1209,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &9154736837746161518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837115358642352099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4ad2a5b929c744c92b9c95bd8a39d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6549852313592408677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,6 +1232,7 @@ GameObject:
   - component: {fileID: 4963183829459570798}
   - component: {fileID: 7065012328822560865}
   - component: {fileID: 3724583330024583990}
+  - component: {fileID: 138002943462734442}
   m_Layer: 6
   m_Name: Corner (3)
   m_TagString: Wall
@@ -1260,3 +1352,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &138002943462734442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6549852313592408677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4ad2a5b929c744c92b9c95bd8a39d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

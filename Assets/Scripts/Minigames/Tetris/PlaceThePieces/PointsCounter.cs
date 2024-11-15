@@ -1,21 +1,58 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PointsCounter : MonoBehaviour
+namespace Minigames.Tetris.PlaceThePieces
 {
-    public TMP_Text counterText;
-    public int currentCount = 0;
-    void Start()
+    public class PointsCounter : MonoBehaviour
     {
-        DragManager.Instance.OnPiecePlaced += Count;
-        counterText.text = currentCount.ToString();
-    }
+        public static PointsCounter Instance { get; private set; }
 
-    private void Count()
-    {
-        currentCount = currentCount+4;
-        counterText.text = currentCount.ToString();
+        private void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+        }
+
+        public TMP_Text counterText;
+        public Image img;
+        public int currentCount = 0;
+        
+        void Start()
+        {
+            img = GetComponent<Image>();
+            counterText.text = currentCount.ToString();
+        }
+
+        private void Update()
+        {
+            if (currentCount > 0)
+            {
+                img.color = Color.green;
+            }
+        }
+
+        public void AddPoints(int size)
+        {
+            currentCount += size;
+            counterText.text = currentCount.ToString();
+        }
+
+        public void CleanCounter()
+        {
+            currentCount = 0;
+            img.color = Color.white;
+            counterText.text = currentCount.ToString();
+        }
     }
 }

@@ -6,56 +6,60 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDropHandler
+namespace Minigames.Tetris.PlaceThePieces
 {
-    private Image tileImage;
-    private Color finalColor;
-    private bool isOccupied;
+    public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDropHandler
+    {
+        private Image tileImage;
+        private Color finalColor;
+        private bool isOccupied;
 
-    [SerializeField] public Vector2Int gridPosition;
+        private PtPGameManager _gameManager;
+        [SerializeField] public Vector2Int gridPosition;
 
-    private void Start()
-    {
-        tileImage = GetComponent<Image>();
-        isOccupied = false;
-    }
-    
-    public bool IsOccupied()
-    {
-        return isOccupied;
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if (isOccupied || DragManager.Instance.OccupiedCells == null) return;
-        DragManager.Instance.ColorNeighboringTiles(gridPosition, Color.gray);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if (isOccupied || DragManager.Instance.OccupiedCells == null) return;
-        DragManager.Instance.ColorNeighboringTiles(gridPosition, Color.white);
-    }
-
-    public void OnDrop(PointerEventData eventData)
-    {
-        if (isOccupied) return;
-        DragManager.Instance.ColorNeighboringTiles(gridPosition, Color.white);
-        DragManager.Instance.PlacePiece(gridPosition);
-        DragManager.Instance.ClearOccupiedCells();
-    }
-
-    public void SetOccupied()
-    {
-        isOccupied = true;
-        tileImage.color = DragManager.Instance.DraggedImage.color;
-    }
-    
-    public void SetColor(Color color)
-    {
-        if (!isOccupied)
+        private void Start()
         {
-            tileImage.color = color; 
+            _gameManager = PtPGameManager.Instance;
+            tileImage = GetComponent<Image>();
+            isOccupied = false;
+        }
+        public bool IsOccupied()
+        {
+            return isOccupied;
+        }
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (isOccupied || _gameManager.OccupiedCells == null) return;
+            _gameManager.ColorNeighboringTiles(gridPosition, Color.gray);
+        }
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (isOccupied || _gameManager.OccupiedCells == null) return;
+            _gameManager.ColorNeighboringTiles(gridPosition, Color.white);
+        }
+        public void OnDrop(PointerEventData eventData)
+        {
+            if (isOccupied) return;
+            _gameManager.ColorNeighboringTiles(gridPosition, Color.white);
+            _gameManager.PlacePiece(gridPosition);
+            _gameManager.ClearOccupiedCells();
+        }
+        public void SetOccupied()
+        {
+            isOccupied = true;
+            tileImage.color = _gameManager.pieceImage.color;
+        }
+        public void SetColor(Color color)
+        {
+            if (!isOccupied)
+            {
+                tileImage.color = color;
+            }
+        }
+        public void ResetTile()
+        {
+            isOccupied = false;
+            tileImage.color = Color.white;
         }
     }
 }
