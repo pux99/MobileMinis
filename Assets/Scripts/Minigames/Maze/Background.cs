@@ -7,11 +7,11 @@ public class Background : MonoBehaviour
 {
     private void Awake()
     {
-        Camera cam = Camera.main;
+        Camera _cam = Camera.main;
         
-        float screenHeight = cam.orthographicSize * 2;
-        float screenWidth = screenHeight * Screen.width / Screen.height;
+        float screenWidthWorld = _cam.ScreenToWorldPoint(new Vector3(Screen.width, 0, _cam.nearClipPlane)).x - _cam.ScreenToWorldPoint(new Vector3(0, 0, _cam.nearClipPlane)).x;
+        float screenHeightWorld = _cam.ScreenToWorldPoint(new Vector3(0, Screen.height, _cam.nearClipPlane)).y - _cam.ScreenToWorldPoint(new Vector3(0, 0, _cam.nearClipPlane)).y;
         
-        transform.localScale = new Vector3(screenWidth, screenHeight, transform.localScale.z);
+        transform.localScale = new Vector3(screenWidthWorld, screenHeightWorld, transform.localScale.z);
     }
 }

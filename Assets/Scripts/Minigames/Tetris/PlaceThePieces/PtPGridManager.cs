@@ -25,14 +25,14 @@ namespace Minigames.Tetris.PlaceThePieces
         }
         
         
-        
         [SerializeField] private Tile tile;
         private Tile[,] grid;
+        
         private GridLayoutGroup _gridLayout;
         private RectTransform _transform;
-        private Vector2 _tileSize = new Vector2(235, 235);
-        private float maxWidth = 1350;
-        private float maxHeight = 1050;
+        
+        private Vector2 _tileSize = new Vector2(100, 100);
+        
         [HideInInspector]public int gridWidth;
         [HideInInspector]public int gridHeight;
 
@@ -47,21 +47,19 @@ namespace Minigames.Tetris.PlaceThePieces
         }
         void GenerateGridLayout()
         {
-            float totalWidth = gridWidth * _tileSize.x;
-            float totalHeight = gridHeight * _tileSize.y;
+            
+            float gridWidthInPixels = _transform.rect.width;
+            float gridHeightInPixels = _transform.rect.height;
 
-            if (totalWidth > maxWidth || totalHeight > maxHeight)
-            {
-                float widthScaleFactor = maxWidth / totalWidth;
-                float heightScaleFactor = maxHeight / totalHeight;
-                float scaleFactor = Mathf.Min(widthScaleFactor, heightScaleFactor);
-
-                _tileSize *= scaleFactor;
-                _gridLayout.cellSize = _tileSize;
-            }
-
-            _transform.sizeDelta = new Vector2(_tileSize.x * gridWidth, _tileSize.y * gridHeight);
-
+            
+            float tileWidth = gridWidthInPixels / gridWidth;
+            float tileHeight = gridHeightInPixels / gridHeight;
+            
+            float tileSize = Mathf.Min(tileWidth, tileHeight);
+            
+            _tileSize = new Vector2(tileSize, tileSize);
+            _gridLayout.cellSize = _tileSize;
+            _gridLayout.constraintCount = gridWidth;
         }
         void GenerateGrid()
         {
