@@ -1,16 +1,17 @@
 using ManagerScripts;
 using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerUIManager : MonoBehaviour
 {
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private UIHealth playerUIHealth;
-    [SerializeField] private PlayerManager playerManager;
-    public PlayerManager PlayerManager => playerManager;
+    [FormerlySerializedAs("playerManager")] [SerializeField] private PlayerCombatManager playerCombatManager;
+    public PlayerCombatManager PlayerCombatManager => playerCombatManager;
     private void Start()
     {
-        playerManager.PlayerHealth.OnLifeChange += playerUIHealth.LifeChange;
-        playerManager.PlayerHealth.OnShieldStateChange += playerUIHealth.ShieldChange;
+        playerCombatManager.PlayerHealth.OnLifeChange += playerUIHealth.LifeChange;
+        playerCombatManager.PlayerHealth.OnShieldStateChange += playerUIHealth.ShieldChange;
     }
 }

@@ -1,4 +1,6 @@
 using System;
+using Core;
+using ManagerScripts;
 using TMPro;
 using UnityEngine;
 
@@ -9,11 +11,19 @@ namespace UI
         [SerializeField]private  TextMeshProUGUI timer;
         [SerializeField]private float _timer = 5;
         [SerializeField]private  float attackCooldown;
+        private bool _paused =false;
         public Action CountdownEnd;
+
+        private void Start()
+        {
+            ServiceLocator.Instance.GetService<EventManager>().Pause += PauseTime;
+            ServiceLocator.Instance.GetService<EventManager>().Resume += ResumeTime;
+        }
 
         public void SetAttackCooldown(float cooldown)
         {
             attackCooldown = cooldown;
+            _timer = attackCooldown;
         }
         public void ResetTimer(float time)
         {
@@ -27,6 +37,15 @@ namespace UI
         {
             _timer -= time;
         }
+        public void PauseTime()
+        {
+            _paused = true;
+        }
+
+        public void ResumeTime()
+        {
+            _paused = false;
+        }
 
         public void TurnOffCountdown()
         {
@@ -35,12 +54,15 @@ namespace UI
         }
         void Update()
         {
-            _timer-=Time.deltaTime;
-            timer.text=Mathf.CeilToInt(_timer).ToString();
-            if(_timer < 0) 
+            if (!_paused)
             {
-                _timer = attackCooldown;
-                CountdownEndEvent();
+                _timer-=Time.deltaTime;
+                timer.text=Mathf.CeilToInt(_timer).ToString();
+                if(_timer < 0) 
+                {
+                    _timer = attackCooldown;
+                    CountdownEndEvent();
+                }
             }
         }
         private void CountdownEndEvent()

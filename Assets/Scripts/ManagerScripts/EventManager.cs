@@ -14,5 +14,22 @@ namespace ManagerScripts
 
         public Action CombatEnd;
         public void OnCombatEnd() => CombatEnd?.Invoke();
+        
+        public Action CombatStart;
+        public void OnCombaStart() => CombatStart?.Invoke();
+
+        public Action CombatWin;
+        public void OnCombatWin() => CombatWin?.Invoke();
+        
+        public Action CombatLoss;
+        public void OnCombatLoss() => CombatLoss?.Invoke();
+
+        public Action Pause;
+        public void OnPause() => Pause?.Invoke();
+
+        public Action Resume;
+        public void OnResume() => Resume?.Invoke();
+        public Action LevelUp;
+        public void OnLevelUP() => LevelUp?.Invoke();
     }
 }

@@ -17,3 +17,4 @@ MonoBehaviour:
   losingEffect: {fileID: 0}
   completingEffectValue: 200
   losingEffectValue: 0
+  weaponArt: {fileID: 21300000, guid: 043819f71a511f24095c7490c306c2b5, type: 3}

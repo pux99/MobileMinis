@@ -4,21 +4,17 @@ using Enemies;
 using Minigames.GeneralUse;
 using Minigames.Weapons;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ManagerScripts
 {
     public class BattleManager : MonoBehaviour
     {
-        [SerializeField] private PlayerManager playerManager;
+        [FormerlySerializedAs("playerManager")] [SerializeField] private PlayerCombatManager playerCombatManager;
         [SerializeField] private EnemyManager enemyManager;
 
-        public PlayerManager PlayerManager => playerManager;
+        public PlayerCombatManager PlayerCombatManager => playerCombatManager;
         public EnemyManager EnemyManager => enemyManager;
-
-        [SerializeField] private Weapon attackWeapon;
-        [SerializeField] private Weapon defenceWeapon;
-        [SerializeField] private Weapon supportWeapon;
-
     
         [SerializeField] private Transform attackMinigameHolder;
         [SerializeField] private Transform defenceMinigameHolder;
@@ -28,45 +24,63 @@ namespace ManagerScripts
         private MinigameController _defenceMiniGameController;
         private MinigameController _supportMiniGameController;
 
-        public Action CombatWin;
-        public Action OnLoseCombat;
-
+        private bool _minigamesInstantiated=false;
+        
         private void Start()
         {
-            InstanceMinigame(attackWeapon,attackMinigameHolder,_attackMiniGameController);
-            InstanceMinigame(defenceWeapon,defenceMinigameHolder,_defenceMiniGameController);
-            InstanceMinigame(supportWeapon,supportMinigameHolder,_supportMiniGameController);
+            ServiceLocator.Instance.GetService<EventManager>().CombatEnd += HandlerCombatEnd;
         }
 
-        private void InstanceMinigame(Weapon minigameWeapon,Transform parent,MinigameController controller)
+        private void GenerateMinigames()
+        {
+            _attackMiniGameController=InstanceMinigame(playerCombatManager.PlayerStatsAndWeapons.AttackWeapon,attackMinigameHolder);
+            _defenceMiniGameController=InstanceMinigame(playerCombatManager.PlayerStatsAndWeapons.DefenceWeapon,defenceMinigameHolder);
+            _supportMiniGameController=InstanceMinigame(playerCombatManager.PlayerStatsAndWeapons.SupportWeapon,supportMinigameHolder);
+            _minigamesInstantiated = true;
+        }
+
+        private MinigameController InstanceMinigame(Weapon minigameWeapon,Transform parent)
         {
             GameObject minigame= Instantiate(minigameWeapon.MinigameController.gameObject,parent);
-            controller = minigame.GetComponent<MinigameController>();
-            controller.battleManager = this;
-            controller.minigameWeapon = minigameWeapon;
+            MinigameController controllerA = minigame.GetComponent<MinigameController>();
+            controllerA.battleManager = this;
+            controllerA.minigameWeapon = minigameWeapon;
+            return controllerA;
         }
         
         [ContextMenu("tesEnemyDefeat")]
         public void EnemyDefeated()
         {
-            //CombatWin?.Invoke();
             ServiceLocator.Instance.GetService<EventManager>().OnCombatEnd();
         }
 
         public void PLayerDefeated()
         {
-            OnLoseCombat?.Invoke();
+            ServiceLocator.Instance.GetService<EventManager>().OnCombatLoss();
         }
 
         public void StartNewBattle(SoEnemy enemy)
         {
+            if (!_minigamesInstantiated)
+                GenerateMinigames();
             enemyManager.SetUpEnemy(enemy);
             ResetMinigames();
+            attackMinigameHolder.gameObject.SetActive(true);
+            ServiceLocator.Instance.GetService<EventManager>().OnCombaStart();
         }
 
         private void ResetMinigames()
         {
-            
+            _attackMiniGameController.ResetMinigame();
+            _defenceMiniGameController.ResetMinigame();
+            _supportMiniGameController.ResetMinigame();
+        }
+
+        private void HandlerCombatEnd()
+        {
+            attackMinigameHolder.gameObject.SetActive(false);
+            defenceMinigameHolder.gameObject.SetActive(false);
+            supportMinigameHolder.gameObject.SetActive(false);
         }
     }
 }

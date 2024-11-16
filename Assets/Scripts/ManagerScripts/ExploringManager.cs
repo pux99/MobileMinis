@@ -19,10 +19,16 @@ namespace ManagerScripts
 
         private void Start()
         {
-            dungeonManager.NextCombat(startingEnemy);
+            
             swipe.SwipeToTheLeft += LeftCombat;
             swipe.SwipeToTheRight += RightCombat;
-            dungeonManager.WinTheCombat += start5secondCourutine;
+            //dungeonManager.WinTheCombat += start5secondCourutine;
+        }
+
+        [ContextMenu("startcombat")]
+        private void StartFirstCombat()
+        {
+            dungeonManager.NextCombat(startingEnemy);
         }
 
         public void LeftCombat()
