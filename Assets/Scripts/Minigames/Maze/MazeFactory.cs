@@ -38,7 +38,6 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -62,6 +61,13 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
     {
         InicializarGrafo();
         rooms = new Room[_numX, _numY];
+        
+        float totalMazeWidth = _numX * roomSize * scaleFactor;
+        float totalMazeHeight = _numY * roomSize * scaleFactor;
+
+        // Calculate offsets to center the maze
+         xOffset = (Screen.width / 2f) - (totalMazeWidth / 2f);
+         yOffset = (Screen.height / 2f) - (totalMazeHeight / 2f);
 
         for (int i = 0; i < _numX; i++)
         {
@@ -99,10 +105,9 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
     }
     private void SetOffset()
     {
-        xOffset = -(_numX * roomSize) / 2f;
-        
-        float screenHeightWorld = _cam.ScreenToWorldPoint(new Vector3(0, Screen.height, _cam.nearClipPlane)).y - _cam.ScreenToWorldPoint(new Vector3(0, 0, _cam.nearClipPlane)).y;
-        yOffset = (screenHeightWorld / 3f) + roomSize/3f;
+        //xOffset = -(_numX * roomSize) / 2f;
+        //float screenHeightWorld = _cam.ScreenToWorldPoint(new Vector3(0, Screen.height, _cam.nearClipPlane)).y - _cam.ScreenToWorldPoint(new Vector3(0, 0, _cam.nearClipPlane)).y;
+        //yOffset = (screenHeightWorld / 3f) + roomSize/3f;
     }
 
     //Generating Random Maze
