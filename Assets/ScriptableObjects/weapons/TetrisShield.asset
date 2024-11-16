@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: TetrisShield
   m_EditorClassIdentifier: 
   minigameController: {fileID: 8669146767209061425, guid: b0b61bcbb7cee51449cdd7f3c55ec2e7, type: 3}
+  completingEffect: {fileID: 0}
+  losingEffect: {fileID: 0}
   completingEffectValue: 0
   losingEffectValue: 0
-  compeffect:
-    reference: {fileID: 0}
+  weaponArt: {fileID: -281430176, guid: fe4462923fcf01443afb7dd4d2f6a101, type: 3}

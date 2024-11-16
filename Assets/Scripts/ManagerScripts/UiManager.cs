@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 using ManagerScripts;
 using UI;
 using UnityEngine;
@@ -13,12 +14,22 @@ public class UiManager : MonoBehaviour
     [SerializeField] private DungeonManager dungeonManager;
     [SerializeField] private CountDown countDown;
     [SerializeField] private GameObject minigameSelector;
+    [SerializeField] private GameObject enemy;
+    
 
     void Start()
     {
-        dungeonManager.WinTheCombat += WinCombatUI;
-        dungeonManager.LossTheDungeon += LossUI;
+        ServiceLocator.Instance.GetService<EventManager>().CombatWin += WinCombatUI;
+        ServiceLocator.Instance.GetService<EventManager>().CombatLoss += LossUI;
+        ServiceLocator.Instance.GetService<EventManager>().CombatStart += CombatUITurnOn;
+
         dungeonManager.WinDungeon += WinDungeonUI;
+    }
+
+    private void CombatUITurnOn()
+    {
+        countDown.gameObject.SetActive(true);
+        enemy.SetActive(true);
     }
 
     private void WinCombatUI()

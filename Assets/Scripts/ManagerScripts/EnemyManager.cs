@@ -31,7 +31,7 @@ public class EnemyManager : MonoBehaviour
 
     private void Attack()
     {
-        enemy.Attack(battleManager.PlayerManager.PlayerHealth);
+        enemy.Attack(battleManager.PlayerCombatManager.PlayerHealth);
     }
 
     private void Defeated()

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Minigames.Weapons
 {
-    [CreateAssetMenu(fileName = "weapon",menuName = "")]
+    [CreateAssetMenu(fileName = "weapon",menuName = "MobileMinis/Weapons")]
     public class Weapon : ScriptableObject
     {
         [SerializeField] private MinigameController minigameController;
@@ -13,6 +13,7 @@ namespace Minigames.Weapons
         [SerializeField] private IEffect losingEffect;
         [SerializeField] private int completingEffectValue;
         [SerializeField] private int losingEffectValue;
+        [SerializeField] private Sprite weaponArt;
         
 
         public MinigameController MinigameController => minigameController;
@@ -23,5 +24,7 @@ namespace Minigames.Weapons
 
         public int CompletingEffectValue => completingEffectValue;
         public int LosingEffectValue => losingEffectValue;
+
+        public Sprite WeaponArt => weaponArt;
     }
 }

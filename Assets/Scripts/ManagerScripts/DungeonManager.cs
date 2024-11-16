@@ -32,8 +32,7 @@ namespace ManagerScripts
         void Start()
         {
             ServiceLocator.Instance.GetService<EventManager>().CombatEnd += EndOfCombat;
-            //battleManager.CombatWin += EndOfCombat;
-            battleManager.OnLoseCombat += HandleLoseCombat;
+            ServiceLocator.Instance.GetService<EventManager>().CombatLoss += HandleLoseCombat;
         }
         private void EndOfCombat()
         {
