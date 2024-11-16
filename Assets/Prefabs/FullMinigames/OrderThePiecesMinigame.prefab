@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1385126729428283417}
   - component: {fileID: 4268085429019836545}
   - component: {fileID: 5762546147007734958}
-  - component: {fileID: 2243841121056688497}
+  - component: {fileID: 7382706342477492434}
+  - component: {fileID: 1442238290657319017}
   m_Layer: 5
   m_Name: Goal_A
   m_TagString: Untagged
@@ -29,16 +30,16 @@ RectTransform:
   m_GameObject: {fileID: 772087707514980597}
   m_LocalRotation: {x: -0, y: -0, z: 0.00000038743013, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5394097935223649048}
+  m_Father: {fileID: 7739593524281775979}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 0.45}
-  m_AnchorMax: {x: 0.3, y: 0.7}
+  m_AnchorMin: {x: 0.08583333, y: 0.4777576}
+  m_AnchorMax: {x: 0.2891667, y: 0.73227274}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 1, y: 0.5}
+  m_SizeDelta: {x: 60, y: 168}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1385126729428283417
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -89,7 +90,7 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
---- !u!114 &2243841121056688497
+--- !u!114 &7382706342477492434
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,117 +99,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 772087707514980597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 35a988f3a4f1aa2499badaeb7801e6eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCapacity: 3
+--- !u!114 &1442238290657319017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772087707514980597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 20
-    m_Right: 20
-    m_Top: 20
-    m_Bottom: 20
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
   m_ChildAlignment: 7
-  m_StartCorner: 2
-  m_StartAxis: 0
-  m_CellSize: {x: 225, y: 150}
-  m_Spacing: {x: 0, y: 50}
-  m_Constraint: 1
-  m_ConstraintCount: 1
---- !u!1 &1321268071053884868
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2377151800623910616}
-  - component: {fileID: 8005391685540010024}
-  - component: {fileID: 1367659691104879415}
-  - component: {fileID: 339733242641336883}
-  m_Layer: 0
-  m_Name: startgame
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2377151800623910616
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321268071053884868}
-  m_LocalRotation: {x: -0, y: -0.010166192, z: -0, w: 0.9999483}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5394097935223649048}
-  m_LocalEulerAnglesHint: {x: 0, y: -1.165, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8005391685540010024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321268071053884868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b5878a4d09347140a398fb150848042, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerContainers: []
-  goalContainers: []
-  shield: {fileID: 0}
-  animator: {fileID: 0}
-  containers:
-  - {fileID: 315830564522764826}
-  - {fileID: 5303769506828064501}
-  - {fileID: 5901583755913620450}
---- !u!114 &1367659691104879415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321268071053884868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e0a5cb9b2e5de943ac1a9c0799ff1d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseTetrisPiece: {fileID: 9141137831396621376, guid: 51b4916f7560ef14387a785abae54e54, type: 3}
-  sizeMod: 0.05
---- !u!114 &339733242641336883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321268071053884868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e91e96a16fa3a2042ac5fc66e9c32e57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalAmountOfPieces: 5
-  groupOfBaseTetrisPieces: {fileID: 11400000, guid: 6d911f28649838f40872cb17d3e18e2b, type: 2}
-  groupOfColors: {fileID: 11400000, guid: 2f90e1aa67d457a449badd4983f28049, type: 2}
-  factory: {fileID: 1367659691104879415}
-  goalContainers:
-  - {fileID: 8239242509166850697}
-  - {fileID: 570499958383994685}
-  - {fileID: 4739546266711346015}
-  playerContainers:
-  - {fileID: 315830564522764826}
-  - {fileID: 5303769506828064501}
-  - {fileID: 5901583755913620450}
+  m_Spacing: 75
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 1
 --- !u!1 &2636532136481496286
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,8 +140,9 @@ GameObject:
   - component: {fileID: 4739546266711346015}
   - component: {fileID: 8439544964052757631}
   - component: {fileID: 6050893659468050346}
-  - component: {fileID: 7321392523442465197}
   - component: {fileID: 3972921801863422693}
+  - component: {fileID: 1669443965638581798}
+  - component: {fileID: 5549649793839481612}
   m_Layer: 5
   m_Name: Goal_C
   m_TagString: Untagged
@@ -238,16 +159,16 @@ RectTransform:
   m_GameObject: {fileID: 2636532136481496286}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5394097935223649048}
+  m_Father: {fileID: 7739593524281775979}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.7, y: 0.45}
-  m_AnchorMax: {x: 0.9, y: 0.7}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 1, y: 0.5}
+  m_AnchorMin: {x: 0.7, y: 0.48113635}
+  m_AnchorMax: {x: 0.9041667, y: 0.73265153}
+  m_AnchoredPosition: {x: 0.5, y: 0}
+  m_SizeDelta: {x: 59, y: 166}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8439544964052757631
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -286,30 +207,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7321392523442465197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2636532136481496286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 20
-    m_Right: 20
-    m_Top: 20
-    m_Bottom: 20
-  m_ChildAlignment: 7
-  m_StartCorner: 2
-  m_StartAxis: 0
-  m_CellSize: {x: 225, y: 150}
-  m_Spacing: {x: 0, y: 50}
-  m_Constraint: 1
-  m_ConstraintCount: 1
 --- !u!225 &3972921801863422693
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -322,6 +219,45 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1669443965638581798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2636532136481496286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a988f3a4f1aa2499badaeb7801e6eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCapacity: 3
+--- !u!114 &5549649793839481612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2636532136481496286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 7
+  m_Spacing: 75
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 1
 --- !u!1 &3805221783289550270
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,8 +270,11 @@ GameObject:
   - component: {fileID: 2476444076335470996}
   - component: {fileID: 7756716699877947245}
   - component: {fileID: 998123889132232821}
+  - component: {fileID: 4750402026256107593}
+  - component: {fileID: 6411652826907970944}
+  - component: {fileID: -3646794815828267359}
   m_Layer: 5
-  m_Name: OrederThePiecesMinigame
+  m_Name: OrderThePiecesMinigame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -353,7 +292,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5394097935223649048}
+  - {fileID: 8239242509166850697}
+  - {fileID: 570499958383994685}
+  - {fileID: 4739546266711346015}
+  - {fileID: 315830564522764826}
+  - {fileID: 5303769506828064501}
+  - {fileID: 5901583755913620450}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -424,6 +368,57 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4750402026256107593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3805221783289550270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5878a4d09347140a398fb150848042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountOfPieces: 5
+  playerContainers:
+  - {fileID: 315830564522764826}
+  - {fileID: 5303769506828064501}
+  - {fileID: 5901583755913620450}
+  goalContainers:
+  - {fileID: 8239242509166850697}
+  - {fileID: 570499958383994685}
+  - {fileID: 4739546266711346015}
+--- !u!114 &6411652826907970944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3805221783289550270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e91e96a16fa3a2042ac5fc66e9c32e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tetrisLikePiece: {fileID: 7976110627714723998, guid: 486c7ebcf70f41f41adac0721d312336, type: 3}
+  groupOfBaseTetrisPieces: {fileID: 11400000, guid: 6d911f28649838f40872cb17d3e18e2b, type: 2}
+  groupOfColors: {fileID: 11400000, guid: 2f90e1aa67d457a449badd4983f28049, type: 2}
+--- !u!114 &-3646794815828267359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3805221783289550270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e5db0462bd45f498ffa72516e787e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleManager: {fileID: 0}
+  minigameWeapon: {fileID: 0}
+  minigame: {fileID: 4750402026256107593}
 --- !u!1 &4410979974304468199
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +431,7 @@ GameObject:
   - component: {fileID: 9068391770400390572}
   - component: {fileID: 3085379980622310269}
   - component: {fileID: 8666508691605793285}
-  - component: {fileID: 4920792324898202299}
+  - component: {fileID: 5033363361474721243}
   - component: {fileID: 2299769410184626786}
   m_Layer: 5
   m_Name: Container_C
@@ -454,16 +449,16 @@ RectTransform:
   m_GameObject: {fileID: 4410979974304468199}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5394097935223649048}
+  m_Father: {fileID: 7739593524281775979}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.7, y: 0.15}
-  m_AnchorMax: {x: 0.9, y: 0.4}
+  m_AnchorMin: {x: 0.6958334, y: 0.14737879}
+  m_AnchorMax: {x: 0.9041667, y: 0.40262124}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 1, y: 0.5}
+  m_SizeDelta: {x: 60, y: 166}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9068391770400390572
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -516,13 +511,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8005391685540010024}
-        m_TargetAssemblyTypeName: Minigame2.MinigameManager, Assembly-CSharp
+      - m_Target: {fileID: 4750402026256107593}
+        m_TargetAssemblyTypeName: Minigames.Tetris.OrderThePieces.OtPManager, Assembly-CSharp
         m_MethodName: SelectContainer
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 2299769410184626786}
-          m_ObjectArgumentAssemblyTypeName: Minigame2.Container, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: Minigames.Tetris.OrderThePieces.Container,
+            Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -558,7 +554,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4920792324898202299
+--- !u!114 &5033363361474721243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -567,21 +563,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 4410979974304468199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 20
-    m_Right: 20
-    m_Top: 20
-    m_Bottom: 20
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
   m_ChildAlignment: 7
-  m_StartCorner: 2
-  m_StartAxis: 0
-  m_CellSize: {x: 225, y: 150}
-  m_Spacing: {x: 0, y: 50}
-  m_Constraint: 1
-  m_ConstraintCount: 1
+  m_Spacing: 75
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 1
 --- !u!114 &2299769410184626786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,7 +605,7 @@ GameObject:
   - component: {fileID: 9179490238558037799}
   - component: {fileID: 4025580938237487672}
   - component: {fileID: 3552468995609226603}
-  - component: {fileID: 1478220556734276097}
+  - component: {fileID: 218977132334381556}
   - component: {fileID: 8787914262899216406}
   m_Layer: 5
   m_Name: Container_B
@@ -625,16 +623,16 @@ RectTransform:
   m_GameObject: {fileID: 5437180548036411599}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5394097935223649048}
+  m_Father: {fileID: 7739593524281775979}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.4, y: 0.15}
-  m_AnchorMax: {x: 0.6, y: 0.4}
+  m_AnchorMin: {x: 0.39583334, y: 0.14737879}
+  m_AnchorMax: {x: 0.6041667, y: 0.40262124}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 1, y: 0.5}
+  m_SizeDelta: {x: 60, y: 166}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9179490238558037799
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -687,13 +685,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8005391685540010024}
-        m_TargetAssemblyTypeName: Minigame2.MinigameManager, Assembly-CSharp
+      - m_Target: {fileID: 4750402026256107593}
+        m_TargetAssemblyTypeName: Minigames.Tetris.OrderThePieces.OtPManager, Assembly-CSharp
         m_MethodName: SelectContainer
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8787914262899216406}
-          m_ObjectArgumentAssemblyTypeName: Minigame2.Container, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: Minigames.Tetris.OrderThePieces.Container,
+            Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -729,7 +728,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1478220556734276097
+--- !u!114 &218977132334381556
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -738,21 +737,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 5437180548036411599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 20
-    m_Right: 20
-    m_Top: 20
-    m_Bottom: 20
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
   m_ChildAlignment: 7
-  m_StartCorner: 2
-  m_StartAxis: 0
-  m_CellSize: {x: 225, y: 150}
-  m_Spacing: {x: 0, y: 50}
-  m_Constraint: 1
-  m_ConstraintCount: 1
+  m_Spacing: 75
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 1
 --- !u!114 &8787914262899216406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -766,48 +767,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCapacity: 3
---- !u!1 &5606697815230054654
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5394097935223649048}
-  m_Layer: 5
-  m_Name: MG_TetrisDefense
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &5394097935223649048
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5606697815230054654}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8239242509166850697}
-  - {fileID: 570499958383994685}
-  - {fileID: 4739546266711346015}
-  - {fileID: 315830564522764826}
-  - {fileID: 5303769506828064501}
-  - {fileID: 5901583755913620450}
-  - {fileID: 2377151800623910616}
-  m_Father: {fileID: 7739593524281775979}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 269.99997, y: 480}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7182652308584928673
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,7 +779,7 @@ GameObject:
   - component: {fileID: 1402869052512405290}
   - component: {fileID: 7017695057822281141}
   - component: {fileID: 7725433130344925083}
-  - component: {fileID: 4738301590182459129}
+  - component: {fileID: 5669929712118489413}
   - component: {fileID: 5230093233892852224}
   m_Layer: 5
   m_Name: Container_A
@@ -838,16 +797,16 @@ RectTransform:
   m_GameObject: {fileID: 7182652308584928673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5394097935223649048}
+  m_Father: {fileID: 7739593524281775979}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 0.15}
-  m_AnchorMax: {x: 0.3, y: 0.4}
+  m_AnchorMin: {x: 0.08583333, y: 0.14737879}
+  m_AnchorMax: {x: 0.2891667, y: 0.40262124}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 1, y: 0.5}
+  m_SizeDelta: {x: 60, y: 166}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1402869052512405290
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -900,13 +859,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8005391685540010024}
-        m_TargetAssemblyTypeName: Minigame2.MinigameManager, Assembly-CSharp
+      - m_Target: {fileID: 4750402026256107593}
+        m_TargetAssemblyTypeName: Minigames.Tetris.OrderThePieces.OtPManager, Assembly-CSharp
         m_MethodName: SelectContainer
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 5230093233892852224}
-          m_ObjectArgumentAssemblyTypeName: Minigame2.Container, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: Minigames.Tetris.OrderThePieces.Container,
+            Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -942,7 +902,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4738301590182459129
+--- !u!114 &5669929712118489413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -951,21 +911,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 7182652308584928673}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 20
-    m_Right: 20
-    m_Top: 20
-    m_Bottom: 20
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
   m_ChildAlignment: 7
-  m_StartCorner: 2
-  m_StartAxis: 0
-  m_CellSize: {x: 225, y: 150}
-  m_Spacing: {x: 0, y: 50}
-  m_Constraint: 1
-  m_ConstraintCount: 1
+  m_Spacing: 75
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 1
 --- !u!114 &5230093233892852224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -990,8 +952,9 @@ GameObject:
   - component: {fileID: 570499958383994685}
   - component: {fileID: 5782308111605892489}
   - component: {fileID: 4543891984464236284}
-  - component: {fileID: 5201995973011335684}
   - component: {fileID: 7511441492195965032}
+  - component: {fileID: 6610469507695550055}
+  - component: {fileID: 7619233542205988489}
   m_Layer: 5
   m_Name: Goal_B
   m_TagString: Untagged
@@ -1008,16 +971,16 @@ RectTransform:
   m_GameObject: {fileID: 8278806280693834965}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5394097935223649048}
+  m_Father: {fileID: 7739593524281775979}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.4, y: 0.45}
-  m_AnchorMax: {x: 0.6, y: 0.7}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 1, y: 0.5}
+  m_AnchorMin: {x: 0.39916667, y: 0.4777576}
+  m_AnchorMax: {x: 0.6041667, y: 0.73265153}
+  m_AnchoredPosition: {x: 0, y: -0.5}
+  m_SizeDelta: {x: 60, y: 167}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5782308111605892489
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1056,30 +1019,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5201995973011335684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8278806280693834965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 20
-    m_Right: 20
-    m_Top: 20
-    m_Bottom: 20
-  m_ChildAlignment: 7
-  m_StartCorner: 2
-  m_StartAxis: 0
-  m_CellSize: {x: 225, y: 150}
-  m_Spacing: {x: 0, y: 50}
-  m_Constraint: 1
-  m_ConstraintCount: 1
 --- !u!225 &7511441492195965032
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1092,3 +1031,42 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &6610469507695550055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8278806280693834965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a988f3a4f1aa2499badaeb7801e6eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCapacity: 3
+--- !u!114 &7619233542205988489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8278806280693834965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 7
+  m_Spacing: 75
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 1

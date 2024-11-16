@@ -38,7 +38,7 @@ namespace Minigames.Tetris.PlaceThePieces
                 GameObject newPiece = CreateRandomTetrisPiece();
                 newPiece.transform.SetParent(this.transform);
                 newPiece.transform.position = Vector3.zero;
-                newPiece.transform.localScale = new Vector3(.75f, .75f, 1f);
+                newPiece.transform.localScale = Vector3.one;
                 _pieces.Add(newPiece);
             }
 

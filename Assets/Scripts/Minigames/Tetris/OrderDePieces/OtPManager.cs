@@ -1,31 +1,36 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
 
-namespace Minigame2
+namespace Minigames.Tetris.OrderThePieces
 {
-    public class MinigameManager : MonoBehaviour
+    public class OtPManager : MonoBehaviour
     {
-        private TetrisPieceGenerator _pieceGenerator;
+        public static OtPManager Instance { get; set; }
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+        
+        public int amountOfPieces;
         
         [SerializeField] public RectTransform[] playerContainers;
         [SerializeField] public RectTransform[] goalContainers;
-        [SerializeField] public Image shield;
-        [SerializeField] public Animator animator;
         
         private Container _selectedContainer;
-        [SerializeField] public RectTransform[] containers;
-        
-        private void Start()
+
+        public event Action WinMinigame;
+        public void StartMinigame()
         {
-            _pieceGenerator = GetComponent<TetrisPieceGenerator>();
-            if (_pieceGenerator != null)
-            {
-                _pieceGenerator.GeneratePieces();
-                
-                playerContainers = _pieceGenerator.playerContainers;
-                goalContainers = _pieceGenerator.goalContainers;
-            }
+           OtPFactory.Instance.InitalizePieces(amountOfPieces, goalContainers, playerContainers);
         }
         public void SelectContainer(Container container)
         {
@@ -65,16 +70,11 @@ namespace Minigame2
             if (image != null)
             {
                 image.color = Color.yellow;
-                Debug.Log("Container highlighted");
-            }
-            else
-            {
-                Debug.LogError("Could not highlight");
             }
         }
         private void ResetHighlights()
         {
-            foreach (RectTransform container in containers)
+            foreach (RectTransform container in playerContainers)
             {
                 Image image = container.GetComponent<Image>();
                 if (image != null)
@@ -98,14 +98,9 @@ namespace Minigame2
 
             if (victory)
             {
-                Debug.Log("Minijuego de defensa completado");
-                //VICTORY ACA!
-                shield.enabled = true;
-                animator.SetTrigger("defensa");
-                RestartMinigame();
+                WinMinigame?.Invoke();
             }
         }
-
         private bool DoesContainerMatchGoal(RectTransform playerContainer, RectTransform goalContainer)
         {
             if (playerContainer.childCount != goalContainer.childCount) //Consider amount of pieces.
@@ -127,9 +122,34 @@ namespace Minigame2
             return true;
         }
 
-        void RestartMinigame()
+        public void ResetMinigame()
         {
-            _pieceGenerator.ResetGame();
+            foreach (var container in playerContainers)
+            {
+                // Destroy all children (GameObjects)
+                foreach (Transform child in container)
+                {
+                    Destroy(child.gameObject);
+                }
+
+                // Clear the internal _pieces stack in the container
+                Container containerComponent = container.GetComponent<Container>();
+                containerComponent?.ClearContainer();
+            }
+
+            foreach (var container in goalContainers)
+            {
+                // Destroy all children (GameObjects)
+                foreach (Transform child in container)
+                {
+                    Destroy(child.gameObject);
+                }
+
+                // Clear the internal _pieces stack in the container
+                Container containerComponent = container.GetComponent<Container>();
+                containerComponent?.ClearContainer();
+            }
         }
+
     }
 }

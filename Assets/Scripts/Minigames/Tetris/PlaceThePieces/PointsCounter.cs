@@ -20,7 +20,6 @@ namespace Minigames.Tetris.PlaceThePieces
             else
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
             }
         }
 

@@ -1,13 +1,15 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
+using Image = UnityEngine.UIElements.Image;
 
-namespace Minigame2
+namespace Minigames.Tetris.OrderThePieces
 {
     public class Container : MonoBehaviour
     {
         private TetrisStack _pieces = new TetrisStack(3);
-        [SerializeField] private int maxCapacity = 3; // Max capacity of the container.
-
-
+        [SerializeField] private int maxCapacity = 3;
+        
 
         public bool CanMovePiece()
         {
@@ -32,7 +34,6 @@ namespace Minigame2
         {
             return CanMovePiece() ? _pieces.Pop() : null; //Remove te top piece.
         }
-
         public void ClearContainer()
         {
             if(_pieces.Count()>0)
