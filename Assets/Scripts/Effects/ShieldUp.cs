@@ -1,4 +1,6 @@
+using Core;
 using HealthSystem;
+using ManagerScripts;
 
 namespace Effects
 {
@@ -7,6 +9,7 @@ namespace Effects
         public override void ApplyEffect(UHealth receiver,float value)
         {
             receiver.Shield();
+            ServiceLocator.Instance.GetService<EventManager>().OnPlayerDefend();
         }
     }
 }

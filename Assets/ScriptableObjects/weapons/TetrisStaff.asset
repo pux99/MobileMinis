@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7538f3bda48a7d240abedcf1337b05b5, type: 3}
   m_Name: TetrisStaff
   m_EditorClassIdentifier: 
-  minigameController: {fileID: 2777531495054197201, guid: 2bca3d5fbebb28344b0b4cf50a58125b, type: 3}
-  completingEffect: {fileID: 7517076433464416999, guid: c2953b89b13f9dd4580453e867e68877, type: 3}
+  minigameController: {fileID: 6495800460904171217, guid: e24bbc0ccce9d984a99a879a59b61495, type: 3}
+  completingEffect: {fileID: -4558184478720512644, guid: c2953b89b13f9dd4580453e867e68877, type: 3}
   losingEffect: {fileID: 0}
-  completingEffectValue: 10
+  completingEffectValue: 40
   losingEffectValue: 0
   weaponArt: {fileID: 21300000, guid: 5bbd09d8dfffe3340b1e05d782e67b88, type: 3}

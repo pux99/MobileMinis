@@ -51,7 +51,7 @@ namespace ManagerScripts
         [ContextMenu("tesEnemyDefeat")]
         public void EnemyDefeated()
         {
-            ServiceLocator.Instance.GetService<EventManager>().OnCombatEnd();
+            ServiceLocator.Instance.GetService<EventManager>().OnCombatWin();
         }
 
         public void PLayerDefeated()

@@ -10,6 +10,7 @@ public class SO_GruopOfBaseTetrisPieces : ScriptableObject
     public class Piece
     {
         public Sprite sprite;
+        public Sprite ColorSprite;
         public Vector2 size;
         public Vector2Int[] occupiedCells;
     }

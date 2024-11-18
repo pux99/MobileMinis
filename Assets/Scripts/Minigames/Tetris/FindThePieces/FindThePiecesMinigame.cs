@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Tetris_Minigame.Scripts.UI;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,10 +20,13 @@ namespace Tetris_Minigame.Scripts.Tetris
         [SerializeField] private RectTransform goalPiecesContainer;
         [SerializeField] private RectTransform pileOfPieces;
         [SerializeField] private DropHandler containerDropHandler;
+        [SerializeField] private Canvas minigameCanvas;
         private readonly TetrisQueue _goalPiecesQueue=new TetrisQueue(11);
         private readonly TetrisQueue _containerPiecesQueue=new TetrisQueue(11);
         private readonly List<GameObject> _listOfPiecesInThePile = new List<GameObject>();
         private readonly List<GameObject> _listOfGoalPieces = new List<GameObject>();
+        private List<Drag> _piecesDragComponentList=new List<Drag>();
+        
 
         public Action WinMinigame;
         public Action LossMinigame;
@@ -59,6 +63,11 @@ namespace Tetris_Minigame.Scripts.Tetris
             for (int i = 0; i < 25; i++)
                 CreateRandomPieceInRandomPositionAndRotations();
             ShuffleChildren();
+            if(_listOfPiecesInThePile!=null)
+                foreach (var piece in _listOfPiecesInThePile)
+                {
+                    _piecesDragComponentList.Add(piece.GetComponent<Drag>());
+                }
         }
     
         void CheckIfTheQueuesAreEqual()
@@ -68,8 +77,10 @@ namespace Tetris_Minigame.Scripts.Tetris
             {
                 Image goalPiece = _goalPiecesQueue.Dequeue().GetComponent<Image>();
                 Image containerPiece = _containerPiecesQueue.Dequeue().GetComponent<Image>();
+                Image goalPieceColorImage = goalPiece.transform.GetChild(0).GetComponent<Image>();
+                Image containerPieceColorImage = containerPiece.transform.GetChild(0).GetComponent<Image>();
                 StartCoroutine(OutOfContainer(containerPiece));
-                if (containerPiece.sprite != goalPiece.sprite || containerPiece.color != goalPiece.color)
+                if (containerPiece.sprite != goalPiece.sprite || containerPieceColorImage.color != goalPieceColorImage.color)
                 {
                     Debug.Log("Wrong Pattern");
                     LossMinigame?.Invoke();
@@ -109,6 +120,11 @@ namespace Tetris_Minigame.Scripts.Tetris
                 currentPileImage.sprite = currentGoalImage.sprite;
             }
             ShuffleChildren();
+            if(_piecesDragComponentList!=null)
+                foreach (var piece in _piecesDragComponentList)
+                {
+                    piece.Canvas = minigameCanvas;
+                }
         }
     
         GameObject CreateRandomPieceInRandomPositionAndRotations()

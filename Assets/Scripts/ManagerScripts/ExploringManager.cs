@@ -15,41 +15,47 @@ namespace ManagerScripts
         [SerializeField] private SoEnemy leftEnemy;
         [SerializeField] private DungeonManager dungeonManager;
         [SerializeField] private SwipeControl swipe;
-        public bool waitingForNextCombat;
+        public bool waitingForNextCombat=false;
 
-        private void Start()
+        private IEnumerator Start()
         {
-            
+            ServiceLocator.Instance.GetService<EventManager>().CombatEnd += ReturnToExporting;
             swipe.SwipeToTheLeft += LeftCombat;
             swipe.SwipeToTheRight += RightCombat;
-            //dungeonManager.WinTheCombat += start5secondCourutine;
+            yield return 5;
+            StartFirstCombat();
         }
 
-        [ContextMenu("startcombat")]
+        [ContextMenu("startCombat")]
         private void StartFirstCombat()
         {
             dungeonManager.NextCombat(startingEnemy);
         }
 
-        public void LeftCombat()
+        private void ReturnToExporting()
+        {
+            Start5SecondCourutine();
+        }
+
+        private void LeftCombat()
         {
             if(waitingForNextCombat)
                 dungeonManager.NextCombat(leftEnemy);
             waitingForNextCombat = false;
         }
 
-        public void RightCombat()
+        private void RightCombat()
         {
             if(waitingForNextCombat)
                 dungeonManager.NextCombat(rightEnemy);
             waitingForNextCombat = false;
         }
 
-        void start5secondCourutine()
+        private void Start5SecondCourutine()
         {
             StartCoroutine(Waitfor5secodns());
         }
-        IEnumerator Waitfor5secodns()
+        private IEnumerator Waitfor5secodns()
         {
             yield return new WaitForSeconds(5);
             waitingForNextCombat = true;

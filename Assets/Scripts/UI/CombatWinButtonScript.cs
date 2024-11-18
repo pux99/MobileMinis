@@ -7,5 +7,6 @@ public class CombatWinButtonScript : MonoBehaviour
     public void ButtonPressAction()
     {
         ServiceLocator.Instance.GetService<EventManager>().OnCombatEnd();
+        gameObject.SetActive(false);
     }
 }
