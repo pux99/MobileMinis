@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7538f3bda48a7d240abedcf1337b05b5, type: 3}
   m_Name: TetrisShield
   m_EditorClassIdentifier: 
-  minigameController: {fileID: 8669146767209061425, guid: b0b61bcbb7cee51449cdd7f3c55ec2e7, type: 3}
+  minigameController: {fileID: -3646794815828267359, guid: e608339e7c2c517459f0ad7b0b74d055, type: 3}
   completingEffect: {fileID: 0}
   losingEffect: {fileID: 0}
   completingEffectValue: 0

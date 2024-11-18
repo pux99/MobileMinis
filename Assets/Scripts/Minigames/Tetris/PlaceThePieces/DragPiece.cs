@@ -31,6 +31,7 @@ namespace Minigames.Tetris.PlaceThePieces
             _lastParent = transform.parent;
             image.raycastTarget = false;
             _lastPosition = transform.position;
+            
             transform.SetParent(_canvas.transform);
             transform.SetAsLastSibling();
 
