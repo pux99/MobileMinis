@@ -1,20 +1,21 @@
 using Enemies;
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 
 public class ABB : IABBTDA
 {
-    NodoABB raiz;
+    private NodoABB raiz;
 
-    public SoEnemy Raiz()
+    public int Raiz()
     {
         return raiz.info;
     }
 
     public bool ArbolVacio()
     {
-        return (raiz == null);
+        return raiz == null;
     }
 
     public void InicializarArbol()
@@ -22,14 +23,14 @@ public class ABB : IABBTDA
         raiz = null;
     }
 
-    public IABBTDA HijoDer()
-    {
-        return raiz.hijoDer;
-    }
-
     public IABBTDA HijoIzq()
     {
         return raiz.hijoIzq;
+    }
+
+    public IABBTDA HijoDer()
+    {
+        return raiz.hijoDer;
     }
 
     public void AgregarElem(int x)
@@ -43,66 +44,132 @@ public class ABB : IABBTDA
             raiz.hijoDer = new ABB();
             raiz.hijoDer.InicializarArbol();
         }
-        else if (raiz.info > x)
+        else if (x < raiz.info)
         {
             raiz.hijoIzq.AgregarElem(x);
         }
-        else if (raiz.info < x)
+        else if (x > raiz.info)
         {
             raiz.hijoDer.AgregarElem(x);
         }
+        Balance();
     }
 
     public void EliminarElem(int x)
     {
-        if (raiz != null)
+        if (raiz == null) return;
+
+        if (x < raiz.info)
         {
-            if (raiz.info == x && raiz.hijoIzq.ArbolVacio() && raiz.hijoDer.ArbolVacio())
+            raiz.hijoIzq.EliminarElem(x);
+        }
+        else if (x > raiz.info)
+        {
+            raiz.hijoDer.EliminarElem(x);
+        }
+        else
+        {
+            if (raiz.hijoIzq.ArbolVacio() && raiz.hijoDer.ArbolVacio())
             {
                 raiz = null;
             }
-            else if (raiz.info == x && !raiz.hijoIzq.ArbolVacio())
+            else if (!raiz.hijoIzq.ArbolVacio())
             {
-                raiz.info = this.mayor(raiz.hijoIzq);
+                raiz.info = ((ABB)raiz.hijoIzq).FindMax();
                 raiz.hijoIzq.EliminarElem(raiz.info);
-            }
-            else if (raiz.info == x && raiz.hijoIzq.ArbolVacio())
-            {
-                raiz.info = this.menor(raiz.hijoDer);
-                raiz.hijoDer.EliminarElem(raiz.info);
-            }
-            else if (raiz.info < x)
-            {
-                raiz.hijoDer.EliminarElem(x);
             }
             else
             {
-                raiz.hijoIzq.EliminarElem(x);
+                raiz.info = ((ABB)raiz.hijoDer).FindMin();
+                raiz.hijoDer.EliminarElem(raiz.info);
+            }
+        }
+        Balance();
+    }
+
+    private void Balance()
+    {
+        int balance = BalanceFactor();
+
+        if (balance > 1)
+        {
+            if (HijoIzq().BalanceFactor() >= 0)
+            {
+                RotacionDerecha();
+            }
+            else
+            {
+                HijoIzq().RotacionIzquierda();
+                RotacionDerecha();
+            }
+        }
+        else if (balance < -1)
+        {
+            if (HijoDer().BalanceFactor() <= 0)
+            {
+                RotacionIzquierda();
+            }
+            else
+            {
+                HijoDer().RotacionDerecha();
+                RotacionIzquierda();
             }
         }
     }
 
-    public int mayor(IABBTDA a)
+    public int Altura()
     {
-        if (a.HijoDer().ArbolVacio())
-        {
-            return a.Raiz();
-        }
-        else
-        {
-            return mayor(a.HijoDer());
-        }
+        if (ArbolVacio())
+            return 0;
+        return 1 + Mathf.Max(HijoIzq().Altura(), HijoDer().Altura());
     }
 
-    public int menor(IABBTDA a)
+    public int BalanceFactor()
     {
-        if (a.HijoIzq().ArbolVacio())
-        {
-            return a.Raiz();
-        }
-        else
-        {
-            return menor(a.HijoIzq());
-        }
+        if (ArbolVacio())
+            return 0;
+        return HijoIzq().Altura() - HijoDer().Altura();
+    }
+
+    public void RotacionIzquierda()
+    {
+        if (raiz == null || raiz.hijoDer.ArbolVacio())
+            return;
+
+        NodoABB nuevaRaiz = ((ABB)raiz.hijoDer).raiz;
+        raiz.hijoDer = nuevaRaiz.hijoIzq;
+        nuevaRaiz.hijoIzq = this;
+
+        raiz = nuevaRaiz;
+    }
+
+    public void RotacionDerecha()
+    {
+        if (raiz == null || raiz.hijoIzq.ArbolVacio())
+            return;
+
+        NodoABB nuevaRaiz = ((ABB)raiz.hijoIzq).raiz;
+        raiz.hijoIzq = nuevaRaiz.hijoDer;
+        nuevaRaiz.hijoDer = this;
+
+        raiz = nuevaRaiz;
+    }
+
+    public int FindMax()
+    {
+        if (ArbolVacio())
+            throw new System.Exception("Tree is empty.");
+        if (HijoDer().ArbolVacio())
+            return Raiz();
+        return ((ABB)HijoDer()).FindMax();
+    }
+
+    public int FindMin()
+    {
+        if (ArbolVacio())
+            throw new System.Exception("Tree is empty.");
+        if (HijoIzq().ArbolVacio())
+            return Raiz();
+        return ((ABB)HijoIzq()).FindMin();
     }
 }
