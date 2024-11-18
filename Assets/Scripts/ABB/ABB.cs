@@ -1,12 +1,13 @@
+using Enemies;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ABB : ABBTDA
+public class ABB : IABBTDA
 {
     NodoABB raiz;
 
-    public int Raiz()
+    public SoEnemy Raiz()
     {
         return raiz.info;
     }
@@ -21,12 +22,12 @@ public class ABB : ABBTDA
         raiz = null;
     }
 
-    public ABBTDA HijoDer()
+    public IABBTDA HijoDer()
     {
         return raiz.hijoDer;
     }
 
-    public ABBTDA HijoIzq()
+    public IABBTDA HijoIzq()
     {
         return raiz.hijoIzq;
     }
@@ -81,7 +82,7 @@ public class ABB : ABBTDA
         }
     }
 
-    public int mayor(ABBTDA a)
+    public int mayor(IABBTDA a)
     {
         if (a.HijoDer().ArbolVacio())
         {
@@ -93,7 +94,7 @@ public class ABB : ABBTDA
         }
     }
 
-    public int menor(ABBTDA a)
+    public int menor(IABBTDA a)
     {
         if (a.HijoIzq().ArbolVacio())
         {

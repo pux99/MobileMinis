@@ -1,12 +1,13 @@
+using Enemies;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ABBTDA
+public interface IABBTDA
 {
-    int Raiz();
-    ABBTDA HijoIzq();
-    ABBTDA HijoDer();
+    SoEnemy Raiz();
+    IABBTDA HijoIzq();
+    IABBTDA HijoDer();
     bool ArbolVacio();
     void InicializarArbol();
     void AgregarElem(int x);

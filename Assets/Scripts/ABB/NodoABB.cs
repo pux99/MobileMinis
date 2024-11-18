@@ -1,3 +1,4 @@
+using Enemies;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,8 @@ using UnityEngine;
 public class NodoABB
 {
     // datos a almacenar, en este caso un entero
-    public int info;
+    public SoEnemy info;
     // referencia los nodos izquiero y derecho
-    public ABBTDA hijoIzq;
-    public ABBTDA hijoDer;
+    public IABBTDA hijoIzq;
+    public IABBTDA hijoDer;
 }
