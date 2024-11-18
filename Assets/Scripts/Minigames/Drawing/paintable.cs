@@ -1,98 +1,126 @@
-using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
-public class paintable : MonoBehaviour
+namespace Minigames.Drawing
 {
-    public Slider slider;
-    public List<GameObject> images;
-    public GameObject brush;
-    public float brushSize = 1f;
-    private List<GameObject> painting = new List<GameObject>();
-    public RenderTexture render;
-    public Texture2D texture2D;
-    public int points;
-    public int selectedImage;
-    public Animator animator;
-    public Image backgrownd;
-    void Update()
+    public class paintable : MonoBehaviour
     {
-        if(Input.GetMouseButton(0))
+        [SerializeField] private  List<GameObject> images;
+        [SerializeField] private  GameObject brush;
+        [SerializeField] private  float brushSize = 1f;
+        [SerializeField] private  List<GameObject> painting = new List<GameObject>();
+        [SerializeField] private  RenderTexture render;
+        [SerializeField] private  Texture2D texture2D;
+        [SerializeField] private  int points;
+        [SerializeField] private  int selectedImage;
+        [SerializeField] private  Image backgrownd;
+        public Action WinMinigame;
+        void Update()
         {
-            
-            var mouseposition =Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit= Physics2D.Raycast(mouseposition, -Vector2.up); ;
-            if(hit.collider!=null)
+            if(Input.GetMouseButton(0))
             {
-                var go= Instantiate(brush, mouseposition+new Vector3(0,0,10), Quaternion.identity,transform);
-                go.transform.localScale = Vector3.one * brushSize;
-                painting.Add(go);
-            }
+            
+                var mouseposition =Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                RaycastHit2D hit= Physics2D.Raycast(mouseposition, -Vector2.up); ;
+                if(hit.collider!=null)
+                {
+                    var go= Instantiate(brush, mouseposition+new Vector3(0,0,10), Quaternion.identity,transform);
+                    go.transform.localScale = Vector3.one * brushSize;
+                    painting.Add(go);
+                }
 
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            StartCoroutine(cosave());
-        }
-        switch (selectedImage)
-        {
-            case 0:
-                images[0].SetActive(true);
-                images[1].SetActive(false);
-                images[2].SetActive(false);
-                break;
-            case 1:
-                images[0].SetActive(false);
-                images[1].SetActive(true);
-                images[2].SetActive(false);
-                break; 
-            case 2:
-                images[0].SetActive(false);
-                images[1].SetActive(false);
-                images[2].SetActive(true);
-                break;
-        }
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                StartCoroutine(cosave());
+            }
+            switch (selectedImage)
+            {
+                case 0:
+                    images[0].transform.parent.gameObject.SetActive(true);
+                    images[1].transform.parent.gameObject.SetActive(false);
+                    images[2].transform.parent.gameObject.SetActive(false);
+                    images[3].transform.parent.gameObject.SetActive(false);
+                    images[4].transform.parent.gameObject.SetActive(false);
+                    break;
+                case 1:
+                    images[0].transform.parent.gameObject.SetActive(false);
+                    images[1].transform.parent.gameObject.SetActive(true);
+                    images[2].transform.parent.gameObject.SetActive(false);
+                    images[3].transform.parent.gameObject.SetActive(false);
+                    images[4].transform.parent.gameObject.SetActive(false);
+                    break; 
+                case 2:
+                    images[0].transform.parent.gameObject.SetActive(false);
+                    images[1].transform.parent.gameObject.SetActive(false);
+                    images[2].transform.parent.gameObject.SetActive(true);
+                    images[3].transform.parent.gameObject.SetActive(false);
+                    images[4].transform.parent.gameObject.SetActive(false);
+                    break;
+                case 3:
+                    images[0].transform.parent.gameObject.SetActive(false);
+                    images[1].transform.parent.gameObject.SetActive(false);
+                    images[2].transform.parent.gameObject.SetActive(false);
+                    images[3].transform.parent.gameObject.SetActive(true);
+                    images[4].transform.parent.gameObject.SetActive(false);
+                    break;
+                case 4:
+                    images[0].transform.parent.gameObject.SetActive(false);
+                    images[1].transform.parent.gameObject.SetActive(false);
+                    images[2].transform.parent.gameObject.SetActive(false);
+                    images[3].transform.parent.gameObject.SetActive(false);
+                    images[4].transform.parent.gameObject.SetActive(true);
+                    break;
+            }
 
         
-    }
-    public int compate()
-    {
-        int similarityPoints=0;
-        for (int i = 0;i<texture2D.width; i++)
+        }
+        public int compate()
         {
-            for (int j = 0;j < texture2D.height; j++)
+            int similarityPoints=0;
+            for (int i = 0;i<texture2D.width; i++)
             {
-                if (texture2D.GetPixel(i, j) != Color.black && images[selectedImage].GetComponent<SpriteRenderer>().sprite.texture.GetPixel(i,j)==Color.white)
+                for (int j = 0;j < texture2D.height; j++)
                 {
-                    similarityPoints++;
+                    if (texture2D.GetPixel(i, j) != Color.black && images[selectedImage].GetComponent<SpriteRenderer>().sprite.texture.GetPixel(i,j)==Color.white)
+                    {
+                        similarityPoints++;
+                    }
                 }
             }
+            Debug.Log(similarityPoints);
+            return similarityPoints;
         }
-        Debug.Log(similarityPoints);
-        return similarityPoints;
-    }
-    private IEnumerator cosave()
-    {
+        private IEnumerator cosave()
+        {
 
-        yield return new WaitForEndOfFrame();
-        RenderTexture.active = render;
-        texture2D = new Texture2D(render.width, render.height);
-        texture2D.ReadPixels(new Rect(0, 0, render.width, render.height), 0, 0);
-        texture2D.Apply();
-        Debug.Log(texture2D.GetPixel(0,0));
-        if (compate() > 600)
-        {
-            slider.value += .1f;
-            selectedImage=Random.Range(0,3);
-            animator.SetTrigger("cura");
+            yield return new WaitForEndOfFrame();
+            RenderTexture.active = render;
+            texture2D = new Texture2D(render.width, render.height);
+            texture2D.ReadPixels(new Rect(0, 0, render.width, render.height), 0, 0);
+            texture2D.Apply();
+            Debug.Log(texture2D.GetPixel(0,0));
+            if (compate() > 600)
+            {
+                //slider.value += .1f;
+                WinMinigame?.Invoke();
+                ChangeDrawing();
+                //animator.SetTrigger("cura");
+            }
+            for (int i = 0; i < painting.Count; i++)
+            {
+                Destroy(painting[i]);
+            }
+            painting.Clear();
         }
-        for (int i = 0; i < painting.Count; i++)
+
+        public void ChangeDrawing()
         {
-            Destroy(painting[i]);
+            selectedImage=Random.Range(0,5);
         }
-        painting.Clear();
     }
 }

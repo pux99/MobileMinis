@@ -29,6 +29,16 @@ namespace ManagerScripts
 
         public Action Resume;
         public void OnResume() => Resume?.Invoke();
+        
+        public Action PlayerAttack;
+        public void OnPlayerAttack() => PlayerAttack?.Invoke();
+        
+        public Action PlayerDefend;
+        public void OnPlayerDefend() => PlayerDefend?.Invoke();
+        
+        public Action PlayerSupport;
+        public void OnPlayerSupport() => PlayerSupport?.Invoke();
+        
         public Action LevelUp;
         public void OnLevelUP() => LevelUp?.Invoke();
     }

@@ -1,6 +1,8 @@
 using Effects;
 using HealthSystem;
+using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enemies
 {
@@ -8,6 +10,7 @@ namespace Enemies
     public class SoEnemy : ScriptableObject
     {
         public Sprite enemyArt;
+        public AnimatorController animatorController;
         public IEffect enemyAttack;
         public int maxLife;
         public int damage;

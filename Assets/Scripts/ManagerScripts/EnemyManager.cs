@@ -15,9 +15,11 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         health.OnDead += Defeated;
+        health.OnLifeChange += HandleLifeChange;
         countDown.CountdownEnd += Attack;
         SetUpEnemy(enemy);
     }
+
 
     public void SetUpEnemy(SoEnemy newEnemy)
     {
@@ -25,13 +27,18 @@ public class EnemyManager : MonoBehaviour
         countDown.SetAttackCooldown(enemy.attackFrequency);
         health.SetMaxHp(enemy.maxLife);
         health.FullHeal();
-        enemyUIManager.SetUpArt(enemy.enemyArt);
+        enemyUIManager.SetUpArt(enemy.enemyArt,enemy.animatorController);
         
     }
 
     private void Attack()
     {
         enemy.Attack(battleManager.PlayerCombatManager.PlayerHealth);
+        enemyUIManager.PlayAttackAnimation();
+    }
+    private void HandleLifeChange(int arg1, int arg2)
+    {
+        enemyUIManager.PlayDamagedAnimation();
     }
 
     private void Defeated()

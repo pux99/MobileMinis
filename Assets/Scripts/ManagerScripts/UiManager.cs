@@ -8,7 +8,8 @@ using UnityEngine.Serialization;
 
 public class UiManager : MonoBehaviour
 {
-    [SerializeField] private GameObject winingUI;
+    [FormerlySerializedAs("winingUI")] [SerializeField] private GameObject winingDungeonUI;
+    [SerializeField] private GameObject winingCombatUI;
     [SerializeField] private GameObject losingUI;
 
     [SerializeField] private DungeonManager dungeonManager;
@@ -30,12 +31,14 @@ public class UiManager : MonoBehaviour
     {
         countDown.gameObject.SetActive(true);
         enemy.SetActive(true);
+        minigameSelector.SetActive(true);
     }
 
     private void WinCombatUI()
     {
         NormalTurnOffs();
-        winingUI.SetActive(true);
+        winingCombatUI.SetActive(true);
+        enemy.SetActive(false);
     }
     private void LossUI()
     {
