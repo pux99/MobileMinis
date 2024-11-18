@@ -4915,6 +4915,7 @@ MonoBehaviour:
   leftEnemy: {fileID: 11400000, guid: 945f98b9c5718c044812b55fb9872358, type: 2}
   dungeonManager: {fileID: 1073042716}
   swipe: {fileID: 1073042717}
+  dungeonHeight: 4
   waitingForNextCombat: 0
 --- !u!1 &1786093101
 GameObject:

@@ -48,7 +48,7 @@ public class ABB : IABBTDA
         {
             raiz.hijoIzq.AgregarElem(x);
         }
-        else if (x > raiz.info)
+        else if (x >= raiz.info)
         {
             raiz.hijoDer.AgregarElem(x);
         }
@@ -121,6 +121,7 @@ public class ABB : IABBTDA
     {
         if (ArbolVacio())
             return 0;
+
         return 1 + Mathf.Max(HijoIzq().Altura(), HijoDer().Altura());
     }
 
@@ -136,10 +137,18 @@ public class ABB : IABBTDA
         if (raiz == null || raiz.hijoDer.ArbolVacio())
             return;
 
+        // Save the current right child as the new root
         NodoABB nuevaRaiz = ((ABB)raiz.hijoDer).raiz;
-        raiz.hijoDer = nuevaRaiz.hijoIzq;
-        nuevaRaiz.hijoIzq = this;
 
+        // The left child of the new root becomes the right child of the current root
+        raiz.hijoDer = nuevaRaiz.hijoIzq;
+
+        // Create a new tree for the left child of the new root
+        ABB arbolIzq = new ABB();
+        arbolIzq.raiz = raiz; // The current root becomes the left child of the new root
+        nuevaRaiz.hijoIzq = arbolIzq;
+
+        // Update the root
         raiz = nuevaRaiz;
     }
 
@@ -148,10 +157,18 @@ public class ABB : IABBTDA
         if (raiz == null || raiz.hijoIzq.ArbolVacio())
             return;
 
+        // Save the current left child as the new root
         NodoABB nuevaRaiz = ((ABB)raiz.hijoIzq).raiz;
-        raiz.hijoIzq = nuevaRaiz.hijoDer;
-        nuevaRaiz.hijoDer = this;
 
+        // The right child of the new root becomes the left child of the current root
+        raiz.hijoIzq = nuevaRaiz.hijoDer;
+
+        // Create a new tree for the right child of the new root
+        ABB arbolDer = new ABB();
+        arbolDer.raiz = raiz; // The current root becomes the right child of the new root
+        nuevaRaiz.hijoDer = arbolDer;
+
+        // Update the root
         raiz = nuevaRaiz;
     }
 
