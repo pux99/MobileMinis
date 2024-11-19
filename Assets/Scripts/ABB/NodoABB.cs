@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class NodoABB
 {
-    // datos a almacenar, en este caso un entero
+    // Datos a almacenar
     public int info;
     public SoEnemy enemigo;
-    // referencia los nodos izquiero y derecho
+    // Referencia los nodos izquiero y derecho
     public IABBTDA hijoIzq;
     public IABBTDA hijoDer;
 }
