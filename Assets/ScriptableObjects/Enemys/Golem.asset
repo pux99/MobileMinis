@@ -16,5 +16,5 @@ MonoBehaviour:
   animatorController: {fileID: 9100000, guid: cff6769f2a5f03b4ca1a9e85a273770e, type: 2}
   enemyAttack: {fileID: 2903877290141185441, guid: 92f7cb5a00f907346af1f8d13d49fe55, type: 3}
   maxLife: 100
-  damage: 10
+  damage: 50
   attackFrequency: 10

@@ -4910,12 +4910,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f9d1af1f7ab52439d242ed42aca2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingEnemy: {fileID: 11400000, guid: 42d6b0c8bf574734eb2c0e858ff3208c, type: 2}
-  rightEnemy: {fileID: 11400000, guid: 723375dc73075634486f0100ac5d236c, type: 2}
-  leftEnemy: {fileID: 11400000, guid: 945f98b9c5718c044812b55fb9872358, type: 2}
   dungeonManager: {fileID: 1073042716}
   swipe: {fileID: 1073042717}
   dungeonHeight: 4
+  enemies:
+  - {fileID: 11400000, guid: 42d6b0c8bf574734eb2c0e858ff3208c, type: 2}
+  - {fileID: 11400000, guid: 723375dc73075634486f0100ac5d236c, type: 2}
+  - {fileID: 11400000, guid: 945f98b9c5718c044812b55fb9872358, type: 2}
   waitingForNextCombat: 0
 --- !u!1 &1786093101
 GameObject:
