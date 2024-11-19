@@ -15,6 +15,6 @@ MonoBehaviour:
   enemyArt: {fileID: -1728049046, guid: be7ddc4834682d24c9a76946c85a1af9, type: 3}
   animatorController: {fileID: 9100000, guid: 4df6901ec46c1bd43a621534cb41a6fb, type: 2}
   enemyAttack: {fileID: 2903877290141185441, guid: 92f7cb5a00f907346af1f8d13d49fe55, type: 3}
-  maxLife: 100
+  maxLife: 50
   damage: 10
   attackFrequency: 10

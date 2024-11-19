@@ -8,10 +8,10 @@ public interface IABBTDA
 {
     void InicializarArbol();
     bool ArbolVacio();
-    int Raiz();
+    NodoABB Raiz();
     IABBTDA HijoIzq();
     IABBTDA HijoDer();
-    void AgregarElem(int x);
+    void AgregarElem(int x, SoEnemy enemy);
     void EliminarElem(int x);
     int Altura(); // Calculate the height of the tree
     int BalanceFactor(); // Compute the balance factor

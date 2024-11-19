@@ -8,9 +8,9 @@ public class ABB : IABBTDA
 {
     private NodoABB raiz;
 
-    public int Raiz()
+    public NodoABB Raiz()
     {
-        return raiz.info;
+        return raiz;
     }
 
     public bool ArbolVacio()
@@ -33,12 +33,13 @@ public class ABB : IABBTDA
         return raiz.hijoDer;
     }
 
-    public void AgregarElem(int x)
+    public void AgregarElem(int x , SoEnemy enemy)
     {
         if (raiz == null)
         {
             raiz = new NodoABB();
             raiz.info = x;
+            raiz.enemigo = enemy;
             raiz.hijoIzq = new ABB();
             raiz.hijoIzq.InicializarArbol();
             raiz.hijoDer = new ABB();
@@ -46,11 +47,11 @@ public class ABB : IABBTDA
         }
         else if (x < raiz.info)
         {
-            raiz.hijoIzq.AgregarElem(x);
+            raiz.hijoIzq.AgregarElem(x, enemy);
         }
         else if (x >= raiz.info)
         {
-            raiz.hijoDer.AgregarElem(x);
+            raiz.hijoDer.AgregarElem(x, enemy);
         }
         Balance();
     }
@@ -85,6 +86,29 @@ public class ABB : IABBTDA
             }
         }
         Balance();
+    }
+
+    public NodoABB BuscarNodo(int valor)
+    {
+        if (raiz == null)
+        {
+            return null; // The tree is empty or the node was not found
+        }
+
+        if (raiz.info == valor)
+        {
+            return raiz; // Node found
+        }
+        else if (valor < raiz.info)
+        {
+            // Search in the left subtree
+            return ((ABB)raiz.hijoIzq).BuscarNodo(valor);
+        }
+        else
+        {
+            // Search in the right subtree
+            return ((ABB)raiz.hijoDer).BuscarNodo(valor);
+        }
     }
 
     private void Balance()
@@ -177,7 +201,7 @@ public class ABB : IABBTDA
         if (ArbolVacio())
             throw new System.Exception("Tree is empty.");
         if (HijoDer().ArbolVacio())
-            return Raiz();
+            return Raiz().info;
         return ((ABB)HijoDer()).FindMax();
     }
 
@@ -186,7 +210,7 @@ public class ABB : IABBTDA
         if (ArbolVacio())
             throw new System.Exception("Tree is empty.");
         if (HijoIzq().ArbolVacio())
-            return Raiz();
+            return Raiz().info;
         return ((ABB)HijoIzq()).FindMin();
     }
 }
