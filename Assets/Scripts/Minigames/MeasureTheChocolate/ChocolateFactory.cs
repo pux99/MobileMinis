@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,15 +13,45 @@ public class ChocolateFactory : MonoBehaviour
     
     public Transform parentContainer;
 
-    private void Start()
+    private HashSet<string> generatedPairs = new HashSet<string>();
+    
+    public List<Chocolate> GenerateRandomChocolate(int x)
     {
-        MakeChocolateBar(6,8, Color.white);
+        List<Chocolate> generatedChocolateBars = new List<Chocolate>();
+        generatedPairs.Clear(); // Reset previously generated pairs
+
+        System.Random random = new System.Random();
+        int attempts = 0;
+
+        while (generatedChocolateBars.Count < x && attempts < 100)
+        {
+            int columns = random.Next(1, 7); // Generate between 1 and 6
+            int rows = random.Next(1, 7);
+
+            if (columns * rows <= 20)
+            {
+                // Create a unique key for the pair
+                string pairKey = $"{Mathf.Min(columns, rows)}-{Mathf.Max(columns, rows)}";
+
+                if (!generatedPairs.Contains(pairKey))
+                {
+                    generatedPairs.Add(pairKey);
+
+                    // Create the chocolate bar and add its Chocolate component to the list
+                    GameObject chocolateBar = MakeChocolateBar(columns, rows, Color.blue);
+                    Chocolate chocolateComponent = chocolateBar.GetComponent<Chocolate>();
+                    chocolateComponent.Initialize(columns, rows, Color.blue);
+
+                    generatedChocolateBars.Add(chocolateComponent);
+                }
+            }
+            attempts++;
+        }
         
-        // En Rows minimo 2.
-        // No mas de 20
+        return generatedChocolateBars;
     }
 
-    public void MakeChocolateBar(int columns, int rows, Color color)
+    private GameObject MakeChocolateBar(int columns, int rows, Color color)
     {
         GameObject mold = Instantiate(moldPrefab, parentContainer);
         GridLayoutGroup grid = mold.GetComponent<GridLayoutGroup>();
@@ -49,5 +80,7 @@ public class ChocolateFactory : MonoBehaviour
             }
         }
         mold.name = $"ChocolateBar_{columns}x{rows}";
+
+        return mold;
     }
 }

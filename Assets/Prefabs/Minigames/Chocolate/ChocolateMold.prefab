@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1806777031475051894}
   - component: {fileID: 2041623028459805072}
   - component: {fileID: -4020839321208104315}
+  - component: {fileID: 5455670011822997137}
   m_Layer: 5
   m_Name: ChocolateMold
   m_TagString: Untagged
@@ -110,6 +111,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 7542756518230312425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b7fd1993e88e3f498dccc335a1f4908, type: 3}
+  m_Script: {fileID: 11500000, guid: 501d1f8ad07c2e94583ecf269f14e455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5455670011822997137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7542756518230312425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9239ff5f925c9404f8863e4e3c5a640e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

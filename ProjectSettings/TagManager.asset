@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Enemy
+  - GoalContainer
   layers:
   - Default
   - TransparentFX
