@@ -25,18 +25,20 @@ namespace Minigames.GeneralUse
         
         protected override void WiningMinigame()
         {
-            //HACE EL EFECTO DEL ARMA
+            if(minigameWeapon.CompletingEffect!=null)
+                minigameWeapon.CompletingEffect.ApplyEffect(battleManager.PlayerCombatManager.PlayerHealth,minigameWeapon.CompletingEffectValue);
             ResetMinigame();
         }
         protected override void LosingMinigame()
         {
+            if(minigameWeapon.LosingEffect!=null)
+                minigameWeapon.LosingEffect.ApplyEffect(battleManager.PlayerCombatManager.PlayerHealth,minigameWeapon.LosingEffectValue);
             ResetMinigame();
         }
         
         public override void ChangeToOtherMinigame()
         {
-            //minigame.DisableMinigame();
-            minigame.enabled = false;
+            
         }//nothing in this minigame For now
         
 

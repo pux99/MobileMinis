@@ -23,6 +23,8 @@ namespace Minigames.Tetris.PlaceThePieces
             }
         }
 
+        private int i;
+
         public TMP_Text counterText;
         public Image img;
         public int currentCount = 0;
@@ -43,12 +45,14 @@ namespace Minigames.Tetris.PlaceThePieces
 
         public void AddPoints(int size)
         {
-            currentCount += size;
+            currentCount += size + i;
             counterText.text = currentCount.ToString();
+            i++;
         }
 
         public void CleanCounter()
         {
+            i = 0;
             currentCount = 0;
             img.color = Color.white;
             counterText.text = currentCount.ToString();
