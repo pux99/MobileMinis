@@ -21,6 +21,7 @@ public class MazeManager : MonoBehaviour
     private List<int> _shortestPath;
     private List<Vector3> _enemyPath;
     private bool RunnersAlive = false;
+    private Coroutine test;
     
     //Events
     public event Action WinMinigame;

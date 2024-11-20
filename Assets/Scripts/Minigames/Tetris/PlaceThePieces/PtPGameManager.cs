@@ -32,6 +32,7 @@ namespace Minigames.Tetris.PlaceThePieces
         public Image pieceImage { get; private set; }
         public Vector2Int[] OccupiedCells { get; private set; }
         private int _pieceSize;
+        private bool isGameRunning = false;
         
         //Game Managing
         public event Action<int> OnPiecePlaced;
@@ -44,13 +45,18 @@ namespace Minigames.Tetris.PlaceThePieces
             OnPiecePlaced += OnPiecePlacedHandler;
             PtPGridManager.Instance.MakeGrid(gridSize.x, gridSize.y);
             PtPFactory.Instance.GenerateTetrisPieces(totalAmountOfPieces);
+            isGameRunning = true;
         }
+
         public void ResetMinigame()
         {
-            OnPiecePlaced -= OnPiecePlacedHandler;
+            if (isGameRunning)
+            { 
+                OnPiecePlaced -= OnPiecePlacedHandler;
             PtPFactory.Instance.CleanContainer();
             PtPGridManager.Instance.CleanGrid();
             PointsCounter.Instance.CleanCounter();
+            }
         }
         private void OnPiecePlacedHandler(int size)
         {
