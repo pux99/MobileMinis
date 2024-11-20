@@ -39,4 +39,13 @@ public class SwipeControl : MonoBehaviour
 
         }
     }
+
+    public void SwipeToTheLeft1()
+    {
+        SwipeToTheLeft?.Invoke();
+    }
+    public void SwipeToTheRigth1()
+    {
+        SwipeToTheRight?.Invoke();
+    }
 }
