@@ -41,6 +41,7 @@ namespace Minigames.MeasureTheChocolate
         private List<Chocolate> _generatedChocolates;
         private List<Chocolate> _goalChocolatesOrder;
 
+        
         private enum SortCriteria
         {
             Size,
