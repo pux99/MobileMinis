@@ -16,6 +16,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private CountDown countDown;
     [SerializeField] private GameObject minigameSelector;
     [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject exploringUI;
     
 
     void Start()
@@ -24,6 +25,7 @@ public class UiManager : MonoBehaviour
         ServiceLocator.Instance.GetService<EventManager>().CombatLoss += LossUI;
         ServiceLocator.Instance.GetService<EventManager>().CombatStart += CombatUITurnOn;
         ServiceLocator.Instance.GetService<EventManager>().DungeonWin += WinDungeonUI;
+        ServiceLocator.Instance.GetService<EventManager>().ExploringUI += ExploringUi;
 
         dungeonManager.WinDungeon += WinDungeonUI;
     }
@@ -33,21 +35,30 @@ public class UiManager : MonoBehaviour
         countDown.gameObject.SetActive(true);
         enemy.SetActive(true);
         minigameSelector.SetActive(true);
+        exploringUI.SetActive(false);
     }
 
     private void WinCombatUI()
     {
         winingCombatUI.SetActive(true);
         enemy.SetActive(false);
+        countDown.gameObject.SetActive(false);
     }
     private void LossUI()
     {
         losingUI.SetActive(true);
+        countDown.gameObject.SetActive(false);
+
     }
     private void WinDungeonUI()
     {
         winingDungeonUI.SetActive(true);
+        countDown.PauseTime();
     }
-    
+
+    private void ExploringUi()
+    {
+        exploringUI.SetActive(true);
+    }
     
 }

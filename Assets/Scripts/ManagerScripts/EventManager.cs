@@ -44,5 +44,8 @@ namespace ManagerScripts
         
         public Action LevelUp;
         public void OnLevelUP() => LevelUp?.Invoke();
+        
+        public Action ExploringUI;
+        public void OnExploringUI() => ExploringUI?.Invoke();
     }
 }
