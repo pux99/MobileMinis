@@ -1,4 +1,3 @@
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,10 +17,9 @@ namespace UI
             enemyManager.Health.OnShieldStateChange += enemyUIHealth.ShieldChange;
         }
 
-        public void SetUpArt(Sprite sprite,AnimatorController animatorController)
+        public void SetUpArt(Sprite sprite)
         {
             spriteImage.sprite = sprite;
-            animator.runtimeAnimatorController = animatorController;
 
         }
 

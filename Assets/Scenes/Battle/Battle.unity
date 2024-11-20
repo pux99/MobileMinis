@@ -911,6 +911,7 @@ GameObject:
   - component: {fileID: 336450309}
   - component: {fileID: 336450308}
   - component: {fileID: 336450307}
+  - component: {fileID: 336450310}
   m_Layer: 5
   m_Name: Left
   m_TagString: Untagged
@@ -1019,6 +1020,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336450305}
   m_CullTransparentMesh: 1
+--- !u!114 &336450310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336450305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a763b8c2ffc598408c70e7d1071dbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minAlpha: 0.3
+  maxAlpha: 0.9
+  speed: 2
 --- !u!1 &350161378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1213,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3341,7 +3357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1208072408
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4350,7 +4366,7 @@ Animator:
   m_GameObject: {fileID: 1421203664}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4df6901ec46c1bd43a621534cb41a6fb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4502,7 +4518,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5934,6 +5950,7 @@ GameObject:
   - component: {fileID: 2072469508}
   - component: {fileID: 2072469507}
   - component: {fileID: 2072469506}
+  - component: {fileID: 2072469509}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -6042,6 +6059,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2072469504}
   m_CullTransparentMesh: 1
+--- !u!114 &2072469509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072469504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a763b8c2ffc598408c70e7d1071dbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minAlpha: 0.3
+  maxAlpha: 0.9
+  speed: 2
 --- !u!1 &2116723792
 GameObject:
   m_ObjectHideFlags: 0
