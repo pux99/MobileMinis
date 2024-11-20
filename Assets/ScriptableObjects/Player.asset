@@ -15,6 +15,6 @@ MonoBehaviour:
   maxHp: 100
   level: 1
   exp: 0
-  attackWeapon: {fileID: 11400000, guid: e621a113b61324d4687498148f2a699e, type: 2}
+  attackWeapon: {fileID: 11400000, guid: 0ee4cb8a6a3b62b42ac437e4cbdb745d, type: 2}
   defenceWeapon: {fileID: 11400000, guid: 894f08c12b5f0644dbd3f5ec8f95ea34, type: 2}
-  supportWeapon: {fileID: 11400000, guid: 37fa6a971d1d71344807e3e2ded9eaba, type: 2}
+  supportWeapon: {fileID: 11400000, guid: f5975791c07e3a14e955c88c5fe6ef68, type: 2}

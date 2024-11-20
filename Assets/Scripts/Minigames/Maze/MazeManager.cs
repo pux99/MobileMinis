@@ -100,9 +100,9 @@ public class MazeManager : MonoBehaviour
         _player.SetActive(true);
         _enemy.SetActive(true);
         
-        _player.transform.position = pos;
+        _player.transform.position = new Vector3(pos.x, pos.y, -2);
+        _enemy.transform.position = new Vector3(pos.x, pos.y, -2);
         
-        _enemy.transform.position = pos;
         _enemy.GetComponent<EnemyMovement>().SetPath(_enemyPath);
     }
     public void EndGame(bool victory)
@@ -198,6 +198,7 @@ public class MazeManager : MonoBehaviour
             {
                 Vector3 originalPosition = room.transform.position;
                 Vector3 offsetPosition = originalPosition + new Vector3(_mazeFactory.roomSize / 2, _mazeFactory.roomSize / 2, 0);
+                offsetPosition.z = -2;
                 offsetPath.Add(offsetPosition);
             }
         }

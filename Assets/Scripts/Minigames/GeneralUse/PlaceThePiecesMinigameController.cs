@@ -25,8 +25,8 @@ namespace Minigames.GeneralUse
         
         protected override void WiningMinigame()
         {
-            //HACE EL EFECTO DEL ARMA
-            Debug.Log(minigame.effectNumber + " de escudo recibido");
+            if(minigameWeapon.CompletingEffect!=null)
+                minigameWeapon.CompletingEffect.ApplyEffect(battleManager.PlayerCombatManager.PlayerHealth,minigame.effectNumber);
             ResetMinigame();
         }
         protected override void LosingMinigame()

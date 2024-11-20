@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7538f3bda48a7d240abedcf1337b05b5, type: 3}
   m_Name: ChocolateHeal
   m_EditorClassIdentifier: 
-  minigameController: {fileID: 8669146767209061425, guid: b0b61bcbb7cee51449cdd7f3c55ec2e7, type: 3}
+  minigameController: {fileID: 2076179274440448867, guid: e8d33de1d0d22e74fad5c4b5bc5ac44e, type: 3}
   completingEffect: {fileID: -4558184478720512644, guid: c2953b89b13f9dd4580453e867e68877, type: 3}
   losingEffect: {fileID: 0}
   completingEffectValue: 20
