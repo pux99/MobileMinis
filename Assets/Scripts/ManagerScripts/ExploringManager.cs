@@ -61,7 +61,6 @@ namespace ManagerScripts
             {
                 ServiceLocator.Instance.GetService<EventManager>().OnDungeonWin();
             }
-            
         }
 
         [ContextMenu("MoveToTheLeft")]
@@ -100,12 +99,13 @@ namespace ManagerScripts
 
         private void Start5SecondCourutine()
         {
-            StartCoroutine(Waitfor5secodns());
+            StartCoroutine(WaitFor1Secodns());
         }
-        private IEnumerator Waitfor5secodns()
+        private IEnumerator WaitFor1Secodns()
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(1);
             waitingForNextCombat = true;
+            ServiceLocator.Instance.GetService<EventManager>().OnExploringUI();
         }
     }
 }

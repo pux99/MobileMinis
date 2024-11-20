@@ -6,51 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="390adab5-93fb-4367-88ea-b4e66f4520ad" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Common/Bakcground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Common/Bakcground.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Enemys/Ogre.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Enemys/Ogre.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Enemys/Ogre_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Enemys/Ogre_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Enemys/Skeleton_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Enemys/Skeleton_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Enemys/Skeleton_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Enemys/Skeleton_3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Enemys/Wizard_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Enemys/Wizard_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Enemys/Wizard_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Enemys/Wizard_3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Font/Big_Bottom_Typeface_Normal SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Font/Big_Bottom_Typeface_Normal SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Weapons/Recurso 62.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Weapons/Recurso 62.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Weapons/Recurso 63.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Weapons/Recurso 63.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Weapons/Recurso 64.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Weapons/Recurso 64.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Weapons/Recurso 65.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Weapons/Recurso 65.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Weapons/Recurso 66.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Weapons/Recurso 66.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Weapons/Recurso 67.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Weapons/Recurso 67.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DrawingMinigameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DrawingMinigameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/FindThePicesMinigame.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/FindThePicesMinigame.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/DrawingMinigame.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/DrawingMinigame.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Minigames/Drawing/Brush.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Minigames/Drawing/Brush.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Battle/Battle.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Battle/Battle.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menus/Inventory.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menus/Inventory.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Enemys/Golem.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Enemys/Golem.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Enemys/Orc Alt.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Enemys/Orc Alt.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Enemys/Orc.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Enemys/Orc.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Enemys/Skeleton Alt.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Enemys/Skeleton Alt.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Enemys/Skeleton.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Enemys/Skeleton.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Enemys/Wizard Alt.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Enemys/Wizard Alt.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Enemys/Wizard.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Enemys/Wizard.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Player.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Player.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/MazeSword.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/MazeSword.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/TetrisShield.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/TetrisShield.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/TetrisStaff.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/TetrisStaff.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/TetrisSword.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/TetrisSword.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HealthSystem/UHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HealthSystem/UHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/DrawingSword.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/DrawingSword.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts/EventManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts/ExploringManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts/ExploringManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts/UiManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts/UiManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/Drawing/paintable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Drawing/paintable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/Tetris/FindThePieces/FindThePiecesMinigame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Tetris/FindThePieces/FindThePiecesMinigame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/WeaponSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/WeaponSelection.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,10 +24,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/CombatWinButtonScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ManagerScripts/BattleManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ManagerScripts/CurrentStateManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/SoPlayerStatsAndWeapons.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/twincle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../TetrisTest/Assets/Tetris Minigame/Scripts/Tetris/InicializeTetrisMiniGame.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -124,10 +87,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="19472">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="6880">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="19472" />
+      <option name="pid" value="6880" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -155,7 +118,7 @@
       <workItem from="1731676979431" duration="26445000" />
       <workItem from="1731846168136" duration="20455000" />
       <workItem from="1731942509817" duration="1447000" />
-      <workItem from="1732105886781" duration="7128000" />
+      <workItem from="1732105886781" duration="10799000" />
     </task>
     <servers />
   </component>
@@ -176,30 +139,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/DrawingMinigameManager.cs</url>
-          <line>23</line>
-          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\DrawingMinigameManager.cs" containingFunctionPresentation="Method 'WiningMinigame'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/ManagerScripts/UiManager.cs</url>
+          <line>44</line>
+          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Scripts\ManagerScripts\UiManager.cs" containingFunctionPresentation="Method 'WinCombatUI'">
             <startOffsets>
-              <option value="513" />
+              <option value="1504" />
             </startOffsets>
             <endOffsets>
-              <option value="554" />
+              <option value="1542" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Minigames/Drawing/paintable.cs</url>
-          <line>109</line>
-          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Scripts\Minigames\Drawing\paintable.cs" containingFunctionPresentation="Method 'cosave'">
-            <startOffsets>
-              <option value="4772" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4794" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7538f3bda48a7d240abedcf1337b05b5, type: 3}
   m_Name: DrawingSword
   m_EditorClassIdentifier: 
-  minigameController: {fileID: 8669146767209061425, guid: b0b61bcbb7cee51449cdd7f3c55ec2e7, type: 3}
+  minigameController: {fileID: 6495800460904171217, guid: e24bbc0ccce9d984a99a879a59b61495, type: 3}
   completingEffect: {fileID: 2903877290141185441, guid: 92f7cb5a00f907346af1f8d13d49fe55, type: 3}
   losingEffect: {fileID: 0}
   completingEffectValue: 50

@@ -677,7 +677,7 @@ Transform:
   m_GameObject: {fileID: 4610458020891664442}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -891,7 +891,7 @@ MonoBehaviour:
   - {fileID: 6922032801186069450}
   - {fileID: 5323062462334553104}
   brush: {fileID: 8422039848566157299, guid: f2363c983863d5545a128da608df7d2f, type: 3}
-  brushSize: 1
+  brushSize: 0.0132
   painting: []
   render: {fileID: 8400000, guid: 1fc11a29bcc812144b72f01d6fae2a4b, type: 2}
   texture2D: {fileID: 0}
@@ -1201,7 +1201,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7059658208204960626
