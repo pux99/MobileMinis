@@ -43,6 +43,7 @@ public class UiManager : MonoBehaviour
         winingCombatUI.SetActive(true);
         enemy.SetActive(false);
         countDown.gameObject.SetActive(false);
+        minigameSelector.SetActive(false);
     }
     private void LossUI()
     {
