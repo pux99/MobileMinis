@@ -175,6 +175,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5782634814509860171, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: attackWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: d4e9c75058d655a4ea869527c5d2054d, type: 2}
+    - target: {fileID: 5782634814509860171, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: defenceWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 894f08c12b5f0644dbd3f5ec8f95ea34, type: 2}
+    - target: {fileID: 5782634814509860171, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: supportWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 37fa6a971d1d71344807e3e2ded9eaba, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
