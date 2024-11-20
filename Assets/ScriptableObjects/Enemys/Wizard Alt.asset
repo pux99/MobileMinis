@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 097adb4fb745b5f41819c86cdc79d8c8, type: 3}
-  m_Name: MirronrImage
+  m_Name: Wizard Alt
   m_EditorClassIdentifier: 
-  enemyArt: {fileID: -2049491623, guid: 3d80eb4ff4333a94b8182fc32583d20e, type: 3}
-  animatorController: {fileID: 9100000, guid: cff6769f2a5f03b4ca1a9e85a273770e, type: 2}
+  enemyArt: {fileID: -1728049046, guid: be7ddc4834682d24c9a76946c85a1af9, type: 3}
+  animatorController: {fileID: 9100000, guid: 4df6901ec46c1bd43a621534cb41a6fb, type: 2}
   enemyAttack: {fileID: 2903877290141185441, guid: 92f7cb5a00f907346af1f8d13d49fe55, type: 3}
-  maxLife: 100
+  maxLife: 50
   damage: 10
-  attackFrequency: 2
+  attackFrequency: 10
