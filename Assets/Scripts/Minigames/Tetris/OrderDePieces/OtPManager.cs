@@ -24,13 +24,14 @@ namespace Minigames.Tetris.OrderThePieces
         
         [SerializeField] public RectTransform[] playerContainers;
         [SerializeField] public RectTransform[] goalContainers;
+        public OtPFactory factory;
         
         private Container _selectedContainer;
 
         public event Action WinMinigame;
         public void StartMinigame()
         {
-           OtPFactory.Instance.InitalizePieces(amountOfPieces, goalContainers, playerContainers);
+            factory.InitalizePieces(amountOfPieces, goalContainers, playerContainers);
         }
         public void SelectContainer(Container container)
         {
