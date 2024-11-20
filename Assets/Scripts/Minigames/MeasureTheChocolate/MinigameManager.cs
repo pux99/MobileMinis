@@ -25,7 +25,6 @@ namespace Minigames.MeasureTheChocolate
             else
             {
                 Destroy(gameObject);
-                return;
             }
         }
 
@@ -40,6 +39,8 @@ namespace Minigames.MeasureTheChocolate
 
         private List<Chocolate> _generatedChocolates;
         private List<Chocolate> _goalChocolatesOrder;
+
+        private bool miniGameRunning = false;
 
         private enum SortCriteria
         {
@@ -58,22 +59,29 @@ namespace Minigames.MeasureTheChocolate
 
         private SortOrder _chosenOrder;
         
+
         public void StartMinigame()
         {
             _generatedChocolates = factory.GenerateRandomChocolate(cantChocolates);
             _goalChocolatesOrder = new List<Chocolate>();
+            miniGameRunning = true;
             ChooseRandomCriteria();
         }
 
         public void ResetMinigame()
         {
-            foreach (Transform child in goalContainer)
+            if (miniGameRunning)
             {
-                Destroy(child.gameObject);
+                foreach (Transform child in goalContainer)
+                {
+                    Destroy(child.gameObject);
+                }
+
+                _goalChocolatesOrder.Clear();
+                _generatedChocolates.Clear();
             }
 
-            _goalChocolatesOrder.Clear();
-            _generatedChocolates.Clear();
+            miniGameRunning = false;
         }
 
         public void OnChocolateMovedToGoal(Chocolate chocolate)
