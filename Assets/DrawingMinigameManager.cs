@@ -22,7 +22,7 @@ public class DrawingMinigameManager : MinigameController
     protected override void WiningMinigame()
     {
         if(minigameWeapon.CompletingEffect!=null)
-            minigameWeapon.CompletingEffect.ApplyEffect(battleManager.PlayerCombatManager.PlayerHealth,minigameWeapon.CompletingEffectValue);
+            minigameWeapon.CompletingEffect.ApplyEffect(battleManager.EnemyManager.Health,minigameWeapon.CompletingEffectValue);
         ResetMinigame();
     }
     protected override void LosingMinigame()

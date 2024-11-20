@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 097adb4fb745b5f41819c86cdc79d8c8, type: 3}
-  m_Name: Dragon
+  m_Name: Wizard
   m_EditorClassIdentifier: 
-  enemyArt: {fileID: -1728049046, guid: be7ddc4834682d24c9a76946c85a1af9, type: 3}
+  enemyArt: {fileID: 21300000, guid: 7581300334b72794ebd60c62db55cd8f, type: 3}
   animatorController: {fileID: 9100000, guid: 4df6901ec46c1bd43a621534cb41a6fb, type: 2}
   enemyAttack: {fileID: 2903877290141185441, guid: 92f7cb5a00f907346af1f8d13d49fe55, type: 3}
-  maxLife: 50
+  maxLife: 200
   damage: 10
   attackFrequency: 10

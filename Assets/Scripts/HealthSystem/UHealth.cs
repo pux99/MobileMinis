@@ -43,7 +43,7 @@ namespace HealthSystem
         }
         private void LifeChange(int oldHp, int newHp)
         {
-            OnLifeChange?.Invoke(maxHp,newHp);
+            OnLifeChange?.Invoke(_health.MaxHp,newHp);
         }
 
         private void ShieldBreak()
@@ -59,9 +59,9 @@ namespace HealthSystem
             OnDead?.Invoke();
         }
 
-        public void SetMaxHp(int maxHP)
+        public void SetMaxHp(int MaxHP)
         {
-            _health.MaxHp = maxHP;
+            _health.MaxHp = MaxHP;
         }
     }
 }

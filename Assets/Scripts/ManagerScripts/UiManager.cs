@@ -23,6 +23,7 @@ public class UiManager : MonoBehaviour
         ServiceLocator.Instance.GetService<EventManager>().CombatWin += WinCombatUI;
         ServiceLocator.Instance.GetService<EventManager>().CombatLoss += LossUI;
         ServiceLocator.Instance.GetService<EventManager>().CombatStart += CombatUITurnOn;
+        ServiceLocator.Instance.GetService<EventManager>().DungeonWin += WinDungeonUI;
 
         dungeonManager.WinDungeon += WinDungeonUI;
     }
@@ -36,24 +37,17 @@ public class UiManager : MonoBehaviour
 
     private void WinCombatUI()
     {
-        NormalTurnOffs();
         winingCombatUI.SetActive(true);
         enemy.SetActive(false);
     }
     private void LossUI()
     {
-        NormalTurnOffs();
         losingUI.SetActive(true);
     }
     private void WinDungeonUI()
     {
-        NormalTurnOffs();
+        winingDungeonUI.SetActive(true);
     }
-
-    private void NormalTurnOffs()
-    {
-        minigameSelector.SetActive(false);
-        countDown.TurnOffCountdown();
-    }
+    
     
 }

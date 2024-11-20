@@ -15,6 +15,6 @@ MonoBehaviour:
   minigameController: {fileID: 6495800460904171217, guid: e24bbc0ccce9d984a99a879a59b61495, type: 3}
   completingEffect: {fileID: -4558184478720512644, guid: c2953b89b13f9dd4580453e867e68877, type: 3}
   losingEffect: {fileID: 0}
-  completingEffectValue: 40
+  completingEffectValue: 20
   losingEffectValue: 0
-  weaponArt: {fileID: 21300000, guid: 5bbd09d8dfffe3340b1e05d782e67b88, type: 3}
+  weaponArt: {fileID: 21300000, guid: d2fc6556b27e7dd4b93eafacd25a5b7a, type: 3}

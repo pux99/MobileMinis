@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 097adb4fb745b5f41819c86cdc79d8c8, type: 3}
+  m_Name: Skeleton
+  m_EditorClassIdentifier: 
+  enemyArt: {fileID: 21300000, guid: 96c14bbd57088db469e972d6fa80f825, type: 3}
+  animatorController: {fileID: 9100000, guid: 4df6901ec46c1bd43a621534cb41a6fb, type: 2}
+  enemyAttack: {fileID: 2903877290141185441, guid: 92f7cb5a00f907346af1f8d13d49fe55, type: 3}
+  maxLife: 200
+  damage: 10
+  attackFrequency: 10

@@ -109,6 +109,7 @@ namespace Minigames.Drawing
                 //slider.value += .1f;
                 WinMinigame?.Invoke();
                 ChangeDrawing();
+                
                 //animator.SetTrigger("cura");
             }
             for (int i = 0; i < painting.Count; i++)
