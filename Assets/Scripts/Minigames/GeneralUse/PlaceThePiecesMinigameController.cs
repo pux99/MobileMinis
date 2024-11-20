@@ -28,10 +28,12 @@ namespace Minigames.GeneralUse
             if(minigameWeapon.CompletingEffect!=null)
                 minigameWeapon.CompletingEffect.ApplyEffect(battleManager.PlayerCombatManager.PlayerHealth,minigame.effectNumber);
             ResetMinigame();
+            StartMinigame();
         }
         protected override void LosingMinigame()
         {
             ResetMinigame();
+            StartMinigame();
         }
         
         public override void ChangeToOtherMinigame()
@@ -43,7 +45,6 @@ namespace Minigames.GeneralUse
         public override void ResetMinigame()
         {
             minigame.ResetMinigame();
-            StartMinigame();
         }
  
         public override void FinishingMinigame()
