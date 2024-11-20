@@ -22,8 +22,8 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
     //Each RoomSize
     [HideInInspector]public float roomSize;
     [HideInInspector]public float scaleFactor;
-    [HideInInspector] public float xOffset;
-    [HideInInspector] public float yOffset;
+    [HideInInspector]public float xOffset;
+    [HideInInspector]public float yOffset;
     
     //Stack for backtracking (depth-first search)
     private Stack<Room> stack = new Stack<Room>();
@@ -285,9 +285,9 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
     }
     
     //Grafos
-    public int[,] MAdy;
-    public int[] etiqs;
-    public int cantNodos;
+    [HideInInspector]public int[,] MAdy;
+    [HideInInspector]public int[] etiqs;
+    [HideInInspector]public int cantNodos;
     public void InicializarGrafo()
     {
         //En vez de usar n lo hacemos dinamicamente con la cntidad total de cuartos.

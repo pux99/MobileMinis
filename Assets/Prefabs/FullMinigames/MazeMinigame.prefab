@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7931935601446101096}
   - component: {fileID: 8965272468971728200}
   - component: {fileID: 752039044528262595}
-  - component: {fileID: 7945917876660285144}
   - component: {fileID: 5792928955005827883}
+  - component: {fileID: 7945917876660285144}
   - component: {fileID: 9089551173549872720}
   m_Layer: 0
   m_Name: MazeMinigame
@@ -100,6 +100,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9acae8ce502565148bb87ba50007e0cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5792928955005827883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6630492023899401193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b429eae220fe641b70de31b7d15816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleManager: {fileID: 0}
+  minigameWeapon: {fileID: 11400000, guid: d4e9c75058d655a4ea869527c5d2054d, type: 2}
+  minigame: {fileID: 9089551173549872720}
 --- !u!114 &7945917876660285144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,21 +134,6 @@ MonoBehaviour:
   yOffset: 0
   etiqs: 
   cantNodos: 0
---- !u!114 &5792928955005827883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6630492023899401193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53b429eae220fe641b70de31b7d15816, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  battleManager: {fileID: 0}
-  minigameWeapon: {fileID: 11400000, guid: d4e9c75058d655a4ea869527c5d2054d, type: 2}
-  minigame: {fileID: 9089551173549872720}
 --- !u!114 &9089551173549872720
 MonoBehaviour:
   m_ObjectHideFlags: 0

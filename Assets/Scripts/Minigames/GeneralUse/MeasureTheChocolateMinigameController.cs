@@ -7,14 +7,14 @@ using UnityEngine.Serialization;
 
 namespace Minigames.GeneralUse
 {
-    public class MeasureTheChocolateMinigameController1 : MinigameController
+    public class MeasureTheChocolateMinigameController : MinigameController
     {
-        [SerializeField] private Tetris.PlaceThePieces.PtPGameManager minigame;
+        [SerializeField] private Minigames.MeasureTheChocolate.MinigameManager minigame;
        
         protected override void Start()
         {
-            //minigame.WinMinigame += WiningMinigame;
-            //minigame.LostMinigame += LosingMinigame;
+            minigame.WinMinigame += WiningMinigame;
+            minigame.LostMinigame += LosingMinigame;
             StartMinigame();
         }
 
@@ -35,7 +35,8 @@ namespace Minigames.GeneralUse
         
         public override void ChangeToOtherMinigame()
         {
-            minigame.DisableMinigame();
+            //minigame.DisableMinigame();
+            minigame.enabled = false;
         }//nothing in this minigame For now
         
 
