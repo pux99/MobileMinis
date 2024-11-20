@@ -27,7 +27,7 @@ public class EnemyManager : MonoBehaviour
         countDown.SetAttackCooldown(enemy.attackFrequency);
         health.SetMaxHp(enemy.maxLife);
         health.FullHeal();
-        enemyUIManager.SetUpArt(enemy.enemyArt,enemy.animatorController);
+        enemyUIManager.SetUpArt(enemy.enemyArt);
         
     }
 
