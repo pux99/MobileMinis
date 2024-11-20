@@ -7,7 +7,7 @@ public class Wall : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D other)
     {
-        GetComponent<SpriteRenderer>().color = other.gameObject.GetComponent<SpriteRenderer>().color;
+        GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     private void OnCollisionExit2D(Collision2D other)
