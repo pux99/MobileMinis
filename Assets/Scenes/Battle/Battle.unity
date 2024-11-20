@@ -4904,7 +4904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealthManager: {fileID: 1696569018}
   uiHealth: {fileID: 606986339}
-  playerStatsAndWeapons: {fileID: 11400000, guid: d592a31bdc294e34d8e1156497e6ba96, type: 2}
+  playerStatsAndWeapons: {fileID: 2099514408}
   battleManager: {fileID: 899647025}
 --- !u!114 &1696569018
 MonoBehaviour:
@@ -5050,6 +5050,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786093101}
   m_CullTransparentMesh: 1
+--- !u!1001 &1788402289
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2539343043885903604, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: m_Name
+      value: PlayerInventoryManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228507214599854748, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 476.62473
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228507214599854748, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 494.8422
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228507214599854748, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.785625
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228507214599854748, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228507214599854748, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228507214599854748, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228507214599854748, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228507214599854748, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228507214599854748, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228507214599854748, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782634814509860171, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: attackWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 0ee4cb8a6a3b62b42ac437e4cbdb745d, type: 2}
+    - target: {fileID: 5782634814509860171, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: defenceWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 37fa6a971d1d71344807e3e2ded9eaba, type: 2}
+    - target: {fileID: 5782634814509860171, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+      propertyPath: supportWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: d4e9c75058d655a4ea869527c5d2054d, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
 --- !u!1 &1808187281
 GameObject:
   m_ObjectHideFlags: 0
@@ -6074,6 +6143,17 @@ MonoBehaviour:
   minAlpha: 0.3
   maxAlpha: 0.9
   speed: 2
+--- !u!114 &2099514408 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5782634814509860171, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
+  m_PrefabInstance: {fileID: 1788402289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3b84edbc6a803439f1b524ce0cf6d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2116723792
 GameObject:
   m_ObjectHideFlags: 0
@@ -6153,3 +6233,4 @@ SceneRoots:
   - {fileID: 1882355919}
   - {fileID: 1697653785}
   - {fileID: 5530846}
+  - {fileID: 1788402289}

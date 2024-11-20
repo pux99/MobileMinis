@@ -1,3 +1,4 @@
+using System;
 using Core;
 using ManagerScripts;
 using Minigames.Weapons;
@@ -6,8 +7,23 @@ using UnityEngine;
 namespace Player
 {
     [CreateAssetMenu(fileName = "weapon",menuName = "MobileMinis/Player")]
-    public class SoPlayerStatsAndWeapons : ScriptableObject
+    public class SoPlayerStatsAndWeapons : MonoBehaviour
     {
+        public static SoPlayerStatsAndWeapons Instance;
+
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+            DontDestroyOnLoad(gameObject);
+        }
+
         [SerializeField] private int maxHp;
         [SerializeField] private int level;
         [SerializeField] private int exp;
