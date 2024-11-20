@@ -577,7 +577,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0ee4cb8a6a3b62b42ac437e4cbdb745d, type: 2}
   weaponImage: {fileID: 673302889}
   weaponChanger: {fileID: 807499174}
-  weaponType: 0
+  weaponType: 1
 --- !u!114 &484018700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,7 +869,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f5975791c07e3a14e955c88c5fe6ef68, type: 2}
   weaponImage: {fileID: 27293026}
   weaponChanger: {fileID: 807499174}
-  weaponType: 0
+  weaponType: 2
 --- !u!114 &914204566
 MonoBehaviour:
   m_ObjectHideFlags: 0

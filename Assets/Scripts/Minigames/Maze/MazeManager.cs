@@ -11,7 +11,7 @@ public class MazeManager : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     private GameObject _player;
     private GameObject _enemy;
-    private MazeFactory _mazeFactory;
+    public MazeFactory _mazeFactory;
     
     //Maze Size
     [SerializeField]private int _sizeX;
@@ -45,7 +45,6 @@ public class MazeManager : MonoBehaviour
     
     public IEnumerator InitializeMinigameSequence()
     {
-        _mazeFactory = MazeFactory.Instance;
         if (!_grid)
         {
             yield return StartCoroutine(GenerateGrid());

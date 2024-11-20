@@ -28,24 +28,22 @@ namespace Minigames.GeneralUse
             if(minigameWeapon.CompletingEffect!=null)
                 minigameWeapon.CompletingEffect.ApplyEffect(battleManager.PlayerCombatManager.PlayerHealth,minigameWeapon.CompletingEffectValue);
             ResetMinigame();
+            StartMinigame();
         }
         protected override void LosingMinigame()
         {
             if(minigameWeapon.LosingEffect!=null)
                 minigameWeapon.LosingEffect.ApplyEffect(battleManager.PlayerCombatManager.PlayerHealth,minigameWeapon.LosingEffectValue);
             ResetMinigame();
+            StartMinigame();
         }
-        
         public override void ChangeToOtherMinigame()
         {
         
         }//nothing in this minigame For now
-        
-
         public override void ResetMinigame()
         {
             minigame.ResetMinigame();
-            StartMinigame();
         }
  
         public override void FinishingMinigame()
