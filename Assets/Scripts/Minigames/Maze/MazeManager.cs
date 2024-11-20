@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Core;
+using ManagerScripts;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -27,6 +29,8 @@ public class MazeManager : MonoBehaviour
     public event Action WinMinigame;
     public event Action LostMinigame;
     
+
+    private bool IsGameRunning = false;
     //Singleton
     public static MazeManager Instance { get; private set; }
     private void Awake()
@@ -46,25 +50,13 @@ public class MazeManager : MonoBehaviour
     
     public IEnumerator InitializeMinigameSequence()
     {
-        if (!_grid)
-        {
-            yield return StartCoroutine(GenerateGrid());
-            _grid = true;
-        }
-        yield return StartCoroutine(GenerateMaze());
-        StartMinigame();
-        
-    }
-    private IEnumerator GenerateGrid()
-    {
         yield return StartCoroutine(_mazeFactory.MakeGrid(_sizeX, _sizeY));
-    }
-    private IEnumerator GenerateMaze()
-    {
+
         yield return StartCoroutine(_mazeFactory.CreateMaze());
+        
         _mazeFactory.SetFinnishLine();
+        StartMinigame();
     }
-    
     //Methods
     private void StartMinigame()
     {
@@ -73,8 +65,10 @@ public class MazeManager : MonoBehaviour
     }
     public void ResetMinigame()
     {
-        _mazeFactory.ResetMaze();
-        StartCoroutine(_mazeFactory.CreateMaze());
+        if (gameObject.activeInHierarchy)
+        {
+            _mazeFactory.ResetMaze();
+        }
     }
     private void GetEnemyPath()
     {
@@ -219,5 +213,6 @@ public class MazeManager : MonoBehaviour
             Gizmos.DrawLine(currentPos, nextPos);
         }
     }
+    
     
 }
