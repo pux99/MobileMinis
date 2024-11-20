@@ -53,7 +53,15 @@ namespace ManagerScripts
 
         private void ReturnToExporting()
         {
-            Start5SecondCourutine();
+            if (CheckIfCombatAreAvailable())
+            {
+                Start5SecondCourutine();
+            }
+            else
+            {
+                ServiceLocator.Instance.GetService<EventManager>().OnDungeonWin();
+            }
+            
         }
 
         [ContextMenu("MoveToTheLeft")]
@@ -78,6 +86,16 @@ namespace ManagerScripts
                 dungeonManager.NextCombat(currentRoom.enemigo);
             }
             waitingForNextCombat = false;
+        }
+
+        private bool CheckIfCombatAreAvailable()
+        {
+            if (currentRoom.hijoDer.Raiz() == null && currentRoom.hijoDer.Raiz() == null)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void Start5SecondCourutine()

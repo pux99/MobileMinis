@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Minigames.Weapons;
 using Player;
@@ -12,6 +13,12 @@ public class WeaponSelection : MonoBehaviour
     [SerializeField] private Image weaponImage;
     [SerializeField] private WeaponChanger weaponChanger;
     [SerializeField] private SoPlayerStatsAndWeapons.WeaponType weaponType;
+
+    private void Start()
+    {
+        weaponImage.sprite = weaponList[_currentWeapon].WeaponArt;
+        weaponChanger.ChangeWeapon(weaponList[_currentWeapon], weaponType);
+    }
 
     public void ChangeWeapon(int index)
     {

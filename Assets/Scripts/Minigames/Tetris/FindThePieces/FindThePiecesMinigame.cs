@@ -106,18 +106,25 @@ namespace Tetris_Minigame.Scripts.Tetris
             }
             int pieceCount = _containerPiecesQueue.Count();
             for (int i = 0; i < pieceCount; i++)
-            {
+            {   
                 Image containerPiece = _containerPiecesQueue.Dequeue().GetComponent<Image>();
                 Debug.Log(_goalPiecesQueue.Count()+ " " +_containerPiecesQueue.Count());
-                containerPiece.gameObject.transform.SetParent(pileOfPieces);
+                //containerPiece.gameObject.transform.SetParent(pileOfPieces);
+                StartCoroutine(OutOfContainer(containerPiece));
             }
 
             for (int i = 0; i < _listOfGoalPieces.Count(); i++)
             {
                 Image currentGoalImage = _listOfGoalPieces[i].GetComponent<Image>();
+                Image currentGoalImageChild = _listOfGoalPieces[i].transform.GetChild(0).GetComponent<Image>();
                 Image currentPileImage = _listOfPiecesInThePile[i].GetComponent<Image>();
-                currentPileImage.color = currentGoalImage.color;
+                Image currentPileImageChild = _listOfPiecesInThePile[i].transform.GetChild(0).GetComponent<Image>();
+                currentPileImageChild.color = currentGoalImageChild.color;
+                currentPileImageChild.sprite = currentGoalImageChild.sprite;
                 currentPileImage.sprite = currentGoalImage.sprite;
+                //currentPileImage.rectTransform.sizeDelta = new Vector2(
+                //    data.size.x * Screen.currentResolution.width*.05,
+                //    data.size.y * Screen.currentResolution.width*.05);
             }
             ShuffleChildren();
             if(_piecesDragComponentList!=null)

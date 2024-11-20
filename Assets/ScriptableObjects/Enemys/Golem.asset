@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Golem
   m_EditorClassIdentifier: 
   enemyArt: {fileID: -2049491623, guid: 3d80eb4ff4333a94b8182fc32583d20e, type: 3}
-  animatorController: {fileID: 9100000, guid: cff6769f2a5f03b4ca1a9e85a273770e, type: 2}
+  animatorController: {fileID: 9100000, guid: 4df6901ec46c1bd43a621534cb41a6fb, type: 2}
   enemyAttack: {fileID: 2903877290141185441, guid: 92f7cb5a00f907346af1f8d13d49fe55, type: 3}
   maxLife: 100
   damage: 50

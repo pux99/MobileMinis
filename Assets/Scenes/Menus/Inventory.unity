@@ -573,7 +573,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponList:
-  - {fileID: 11400000, guid: 37fa6a971d1d71344807e3e2ded9eaba, type: 2}
+  - {fileID: 11400000, guid: 894f08c12b5f0644dbd3f5ec8f95ea34, type: 2}
+  - {fileID: 11400000, guid: 0ee4cb8a6a3b62b42ac437e4cbdb745d, type: 2}
   weaponImage: {fileID: 673302889}
   weaponChanger: {fileID: 807499174}
   weaponType: 0
@@ -597,7 +598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d018844079ef65543820c316cdc09c2d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 02f30b48c9f87a443914c95f5122527d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -864,7 +865,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponList:
-  - {fileID: 11400000, guid: d4e9c75058d655a4ea869527c5d2054d, type: 2}
+  - {fileID: 11400000, guid: 37fa6a971d1d71344807e3e2ded9eaba, type: 2}
+  - {fileID: 11400000, guid: f5975791c07e3a14e955c88c5fe6ef68, type: 2}
   weaponImage: {fileID: 27293026}
   weaponChanger: {fileID: 807499174}
   weaponType: 0
@@ -888,7 +890,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d018844079ef65543820c316cdc09c2d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 02f30b48c9f87a443914c95f5122527d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1617,7 +1619,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d018844079ef65543820c316cdc09c2d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 02f30b48c9f87a443914c95f5122527d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1648,11 +1650,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponList:
-  - {fileID: 11400000, guid: 894f08c12b5f0644dbd3f5ec8f95ea34, type: 2}
-  - {fileID: 11400000, guid: 37fa6a971d1d71344807e3e2ded9eaba, type: 2}
+  - {fileID: 11400000, guid: d4e9c75058d655a4ea869527c5d2054d, type: 2}
+  - {fileID: 11400000, guid: 17adaf3285d8629448e4e4f29dd70384, type: 2}
   weaponImage: {fileID: 1275104213}
   weaponChanger: {fileID: 807499174}
-  weaponType: 1
+  weaponType: 0
 --- !u!1 &1862225674
 GameObject:
   m_ObjectHideFlags: 0

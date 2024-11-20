@@ -21,6 +21,9 @@ namespace ManagerScripts
         public Action CombatWin;
         public void OnCombatWin() => CombatWin?.Invoke();
         
+        public Action DungeonWin;
+        public void OnDungeonWin() => DungeonWin?.Invoke();
+        
         public Action CombatLoss;
         public void OnCombatLoss() => CombatLoss?.Invoke();
 
