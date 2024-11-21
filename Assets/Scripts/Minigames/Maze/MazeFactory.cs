@@ -46,20 +46,17 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
         _cam =  Camera.main;
     }
     
-    //STARTS!
-    public IEnumerator MakeGrid(int sizeX, int sizeY)
+    
+    //Making the GRID
+    public void MakeGrid(int sizeX, int sizeY)
     {
         _numX = sizeX;
         _numY = sizeY;
+        
         GetRoomSize();
         SetOffset();
-        yield return StartCoroutine(MakeGridForMaze());
-    }
-    
-    //Making the GRID
-    private IEnumerator MakeGridForMaze()
-    {
         InicializarGrafo();
+        
         rooms = new Room[_numX, _numY];
         
         for (int i = 0; i < _numX; i++)
@@ -70,7 +67,6 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
                 room.transform.localScale *= scaleFactor;
                 room.transform.position = new Vector3( (i * roomSize) + xOffset, (j * roomSize) - yOffset, 0.0f);
                 
-                //room.name = "Room_" + i.ToString() + "_" + j.ToString();
                 rooms[i, j] = room.GetComponent<Room>();
                 rooms[i, j].posOnGrid = new Vector2Int(i, j);
                 
@@ -79,7 +75,6 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
                 room.name = Vect2Vert(rooms[i, j].posOnGrid).ToString();
             }   
         } 
-        yield return null;
     }
     private void GetRoomSize()
     {

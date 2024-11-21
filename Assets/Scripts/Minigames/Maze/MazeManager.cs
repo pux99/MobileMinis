@@ -47,27 +47,35 @@ public class MazeManager : MonoBehaviour
     
     //First things first
     private bool _grid = false;
-    
-    public IEnumerator InitializeMinigameSequence()
+
+    private IEnumerator InitializeMinigameSequence()
     {
-        yield return StartCoroutine(_mazeFactory.MakeGrid(_sizeX, _sizeY));
+        //yield return StartCoroutine(_mazeFactory.MakeGrid(_sizeX, _sizeY));
 
         yield return StartCoroutine(_mazeFactory.CreateMaze());
         
         _mazeFactory.SetFinnishLine();
-        StartMinigame();
+        StartRace();
     }
     //Methods
-    private void StartMinigame()
+    public void StartMinigame()
+    {
+        _mazeFactory.MakeGrid(_sizeX, _sizeY);
+        StartCoroutine(InitializeMinigameSequence());
+    }
+
+    void StartRace()
     {
         GetEnemyPath();
-        SetRunners();
+        SetRunners(); 
     }
+
     public void ResetMinigame()
     {
         if (gameObject.activeInHierarchy)
         {
             _mazeFactory.ResetMaze();
+            StartCoroutine(InitializeMinigameSequence());
         }
     }
     private void GetEnemyPath()
