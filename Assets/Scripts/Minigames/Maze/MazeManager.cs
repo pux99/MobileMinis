@@ -5,32 +5,33 @@ using Core;
 using ManagerScripts;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 public class MazeManager : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
+    [Header("Prefabs")][SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject playerPrefab;
+    
     private GameObject _player;
     private GameObject _enemy;
-    public MazeFactory _mazeFactory;
+    
+    [Header("Factory")]public MazeFactory mazeFactory;
     
     //Maze Size
-    [SerializeField]private int _sizeX;
-    [SerializeField]private int _sizeY;
+    [Header("Maze size")]
+    [SerializeField]private int sizeX;
+    [SerializeField]private int sizeY;
     
     //Enemy pathing
     private List<int> _shortestPath;
     private List<Vector3> _enemyPath;
-    private bool RunnersAlive = false;
-    private Coroutine test;
+    private bool _runnersAlive = false;
     
     //Events
     public event Action WinMinigame;
     public event Action LostMinigame;
     
-
-    private bool IsGameRunning = false;
     //Singleton
     public static MazeManager Instance { get; private set; }
     private void Awake()
@@ -45,60 +46,45 @@ public class MazeManager : MonoBehaviour
         }
     }
     
-    //First things first
-    private bool _grid = false;
-
-    private IEnumerator InitializeMinigameSequence()
-    {
-        //yield return StartCoroutine(_mazeFactory.MakeGrid(_sizeX, _sizeY));
-
-        yield return StartCoroutine(_mazeFactory.CreateMaze());
-        
-        _mazeFactory.SetFinnishLine();
-        StartRace();
-    }
-    //Methods
     public void StartMinigame()
     {
-        _mazeFactory.MakeGrid(_sizeX, _sizeY);
+        mazeFactory.MakeGrid(sizeX, sizeY);
         StartCoroutine(InitializeMinigameSequence());
     }
-
+    private IEnumerator InitializeMinigameSequence()
+    {
+        yield return StartCoroutine(mazeFactory.CreateMaze());
+        
+        mazeFactory.SetFinnishLine();
+        
+        StartRace();
+    }
     void StartRace()
     {
         GetEnemyPath();
         SetRunners(); 
     }
-
-    public void ResetMinigame()
-    {
-        if (gameObject.activeInHierarchy)
-        {
-            _mazeFactory.ResetMaze();
-            StartCoroutine(InitializeMinigameSequence());
-        }
-    }
     private void GetEnemyPath()
     {
-        int startNode = _mazeFactory.Vect2Vert(new Vector2Int(0, 0));;
-        int endNode = _mazeFactory.Vect2Vert(new Vector2Int(_sizeX -1 , _sizeY -1));
+        int startNode = mazeFactory.Vect2Vert(new Vector2Int(0, 0));;
+        int endNode = mazeFactory.Vect2Vert(new Vector2Int(sizeX -1 , sizeY -1));
         
-        _shortestPath = Dijkstra(_mazeFactory.MAdy, startNode, endNode);
+        _shortestPath = Dijkstra(mazeFactory.MAdy, startNode, endNode);
         
         _enemyPath = GetOffsetPath(_shortestPath);
     }
     private void SetRunners()
     {
-        if (!RunnersAlive)
+        if (!_runnersAlive)
         {
             _player = Instantiate(playerPrefab, this.transform, true);
-            _player.transform.localScale *= _mazeFactory.scaleFactor;
+            _player.transform.localScale *= mazeFactory.scaleFactor;
             
             _enemy = Instantiate(enemyPrefab, this.transform, true);
-            _enemy.transform.localScale *= _mazeFactory.scaleFactor;
-            RunnersAlive = true;
+            _enemy.transform.localScale *= mazeFactory.scaleFactor;
+            _runnersAlive = true;
         }
-        var pos = new Vector3(_mazeFactory.rooms[0,0].transform.position.x + (_mazeFactory.roomSize/2), _mazeFactory.rooms[0,0].transform.position.y + (_mazeFactory.roomSize/2), 0);
+        var pos = new Vector3(mazeFactory.Rooms[0,0].transform.position.x + (mazeFactory.roomSize/2), mazeFactory.Rooms[0,0].transform.position.y + (mazeFactory.roomSize/2), 0);
         _player.SetActive(true);
         _enemy.SetActive(true);
         
@@ -119,6 +105,14 @@ public class MazeManager : MonoBehaviour
         }
         _player.SetActive(false);
         _enemy.SetActive(false);
+    }
+    public void ResetMinigame()
+    {
+        if (gameObject.activeInHierarchy)
+        {
+            mazeFactory.ResetMaze();
+            StartCoroutine(InitializeMinigameSequence());
+        }
     }
     
     //Utility & Dijkstra
@@ -192,14 +186,14 @@ public class MazeManager : MonoBehaviour
 
         foreach (int index in path)
         {
-            int x = index / _sizeY;
-            int y = index % _sizeY;
-            Room room = _mazeFactory.rooms[x, y];
+            int x = index / sizeY;
+            int y = index % sizeY;
+            Room room = mazeFactory.Rooms[x, y];
             
             if (room != null)
             {
                 Vector3 originalPosition = room.transform.position;
-                Vector3 offsetPosition = originalPosition + new Vector3(_mazeFactory.roomSize / 2, _mazeFactory.roomSize / 2, 0);
+                Vector3 offsetPosition = originalPosition + new Vector3(mazeFactory.roomSize / 2, mazeFactory.roomSize / 2, 0);
                 offsetPosition.z = -2;
                 offsetPath.Add(offsetPosition);
             }
@@ -221,6 +215,4 @@ public class MazeManager : MonoBehaviour
             Gizmos.DrawLine(currentPos, nextPos);
         }
     }
-    
-    
 }

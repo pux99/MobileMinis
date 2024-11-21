@@ -102,7 +102,7 @@ namespace Minigames.Tetris.PlaceThePieces
 
             OnPiecePlaced?.Invoke(_pieceSize);
         }
-        private bool IsDropValid(Vector2Int position)
+        public bool IsDropValid(Vector2Int position)
         {
             if (OccupiedCells == null) return false;
 

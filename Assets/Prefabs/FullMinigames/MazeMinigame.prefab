@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 0}
-  minigameWeapon: {fileID: 11400000, guid: d4e9c75058d655a4ea869527c5d2054d, type: 2}
+  minigameWeapon: {fileID: 0}
   minigame: {fileID: 9089551173549872720}
 --- !u!114 &7945917876660285144
 MonoBehaviour:
@@ -95,6 +95,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5544267010055430090, guid: 991362bd79eae8a438e3769ccb9f9b56, type: 3}
   playerPrefab: {fileID: 7146516647224499102, guid: 1d97940e2b94c07448fef8fb97f8672b, type: 3}
-  _mazeFactory: {fileID: 7945917876660285144}
-  _sizeX: 6
-  _sizeY: 6
+  mazeFactory: {fileID: 7945917876660285144}
+  sizeX: 6
+  sizeY: 6

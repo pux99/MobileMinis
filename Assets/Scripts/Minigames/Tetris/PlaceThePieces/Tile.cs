@@ -30,7 +30,15 @@ namespace Minigames.Tetris.PlaceThePieces
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (isOccupied || _gameManager.OccupiedCells == null) return;
-            _gameManager.ColorNeighboringTiles(gridPosition, Color.gray);
+
+            if (_gameManager.IsDropValid(gridPosition))
+            {
+                _gameManager.ColorNeighboringTiles(gridPosition, Color.gray);
+            }
+            else
+            {
+                _gameManager.ColorNeighboringTiles(gridPosition, new Color(0.3f, 0f, 0f));
+            }
         }
         public void OnPointerExit(PointerEventData eventData)
         {
