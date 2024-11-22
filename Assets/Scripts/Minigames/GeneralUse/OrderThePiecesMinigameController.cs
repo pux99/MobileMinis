@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using ManagerScripts;
+using Minigames.Tetris.OrderDePieces;
 using Tetris_Minigame.Scripts.Tetris;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,7 +10,7 @@ namespace Minigames.GeneralUse
 {
     public class OrderThePiecesMinigameController : MinigameController
     {
-        [SerializeField] private Tetris.OrderThePieces.OtPManager minigame;
+        [SerializeField] private OtPManager minigame;
        
         protected override void Start()
         {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Minigames.Tetris.General;
 using Tetris_Minigame.Scripts.UI;
 using Unity.Mathematics;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace Tetris_Minigame.Scripts.Tetris
         #region CreatingPices
         [SerializeField] private SO_GruopOfBaseTetrisPieces groupOfBaseTetrisPieces;
         [SerializeField] private SO_GroupOfColors groupOfColors;
-        [SerializeField] private TetrisFactory factory;
+        [SerializeField] private FindThePiecesFactory factory;
         #endregion
     
         [SerializeField] private RectTransform goalPiecesContainer;

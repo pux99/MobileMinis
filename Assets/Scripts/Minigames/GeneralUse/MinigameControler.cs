@@ -1,13 +1,13 @@
 using ManagerScripts;
-using Minigames.Weapons;
+using Player.Weapons;
 using UnityEngine;
 
 namespace Minigames.GeneralUse
 {
     public abstract class MinigameController : MonoBehaviour
     {
-        public BattleManager battleManager;
-        public Weapon minigameWeapon;
+        [HideInInspector] public BattleManager battleManager;
+        [HideInInspector] public Weapon minigameWeapon;
 
         protected virtual void Start()
         {

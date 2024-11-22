@@ -1,12 +1,11 @@
 using System;
 using Core;
 using ManagerScripts;
-using Minigames.Weapons;
+using Player.Weapons;
 using UnityEngine;
 
 namespace Player
 {
-    [CreateAssetMenu(fileName = "weapon",menuName = "MobileMinis/Player")]
     public class SoPlayerStatsAndWeapons : MonoBehaviour
     {
         public static SoPlayerStatsAndWeapons Instance;
@@ -16,6 +15,7 @@ namespace Player
             if (Instance == null)
             {
                 Instance = this;
+                ServiceLocator.Instance.RegisterService(this);
             }
             else
             {
@@ -81,6 +81,11 @@ namespace Player
                 exp = 0;
                 ServiceLocator.Instance.GetService<EventManager>().OnLevelUP();
             }
+        }
+
+        public void SetAttack(int newAttack)
+        {
+            attack = newAttack;
         }
     }
 }

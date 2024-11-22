@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Minigames.Weapons;
 using Player;
+using Player.Weapons;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Image = UnityEngine.UI.Image;

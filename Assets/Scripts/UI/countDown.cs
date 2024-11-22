@@ -14,6 +14,13 @@ namespace UI
         private bool _paused =false;
         public Action CountdownEnd;
 
+        public bool IsPaused => _paused;
+
+        private void Awake()
+        {
+            ServiceLocator.Instance.RegisterService(this);
+        }
+
         private void Start()
         {
             ServiceLocator.Instance.GetService<EventManager>().Pause += PauseTime;
@@ -65,7 +72,7 @@ namespace UI
                 }
             }
         }
-        private void CountdownEndEvent()
+        public void CountdownEndEvent()
         {
             CountdownEnd?.Invoke();
         }

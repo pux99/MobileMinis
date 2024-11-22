@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: -3646794815828267359}
   - component: {fileID: 4750402026256107593}
   - component: {fileID: 6411652826907970944}
+  - component: {fileID: 6924826381540233211}
   m_Layer: 5
   m_Name: OrderThePiecesMinigame
   m_TagString: Untagged
@@ -420,6 +421,19 @@ MonoBehaviour:
   tetrisLikePiece: {fileID: 7976110627714723998, guid: 486c7ebcf70f41f41adac0721d312336, type: 3}
   groupOfBaseTetrisPieces: {fileID: 11400000, guid: f99ca9f088ac6a142a48f2d6153245ad, type: 2}
   groupOfColors: {fileID: 11400000, guid: 2f90e1aa67d457a449badd4983f28049, type: 2}
+--- !u!114 &6924826381540233211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3805221783289550270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e51f08411b884c18bbf4c1d8578c1d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigameController: {fileID: -3646794815828267359}
 --- !u!1 &4410979974304468199
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,16 +1,14 @@
-using System;
 using Core;
 using Enemies;
 using Minigames.GeneralUse;
-using Minigames.Weapons;
+using Player.Weapons;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace ManagerScripts
 {
     public class BattleManager : MonoBehaviour
     {
-        [FormerlySerializedAs("playerManager")] [SerializeField] private PlayerCombatManager playerCombatManager;
+        [SerializeField] private PlayerCombatManager playerCombatManager;
         [SerializeField] private EnemyManager enemyManager;
 
         public PlayerCombatManager PlayerCombatManager => playerCombatManager;
@@ -25,7 +23,12 @@ namespace ManagerScripts
         private MinigameController _supportMiniGameController;
 
         private bool _minigamesInstantiated=false;
-        
+
+        private void Awake()
+        {
+            ServiceLocator.Instance.RegisterService(this);
+        }
+
         private void Start()
         {
             ServiceLocator.Instance.GetService<EventManager>().CombatEnd += HandlerCombatEnd;
@@ -41,8 +44,8 @@ namespace ManagerScripts
 
         private MinigameController InstanceMinigame(Weapon minigameWeapon,Transform parent)
         {
-            GameObject minigame= Instantiate(minigameWeapon.MinigameController.gameObject,parent);
-            MinigameController controllerA = minigame.GetComponent<MinigameController>();
+            MinigameController controllerA = minigameWeapon.MinigameFactory.CreateMinigame();
+            controllerA.transform.SetParent(parent);
             controllerA.battleManager = this;
             controllerA.minigameWeapon = minigameWeapon;
             return controllerA;

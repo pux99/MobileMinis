@@ -661,6 +661,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5485685459117983767}
   - component: {fileID: 6495800460904171217}
+  - component: {fileID: 2971258713660844053}
   m_Layer: 0
   m_Name: DrawingMinigame
   m_TagString: Untagged
@@ -701,6 +702,19 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   minigameWeapon: {fileID: 0}
   minigame: {fileID: 4378381934312003717}
+--- !u!114 &2971258713660844053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4610458020891664442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da94eb4d130413ba3563cd5c8a73295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigameController: {fileID: 6495800460904171217}
 --- !u!1 &5323062462334553104
 GameObject:
   m_ObjectHideFlags: 0

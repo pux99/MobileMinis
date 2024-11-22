@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Minigames.Weapons;
 using Player;
+using Player.Weapons;
 using UnityEngine;
 
 public class WeaponChanger : MonoBehaviour

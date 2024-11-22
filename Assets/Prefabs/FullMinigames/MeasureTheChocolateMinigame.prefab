@@ -191,7 +191,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.8
+  m_fontSize: 48.4
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 2082721314408595172}
   - component: {fileID: 2076179274440448867}
   - component: {fileID: 7623527449280308305}
+  - component: {fileID: 954648940980849441}
   m_Layer: 5
   m_Name: MeasureTheChocolateMinigame
   m_TagString: Untagged
@@ -370,6 +371,19 @@ MonoBehaviour:
   cantChocolates: 3
   goalContainer: {fileID: 5034005923379142655}
   taskText: {fileID: 4773145548284227653}
+--- !u!114 &954648940980849441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6104097420885776617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c8b2e8d16e34492a22044ef80d26dc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigameController: {fileID: 2076179274440448867}
 --- !u!1 &8148924424476102868
 GameObject:
   m_ObjectHideFlags: 0

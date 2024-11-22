@@ -1,14 +1,14 @@
-using Core;
 using Effects;
-using Minigames.GeneralUse;
+using Minigames.Factory;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace Minigames.Weapons
+namespace Player.Weapons
 {
     [CreateAssetMenu(fileName = "weapon",menuName = "MobileMinis/Weapons")]
     public class Weapon : ScriptableObject
     {
-        [SerializeField] private MinigameController minigameController;
+        [FormerlySerializedAs("minigameController")] [SerializeField] private MinigameFactory minigameFactory;
         [SerializeField] private IEffect completingEffect;
         [SerializeField] private IEffect losingEffect;
         [SerializeField] private int completingEffectValue;
@@ -16,7 +16,7 @@ namespace Minigames.Weapons
         [SerializeField] private Sprite weaponArt;
         
 
-        public MinigameController MinigameController => minigameController;
+        public MinigameFactory MinigameFactory => minigameFactory;
 
         public IEffect CompletingEffect => completingEffect;
 

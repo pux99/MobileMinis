@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.DebugUI;
+using Container = Minigames.Tetris.OrderThePieces.Container;
 
-namespace Minigames.Tetris.OrderThePieces
+namespace Minigames.Tetris.OrderDePieces
 {
     public class OtPManager : MonoBehaviour
     {

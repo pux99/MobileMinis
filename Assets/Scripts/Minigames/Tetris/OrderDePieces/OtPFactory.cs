@@ -1,24 +1,12 @@
 using System.Collections.Generic;
+using Minigames.Tetris.OrderThePieces;
 using Tetris_Minigame.Scripts.UI;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Minigames.Tetris.OrderThePieces
+namespace Minigames.Tetris.OrderDePieces
 { 
     public class OtPFactory : MonoBehaviour
     {
-        public static OtPFactory Instance { get; set; }
-        private void Awake()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
         [SerializeField] private GameObject tetrisLikePiece;
         [SerializeField] private SO_GruopOfBaseTetrisPieces groupOfBaseTetrisPieces;
         [SerializeField] private SO_GroupOfColors groupOfColors;
