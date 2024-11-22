@@ -20,7 +20,7 @@ namespace Minigames.GeneralUse
 
         protected override void StartMinigame()
         {
-            StartCoroutine(minigame.InitializeMinigameSequence());
+            minigame.StartMinigame();
         }
         
         protected override void WiningMinigame()
@@ -28,14 +28,12 @@ namespace Minigames.GeneralUse
             if(minigameWeapon.CompletingEffect!=null)
                 minigameWeapon.CompletingEffect.ApplyEffect(battleManager.PlayerCombatManager.PlayerHealth,minigameWeapon.CompletingEffectValue);
             ResetMinigame();
-            StartMinigame();
         }
         protected override void LosingMinigame()
         {
             if(minigameWeapon.LosingEffect!=null)
                 minigameWeapon.LosingEffect.ApplyEffect(battleManager.PlayerCombatManager.PlayerHealth,minigameWeapon.LosingEffectValue);
             ResetMinigame();
-            StartMinigame();
         }
         public override void ChangeToOtherMinigame()
         {

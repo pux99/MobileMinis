@@ -10,10 +10,9 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
 {
     [SerializeField] private GameObject roomPrefab;
     Camera _cam;
-
     
     //The grid
-    public Room[,] rooms = null;
+    public Room[,] Rooms = null;
     
     //Size
     private int _numX = 10;
@@ -26,41 +25,22 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
     [HideInInspector]public float yOffset;
     
     //Stack for backtracking (depth-first search)
-    private Stack<Room> stack = new Stack<Room>();
+    private readonly Stack<Room> _stack = new Stack<Room>();
 
     //To not break while making a maze.
     private bool _generating = false;
     
-    //Singleton
-    public static MazeFactory Instance { get; private set; }
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-        _cam =  Camera.main;
-    }
-    
-    //STARTS!
-    public IEnumerator MakeGrid(int sizeX, int sizeY)
+    //Making the GRID
+    public void MakeGrid(int sizeX, int sizeY)
     {
         _numX = sizeX;
         _numY = sizeY;
+        _cam =  Camera.main;
         GetRoomSize();
         SetOffset();
-        yield return StartCoroutine(MakeGridForMaze());
-    }
-    
-    //Making the GRID
-    private IEnumerator MakeGridForMaze()
-    {
         InicializarGrafo();
-        rooms = new Room[_numX, _numY];
+        
+        Rooms = new Room[_numX, _numY];
         
         for (int i = 0; i < _numX; i++)
         {
@@ -70,16 +50,14 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
                 room.transform.localScale *= scaleFactor;
                 room.transform.position = new Vector3( (i * roomSize) + xOffset, (j * roomSize) - yOffset, 0.0f);
                 
-                //room.name = "Room_" + i.ToString() + "_" + j.ToString();
-                rooms[i, j] = room.GetComponent<Room>();
-                rooms[i, j].posOnGrid = new Vector2Int(i, j);
+                Rooms[i, j] = room.GetComponent<Room>();
+                Rooms[i, j].posOnGrid = new Vector2Int(i, j);
                 
                 //Grafo agrego un vertice por cada Room.
-                AgregarVertice(Vect2Vert(rooms[i, j].posOnGrid));
-                room.name = Vect2Vert(rooms[i, j].posOnGrid).ToString();
+                AgregarVertice(Vect2Vert(Rooms[i, j].posOnGrid));
+                room.name = Vect2Vert(Rooms[i, j].posOnGrid).ToString();
             }   
         } 
-        yield return null;
     }
     private void GetRoomSize()
     {
@@ -109,9 +87,9 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
         if (_generating) yield break;
         ResetMaze();
         
-        stack.Push(rooms[0,0]);
+        _stack.Push(Rooms[0,0]);
 
-        while (stack.Count > 0)
+        while (_stack.Count > 0)
         {
             GenerateStep();
             yield return null;
@@ -123,7 +101,7 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
     {
         if (dir != Room.Directions.None)
         {
-            rooms[v.x,v.y].SetDirFlag(dir, false);
+            Rooms[v.x,v.y].SetDirFlag(dir, false);
         }
 
         Room.Directions opp = Room.Directions.None;
@@ -164,15 +142,15 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
         }
         if (opp != Room.Directions.None)
         {
-            rooms[v.x,v.y].SetDirFlag(opp,false);
+            Rooms[v.x,v.y].SetDirFlag(opp,false);
         }
         
     }
     private void GenerateStep()
     {
-        if (stack.Count == 0) return;
+        if (_stack.Count == 0) return;
 
-        Room currentRoom = stack.Peek();
+        Room currentRoom = _stack.Peek();
         var neighbours = GetNeighboursNotVisited(currentRoom.posOnGrid.x, currentRoom.posOnGrid.y);
 
         if (neighbours.Count > 0)
@@ -191,11 +169,11 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
 
             
             nextRoom.visited = true;
-            stack.Push(nextRoom);
+            _stack.Push(nextRoom);
         }
         else
         {
-            stack.Pop();
+            _stack.Pop();
         }
         
     }
@@ -214,9 +192,9 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
                     if (y < _numY -1)
                     {
                         ++y;
-                        if (!rooms[x,y].visited)
+                        if (!Rooms[x,y].visited)
                         {
-                         neighbours.Add(new Tuple<Room.Directions, Room>(Room.Directions.Top, rooms[x,y]));   
+                         neighbours.Add(new Tuple<Room.Directions, Room>(Room.Directions.Top, Rooms[x,y]));   
                         }
                     }
 
@@ -225,9 +203,9 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
                     if (x < _numX -1)
                     {
                         ++x;
-                        if (!rooms[x,y].visited)
+                        if (!Rooms[x,y].visited)
                         {
-                            neighbours.Add(new Tuple<Room.Directions, Room>(Room.Directions.Right, rooms[x,y]));   
+                            neighbours.Add(new Tuple<Room.Directions, Room>(Room.Directions.Right, Rooms[x,y]));   
                         }
                     }
 
@@ -236,9 +214,9 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
                     if (y > 0)
                     {
                         --y;
-                        if (!rooms[x,y].visited)
+                        if (!Rooms[x,y].visited)
                         {
-                            neighbours.Add(new Tuple<Room.Directions, Room>(Room.Directions.Bottom, rooms[x,y]));   
+                            neighbours.Add(new Tuple<Room.Directions, Room>(Room.Directions.Bottom, Rooms[x,y]));   
                         }
                     }
 
@@ -247,9 +225,9 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
                     if (x > 0)
                     {
                         --x;
-                        if (!rooms[x,y].visited)
+                        if (!Rooms[x,y].visited)
                         {
-                            neighbours.Add(new Tuple<Room.Directions, Room>(Room.Directions.Left, rooms[x,y]));   
+                            neighbours.Add(new Tuple<Room.Directions, Room>(Room.Directions.Left, Rooms[x,y]));   
                         }
                     }
 
@@ -262,8 +240,8 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
     //Resets the Maze
     public void ResetMaze()
     {
-        if (rooms == null || MAdy == null) return;
-        foreach (var room in rooms)
+        if (Rooms == null || MAdy == null) return;
+        foreach (var room in Rooms)
         {
             room.visited = false;
             room.SetDirFlag(Room.Directions.Top, true);
@@ -281,7 +259,7 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
     }
     public void SetFinnishLine()
     {
-        rooms[_numX - 1, _numY - 1].SetFinnishLine();
+        Rooms[_numX - 1, _numY - 1].SetFinnishLine();
     }
     
     //Grafos
