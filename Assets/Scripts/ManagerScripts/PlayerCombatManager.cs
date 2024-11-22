@@ -29,5 +29,10 @@ namespace ManagerScripts
         {
             battleManager.PLayerDefeated();
         }
+
+        public int GetPlayerAttack()
+        {
+            return playerStatsAndWeapons.Attack;
+        }
     }
 }

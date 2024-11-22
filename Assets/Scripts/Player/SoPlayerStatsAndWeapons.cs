@@ -27,6 +27,7 @@ namespace Player
         [SerializeField] private int maxHp;
         [SerializeField] private int level;
         [SerializeField] private int exp;
+        [SerializeField] private int attack;
         [SerializeField] private Weapon attackWeapon;
         [SerializeField] private Weapon defenceWeapon;
         [SerializeField] private Weapon supportWeapon;
@@ -34,6 +35,7 @@ namespace Player
         public int MaxHp => maxHp;
         public int Level => level;
         public int Exp => exp;
+        public int Attack => attack;
 
         public Weapon AttackWeapon => attackWeapon;
         public Weapon DefenceWeapon => defenceWeapon;

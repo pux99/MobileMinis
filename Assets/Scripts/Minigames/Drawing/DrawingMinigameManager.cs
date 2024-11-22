@@ -21,13 +21,14 @@ public class DrawingMinigameManager : MinigameController
         
     protected override void WiningMinigame()
     {
-        if(minigameWeapon.CompletingEffect!=null)
-            minigameWeapon.CompletingEffect.ApplyEffect(battleManager.EnemyManager.Health,minigameWeapon.CompletingEffectValue);
+        if(minigameWeapon.CompletingEffect)
+            minigameWeapon.CompletingEffect.ApplyEffect(battleManager.EnemyManager.Health,
+                minigameWeapon.CompletingEffectValue+battleManager.PlayerCombatManager.GetPlayerAttack());
         ResetMinigame();
     }
     protected override void LosingMinigame()
     {
-        if(minigameWeapon.LosingEffect!=null)
+        if(minigameWeapon.LosingEffect)
             minigameWeapon.LosingEffect.ApplyEffect(battleManager.PlayerCombatManager.PlayerHealth,minigameWeapon.LosingEffectValue);
         ResetMinigame();
     }
