@@ -5,62 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="390adab5-93fb-4367-88ea-b4e66f4520ad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Command/ChangeTime.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Command/ChangeTime.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Command/EnemyAttack.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Command/EnemyAttack.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Command/GetShield.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Command/GetShield.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Command/Heal.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Command/Heal.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Command/KillEnemy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Command/KillEnemy.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Command/PauseTime.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Command/PauseTime.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Command/SetAttack.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Command/SetAttack.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Factory.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Factory/ChocolateMimigameFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Factory/ChocolateMimigameFactory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Factory/DrawingMimigameFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Factory/DrawingMimigameFactory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Factory/FindThePiecesMimigameFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Factory/FindThePiecesMimigameFactory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Factory/MazeMimigameFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Factory/MazeMimigameFactory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Factory/OrderThePiecesMimigameFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Factory/OrderThePiecesMimigameFactory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Factory/PlaceThePiecesMimigameFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Factory/PlaceThePiecesMimigameFactory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Tetris/General/FindThePiecesFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/NormalMovePreset.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/NormalMovePreset.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/PressInversionMovePreset.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/PressInversionMovePreset.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/ConfuseState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/ConfuseState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/IdleState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/IdleState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/MoveState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/MoveState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/PauseState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/PauseState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/StunState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/StunState.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/DrawingMinigame.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/DrawingMinigame.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/FindThePicesMinigame.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/FindThePicesMinigame.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/MazeMinigame.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/MazeMinigame.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/MeasureTheChocolateMinigame.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/MeasureTheChocolateMinigame.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/OrderThePiecesMinigame.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/OrderThePiecesMinigame.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/PlaceThePiecesMingame.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/PlaceThePiecesMingame.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/ChocolateHeal.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/ChocolateHeal.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/DrawingSword.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/DrawingSword.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/Mazeshield.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/Mazeshield.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/TetrisShield.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/TetrisShield.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/TetrisStaff.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/TetrisStaff.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/TetrisSword.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/TetrisSword.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts/BattleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts/BattleManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/Drawing/DrawingMinigameManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/Drawing/DrawingMinigameManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/MinigameControler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/MinigameControler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/OrderThePiecesMinigameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/OrderThePiecesMinigameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/Tetris/FindThePieces/FindThePiecesMinigame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Tetris/FindThePieces/FindThePiecesMinigame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/Tetris/General/TetrisFactory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/Tetris/General/TetrisFactory.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Tetris/General/FindThePiecesFactory.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/Tetris/OrderDePieces/OtPFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Tetris/OrderDePieces/OtPFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/Tetris/OrderDePieces/OtPManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/Tetris/OrderDePieces/OtPManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/SoPlayerStatsAndWeapons.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/SoPlayerStatsAndWeapons.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Weapons/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Weapons/Weapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/WeaponSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/WeaponSelection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/countDown.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/countDown.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/weaponChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/weaponChanger.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,12 +32,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/284f0abb8014497cac58bcf5042a4ea93c00/e5/0247329a/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/27/9402ab9d/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Command/CommandActivator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Command/Icommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Command/SoCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ManagerScripts/BattleManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ManagerScripts/CurrentStateManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyWin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/Istate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/SoPlayerStatsAndWeapons.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../TetrisTest/Assets/Tetris Minigame/Scripts/Tetris/InicializeTetrisMiniGame.cs" root0="SKIP_HIGHLIGHTING" />
@@ -137,10 +101,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="28040">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="28040" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -169,7 +133,7 @@
       <workItem from="1731846168136" duration="20455000" />
       <workItem from="1731942509817" duration="1447000" />
       <workItem from="1732105886781" duration="19178000" />
-      <workItem from="1732279502602" duration="14598000" />
+      <workItem from="1732279502602" duration="35311000" />
     </task>
     <servers />
   </component>
@@ -201,6 +165,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyCondicion.cs</url>
+          <line>40</line>
+          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Scripts\Minigames\CrazyControls\CrazyCondicion.cs" containingFunctionPresentation="Method 'OnCollisionEnter2D'">
+            <startOffsets>
+              <option value="946" />
+            </startOffsets>
+            <endOffsets>
+              <option value="966" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
