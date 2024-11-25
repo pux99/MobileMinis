@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Minigames.CrazyControls
@@ -24,6 +25,7 @@ namespace Minigames.CrazyControls
 
         [SerializeField]private PlayerStateController _player;
         [SerializeField] private GameObject game;
+        [SerializeField] private CrazyMoveController crazyMoveController;
         
 
         [SerializeField] private List<GameObject> levels;
@@ -57,6 +59,7 @@ namespace Minigames.CrazyControls
         private void WinState()
         {
             WinMinigame?.Invoke();
+            crazyMoveController.ChangeMovePreset();
         }
 
 

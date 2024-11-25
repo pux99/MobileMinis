@@ -5,23 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="390adab5-93fb-4367-88ea-b4e66f4520ad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/NormalMovePreset.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/NormalMovePreset.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/PressInversionMovePreset.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/PressInversionMovePreset.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/ConfuseState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/ConfuseState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/IdleState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/IdleState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/MoveState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/MoveState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/PauseState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/PauseState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/StunState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/StunState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Factory/CommandActivatorButtonMaker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Factory/CommandActivatorButtonMaker.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/InvertedMovePreset.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/InvertedMovePreset.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/LeftRightInvertedMovePreset.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/LeftRightInvertedMovePreset.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/UPDownInvertedMovePreset.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/UPDownInvertedMovePreset.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Font/Big_Bottom_Typeface_Normal SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Font/Big_Bottom_Typeface_Normal SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/CrazyControlsMinigame.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/CrazyControlsMinigame.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Battle/Battle MinigameTestingGrounds.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Battle/Battle MinigameTestingGrounds.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Battle/Battle.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Battle/Battle.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menus/HUB.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menus/HUB.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menus/Inventory.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menus/Inventory.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/CrazySword.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/CrazySword.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Command/CommandActivator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Command/CommandActivator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyControlsMinigame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyControlsMinigame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyControlsMinigameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyControlsMinigameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyMoveController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyMoveController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/DrawingMinigameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/DrawingMinigameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/FindThePiecesMinigameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/FindThePiecesMinigameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/MazeMinigameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/MazeMinigameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/MeasureTheChocolateMinigameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/MeasureTheChocolateMinigameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/OrderThePiecesMinigameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/OrderThePiecesMinigameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/PlaceThePiecesMinigameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/PlaceThePiecesMinigameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Weapons/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Weapons/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,27 +66,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.4676259&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "XThreadsFramesViewSplitterKey": "0.4676259",
+    "git-widget-placeholder": "Entrga-para-programacion-de-sistemas-de-juegos",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Ignacio Puk\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Ignacio Puk\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Ignacio Puk\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Ignacio Puk\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Ignacio Puk\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\Ignacio Puk\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Unity\2022.3.17f1\Editor\Unity.exe" />
@@ -101,10 +114,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="28040">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="28040" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -134,6 +147,7 @@
       <workItem from="1731942509817" duration="1447000" />
       <workItem from="1732105886781" duration="19178000" />
       <workItem from="1732279502602" duration="35311000" />
+      <workItem from="1732492567757" duration="7380000" />
     </task>
     <servers />
   </component>

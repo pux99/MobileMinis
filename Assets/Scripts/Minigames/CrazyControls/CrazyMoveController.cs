@@ -1,4 +1,4 @@
-using System;
+using Minigames.CrazyControls.MovePreset;
 using UnityEngine;
 
 namespace Minigames.CrazyControls
@@ -21,6 +21,9 @@ namespace Minigames.CrazyControls
 
         private readonly NormalMovePreset _normalMovePreset = new NormalMovePreset();
         private readonly PressInversionMovePreset _pressInversionMovePreset = new PressInversionMovePreset();
+        private readonly InvertedMovePreset _invertedMovePreset= new InvertedMovePreset();
+        private readonly LeftRightInvertedMovePreset _leftRightInvertedMovePreset = new LeftRightInvertedMovePreset();
+        private readonly UpDownInvertedMovePreset _upDownInvertedMovePreset = new UpDownInvertedMovePreset();
 
         public void ButtonRightUp() => _currentPreset.RightUp(this);
         public void ButtonRightDown() => _currentPreset.RightDown(this);
@@ -45,6 +48,26 @@ namespace Minigames.CrazyControls
         void Start()
         {
             _currentPreset = _normalMovePreset;
+        }
+
+        public void ChangeMovePreset()
+        {
+            int random = Random.Range(0, 4);
+            switch (random)
+            {
+                case 0:
+                    _currentPreset = _normalMovePreset;
+                    break;
+                case 1:
+                    _currentPreset = _invertedMovePreset;
+                    break;
+                case 2:
+                    _currentPreset = _upDownInvertedMovePreset;
+                    break;
+                case 3:
+                    _currentPreset = _leftRightInvertedMovePreset;
+                    break;
+            }
         }
     }
 }

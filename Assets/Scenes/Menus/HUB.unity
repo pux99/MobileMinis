@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -178,15 +177,15 @@ PrefabInstance:
     - target: {fileID: 5782634814509860171, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
       propertyPath: attackWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: d4e9c75058d655a4ea869527c5d2054d, type: 2}
+      objectReference: {fileID: 11400000, guid: f985756c69cf49a40b574a0ea119f366, type: 2}
     - target: {fileID: 5782634814509860171, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
       propertyPath: defenceWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: 894f08c12b5f0644dbd3f5ec8f95ea34, type: 2}
+      objectReference: {fileID: 11400000, guid: 0ee4cb8a6a3b62b42ac437e4cbdb745d, type: 2}
     - target: {fileID: 5782634814509860171, guid: ad2d0e251193c0b4885608612a5f0bc9, type: 3}
       propertyPath: supportWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: 37fa6a971d1d71344807e3e2ded9eaba, type: 2}
+      objectReference: {fileID: 11400000, guid: f5975791c07e3a14e955c88c5fe6ef68, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

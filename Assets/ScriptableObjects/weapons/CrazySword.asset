@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7538f3bda48a7d240abedcf1337b05b5, type: 3}
   m_Name: CrazySword
   m_EditorClassIdentifier: 
-  minigameFactory: {fileID: 1029600060209458562, guid: b0b61bcbb7cee51449cdd7f3c55ec2e7, type: 3}
+  minigameFactory: {fileID: 3832248898282376266, guid: a8194f649da562e47b37ff28b69fc921, type: 3}
   completingEffect: {fileID: 2903877290141185441, guid: 92f7cb5a00f907346af1f8d13d49fe55, type: 3}
+  completingTarget: 1
   losingEffect: {fileID: 0}
+  losingTarget: 0
   completingEffectValue: 50
   losingEffectValue: 0
-  weaponArt: {fileID: 21300000, guid: 23e10dff2c1a25647ad984ec5d0b165a, type: 3}
+  weaponArt: {fileID: 21300000, guid: 6531649db2088c04592d02138d2d4916, type: 3}

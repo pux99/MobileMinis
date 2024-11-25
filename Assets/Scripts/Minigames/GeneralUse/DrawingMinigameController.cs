@@ -21,14 +21,14 @@ namespace Minigames.GeneralUse
         protected override void WiningMinigame()
         {
             if(minigameWeapon.CompletingEffect)
-                minigameWeapon.CompletingEffect.ApplyEffect(battleManager.EnemyManager.Health,
+                minigameWeapon.CompletingEffect.ApplyEffect(minigameWeapon.CompletingTarget,
                     minigameWeapon.CompletingEffectValue+battleManager.PlayerCombatManager.GetPlayerAttack());
             ResetMinigame();
         }
         protected override void LosingMinigame()
         {
             if(minigameWeapon.LosingEffect)
-                minigameWeapon.LosingEffect.ApplyEffect(battleManager.PlayerCombatManager.PlayerHealth,minigameWeapon.LosingEffectValue);
+                minigameWeapon.LosingEffect.ApplyEffect(minigameWeapon.LosingTarget,minigameWeapon.LosingEffectValue);
             ResetMinigame();
         }
         

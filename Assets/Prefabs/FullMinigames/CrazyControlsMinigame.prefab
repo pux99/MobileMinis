@@ -332,6 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1900897432990737169}
   game: {fileID: 5561169336669592011}
+  crazyMoveController: {fileID: 4646356874424581037}
   levels:
   - {fileID: 9083186555513881233, guid: 62ac6e1a46eac81438e75f014e31b262, type: 3}
   - {fileID: 6549043139593073270, guid: e295aad5fb6b28d4680fe79154cf1110, type: 3}

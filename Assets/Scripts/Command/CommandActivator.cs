@@ -12,6 +12,17 @@ public class CommandActivator : MonoBehaviour
     [SerializeField] private SoCommand command;
     [SerializeField] private String arguments;
 
+    public SoCommand Command
+    {
+        get => command;
+        set => command = value;
+    }
+
+    public string Arguments
+    {
+        get => arguments;
+        set => arguments = value;
+    }
     private Button _button;
 
     private void Awake()

@@ -1,4 +1,6 @@
+using Core;
 using Effects;
+using HealthSystem;
 using Minigames.Factory;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -10,7 +12,9 @@ namespace Player.Weapons
     {
         [FormerlySerializedAs("minigameController")] [SerializeField] private MinigameFactory minigameFactory;
         [SerializeField] private IEffect completingEffect;
+        [SerializeField] private TargetGiver.Target completingTarget;
         [SerializeField] private IEffect losingEffect;
+        [SerializeField] private TargetGiver.Target  losingTarget;
         [SerializeField] private int completingEffectValue;
         [SerializeField] private int losingEffectValue;
         [SerializeField] private Sprite weaponArt;
@@ -20,7 +24,11 @@ namespace Player.Weapons
 
         public IEffect CompletingEffect => completingEffect;
 
+        public UHealth CompletingTarget => ServiceLocator.Instance.GetService<TargetGiver>().GetTarget(completingTarget);
+
         public IEffect LosingEffect => losingEffect;
+
+        public UHealth LosingTarget => ServiceLocator.Instance.GetService<TargetGiver>().GetTarget(losingTarget);
 
         public int CompletingEffectValue => completingEffectValue;
         public int LosingEffectValue => losingEffectValue;

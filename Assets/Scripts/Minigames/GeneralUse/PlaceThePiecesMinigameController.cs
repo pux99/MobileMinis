@@ -26,7 +26,7 @@ namespace Minigames.GeneralUse
         protected override void WiningMinigame()
         {
             if(minigameWeapon.CompletingEffect!=null)
-                minigameWeapon.CompletingEffect.ApplyEffect(battleManager.PlayerCombatManager.PlayerHealth,minigame.effectNumber);
+                minigameWeapon.CompletingEffect.ApplyEffect(minigameWeapon.CompletingTarget,minigame.effectNumber);
             ResetMinigame();
             StartMinigame();
         }
