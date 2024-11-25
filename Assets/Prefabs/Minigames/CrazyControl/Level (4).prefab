@@ -157,7 +157,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.001, y: 0.201}
+  m_Size: {x: 5.14, y: 1.25}
   m_EdgeRadius: 0
 --- !u!114 &2599771146332604053
 MonoBehaviour:
@@ -645,7 +645,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.001, y: 0.201}
+  m_Size: {x: 5.14, y: 1.25}
   m_EdgeRadius: 0
 --- !u!114 &2141499605573541493
 MonoBehaviour:
@@ -1188,7 +1188,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.001, y: 0.201}
+  m_Size: {x: 5.14, y: 1.25}
   m_EdgeRadius: 0
 --- !u!114 &5085922268972182490
 MonoBehaviour:
@@ -1360,7 +1360,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.001, y: 0.201}
+  m_Size: {x: 5.14, y: 1.25}
   m_EdgeRadius: 0
 --- !u!114 &938063944018573603
 MonoBehaviour:
@@ -1690,7 +1690,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.001, y: 0.201}
+  m_Size: {x: 5.14, y: 1.25}
   m_EdgeRadius: 0
 --- !u!114 &637627670012133126
 MonoBehaviour:
@@ -1862,7 +1862,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.001, y: 0.201}
+  m_Size: {x: 5.14, y: 1.25}
   m_EdgeRadius: 0
 --- !u!114 &9152452381117994666
 MonoBehaviour:
