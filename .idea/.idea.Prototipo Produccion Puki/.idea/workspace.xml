@@ -4,38 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="390adab5-93fb-4367-88ea-b4e66f4520ad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Factory/CommandActivatorButtonMaker.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Factory/CommandActivatorButtonMaker.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/InvertedMovePreset.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/InvertedMovePreset.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/LeftRightInvertedMovePreset.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/LeftRightInvertedMovePreset.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/UPDownInvertedMovePreset.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/MovePreset/UPDownInvertedMovePreset.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Font/Big_Bottom_Typeface_Normal SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Font/Big_Bottom_Typeface_Normal SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/CrazyControlsMinigame.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/CrazyControlsMinigame.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Battle/Battle MinigameTestingGrounds.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Battle/Battle MinigameTestingGrounds.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Battle/Battle.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Battle/Battle.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menus/HUB.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menus/HUB.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menus/Inventory.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menus/Inventory.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/CrazySword.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/weapons/CrazySword.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Command/CommandActivator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Command/CommandActivator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyControlsMinigame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyControlsMinigame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyControlsMinigameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyControlsMinigameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyMoveController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyMoveController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/DrawingMinigameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/DrawingMinigameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/FindThePiecesMinigameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/FindThePiecesMinigameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/MazeMinigameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/MazeMinigameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/MeasureTheChocolateMinigameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/MeasureTheChocolateMinigameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/OrderThePiecesMinigameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/OrderThePiecesMinigameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/PlaceThePiecesMinigameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/GeneralUse/PlaceThePiecesMinigameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Weapons/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Weapons/Weapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-    </list>
+    <list default="true" id="390adab5-93fb-4367-88ea-b4e66f4520ad" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,7 +116,7 @@
       <workItem from="1731942509817" duration="1447000" />
       <workItem from="1732105886781" duration="19178000" />
       <workItem from="1732279502602" duration="35311000" />
-      <workItem from="1732492567757" duration="7380000" />
+      <workItem from="1732492567757" duration="7985000" />
     </task>
     <servers />
   </component>
