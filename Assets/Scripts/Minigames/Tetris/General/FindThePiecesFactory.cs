@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Tetris_Minigame.Scripts.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ namespace Minigames.Tetris.General
     {
         [SerializeField] private GameObject baseTetrisPiece;
         [SerializeField] private float sizeMod=0.05f;
+        [SerializeField] private Canvas GameCanvas;
         public GameObject CreateRandomTetrisPiece(SO_GruopOfBaseTetrisPieces listOfPieces, SO_GroupOfColors listOfColors)
         {
             GameObject newPiece = Instantiate(baseTetrisPiece);
@@ -20,6 +22,7 @@ namespace Minigames.Tetris.General
             pieceImage.rectTransform.sizeDelta = new Vector2(
                 data.size.x * Screen.currentResolution.width*sizeMod,
                 data.size.y * Screen.currentResolution.width*sizeMod);
+            newPiece.gameObject.GetComponent<Drag>().Canvas = GameCanvas;
             return newPiece;
         }
 

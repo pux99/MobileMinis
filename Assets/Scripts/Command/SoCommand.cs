@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Command
 {
-    public abstract class SoCommand : ScriptableObject ,ICommand
+    public abstract class SoCommand : ScriptableObject, ICommand
     {
         public string Name => name;
 

@@ -11,9 +11,9 @@ namespace Player.Weapons
     public class Weapon : ScriptableObject
     {
         [FormerlySerializedAs("minigameController")] [SerializeField] private MinigameFactory minigameFactory;
-        [SerializeField] private IEffect completingEffect;
+        [SerializeField] private IEffect winEffect;
         [SerializeField] private TargetGiver.Target completingTarget;
-        [SerializeField] private IEffect losingEffect;
+        [SerializeField] private IEffect loseEffect;
         [SerializeField] private TargetGiver.Target  losingTarget;
         [SerializeField] private int completingEffectValue;
         [SerializeField] private int losingEffectValue;
@@ -22,11 +22,11 @@ namespace Player.Weapons
 
         public MinigameFactory MinigameFactory => minigameFactory;
 
-        public IEffect CompletingEffect => completingEffect;
+        public IEffect CompletingEffect => winEffect;
 
         public UHealth CompletingTarget => ServiceLocator.Instance.GetService<TargetGiver>().GetTarget(completingTarget);
 
-        public IEffect LosingEffect => losingEffect;
+        public IEffect LosingEffect => loseEffect;
 
         public UHealth LosingTarget => ServiceLocator.Instance.GetService<TargetGiver>().GetTarget(losingTarget);
 

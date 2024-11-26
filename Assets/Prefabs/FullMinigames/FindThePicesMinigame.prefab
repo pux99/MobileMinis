@@ -353,6 +353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseTetrisPiece: {fileID: 9141137831396621376, guid: 51b4916f7560ef14387a785abae54e54, type: 3}
   sizeMod: 0.05
+  GameCanvas: {fileID: 8583964661761205114}
 --- !u!222 &3595483196642113995
 CanvasRenderer:
   m_ObjectHideFlags: 0

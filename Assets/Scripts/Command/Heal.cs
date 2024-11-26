@@ -9,11 +9,16 @@ namespace Command
     {
         public override void Execute()
         {
-            Debug.LogWarning("This command needs an argument");
+            Execute(new string[] { });
         }
 
         public override void Execute(string[] args)
         {
+            if(args.Length == 0)
+            {
+                Debug.LogWarning("This command needs an argument");
+                return;
+            }
             int amount;
             switch (args[0])
             {

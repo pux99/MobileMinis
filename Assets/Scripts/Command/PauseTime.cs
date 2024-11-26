@@ -9,10 +9,7 @@ namespace Command
     {
         public override void Execute()
         {
-            if (ServiceLocator.Instance.GetService<CountDown>().IsPaused)
-                ServiceLocator.Instance.GetService<CountDown>().ResumeTime();
-            else
-                ServiceLocator.Instance.GetService<CountDown>().PauseTime();
+            Execute(new string[]{});
         }
 
         public override void Execute(string[] args)

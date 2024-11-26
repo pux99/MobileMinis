@@ -7,7 +7,7 @@ namespace Tetris_Minigame.Scripts.UI
 {
     public class Drag : MonoBehaviour,IEndDragHandler,IDragHandler,IBeginDragHandler
     {
-        private Canvas _canvas;
+        [SerializeField]private Canvas _canvas;
 
         public Canvas Canvas
         {
@@ -20,7 +20,7 @@ namespace Tetris_Minigame.Scripts.UI
 
         private void Start()
         {
-            _canvas = FindObjectOfType<Canvas>();
+            //_canvas = FindObjectOfType<Canvas>();//Cambiar
         }
         public void OnEndDrag(PointerEventData eventData)
         {

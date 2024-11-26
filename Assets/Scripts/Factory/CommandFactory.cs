@@ -5,30 +5,29 @@ using UnityEngine;
 
 namespace Factory
 {
-    public class ButtonCommandActivatorFactory : MonoBehaviour, IButtonFactory
+    public class CommandFactory : MonoBehaviour, IButtonFactory
     {
-        [SerializeField] private GameObject buttonPrefab;
+        [SerializeField] private CommandActivator prefab;
 
-        public GameObject CreateButton<T, T1>(string buttonText, Vector2 position, T Tcommand,
-            T1 Targument)
+        public GameObject CreateButton<TPrefab, T, T1>(TPrefab prefab, string buttonText, Vector2 position, T Tcommand,
+            T1 Targument) where TPrefab : Component
         {
             Type command = typeof(T);
             Type argument = typeof(T1);
-            if (command == typeof(SoCommand) && argument == typeof(string))
+            if (Tcommand is SoCommand && argument == typeof(string))
             {
-                GameObject newButton = Instantiate(buttonPrefab);
+                TPrefab result = Instantiate(prefab);
                 
-                TextMeshProUGUI buttonTextComponent = newButton.GetComponentInChildren<TextMeshProUGUI>();
-                if (buttonTextComponent != null)
+                TextMeshProUGUI text = result.GetComponentInChildren<TextMeshProUGUI>();
+                if (text != null)
                 {
-                    buttonTextComponent.text = buttonText;
+                    text.text = buttonText;
                 }
-
-                var commandActivator = newButton.GetComponent<CommandActivator>();
-                commandActivator.Command = Tcommand as SoCommand;
-                commandActivator.Arguments = Targument as string;
+                var commandComponent = result.GetComponent<CommandActivator>();
+                commandComponent.Command = Tcommand as SoCommand;
+                commandComponent.Arguments = Targument as string;
                 
-                return newButton;
+                return result.gameObject;
             }
             Debug.LogWarning(this.ToString() + " Only accept calls with two arguments: T (an ICommand) and T1 (a string), You made at least one incorrect call; please revise it.");
             return new GameObject();

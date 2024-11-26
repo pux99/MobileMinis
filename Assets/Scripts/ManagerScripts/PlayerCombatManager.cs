@@ -22,7 +22,7 @@ namespace ManagerScripts
         private void Start()
         {
             playerHealthManager.OnDead += Defeated;
-            playerStatsAndWeapons = FindObjectOfType<SoPlayerStatsAndWeapons>();
+            playerStatsAndWeapons = SoPlayerStatsAndWeapons.Instance;
         }
 
         private void Defeated()

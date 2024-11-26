@@ -11,12 +11,12 @@ public class WeaponChanger : MonoBehaviour
 
     private void Start()
     {
-        playerStatsAndWeapons = FindObjectOfType<SoPlayerStatsAndWeapons>();
+        //playerStatsAndWeapons = FindObjectOfType<SoPlayerStatsAndWeapons>();
     }
 
     public void ChangeWeapon(Weapon newWeapon, SoPlayerStatsAndWeapons.WeaponType weaponType)
     {
-        playerStatsAndWeapons.ChangeWeapon(newWeapon,weaponType);
+        SoPlayerStatsAndWeapons.Instance.ChangeWeapon(newWeapon,weaponType);
     }
 
     

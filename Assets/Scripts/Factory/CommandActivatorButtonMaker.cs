@@ -7,7 +7,7 @@ namespace Factory
 {
     public class CommandActivatorButtonMaker : MonoBehaviour
     {
-        [SerializeField] private ButtonCommandActivatorFactory buttonFactory;
+        [SerializeField] private CommandFactory buttonFactory;
         [SerializeField] private Transform parent;
         [SerializeField] private List<Command> commands;
         
