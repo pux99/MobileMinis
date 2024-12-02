@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
         _enemies.Add(new Trianglis());
         _enemies.Add(new Squaris());
 
-        ServiceLocator.Instance.GetService<CrazyEnemyPool>().GetElement<Circlis>();
+        //ServiceLocator.Instance.GetService<CrazyEnemyPool>().GetElement<_enemies[0].GetType()>();
     }
 
     private void SpawnEnemy()

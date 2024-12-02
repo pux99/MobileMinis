@@ -27,7 +27,7 @@ namespace Minigames.CrazyControls.States
 
         public void Exit()
         {
-            //throw new System.NotImplementedException();
+            
         }
     }
 }
