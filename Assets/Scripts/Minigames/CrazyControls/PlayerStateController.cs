@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Minigames.CrazyControls.States;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -15,8 +16,8 @@ namespace Minigames.CrazyControls
         public Vector3 startingPos;
 
         private IPlayerState _pausedState;
-
         public CrazyMoveController MoveController => _moveController;
+        private Dictionary<String, IState> _states;
 
         public IdleState idleState = new IdleState();
         public MoveState moveState = new MoveState();
@@ -37,37 +38,40 @@ namespace Minigames.CrazyControls
 
         private void Update()
         {
-            _currentState = _currentState.Update(this);
+            _currentState.Update(this);
             currentStateName = _currentState.ToString();
         }
         private void FixedUpdate()
         {
-            _currentState = _currentState.FixUpdate(this);
+            _currentState.FixUpdate(this);
             currentStateName = _currentState.ToString();
         }
 
         public void ChangeState(IPlayerState state)
         {
-            switch (state)
-            {
-                case StunState :
-                    _currentState = stunState;
-                    break;
-                case ConfuseState:
-                    _currentState = confuseState;
-                    break;
-            }
-            //_currentState = state; im not sure why this is not working
+            _currentState.Exit();
+            _currentState = state;
+            _currentState.Enter();
+        }
+
+        public void Move()
+        {
+            if(currentStateName==idleState.ToString())ChangeState(moveState);
+        }
+
+        public void Idle()
+        {
+            if(currentStateName==moveState.ToString())ChangeState(idleState);
         }
         
         public void Pause()
         {
             _pausedState = _currentState;
-            _currentState = PauseState;
+            ChangeState(PauseState);
         }
         public void Resume()
         {
-            _currentState = _pausedState;
+            ChangeState(_pausedState);
         }
     }
 }

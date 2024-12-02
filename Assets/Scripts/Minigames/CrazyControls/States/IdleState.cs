@@ -4,18 +4,24 @@ namespace Minigames.CrazyControls.States
 {
     public class IdleState:IPlayerState
     {
-        public IPlayerState Update(PlayerStateController player)
+        public void Enter()
         {
-            player.MoveController.SetDirection();
-            if (player.MoveController.Direction != Vector2.zero)
-                return player.moveState;
-            return this;
+            
         }
 
-        public IPlayerState FixUpdate(PlayerStateController player)
+        public void Update(PlayerStateController player)
+        {
+            player.MoveController.SetDirection();
+        }
+
+        public void FixUpdate(PlayerStateController player)
         {
             player.MoveController.StopMovement();
-            return this;
+        }
+
+        public void Exit()
+        {
+            
         }
     }
 }

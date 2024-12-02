@@ -1,15 +1,25 @@
-namespace Minigames.CrazyControls
+namespace Minigames.CrazyControls.States
 {
     public class PauseState : IPlayerState
     {
-        public IPlayerState Update(PlayerStateController player)
+        public void Enter()
         {
-            return this;
+            
         }
 
-        public IPlayerState FixUpdate(PlayerStateController player)
+        public void Update(PlayerStateController player)
         {
-            return this;
+            
+        }
+
+        public void FixUpdate(PlayerStateController player)
+        {
+            
+        }
+
+        public void Exit()
+        {
+            
         }
     }
 }

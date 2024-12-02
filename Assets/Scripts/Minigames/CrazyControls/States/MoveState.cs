@@ -1,21 +1,26 @@
-using UnityEngine;
 
 namespace Minigames.CrazyControls.States
 {
     public class MoveState:IPlayerState
     {
-        public IPlayerState Update(PlayerStateController player)
+        public void Enter()
         {
-            player.MoveController.SetDirection();
-            return this;
+            
         }
 
-        public IPlayerState FixUpdate(PlayerStateController player)
+        public void Update(PlayerStateController player)
         {
-            if (player.MoveController.Direction == Vector2.zero)
-                return player.idleState;
+            player.MoveController.SetDirection();
+        }
+
+        public void FixUpdate(PlayerStateController player)
+        {
             player.MoveController.Move();
-            return this;
+        }
+
+        public void Exit()
+        {
+            
         }
     }
 }

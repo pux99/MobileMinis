@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="390adab5-93fb-4367-88ea-b4e66f4520ad" name="Changes" comment="" />
+    <list default="true" id="390adab5-93fb-4367-88ea-b4e66f4520ad" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Pool/CrazyEnemyPool.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Pool/CrazyEnemyPool.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototipo Produccion Puki/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/CrazyControlsMinigame.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FullMinigames/CrazyControlsMinigame.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Battle/Battle.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Battle/Battle.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menus/Inventory.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menus/Inventory.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menus/Start.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menus/Start.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factory/CommandActivatorButtonMaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factory/CommandActivatorButtonMaker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factory/CommandFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factory/CommandFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factory/IbuttonFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factory/IbuttonFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factory/New Folder.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyCondicion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyCondicion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyControlsMinigame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyControlsMinigame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyMoveController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyMoveController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/PlayerStateController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/PlayerStateController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/ConfuseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/ConfuseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/IdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/IdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/Istate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/Istate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/MoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/MoveState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/PauseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/PauseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/StunState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/StunState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +38,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/284f0abb8014497cac58bcf5042a4ea93c00/e5/0247329a/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/68d78bc7a85647799fb2540c9822625e3c00/02/ac71b060/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/27/9402ab9d/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d303c2bf72cd4cec95665b89c457d265d2b8ef3ed6da17cd4f85587c2f9de7/System.Linq.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Command/CommandActivator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Command/Icommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Command/SoCommand.cs" root0="FORCE_HIGHLIGHTING" />
@@ -24,6 +49,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyWin.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/Istate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/SoPlayerStatsAndWeapons.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Pool/IPool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../TetrisTest/Assets/Tetris Minigame/Scripts/Tetris/InicializeTetrisMiniGame.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -39,7 +65,7 @@
   "keyToString": {
     "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "XThreadsFramesViewSplitterKey": "0.4676259",
+    "XThreadsFramesViewSplitterKey": "0.5852018",
     "git-widget-placeholder": "Entrga-para-programacion-de-sistemas-de-juegos",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -58,7 +84,7 @@
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Unity\2022.3.17f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Unity\2022.3.41f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;D:\Desarrollo\Unity\Prototipo Produccion Puki&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Desarrollo\Unity\Prototipo Produccion Puki" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -66,7 +92,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Unity\2022.3.17f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Unity\2022.3.41f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;D:\Desarrollo\Unity\Prototipo Produccion Puki&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Desarrollo\Unity\Prototipo Produccion Puki" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -83,10 +109,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="27696">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="27696" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -117,6 +143,13 @@
       <workItem from="1732105886781" duration="19178000" />
       <workItem from="1732279502602" duration="35311000" />
       <workItem from="1732492567757" duration="7985000" />
+      <workItem from="1732560122136" duration="457000" />
+      <workItem from="1732627086716" duration="4784000" />
+      <workItem from="1732806773535" duration="5872000" />
+      <workItem from="1733012655977" duration="6000" />
+      <workItem from="1733012680765" duration="2533000" />
+      <workItem from="1733023193891" duration="1000" />
+      <workItem from="1733058836885" duration="21318000" />
     </task>
     <servers />
   </component>
@@ -150,17 +183,134 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyCondicion.cs</url>
-          <line>40</line>
-          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Scripts\Minigames\CrazyControls\CrazyCondicion.cs" containingFunctionPresentation="Method 'OnCollisionEnter2D'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Factory/CommandFactory.cs</url>
+          <line>45</line>
+          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Scripts\Factory\CommandFactory.cs" containingFunctionPresentation="Method 'CreateButton'">
             <startOffsets>
-              <option value="946" />
+              <option value="1772" />
             </startOffsets>
             <endOffsets>
-              <option value="966" />
+              <option value="1882" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="14" />
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Factory/CommandFactory.cs</url>
+          <line>60</line>
+          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Scripts\Factory\CommandFactory.cs" containingFunctionPresentation="Method 'CreateButton'">
+            <startOffsets>
+              <option value="2781" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2805" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Factory/CommandFactory.cs</url>
+          <line>59</line>
+          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Scripts\Factory\CommandFactory.cs" containingFunctionPresentation="Method 'CreateButton'">
+            <startOffsets>
+              <option value="2600" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2768" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Factory/CommandActivatorButtonMaker.cs</url>
+          <line>22</line>
+          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Scripts\Factory\CommandActivatorButtonMaker.cs" containingFunctionPresentation="Method 'CreateCommands'">
+            <startOffsets>
+              <option value="779" />
+            </startOffsets>
+            <endOffsets>
+              <option value="969" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/StunState.cs</url>
+          <line>14</line>
+          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Scripts\Minigames\CrazyControls\States\StunState.cs" containingFunctionPresentation="Method 'Update'">
+            <startOffsets>
+              <option value="331" />
+            </startOffsets>
+            <endOffsets>
+              <option value="350" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/States/StunState.cs</url>
+          <line>13</line>
+          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Scripts\Minigames\CrazyControls\States\StunState.cs" containingFunctionPresentation="Method 'Update'">
+            <startOffsets>
+              <option value="317" />
+            </startOffsets>
+            <endOffsets>
+              <option value="318" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyCondicion.cs</url>
+          <line>46</line>
+          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Scripts\Minigames\CrazyControls\CrazyCondicion.cs" containingFunctionPresentation="Method 'OnCollisionEnter2D'">
+            <startOffsets>
+              <option value="1126" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1162" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyCondicion.cs</url>
+          <line>41</line>
+          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Scripts\Minigames\CrazyControls\CrazyCondicion.cs" containingFunctionPresentation="Method 'OnCollisionEnter2D'">
+            <startOffsets>
+              <option value="920" />
+            </startOffsets>
+            <endOffsets>
+              <option value="996" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/PlayerStateController.cs</url>
+          <line>50</line>
+          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Scripts\Minigames\CrazyControls\PlayerStateController.cs" containingFunctionPresentation="Method 'ChangeState'">
+            <startOffsets>
+              <option value="1546" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1547" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Minigames/CrazyControls/CrazyMoveController.cs</url>
+          <line>45</line>
+          <properties documentPath="D:\Desarrollo\Unity\Prototipo Produccion Puki\Assets\Scripts\Minigames\CrazyControls\CrazyMoveController.cs" containingFunctionPresentation="Method 'SetDirection'">
+            <startOffsets>
+              <option value="2044" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2067" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

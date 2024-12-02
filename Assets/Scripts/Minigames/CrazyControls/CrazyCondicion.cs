@@ -1,4 +1,5 @@
 using System;
+using Minigames.CrazyControls.States;
 using UnityEngine;
 
 namespace Minigames.CrazyControls
@@ -43,10 +44,10 @@ namespace Minigames.CrazyControls
                 switch (currentType)
                 {
                     case type.Stun:
-                        player.ChangeState(player.stunState);
+                        player.ChangeState(new StunState());
                         break;
                     case type.Confuse:
-                        player.ChangeState(player.confuseState);
+                        player.ChangeState(new ConfuseState());
                         break;
                 }
                 _renderer.color = Color.gray;

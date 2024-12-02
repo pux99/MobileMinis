@@ -4,16 +4,25 @@ namespace Minigames.CrazyControls.States
 {
     public class ConfuseState:IPlayerState
     {
-        public IPlayerState Update(PlayerStateController player)
+        public void Enter()
         {
-            Debug.Log("Confusion not implemented");
-            return player.idleState;
+            
         }
 
-        public IPlayerState FixUpdate(PlayerStateController player)
+        public void Update(PlayerStateController player)
+        {
+            player.ChangeState(new IdleState());
+            Debug.Log("Confusion not implemented");
+        }
+
+        public void FixUpdate(PlayerStateController player)
         {
             Debug.Log("Confusion not implemented");
-            return player.idleState;
+        }
+
+        public void Exit()
+        {
+            
         }
     }
 }

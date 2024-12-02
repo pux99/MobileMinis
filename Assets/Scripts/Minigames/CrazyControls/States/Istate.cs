@@ -1,8 +1,10 @@
-namespace Minigames.CrazyControls
+namespace Minigames.CrazyControls.States
 {
     public interface IPlayerState
     {
-        IPlayerState Update(PlayerStateController player);
-        IPlayerState FixUpdate(PlayerStateController player);
+        void Enter();
+        void Update(PlayerStateController player);
+        void FixUpdate(PlayerStateController player);
+        void Exit();
     }
 }

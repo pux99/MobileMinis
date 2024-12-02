@@ -9,6 +9,7 @@ namespace Minigames.CrazyControls
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private float speed;
         private Vector2 _direction;
+        [SerializeField] private PlayerStateController stateController;
 
         public Vector2 Direction => _direction;
 
@@ -41,6 +42,8 @@ namespace Minigames.CrazyControls
             if (moveDown) _direction.y--;
             if (moveRight) _direction.x++;
             if (moveLeft) _direction.x--;
+            if (_direction == Vector2.zero) stateController.Idle();
+            else stateController.Move();
         }
 
         public void StopMovement() => rb.velocity = Vector2.zero;

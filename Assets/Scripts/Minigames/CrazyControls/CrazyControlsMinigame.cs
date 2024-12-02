@@ -72,7 +72,7 @@ namespace Minigames.CrazyControls
 
         private void GameState()
         {
-            _player.ChangeState(_player.idleState);
+            
         }
 
         private void PauseState()

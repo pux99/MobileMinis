@@ -5,20 +5,29 @@ namespace Minigames.CrazyControls.States
     public class StunState:IPlayerState
     {
         private float _countDown=1;
-        public IPlayerState Update(PlayerStateController player)
+        public void Enter()
+        {
+            _countDown = 1;
+        }
+
+        public void Update(PlayerStateController player)
         {
             if (_countDown < 0)
             {
-                _countDown = 1;
-                return player.idleState;
+                
+                player.ChangeState(new IdleState());
             }
             _countDown -= Time.deltaTime;
-            return this;
         }
 
-        public IPlayerState FixUpdate(PlayerStateController player)
+        public void FixUpdate(PlayerStateController player)
         {
-            return this;
+            
+        }
+
+        public void Exit()
+        {
+            //throw new System.NotImplementedException();
         }
     }
 }
