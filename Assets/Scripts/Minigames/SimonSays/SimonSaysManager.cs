@@ -14,7 +14,6 @@ public class SimonSaysManager : MonoBehaviour
     public void NextTurn()
     {
         List<int> sequence = sequenceManager.GenerateNextInSequence();
-        Debug.Log("Current sequence: " + string.Join(", ", sequence));
     }
 
     public void ResetGame()
