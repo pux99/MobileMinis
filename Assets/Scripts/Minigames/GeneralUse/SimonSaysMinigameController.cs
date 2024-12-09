@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SimonSaysMinigameController : MinigameController
 {
-    [SerializeField] private ColorSequenceManager minigame;
+    [SerializeField] private SimonSaysManager minigame;
        
     protected override void Start()
     {
