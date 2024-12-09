@@ -6,9 +6,12 @@ using UnityEngine;
 public class SimonSaysMinigameController : MinigameController
 {
     [SerializeField] private SimonSaysManager minigame;
+
+    private int _dmgCounter;
        
     protected override void Start()
     {
+        _dmgCounter = 1;
         //minigame.WinMinigame += WiningMinigame;
         //minigame.LostMinigame += LosingMinigame;
     }
@@ -21,10 +24,12 @@ public class SimonSaysMinigameController : MinigameController
     protected override void WiningMinigame()
     {
         if(minigameWeapon.CompletingEffect!=null)
-            minigameWeapon.CompletingEffect.ApplyEffect(battleManager.PlayerCombatManager.PlayerHealth,minigameWeapon.CompletingEffectValue);
+            minigameWeapon.CompletingEffect.ApplyEffect(battleManager.PlayerCombatManager.PlayerHealth,minigameWeapon.CompletingEffectValue * _dmgCounter);
+        _dmgCounter = (_dmgCounter <= 8) ? _dmgCounter + 1 : 0;
     }
     protected override void LosingMinigame()
     {
+        _dmgCounter = 1;
         if(minigameWeapon.LosingEffect!=null)
             minigameWeapon.LosingEffect.ApplyEffect(battleManager.PlayerCombatManager.PlayerHealth,minigameWeapon.LosingEffectValue);
     }
@@ -37,7 +42,7 @@ public class SimonSaysMinigameController : MinigameController
 
     public override void ResetMinigame()
     {
-        
+        _dmgCounter = 1;
     }
  
     public override void FinishingMinigame()
