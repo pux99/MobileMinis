@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7538f3bda48a7d240abedcf1337b05b5, type: 3}
   m_Name: SimonSaysSword
   m_EditorClassIdentifier: 
-  minigameFactory: {fileID: 0}
-  completingEffect: {fileID: 0}
+  minigameFactory: {fileID: 4160859020536328063, guid: 067dc6ca111b7584c9fb3253e1230661, type: 3}
+  completingEffect: {fileID: 2903877290141185441, guid: 92f7cb5a00f907346af1f8d13d49fe55, type: 3}
   losingEffect: {fileID: 0}
-  completingEffectValue: 0
+  completingEffectValue: 3
   losingEffectValue: 0
   weaponArt: {fileID: 0}

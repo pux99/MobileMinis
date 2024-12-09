@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Minigames.GeneralUse;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -20,18 +21,24 @@ namespace Minigames.SimonSays
         public Action WinMinigame;
         public Action LostMinigame;
 
+        private Coroutine _coroutine;
 
-        private IEnumerator Start()
+
+        private IEnumerator StartMG()
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(delay/2);
             play(colorSequenceManager.GenerateNextInSequence());
         }
 
+        public void StartMiniGame()
+        {
+            StartCoroutine(StartMG());
+        }
         public void play(List<int> Order)
         {
             _index = 0;
             _sequence = Order;
-            StartCoroutine(PlaySequence());
+            _coroutine = StartCoroutine(PlaySequence());
         }
 
         IEnumerator PlaySequence()
@@ -63,7 +70,6 @@ namespace Minigames.SimonSays
                     play(colorSequenceManager.GenerateNextInSequence());
                     _index = 0;
                     WinMinigame?.Invoke();
-                    Debug.Log("next level");
                 }
                 else
                     _index++;
@@ -73,6 +79,16 @@ namespace Minigames.SimonSays
                 LostMinigame?.Invoke();
                 colorSequenceManager.ResetSequence();
                 play(colorSequenceManager.GenerateNextInSequence());
+            }
+        }
+
+        public void ChangeMinigame()
+        {
+            StopCoroutine(_coroutine);
+            colorSequenceManager.ResetSequence();
+            foreach (var button in buttons)
+            {
+                button.BackToNormal();
             }
         }
     }

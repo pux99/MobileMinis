@@ -1720,6 +1720,7 @@ MonoBehaviour:
   weaponList:
   - {fileID: 11400000, guid: d4e9c75058d655a4ea869527c5d2054d, type: 2}
   - {fileID: 11400000, guid: 17adaf3285d8629448e4e4f29dd70384, type: 2}
+  - {fileID: 11400000, guid: ed7e5df0233fc134fb585cd13ef50dec, type: 2}
   weaponImage: {fileID: 1275104213}
   weaponChanger: {fileID: 807499174}
   weaponType: 0
