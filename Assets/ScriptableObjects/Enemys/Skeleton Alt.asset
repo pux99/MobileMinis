@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skeleton Alt
   m_EditorClassIdentifier: 
   enemyArt: {fileID: 21300000, guid: e946868a641b11446a49a0f2129b54ff, type: 3}
-  animatorController: {fileID: 9100000, guid: 4df6901ec46c1bd43a621534cb41a6fb, type: 2}
+  enemyPreview: {fileID: 21300000, guid: e946868a641b11446a49a0f2129b54ff, type: 3}
   enemyAttack: {fileID: 2903877290141185441, guid: 92f7cb5a00f907346af1f8d13d49fe55, type: 3}
   maxLife: 80
   damage: 9

@@ -9,7 +9,7 @@ public class twincle : MonoBehaviour
     [SerializeField, Range(0, 1f)] private float maxAlpha;
     private Image _image;
     [SerializeField] private float speed;
-    private bool _incrice;
+    private bool _increase;
     private float alpha;
     void Start()
     {
@@ -18,10 +18,10 @@ public class twincle : MonoBehaviour
     void Update()
     {
         if (_image.color.a < minAlpha)
-            _incrice = true;
+            _increase = true;
         if (_image.color.a > maxAlpha)
-            _incrice = false;
-        if (_incrice)
+            _increase = false;
+        if (_increase)
             _image.color = new Color(_image.color.r, _image.color.g, _image.color.b,
                 _image.color.a + speed * Time.deltaTime);
         else
