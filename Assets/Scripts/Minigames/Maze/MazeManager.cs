@@ -119,11 +119,12 @@ public class MazeManager : MonoBehaviour
     private static List<int> Dijkstra(int[,] matrix, int startNode, int endNode)
     {
         int totalNodes = matrix.GetLength(0);
-        int[] distances = new int[totalNodes];
-        bool[] visited = new bool[totalNodes];
-        int[] previous = new int[totalNodes];
+        int[] distances = new int[totalNodes]; // Guarda la distancia entre endNode --> i
+        bool[] visited = new bool[totalNodes]; 
+        int[] previous = new int[totalNodes]; //Guarda el ultimo nodo de shortestPath para la reconstruccion
         List<int> path = new List<int>();
         
+        //Inicializo
         for (int i = 0; i < totalNodes; i++)
         {
             distances[i] = int.MaxValue;
@@ -132,25 +133,25 @@ public class MazeManager : MonoBehaviour
         }
         distances[startNode] = 0;
         
+        //Main loop
         for (int i = 0; i < totalNodes; i++)
         {
             int currentNode = -1;
             int minDistance = int.MaxValue;
+            
+            //Selecciono un currentNode
             for (int j = 0; j < totalNodes; j++)
             {
                 if (!visited[j] && distances[j] < minDistance)
                 {
                     currentNode = j;
-                    minDistance = distances[j];
+                    minDistance = distances[j]; 
                 }
             }
-                
-            // No more nodes to process
             if (currentNode == -1) break;
-
             visited[currentNode] = true;
 
-            // Update distances to neighboring nodes
+            // Chequeo todos los posibles vecinos a currentNode
             for (int neighbor = 0; neighbor < totalNodes; neighbor++)
             {
                 if (matrix[currentNode, neighbor] > 0 && !visited[neighbor])
@@ -159,19 +160,18 @@ public class MazeManager : MonoBehaviour
                     if (newDist < distances[neighbor])
                     {
                         distances[neighbor] = newDist;
-                        previous[neighbor] = currentNode;
+                        previous[neighbor] = currentNode; // Se guarda el posible shortestPath
                     }
                 }
             }
         }
 
-        // Reconstruct the shortest path
+        // resconstruyo shortestPath
         for (int at = endNode; at != -1; at = previous[at])
         {
             path.Insert(0, at);
         }
-
-        // Check if path exists
+        
         if (path.Count == 0 || path[0] != startNode)
         {
             Debug.Log("No path found!");

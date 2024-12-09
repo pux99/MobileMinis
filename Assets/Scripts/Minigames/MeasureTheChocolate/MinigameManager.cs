@@ -10,7 +10,6 @@ using Random = UnityEngine.Random;
 
 namespace Minigames.MeasureTheChocolate
 {
-    
     public class MinigameManager : MonoBehaviour
     {
         public static MinigameManager Instance { get; private set; }
@@ -197,9 +196,7 @@ namespace Minigames.MeasureTheChocolate
 
         private void Swap(List<int> list, int i, int j)
         {
-            int temp = list[i];
-            list[i] = list[j];
-            list[j] = temp;
+            (list[i], list[j]) = (list[j], list[i]);
         }
     }
 }

@@ -53,7 +53,7 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
                 Rooms[i, j] = room.GetComponent<Room>();
                 Rooms[i, j].posOnGrid = new Vector2Int(i, j);
                 
-                //Grafo agrego un vertice por cada Room.
+                //Grafo!: agrego un vertice por cada Room.
                 AgregarVertice(Vect2Vert(Rooms[i, j].posOnGrid));
                 room.name = Vect2Vert(Rooms[i, j].posOnGrid).ToString();
             }   
@@ -158,7 +158,7 @@ public class MazeFactory : MonoBehaviour, I_GrafoTDA
             var nextRoomInfo = neighbours[UnityEngine.Random.Range(0, neighbours.Count)];
             Room nextRoom = nextRoomInfo.Item2;
             
-            //Grafo: Agrego una arista de peso 1 para ambos vertices.
+            //Grafo!: Agrego una arista de peso 1 para ambos vertices.
             if (!ExisteArista(Vect2Vert(currentRoom.posOnGrid), Vect2Vert(nextRoom.posOnGrid)))
             {
                 AgregarArista(Vect2Vert(currentRoom.posOnGrid), Vect2Vert(nextRoom.posOnGrid), 1);
