@@ -8,11 +8,11 @@ namespace Enemies
     public class SoEnemy : ScriptableObject
     {
         public Sprite enemyArt;
+        public Sprite enemyPreview;
         public IEffect enemyAttack;
         public int maxLife;
         public int damage;
         public float attackFrequency;
-
         public void Attack(UHealth target)
         {
             enemyAttack.ApplyEffect(target,damage);

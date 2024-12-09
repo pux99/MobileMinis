@@ -6,6 +6,7 @@ using Enemies;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace ManagerScripts
 {
@@ -20,6 +21,9 @@ namespace ManagerScripts
         [SerializeField] private SwipeControl swipe;
         [SerializeField] private int dungeonHeight;
         [SerializeField] private SoEnemy[] enemies;
+        [SerializeField] private GameObject leftEnemyPreview;
+        [SerializeField] private GameObject rightEnemyPreview;
+
         public bool waitingForNextCombat=false;
         private ABB dungeon;
         private NodoABB currentRoom;
@@ -56,6 +60,8 @@ namespace ManagerScripts
             if (CheckIfCombatAreAvailable())
             {
                 Start5SecondCourutine();
+                rightEnemyPreview.GetComponent<Image>().sprite = currentRoom.hijoDer.Raiz().enemigo.enemyPreview;
+                leftEnemyPreview.GetComponent<Image>().sprite = currentRoom.hijoIzq.Raiz().enemigo.enemyPreview;
             }
             else
             {
