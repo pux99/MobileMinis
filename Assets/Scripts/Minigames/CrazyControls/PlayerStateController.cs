@@ -15,25 +15,35 @@ namespace Minigames.CrazyControls
         private CrazyMoveController _moveController;
         public Vector3 startingPos;
 
+        private readonly Dictionary<string, (IPlayerState state, List<IPlayerState> StatesTochange)> _stateDictionary
+            =new Dictionary<string, (IPlayerState state, List<IPlayerState> StatesTochange)>();
         private IPlayerState _pausedState;
         public CrazyMoveController MoveController => _moveController;
         private Dictionary<String, IState> _states;
 
-        public IdleState idleState = new IdleState();
-        public MoveState moveState = new MoveState();
-        public StunState stunState = new StunState();
-        public ConfuseState confuseState = new ConfuseState();
+        public IdleState IdleState = new IdleState();
+        public MoveState MoveState = new MoveState();
+        public StunState StunState = new StunState();
         public PauseState PauseState = new PauseState();
 
         private void OnEnable()
         {
-            _currentState = idleState;
+            _currentState = IdleState;
         }
 
         private void Start()
         {
             _moveController = GetComponent<CrazyMoveController>();
+            MakeDictionary();
             startingPos = transform.position;
+        }
+
+        private void MakeDictionary()
+        {
+            _stateDictionary.Add(IdleState.ToString(),(IdleState,new List<IPlayerState>{MoveState,StunState,PauseState}));
+            _stateDictionary.Add(MoveState.ToString(),(MoveState,new List<IPlayerState>{IdleState,StunState,PauseState}));
+            _stateDictionary.Add(StunState.ToString(),(StunState,new List<IPlayerState>{IdleState,PauseState}));
+            _stateDictionary.Add(PauseState.ToString(),(PauseState,new List<IPlayerState>{IdleState,MoveState,StunState}));
         }
 
         private void Update()
@@ -49,19 +59,16 @@ namespace Minigames.CrazyControls
 
         public void ChangeState(IPlayerState state)
         {
-            _currentState.Exit();
-            _currentState = state;
-            _currentState.Enter();
-        }
-
-        public void Move()
-        {
-            if(currentStateName==idleState.ToString())ChangeState(moveState);
-        }
-
-        public void Idle()
-        {
-            if(currentStateName==moveState.ToString())ChangeState(idleState);
+            foreach (var stateToChange in _stateDictionary[_currentState.ToString()].StatesTochange)
+            {
+                if (state.ToString() == stateToChange.ToString())
+                {
+                    _currentState.Exit();
+                    _currentState = state;
+                    _currentState.Enter();
+                    return;
+                }
+            }
         }
         
         public void Pause()

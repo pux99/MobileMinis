@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Minigames.Tetris.General;
 using Tetris_Minigame.Scripts.UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -52,7 +53,7 @@ namespace Minigames.Tetris.PlaceThePieces
             AdvancedImage image = newPiece.GetComponent<AdvancedImage>();
             image.raycastTarget = true;
 
-            SO_GruopOfBaseTetrisPieces.Piece data = groupOfBaseTetrisPieces.Pieces[Random.Range(0, groupOfBaseTetrisPieces.Pieces.Count)];
+            PieceData data = groupOfBaseTetrisPieces.Pieces[Random.Range(0, groupOfBaseTetrisPieces.Pieces.Count)];
 
             image.sprite = data.sprite;
 

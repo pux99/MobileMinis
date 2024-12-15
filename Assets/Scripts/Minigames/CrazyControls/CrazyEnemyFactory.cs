@@ -15,7 +15,7 @@ public class CrazyEnemyFactory : MonoBehaviour
         }
     }
 
-    public ICrazyEnemy GetEnemy<T>()
+    public CrazyEnemy GetEnemy<T>()
     {
         //T tester = new T();
         //if(tester is ICrazyEnemy)

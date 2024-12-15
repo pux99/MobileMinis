@@ -21,5 +21,9 @@ namespace Minigames.CrazyControls.States
         {
             
         }
+        public override string ToString()
+        {
+            return "PauseState";
+        }
     }
 }

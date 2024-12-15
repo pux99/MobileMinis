@@ -8,8 +8,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private List<ICrazyEnemy> _enemies;
-    ICrazyEnemy aas;
+    private List<CrazyEnemy> _enemies;
+    CrazyEnemy aas;
     void Start()
     {
         _enemies.Add(new Circlis());

@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 3547238190385548684}
   - component: {fileID: 5089094223009800838}
   - component: {fileID: 4354338927950116311}
+  - component: {fileID: 720761176473409748}
   m_Layer: 3
   m_Name: BaseTetrisPiece
   m_TagString: Untagged
@@ -134,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e0477aab1101045840ceaf582a6667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvas: {fileID: 0}
   image: {fileID: 4354338927950116311}
 --- !u!114 &4354338927950116311
 MonoBehaviour:
@@ -166,3 +168,15 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   hitTestMinimumThreshold: 0.5
+--- !u!114 &720761176473409748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9141137831396621376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a22c3b65d1ff9747877d5c2f494b001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

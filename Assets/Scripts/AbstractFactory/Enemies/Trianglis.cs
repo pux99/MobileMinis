@@ -1,32 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
-using AbstractFactory;
 using UnityEngine;
 
-public class Trianglis : MonoBehaviour ,ICrazyEnemy
+namespace AbstractFactory.Enemies
 {
-    private ICrazyEnemy _crazyEnemyImplementation;
-    private ICrazyWeapon _weapon;
-    public void Move()
+    public class Trianglis : CrazyEnemy
     {
-        _crazyEnemyImplementation.Move();
+        private CrazyEnemy _crazyEnemyImplementation;
+        private float _speed;
+        private ICrazyWeapon _weapon;
+        public override void Move()
+        {
+            _crazyEnemyImplementation.Move();
+        }
+
+        public override void Attack()
+        {
+            _crazyEnemyImplementation.Attack();
+        }
+
+        public override void Death()
+        {
+            _crazyEnemyImplementation.Death();
+        }
+
+        public override void SetUp(ICrazyWeapon weapon)
+        {
+            _weapon = weapon;
+        }
+
+        public override GameObject GetGameObject() => gameObject;
+
+        public override void Configure(EnemyConfig config)
+        {
+            _speed = config.Speed;
+        }
     }
-
-    public void Attack()
-    {
-        _crazyEnemyImplementation.Attack();
-    }
-
-    public void Death()
-    {
-        _crazyEnemyImplementation.Death();
-    }
-
-    public void SetUp(ICrazyWeapon weapon)
-    {
-        _weapon = weapon;
-    }
-
-    public GameObject GetGameObject() => gameObject;
-
 }

@@ -1,4 +1,5 @@
 using Minigames.CrazyControls.MovePreset;
+using Minigames.CrazyControls.States;
 using UnityEngine;
 
 namespace Minigames.CrazyControls
@@ -42,8 +43,8 @@ namespace Minigames.CrazyControls
             if (moveDown) _direction.y--;
             if (moveRight) _direction.x++;
             if (moveLeft) _direction.x--;
-            if (_direction == Vector2.zero) stateController.Idle();
-            else stateController.Move();
+            if (_direction == Vector2.zero) stateController.ChangeState(new IdleState());
+            else stateController.ChangeState(new MoveState());
         }
 
         public void StopMovement() => rb.velocity = Vector2.zero;

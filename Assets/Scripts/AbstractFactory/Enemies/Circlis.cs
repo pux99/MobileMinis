@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace AbstractFactory.Enemies
 {
-    public class Circlis : MonoBehaviour ,ICrazyEnemy
+    public class Circlis : CrazyEnemy
     {
         private ICrazyWeapon _weapon;
 
@@ -16,7 +16,7 @@ namespace AbstractFactory.Enemies
             Move();
         }
 
-        public void Move()
+        public override void Move()
         {
             _tImeCounter += Time.deltaTime * _speed;
 
@@ -26,26 +26,30 @@ namespace AbstractFactory.Enemies
             transform.position = new Vector3(x, y, 0);
         }
 
-        public void Attack()
+        public override void Attack()
         {
             _weapon.Attack();
         }
 
-        public void Death()
+        public override void Death()
         {
             throw new System.NotImplementedException();
         }
 
-        public void SetUp(ICrazyWeapon weapon)
+        public override void SetUp(ICrazyWeapon weapon)
         {
             _weapon = weapon;
         }
-        public GameObject GetGameObject() => gameObject;
+        public override GameObject GetGameObject() => gameObject;
         private void OnCollisionEnter2D(Collision2D other)
         {
             _speed *= -1;
         }
 
-        
+
+        public override void Configure(EnemyConfig config)
+        {
+            _speed = config.Speed;
+        }
     }
 }

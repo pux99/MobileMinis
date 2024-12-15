@@ -14,7 +14,6 @@ namespace Minigames.CrazyControls.States
         {
             if (_countDown < 0)
             {
-                
                 player.ChangeState(new IdleState());
             }
             _countDown -= Time.deltaTime;
@@ -28,6 +27,10 @@ namespace Minigames.CrazyControls.States
         public void Exit()
         {
             
+        }
+        public override string ToString()
+        {
+            return "StunState";
         }
     }
 }

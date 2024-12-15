@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Tetris_Minigame.Scripts.UI;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,18 +13,10 @@ namespace Minigames.Tetris.General
         [SerializeField] private Canvas GameCanvas;
         public GameObject CreateRandomTetrisPiece(SO_GruopOfBaseTetrisPieces listOfPieces, SO_GroupOfColors listOfColors)
         {
-            GameObject newPiece = Instantiate(baseTetrisPiece);
-            Image pieceImage = newPiece.GetComponent<Image>();
-            Image pieceColor = newPiece.transform.GetChild(0).GetComponent<Image>();
-            SO_GruopOfBaseTetrisPieces.Piece data = listOfPieces.Pieces[Random.Range(0, listOfPieces.Pieces.Count)];
-            pieceImage.sprite = data.sprite;
-            pieceColor.sprite = data.ColorSprite;
-            pieceColor.color = listOfColors.Colors[Random.Range(0, listOfColors.Colors.Count)];
-            pieceImage.rectTransform.sizeDelta = new Vector2(
-                data.size.x * Screen.currentResolution.width*sizeMod,
-                data.size.y * Screen.currentResolution.width*sizeMod);
-            newPiece.gameObject.GetComponent<Drag>().Canvas = GameCanvas;
-            return newPiece;
+            TetrisPiece newPiece = Instantiate(baseTetrisPiece).GetComponent<TetrisPiece>();
+            newPiece.data = listOfPieces.Pieces[Random.Range(0, listOfPieces.Pieces.Count)];
+            newPiece.Initialize(listOfColors.Colors[Random.Range(0, listOfColors.Colors.Count)],sizeMod,GameCanvas);
+            return newPiece.GameObject();
         }
 
         public List<GameObject> RandomizePieces(
@@ -33,15 +26,9 @@ namespace Minigames.Tetris.General
         {
             foreach (var piece in pieces)
             {
-                Image pieceImage = piece.GetComponent<Image>();
-                Image pieceColor = piece.transform.GetChild(0).GetComponent<Image>();
-                SO_GruopOfBaseTetrisPieces.Piece data = listOfPieces.Pieces[Random.Range(0, listOfPieces.Pieces.Count)];
-                pieceImage.sprite = data.sprite;
-                pieceColor.sprite = data.ColorSprite;
-                pieceColor.color = listOfColors.Colors[Random.Range(0, listOfColors.Colors.Count)];
-                pieceImage.rectTransform.sizeDelta = new Vector2(
-                    data.size.x * Screen.currentResolution.width*sizeMod,
-                    data.size.y * Screen.currentResolution.width*sizeMod);
+                TetrisPiece remadePiece= piece.GetComponent<TetrisPiece>();
+                remadePiece.data = listOfPieces.Pieces[Random.Range(0, listOfPieces.Pieces.Count)];
+                remadePiece.Initialize(listOfColors.Colors[Random.Range(0, listOfColors.Colors.Count)],sizeMod,GameCanvas);
             }
             return pieces;
         }

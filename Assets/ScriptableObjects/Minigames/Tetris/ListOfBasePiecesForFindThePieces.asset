@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5570a59aba8c9604cbf80c88bde4265e, type: 3}
+  m_Name: ListOfBasePiecesForFindThePieces
+  m_EditorClassIdentifier: 
+  pieces:
+  - {fileID: 11400000, guid: 645462c0b52afd84aab0218625cb04a4, type: 2}
+  - {fileID: 11400000, guid: ea9a9e5b1eb6d3444a75fa399a2a404e, type: 2}
+  - {fileID: 11400000, guid: 7f53037fe9e0198478b976154602ea9b, type: 2}
+  - {fileID: 11400000, guid: 3ff844d5354798740bce8400e6e0b390, type: 2}
+  - {fileID: 11400000, guid: 63c11617202a10e4f944b32243dc2efb, type: 2}

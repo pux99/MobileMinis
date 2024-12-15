@@ -1,10 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
-
 namespace AbstractFactory.Enemies
 {
-    public class Squaris : MonoBehaviour,ICrazyEnemy
+    public class Squaris : CrazyEnemy
     {
         private ICrazyWeapon _weapon;
 
@@ -17,27 +14,27 @@ namespace AbstractFactory.Enemies
             Move();
         }
 
-        public void Move()
+        public override void Move()
         {
             transform.position += new Vector3(_speed*Direction.x, _speed*Direction.y, 0)*Time.deltaTime;
         }
 
-        public void Attack()
+        public override void Attack()
         {
             _weapon.Attack();
         }
 
-        public void Death()
+        public override void Death()
         {
             throw new System.NotImplementedException();
         }
 
-        public void SetUp(ICrazyWeapon weapon)
+        public override void SetUp(ICrazyWeapon weapon)
         {
             _weapon = weapon;
         }
 
-        public GameObject GetGameObject() => gameObject;
+        public override GameObject GetGameObject() => gameObject;
 
         private void OnCollisionEnter2D(Collision2D other)
         {
@@ -68,6 +65,11 @@ namespace AbstractFactory.Enemies
         public void SetValues()
         {
             
+        }
+
+        public override void Configure(EnemyConfig config)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

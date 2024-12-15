@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Minigames.Tetris.General;
 using Minigames.Tetris.OrderThePieces;
 using Tetris_Minigame.Scripts.UI;
 using UnityEngine;
@@ -31,7 +32,7 @@ namespace Minigames.Tetris.OrderDePieces
                 AdvancedImage image = newPiece.GetComponent<AdvancedImage>();
                 image.raycastTarget = false;
                 
-                SO_GruopOfBaseTetrisPieces.Piece data = groupOfBaseTetrisPieces.Pieces[Random.Range(0, groupOfBaseTetrisPieces.Pieces.Count)];
+                PieceData data = groupOfBaseTetrisPieces.Pieces[Random.Range(0, groupOfBaseTetrisPieces.Pieces.Count)];
                 image.sprite = data.sprite;
                 image.color = groupOfColors.Colors[Random.Range(0, groupOfColors.Colors.Count)];
                 

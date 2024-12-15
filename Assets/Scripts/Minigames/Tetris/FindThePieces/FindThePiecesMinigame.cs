@@ -76,12 +76,12 @@ namespace Tetris_Minigame.Scripts.Tetris
             int pieceCount = _goalPiecesQueue.Count();
             for (int i = 0; i < pieceCount; i++)
             {
-                Image goalPiece = _goalPiecesQueue.Dequeue().GetComponent<Image>();
-                Image containerPiece = _containerPiecesQueue.Dequeue().GetComponent<Image>();
+                TetrisPiece goalPiece = _goalPiecesQueue.Dequeue().GetComponent<TetrisPiece>();
+                TetrisPiece containerPiece = _containerPiecesQueue.Dequeue().GetComponent<TetrisPiece>();
                 Image goalPieceColorImage = goalPiece.transform.GetChild(0).GetComponent<Image>();
                 Image containerPieceColorImage = containerPiece.transform.GetChild(0).GetComponent<Image>();
                 StartCoroutine(OutOfContainer(containerPiece));
-                if (containerPiece.sprite != goalPiece.sprite || containerPieceColorImage.color != goalPieceColorImage.color)
+                if (containerPiece.data.sprite != goalPiece.data.sprite || containerPieceColorImage.color != goalPieceColorImage.color)
                 {
                     Debug.Log("Wrong Pattern");
                     LossMinigame?.Invoke();
@@ -108,7 +108,7 @@ namespace Tetris_Minigame.Scripts.Tetris
             int pieceCount = _containerPiecesQueue.Count();
             for (int i = 0; i < pieceCount; i++)
             {   
-                Image containerPiece = _containerPiecesQueue.Dequeue().GetComponent<Image>();
+                TetrisPiece containerPiece = _containerPiecesQueue.Dequeue().GetComponent<TetrisPiece>();
                 Debug.Log(_goalPiecesQueue.Count()+ " " +_containerPiecesQueue.Count());
                 //containerPiece.gameObject.transform.SetParent(pileOfPieces);
                 StartCoroutine(OutOfContainer(containerPiece));
@@ -167,13 +167,14 @@ namespace Tetris_Minigame.Scripts.Tetris
             int count = _containerPiecesQueue.Count();
             for (int i = 0; i < count; i++)
             {
-                StartCoroutine(OutOfContainer(_containerPiecesQueue.Dequeue().GetComponent<Image>()));
+                StartCoroutine(OutOfContainer(_containerPiecesQueue.Dequeue().GetComponent<TetrisPiece>()));
             }
         }
     
-        IEnumerator<int> OutOfContainer(Image image)
+        IEnumerator<int> OutOfContainer(TetrisPiece piece)
         {
             yield return 2;
+            Image image = piece.GetComponent<Image>();
             image.transform.SetParent(pileOfPieces);
             image.raycastTarget = true;
             RectTransform rectTransform = image.gameObject.GetComponent<RectTransform>();

@@ -4,7 +4,7 @@ namespace AbstractFactory
 {
     public interface ICrazyEnemyFactory 
     {
-        ICrazyEnemy CreateEnemy();
+        CrazyEnemy CreateEnemy();
         ICrazyWeapon CreateWeapon();
 
         bool CheckType<T>();

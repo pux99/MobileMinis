@@ -1,8 +1,8 @@
 namespace Pool
 {
-    public interface IPool<T>
+    public interface IPool<T, TConfig>
     {
-        public T GetElement<T1>();
+        public T GetElement(TConfig config);
         public void ReturnElement(T element);
 
     }
