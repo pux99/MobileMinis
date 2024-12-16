@@ -411,9 +411,10 @@ MonoBehaviour:
   crazyMoveController: {fileID: 4646356874424581037}
   levels:
   - {fileID: 9083186555513881233, guid: 62ac6e1a46eac81438e75f014e31b262, type: 3}
+  - {fileID: 5809816800679185847, guid: db4680411fb114a45a8fe5ff0aaad9dd, type: 3}
+  - {fileID: 5809816800679185847, guid: 1ef40d68a70819945b917cc290b5fac0, type: 3}
   - {fileID: 6549043139593073270, guid: e295aad5fb6b28d4680fe79154cf1110, type: 3}
   - {fileID: 8851171159596932686, guid: 538b4915ac1c371419646adb18b8e7fd, type: 3}
-  - {fileID: 5068608222165987954, guid: d3842508737dac041a3c3c61312c2ef2, type: 3}
   - {fileID: 5809816800679185847, guid: 7ae01bb5ab7221f40952224edd79325d, type: 3}
 --- !u!114 &5490505411277535757
 MonoBehaviour:
@@ -769,6 +770,23 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4646356874424581037}
+          m_TargetAssemblyTypeName: Minigames.CrazyControls.CrazyMoveController,
+            Assembly-CSharp
+          m_MethodName: ButtonRightUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3728044203237068069
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,6 +946,23 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: Minigames.CrazyControls.CrazyMoveController,
             Assembly-CSharp
           m_MethodName: ButtonUpDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4646356874424581037}
+          m_TargetAssemblyTypeName: Minigames.CrazyControls.CrazyMoveController,
+            Assembly-CSharp
+          m_MethodName: ButtonUpUp
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1412,6 +1447,23 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: Minigames.CrazyControls.CrazyMoveController,
             Assembly-CSharp
           m_MethodName: ButtonDownDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4646356874424581037}
+          m_TargetAssemblyTypeName: Minigames.CrazyControls.CrazyMoveController,
+            Assembly-CSharp
+          m_MethodName: ButtonDownUp
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2280,6 +2332,23 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: Minigames.CrazyControls.CrazyMoveController,
             Assembly-CSharp
           m_MethodName: ButtonLeftDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4646356874424581037}
+          m_TargetAssemblyTypeName: Minigames.CrazyControls.CrazyMoveController,
+            Assembly-CSharp
+          m_MethodName: ButtonLeftUp
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

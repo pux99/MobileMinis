@@ -2,9 +2,9 @@ namespace Minigames.CrazyControls.States
 {
     public interface IPlayerState
     {
-        void Enter();
+        void Enter(PlayerStateController player);
         void Update(PlayerStateController player);
         void FixUpdate(PlayerStateController player);
-        void Exit();
+        void Exit(PlayerStateController player);
     }
 }

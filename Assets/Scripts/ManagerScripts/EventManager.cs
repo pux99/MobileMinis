@@ -14,6 +14,8 @@ namespace ManagerScripts
 
         public Action CombatEnd;
         public void OnCombatEnd() => CombatEnd?.Invoke();
+        public Action CrazyLevelChanger;
+        public void OnCrazyLevelChanger() => CrazyLevelChanger?.Invoke();
         
         public Action CombatStart;
         public void OnCombaStart() => CombatStart?.Invoke();

@@ -1,3 +1,5 @@
+using Core;
+using ManagerScripts;
 using UnityEngine;
 namespace AbstractFactory.Enemies
 {
@@ -8,6 +10,10 @@ namespace AbstractFactory.Enemies
         [SerializeField]private float _speed;
         [SerializeField] private Vector3 Direction=Vector3.one;
         private GameObject _lastCollision;
+        private void Start()
+        {
+            ServiceLocator.Instance.GetService<EventManager>().CrazyLevelChanger += Death;
+        }
         
         private void Update()
         {
@@ -26,7 +32,7 @@ namespace AbstractFactory.Enemies
 
         public override void Death()
         {
-            throw new System.NotImplementedException();
+            ServiceLocator.Instance.GetService<AbstractFactory.ConcreteFactories.EnemyManager>().ReturnEnemy(this);
         }
 
         public override void SetUp(ICrazyWeapon weapon)
@@ -69,7 +75,7 @@ namespace AbstractFactory.Enemies
 
         public override void Configure(EnemyConfig config)
         {
-            throw new System.NotImplementedException();
+            _speed = config.Speed;
         }
     }
 }

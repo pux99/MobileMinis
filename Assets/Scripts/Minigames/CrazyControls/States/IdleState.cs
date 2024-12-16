@@ -4,9 +4,9 @@ namespace Minigames.CrazyControls.States
 {
     public class IdleState:IPlayerState
     {
-        public void Enter()
+        public void Enter(PlayerStateController player)
         {
-            
+            player.MoveController.StopMovement();
         }
 
         public void Update(PlayerStateController player)
@@ -19,7 +19,7 @@ namespace Minigames.CrazyControls.States
             player.MoveController.StopMovement();
         }
 
-        public void Exit()
+        public void Exit(PlayerStateController player)
         {
             
         }

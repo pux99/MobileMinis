@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8492064762719553440}
   - component: {fileID: 2614190878146198974}
   - component: {fileID: 8171180738476747741}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trianglis
   m_TagString: Untagged
   m_Icon: {fileID: 0}

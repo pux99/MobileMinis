@@ -1,3 +1,5 @@
+using Core;
+using ManagerScripts;
 using UnityEngine;
 
 namespace AbstractFactory.Enemies
@@ -7,6 +9,10 @@ namespace AbstractFactory.Enemies
         private CrazyEnemy _crazyEnemyImplementation;
         private float _speed;
         private ICrazyWeapon _weapon;
+        private void Start()
+        {
+            ServiceLocator.Instance.GetService<EventManager>().CrazyLevelChanger += Death;
+        }
         public override void Move()
         {
             _crazyEnemyImplementation.Move();
@@ -19,7 +25,8 @@ namespace AbstractFactory.Enemies
 
         public override void Death()
         {
-            _crazyEnemyImplementation.Death();
+            ServiceLocator.Instance.GetService<AbstractFactory.ConcreteFactories.EnemyManager>().ReturnEnemy(this);
+            //_crazyEnemyImplementation.Death();
         }
 
         public override void SetUp(ICrazyWeapon weapon)

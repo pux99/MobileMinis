@@ -63,9 +63,9 @@ namespace Minigames.CrazyControls
             {
                 if (state.ToString() == stateToChange.ToString())
                 {
-                    _currentState.Exit();
+                    _currentState.Exit(this);
                     _currentState = state;
-                    _currentState.Enter();
+                    _currentState.Enter(this);
                     return;
                 }
             }

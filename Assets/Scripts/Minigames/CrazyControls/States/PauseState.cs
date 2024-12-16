@@ -2,7 +2,7 @@ namespace Minigames.CrazyControls.States
 {
     public class PauseState : IPlayerState
     {
-        public void Enter()
+        public void Enter(PlayerStateController player)
         {
             
         }
@@ -17,7 +17,7 @@ namespace Minigames.CrazyControls.States
             
         }
 
-        public void Exit()
+        public void Exit(PlayerStateController player)
         {
             
         }

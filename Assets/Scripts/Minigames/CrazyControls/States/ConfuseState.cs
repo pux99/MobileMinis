@@ -4,7 +4,7 @@ namespace Minigames.CrazyControls.States
 {
     public class ConfuseState:IPlayerState
     {
-        public void Enter()
+        public void Enter(PlayerStateController player)
         {
             
         }
@@ -20,7 +20,7 @@ namespace Minigames.CrazyControls.States
             Debug.Log("Confusion not implemented");
         }
 
-        public void Exit()
+        public void Exit(PlayerStateController player)
         {
             
         }

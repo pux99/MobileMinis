@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Core;
+using ManagerScripts;
+using Minigames.CrazyControls.States;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -82,9 +85,11 @@ namespace Minigames.CrazyControls
 
         private void ResetState()
         {
+            ServiceLocator.Instance.GetService<EventManager>().OnCrazyLevelChanger();
             Destroy(_currentLevel);
             _currentLevel = Instantiate(levels[Random.Range(0, levels.Count)],game.transform);
             _player.transform.position=_player.startingPos;
+            _player.ChangeState(new IdleState());
             _currentState = States.Game;
         }
 

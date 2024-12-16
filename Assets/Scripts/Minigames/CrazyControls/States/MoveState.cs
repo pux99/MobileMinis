@@ -3,9 +3,9 @@ namespace Minigames.CrazyControls.States
 {
     public class MoveState:IPlayerState
     {
-        public void Enter()
+        public void Enter(PlayerStateController player)
         {
-            
+            player.MoveController.SetDirection();
         }
 
         public void Update(PlayerStateController player)
@@ -18,7 +18,7 @@ namespace Minigames.CrazyControls.States
             player.MoveController.Move();
         }
 
-        public void Exit()
+        public void Exit(PlayerStateController player)
         {
             
         }

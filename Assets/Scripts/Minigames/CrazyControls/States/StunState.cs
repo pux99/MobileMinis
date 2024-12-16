@@ -5,7 +5,7 @@ namespace Minigames.CrazyControls.States
     public class StunState:IPlayerState
     {
         private float _countDown=1;
-        public void Enter()
+        public void Enter(PlayerStateController player)
         {
             _countDown = 1;
         }
@@ -24,7 +24,7 @@ namespace Minigames.CrazyControls.States
             
         }
 
-        public void Exit()
+        public void Exit(PlayerStateController player)
         {
             
         }
